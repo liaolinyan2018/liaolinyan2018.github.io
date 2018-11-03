@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="直接学习HTML5，HTML5容错率很高，兼容XHTML和HTML4.01。HTML5.1刚出来，还没开始使用。HTML5跟H5没关系，H5就是能运行在微信上的网页。 H5可以用HTML5做，也可以用HTML4做，H5跟技术没有关系。google搜 [HTML spec]可以搜到HTML5的全英文档，看起来很痛苦因为是全英文的。不过大致浏览一遍，基本能把前端的单词都过一遍了。在HTML5标签规范里">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML入门">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/HTML入门/index.html">
+<meta property="og:site_name" content="linyan &#39;s blog">
+<meta property="og:description" content="直接学习HTML5，HTML5容错率很高，兼容XHTML和HTML4.01。HTML5.1刚出来，还没开始使用。HTML5跟H5没关系，H5就是能运行在微信上的网页。 H5可以用HTML5做，也可以用HTML4做，H5跟技术没有关系。google搜 [HTML spec]可以搜到HTML5的全英文档，看起来很痛苦因为是全英文的。不过大致浏览一遍，基本能把前端的单词都过一遍了。在HTML5标签规范里">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-02T06:21:47.544Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML入门">
+<meta name="twitter:description" content="直接学习HTML5，HTML5容错率很高，兼容XHTML和HTML4.01。HTML5.1刚出来，还没开始使用。HTML5跟H5没关系，H5就是能运行在微信上的网页。 H5可以用HTML5做，也可以用HTML4做，H5跟技术没有关系。google搜 [HTML spec]可以搜到HTML5的全英文档，看起来很痛苦因为是全英文的。不过大致浏览一遍，基本能把前端的单词都过一遍了。在HTML5标签规范里">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/01/HTML入门/"/>
+
+
+
+
+
+  <title>HTML入门 | linyan 's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">linyan 's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一个不曾起舞的日子都是对生命的辜负</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/HTML入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T11:10:16+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>直接学习HTML5，HTML5容错率很高，兼容XHTML和HTML4.01。HTML5.1刚出来，还没开始使用。<br>HTML5跟H5没关系，H5就是能运行在微信上的网页。 H5可以用HTML5做，也可以用HTML4做，H5跟技术没有关系。google搜 [HTML spec]可以搜到HTML5的全英文档，看起来很痛苦因为是全英文的。不过大致浏览一遍，基本能把前端的单词都过一遍了。<br>在HTML5标签规范里规定<head><meta name="generator" content="Hexo 3.8.0"></head><body></body>可以省略（omit），浏览器会自动帮你补齐。W3C 有个HTML 验证器，可以验证，检查错误。所以有了规范文档以后我们就知道哪些能写哪些不能写，可以说文档就是把html的语法总结到一个文档里。<br>语义化大概意思就是 你看到这个标签单词的意思你就知道是什么意思了。div和span是没有什么特殊意义的标签，所以必须加上class。video是加视频，audio是加音频。svg会单独开课讲,是不规则标签。kbd是键盘标签。当我们要看一个标签怎么用，一个办法看规范文档，但是文档都是英文的难，第二个是看MDN，例如搜 strong MDN ,点击第一个连接，进去以后在右边选择语言-中文。自己写博客就可以参考MDN，了解一下MDN的历史，它也是一个文档的集合。遇到哪个什么标签用MDN就可以了。如何看MDN文档也值得学习。记笔记很重要，你面试会忘记的，然后你也记不住在哪个视频。前端学习就是谣言太多。<strong>html只管内容</strong>，定义这是什么东西，不管样式，在HTML中没有内联元素和块级元素的区别，我跟你说这是个段落，不能告诉你这是什么样式的段落。CSS才是管样式。HTML是不管样式的。所以我们在写HTML标签的时候，一定不能管样式。一个标签是块级元素还是内联元素，要么是CSS默认的，要么是CSS设置的。导航栏，navigation bar,<nav>标签。alternative 可选的。学HTML就是学单词，语义化就是搞清楚这个单词的意思，懂单词意思你就懂怎么用。         </nav></p>
+<p>分析你看到的这个页面，由哪些部分（标签组成），写html的时候不用考虑样式切记。比如上课这个简历，上半拉由 图片<img>，导航栏<nav>组成，图片的地址暂时不知道用#代替，导航栏中的若干词条其实又是链接（内外跳转），用<a>分别包含各个词条，各个词条之间的关系又是 无序链表 ，所以用<ul><li>（unorderred list）将整个词条包起来。这就是上半部分的语义化。你看代码就能看出表达什么。通过这个在线的简历，我们发现img 和 导航栏 又是被划分 到一块了，所以用<div>将两个整体标起来，而<div>标签往往用一个class属性值对来区分,因为我们知道div标签是没有语义的，所以必须用class来标记它是属于哪一块，同时这样你的代码质量也更高（以后我们知道这是为了添加样式更方便）。黑色banner意为广告横幅，在html里面就是一个 背景图片，而背景图片不用<img>标签，单独用<div>标签划分一个块。接着 我们看到页面最中间的位置，是我们简历最主要的部分，在html中最主要的部分用<main>标签框起来。然后在<main>标签里面写代码,首先我们要分析这个主要的部分里面的结构，是上下还是左右，我们的例子里是上下结构，上 又是一个左右结构，上左是一个图片，上右 是问候语，名字，职称，链表。我们用class命名的时候，命名的规范是告诉它是什么，而不是长什么样。用<div>分上下块，分别在上<div>块中再使用<div>分左右块，左picture，右text。左边同上，右边 问候语是没有专门的标签，用span包起问候语。<h1>你的名字</h1>,<p>你的职称</p>你要是觉得它是标题二就用h2，看你自己的分析。<hr>是水平分隔线，要学会分析网页。接着我们看到一个名称一个值，我们应该用描述链表<dl>，description list，描述链表。通常是如下用，<dl> <dt>年龄</dt><dd>18</dd> <dt>所在城市</dt><dd>北京</dd> <dt>邮箱</dt><dd><a href="mailto:123@gmail.com" target="_blank" rel="noopener">123@gmail.com</a></dd> </dl>,dt 是description term ,dd是 description definition。回忆之前的有序链表<ul> <li>词条1</li> <li>词条2</li> <li>词条3</li> <ul> 。好了回到最开始的下块，像个页脚，用<footer>整个包起来。这个页脚是一个由七个图片组成的无序链表，每个图片又是一个链接,所以用<a>标签包含每个图片<img>标签。这样写 <footer class="media"> a[href=#]*7 &gt; img[src=….] </footer> 。到此main的部分也完成了。接下来下面有个长得像按钮的，点一下可以下载我们的简历，实际上虽然它长得像按钮，实际上点了以后会跳到另外一个页面去下载，[点一下跳转到另一个页面的]一定就是我们的<a>标签了，不要被外表迷惑，点一下出来一个窗口的才是button。拖动在线简历发现这个“按钮”也是main的一部分，所以再用<div>进行划分。然后下面那一大段话也是main这个主要部分里面的。<br>是强制换行。好了今天就学这么多标签，页面就学做这么多。<br>回顾一下，<title>标签用来指定网页的标题的，放在<head><meta name="generator" content="Hexo 3.8.0">标签里面。在源代码里的换行都会变成一个空格。<br>html入门课后题，在命令行中whois 是查看某个域名拥有者的身份</head></title></div></a></a></footer></ul></ul></dl></div></div></div></main></main></div></div></div></li></ul></a></nav></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/31/server了解/" rel="next" title="server了解">
+                <i class="fa fa-chevron-left"></i> server了解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/02/关于HTML/" rel="prev" title="关于HTML">
+                关于HTML <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">linyanliao</p>
+              <p class="site-description motion-element" itemprop="description">前端学习 分享 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">你的名字</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyanliao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
