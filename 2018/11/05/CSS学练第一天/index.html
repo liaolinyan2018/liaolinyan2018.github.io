@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="学-引入CSS样式的方法方式1：使用CSS内联样式，直接给开始标签加上style属性，如&amp;lt;body style=&amp;quot;background-color:grey;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;，这样有点是样式加在哪个标签上很明显，缺点是开始标签就会变得很长，代码看上去很乱很丑方法2：在头标签&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;加入&amp;lt;style&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS学练第一天">
+<meta property="og:url" content="http://yoursite.com/2018/11/05/CSS学练第一天/index.html">
+<meta property="og:site_name" content="linyan &#39;s blog">
+<meta property="og:description" content="学-引入CSS样式的方法方式1：使用CSS内联样式，直接给开始标签加上style属性，如&amp;lt;body style=&amp;quot;background-color:grey;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;，这样有点是样式加在哪个标签上很明显，缺点是开始标签就会变得很长，代码看上去很乱很丑方法2：在头标签&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;加入&amp;lt;style&amp;gt">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/Uejz9nl.jpg">
+<meta property="og:image" content="https://i.imgur.com/mhsEoov.jpg">
+<meta property="og:image" content="https://i.imgur.com/oT9c8CM.jpg">
+<meta property="og:image" content="https://i.imgur.com/SLKvWPl.jpg">
+<meta property="og:image" content="https://i.imgur.com/ZUpSX1f.jpg">
+<meta property="og:image" content="https://i.imgur.com/1glqfgY.jpg">
+<meta property="og:image" content="https://i.imgur.com/Wf6PxNH.jpg">
+<meta property="og:image" content="https://i.imgur.com/qH3UJIq.jpg">
+<meta property="og:image" content="https://i.imgur.com/Wx7JKWU.jpg">
+<meta property="og:image" content="https://i.imgur.com/lhJA4Qr.jpg">
+<meta property="og:image" content="https://i.imgur.com/FXGso8V.jpg">
+<meta property="og:updated_time" content="2018-11-06T08:19:16.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS学练第一天">
+<meta name="twitter:description" content="学-引入CSS样式的方法方式1：使用CSS内联样式，直接给开始标签加上style属性，如&amp;lt;body style=&amp;quot;background-color:grey;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;，这样有点是样式加在哪个标签上很明显，缺点是开始标签就会变得很长，代码看上去很乱很丑方法2：在头标签&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;加入&amp;lt;style&amp;gt">
+<meta name="twitter:image" content="https://i.imgur.com/Uejz9nl.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/05/CSS学练第一天/">
+
+
+
+
+
+  <title>CSS学练第一天 | linyan 's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">linyan 's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一个不曾起舞的日子都是对生命的辜负</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/CSS学练第一天/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS学练第一天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-05T11:27:15+08:00">
+                2018-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><p>学-引入CSS样式的方法<br><strong>方式1</strong>：使用CSS内联样式，直接给<code>开始标签</code>加上style属性，如<code>&lt;body style=&quot;background-color:grey;&quot;&gt;&lt;/body&gt;</code>，这样有点是样式加在哪个标签上很明显，缺点是<code>开始标签</code>就会变得很长，代码看上去很乱很丑<br><br><strong>方法2</strong>：在头标签<code>&lt;head&gt;&lt;/head&gt;</code>加入<code>&lt;style&gt;</code>标签引入CSS样式。如：<br><br><img src="https://i.imgur.com/Uejz9nl.jpg" alt=""><br>这样所有的样式都被我们放到<code>&lt;style&gt;</code>标签里面了，我们的html代码看上去更简洁了，可是当我们的样式很多的时候，style标签内容就太长了，导致head头部太长了，这样也太不好看了，为此我们引进方法3。<br><br><strong>方法3</strong>：link标签嵌入外部CSS样式。当CSS样式太多太长的时候，我们将所有的CSS样式都放到外面的.css文件里面，然后再在头部<code>&lt;head&gt;</code>里用<link>标签把这个.css文件嵌入进来，如此一来，我们的HTML就有了CSS样式，HTML代码也很干净简洁，有规矩。如：<br><br><img src="https://i.imgur.com/mhsEoov.jpg" alt="嵌入外部CSS样式图片"><br><br><strong>方法4</strong>：一个.css文件里嵌入另一个.css文件，结果就是两个.css的样式都会应用于html文件，最终展示出来。这个效果我们可以通过开发者工具，查看浏览器发起的请求 验证。如：<br><br><img src="https://i.imgur.com/oT9c8CM.jpg" alt=""><br><br>注意href和url是相对路径和绝对路径值。<br><br><img src="https://i.imgur.com/SLKvWPl.jpg" alt=""><br><br><br><strong>小插曲：</strong>在此补充一个一直遇到的问题，我一直都是用<code>file://</code>打开我们的html文件，以至于根本没有http请求和响应。因为<code>file:</code>协议是不可以的。然后回顾node.js server的课程有提到有个人做了个http-server可以直接在命令行做测试还是免费的，之前不是很理解，然后上网上找了份详细的教程看，<a href="https://blog.csdn.net/qq_30100043/article/details/73105362" target="_blank" rel="noopener">https://blog.csdn.net/qq_30100043/article/details/73105362</a> 有点理解了。按照教程（6. Node.js Server）做了，<strong>以后每次我只要在进入（cd xxdir）含有我的<code>.html</code>文件的目录里，然后在命令行里敲 <code>http-server . -c-1</code>，我认为这是打开服务器，然后我就能在google的地址栏里直接输入 <code>http://localhost:8080/xxx.html</code>就能预览我的.html文件了</strong>，如:<a href="http://localhost:8080/index.html" target="_blank" rel="noopener">http://localhost:8080/index.html</a>注意这时是用<code>http:</code>协议而不是<code>file:</code>协议，我就能查看http请求和http响应了。具体原理以后研究。<br><img src="https://i.imgur.com/ZUpSX1f.jpg" alt=""><br><br>当我把http-server关掉以后(ctrl+c),再按上述访问我的.html网页就不行了。<br><br><img src="https://i.imgur.com/1glqfgY.jpg" alt=""><br><img src="https://i.imgur.com/Wf6PxNH.jpg" alt=""><br><br></p>
+</li>
+<li><p>学-实现让导航栏(navigation bar)的横向结构<br><br><br>给要 实现并排 标签元素 加float,即 <code>&lt;li style=&quot;float:left;&quot;&gt;&lt;a href=&quot;#&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;</code>，无序链表就并排起来了，但是加了float以后就会出现bug，然后我们就要学会解决bug。 <code>&lt;ul class=&quot;clearfix&quot; style=&quot;list-style:none;&quot;&gt;</code> 会让无序链表前的实心圆点消失。<code>&lt;ul class=&quot;clearfix&quot; style=&quot;list-style:none;margin:0;padding:0;&quot;&gt;</code>，会让导航栏前面的空格消失,这些都是由于ul的默认样式引起的。由于这个偏实操，一两句话也讲不清楚，最后直接上图。我会在做的过程中记一些关键的点。<br><br><strong>关键点1：</strong><br>除了<code>&lt;div&gt;`</code><span><code>没有默认的样式，其他的标签都有默认地样式。我们可以用开发者查询工具来查看某标签的默认样式,在浏览器界面-右键-检查-Elements。如：&lt;br&gt;
+![](https://i.imgur.com/EnUUJZB.jpg)&lt;br&gt;
+**关键点2：**
+**把两行变成一行。**一定要学会的方法，给子元素（练习中是</code><li><code>）加上float，给子元素的爸爸（练习中是</code><ul><code>）加上一个类</code>clearfix<code>(</code><ul class="clearfix"><code>)，就能去除加float带来的Bug。**clearfix内容要背下来。**&lt;br&gt;
+![](https://i.imgur.com/8VrLrtd.jpg)
+![](https://i.imgur.com/Jkb07do.jpg)&lt;br&gt;
+**关键点3:**重点！！！外嵌CSS样式的格式。很显然当相同标签都是统一样式的时候，用外嵌的CSS样式表更好！！！代码看上去更简洁更整齐！！！可以联想到内联样式肯定是 某个标签 需要 某个特殊样式 的时候使用更合适。&lt;br&gt;
+![](https://i.imgur.com/nOznGOH.jpg)&lt;br&gt;
+**关键点4：**用QQ取色和取字体大小。改字体大小font-size,浏览器默认字体大小是16px。&lt;br&gt;
+发现了一个技巧！！超级好用，用开发者工具调试.html文件，直接改直接就能看到结果！简直不能太棒了！！！炫酷！&lt;br&gt;
+![](https://i.imgur.com/gm1kH2z.jpg)&lt;br&gt;
+当你不知道一个 [属性单词]的取值时，就去查MDN, google [关键词 MDN]，上面还有很多例子供你学习，但是作为一个工程师，还是直接练出来比较适合我们。所以CSS3根本不用背。我们只要能实现我们的功能就可以了，会英文和工具最好，记太多也记不住，半查半蒙。不同系统渲染出来的字体颜色是有差别的。&lt;br&gt;
+**关键点4：**盒子模型出现了，每个盒子有padding、border、margin 三个属性，分别是内填充，边框，外边距，每个属性都有四个上右下左四个方向的宽度，通过设置宽度可以制作特效。&lt;br&gt;
+![](https://i.imgur.com/2bBdbRZ.jpg)
+&lt;br&gt;从开发者工具查看
+![](https://i.imgur.com/NZJpCBg.jpg)
+**关键点5：**样式的优先级，用户写的样式 &gt; 浏览器的默认样式。</code><a><code>标签有自己默认的颜色样式，当改变它祖宗的颜色时，它不会默认继承祖宗的颜色样式。所以要设置</code>a{color:inherit;}`，以此来继承它祖宗的样式。<strong>继承这个概念，当子元素有相同样式的时候，我们 把这些样式写在 父亲或者爷爷 元素上，那么 子元素 就会继承 长辈的样式,a标签要通过设置才能继承祖宗的样式。通过使用继承，我们又可以简化我们的CSS样式代码了</strong><br><br><strong>关键点6：**</strong>新手容易忽略的问题<strong>，当你的 选择器 过于简单的时候，很容易影响下面的样式，比如 你们的 </strong>类值 取得一样了，然后不知不觉把别人样式给改了 <strong>。解决的办法是</strong>给 类值 加上限定加限定<strong>，以此来把 </strong>同名类值<strong> 区分开来。<br><br><img src="https://i.imgur.com/qH3UJIq.jpg" alt=""><br>
+</strong>关键点7:<strong>CSS真的很多细节，两个span标签之间是有空格的，只不我们肉眼之间看不见。因为我们用编辑器写代码的时候为了好看换行了，浏览器会把这些所有的空格换行都归结为一个空格，我们只需要把两个span标签挨在一块写，就能消除空格，但是如果你是不需要空格那么大的距离，而两个字之间有需要保持一定的像素，这个时候就用到我们的盒子模型了，通过加margin-right实现。<br>
+</strong>关键点8：<strong>我们在写CSS样式表的时候会发现，会在各种工具之间切换来切换去。
+</strong>关键点9：<strong>这一点是很灵活的点，而且是会容易纠结的点。我通过开发者工具发现，每个标签都有一个盒子模型。盒子模型的图在本文上面也给出来了，当要实现</strong>左右两行字的中心线<strong>平齐的时候，我们只需要左右两边的字 </strong>高度相等<strong>，</strong>文字处于中间<strong>，就这两个话就很值得去亲身实践一下，</strong>第一<strong>高度相等，意味者 左右两边的</strong>祖先标签盒子模型（这个需要判断）<strong>的高度是相等的，也就是上下的padding、border、margin再加上里面元素的高度（它的所有后代）才是这个祖宗标签盒子的高度，将光标移到对应的祖宗标签处就能看到浏览器自动计算出来的高度，而左右两边的</strong>祖宗必须是同一级的，比如都是爷爷或者他们只有body这个父亲形如这种<strong>。</strong>第二，文字处于中间，<strong>那么</strong>最里层的孙子标签<strong>的上下padding、border、margin若有值则必须相等，字方可处于中间，否则偏上偏下，偏左偏右也是同理。有了这两步，左右两部分的中心线就出在同一水平线上了。<br><br><img src="https://i.imgur.com/Wx7JKWU.jpg" alt=""><br>
+</strong><nav>标签的高度=nav盒子模型高度=32<strong><br><br><img src="https://i.imgur.com/lhJA4Qr.jpg" alt=""><br>
+</strong><a>标签的高度=a盒子模型高度=32.33**<br><br><img src="https://i.imgur.com/FXGso8V.jpg" alt=""><br><br><br></a></nav></a></ul></ul></li></span></p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/05/CSS学习资源/" rel="next" title="CSS学习资源">
+                <i class="fa fa-chevron-left"></i> CSS学习资源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/06/CSS学练第二天/" rel="prev" title="CSS学练第二天">
+                CSS学练第二天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">linyanliao</p>
+              <p class="site-description motion-element" itemprop="description">前端学习 分享 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyanliao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
