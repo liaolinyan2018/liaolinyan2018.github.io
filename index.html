@@ -458,11 +458,14 @@ position: relative;
 </ol>
 <p>4 CSS改bug的时候是环环相扣的，你修复了一个问题，就可能引发另一个问题。<strong>修改bug的时候要冷静。</strong><br></p>
 <p>5 行高（line-height）和高度(height)一样,就会自动居中,但是这有潜在的bug。<strong>字体居中最好用加padding，因为设置了宽高，你再加字就很容易超出父元素</strong>。基线对齐。<br><br>6 在不同电脑上看可能元素高度又不一样了，所以最好设置一下line-height,比如line-height=22px,这样元素载各个电脑的浏览器上就一样了。<br><br>7 用CSS样式画三角形<br><br>写CSS的人都知道，我们要一个效果，只要去参考别人做出来的效果就可以了。不用自己去设计一个效果。<br><br>8 很多时候最外面的div可能是固定宽高，不能加padding，而在内部加span duv就有很大的用处，可以给内部的span div加宽高，而不改变整体的宽高。</p>
-<h1 id="line-box-是啥"><a href="#line-box-是啥" class="headerlink" title="line-box 是啥"></a>line-box 是啥</h1><h1 id="box-是啥（盒模型）"><a href="#box-是啥（盒模型）" class="headerlink" title="box 是啥（盒模型）"></a>box 是啥（盒模型）</h1><p>box-sizing content-box border-box</p>
+<h1 id="line-box-是啥"><a href="#line-box-是啥" class="headerlink" title="line-box 是啥"></a>line-box 是啥</h1><p>待更。<br></p>
+<h1 id="box-是啥（盒模型）"><a href="#box-是啥（盒模型）" class="headerlink" title="box 是啥（盒模型）"></a>box 是啥（盒模型）</h1><p>box-sizing有两个值分别为<code>content-box</code>和<code>border-box</code>，区别是：<br><br>content-box 的内容的width 不包括 padding 和 border。故其实际算出来的 盒子的高度和宽度 &gt;= 内容的width <br><br>border-box 的 width 包括 padding 和 border，故其实际算出来的 盒子的高度和宽度 就是（=） 内容的width。<br> </p>
 <h1 id="宽度是有什么决定的"><a href="#宽度是有什么决定的" class="headerlink" title="宽度是有什么决定的"></a>宽度是有什么决定的</h1><p>块级元素宽度是自适应的，内联元素的宽度不可测。<br></p>
 <h1 id="position-的-5-个取值"><a href="#position-的-5-个取值" class="headerlink" title="position 的 5 个取值"></a>position 的 5 个取值</h1><pre><code>① position=fixed;相对窗口定位。脱离文档流第一种。
 ② 祖宗（最近的父元素）样式加position=relative;孙子（儿子/小辈）样式加position=absolute;则小辈相对于有relative的最近一个祖宗绝对定位。脱离文档流第二种。
-</code></pre><h1 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h1><p><br><br>用过的样式：<br><br>maxwidth width<br><br>画一个三角形：<br><br><img src="https://i.imgur.com/uGm3DgL.jpg" alt=""><br><img src="https://i.imgur.com/MWrdimX.jpg" alt=""><br><img src="https://i.imgur.com/rf5HVIP.jpg" alt=""><br><img src="https://i.imgur.com/j1tmPn6.jpg" alt=""><br><img src="https://i.imgur.com/TKKX4tM.jpg" alt=""><br><img src="https://i.imgur.com/Iut6ATs.jpg" alt=""><br><br>六步总的说就是，首先建了个透明的border,然后把上面的border干掉，然后给左边的border加橙色,就得到了一个三角形。<br><br>后面的footer的圆形布局居中有点难度，用height 和 line-height实现居中，以及vertical加在自己实现居中。text-align加在父元素实现居中。</p>
+③ position:sticky;
+④ position:static;
+</code></pre><h1 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h1><p><strong>待更</strong><br><br><br>用过的样式：<br><br>maxwidth width<br><br>画一个三角形：<br><br><img src="https://i.imgur.com/uGm3DgL.jpg" alt=""><br><img src="https://i.imgur.com/MWrdimX.jpg" alt=""><br><img src="https://i.imgur.com/rf5HVIP.jpg" alt=""><br><img src="https://i.imgur.com/j1tmPn6.jpg" alt=""><br><img src="https://i.imgur.com/TKKX4tM.jpg" alt=""><br><img src="https://i.imgur.com/Iut6ATs.jpg" alt=""><br><br>六步总的说就是，首先建了个透明的border,然后把上面的border干掉，然后给左边的border加橙色,就得到了一个三角形。<br><br>后面的footer的圆形布局居中有点难度，用height 和 line-height实现居中，以及vertical加在自己实现居中。text-align加在父元素实现居中。</p>
 
           
         
