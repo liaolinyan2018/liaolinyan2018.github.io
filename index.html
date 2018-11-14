@@ -242,6 +242,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/入门复习小结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/入门复习小结/" itemprop="url">入门复习小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T08:13:44+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="回顾目前所学的知识点"><a href="#回顾目前所学的知识点" class="headerlink" title="回顾目前所学的知识点"></a>回顾目前所学的知识点</h1><h2 id="计算机是如何存储数据的"><a href="#计算机是如何存储数据的" class="headerlink" title="计算机是如何存储数据的"></a>计算机是如何存储数据的</h2><p>0和1的存储<br></p>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p>主要是gitbash<br></p>
+<h2 id="命令行基础"><a href="#命令行基础" class="headerlink" title="命令行基础"></a>命令行基础</h2><p><code>pwd</code>   print working dir 打印出当前正在使用的目录名<br><br><code>cd</code>    change dir        进入这个目录,常用的如 返回上一级目录<code>cd ..</code>，进入hexo目录 <code>cd /e/hexo</code><br><br><code>mkdir</code> make directories 创建一个新的目录，如<code>mkdir test</code> <code>mkdir /e/hexo/test</code><br><br><code>touch</code>  新建一个文件，不可给文件添加内容，如<code>touch 1.txt</code><br><br><code>echo &quot;hi&quot; &gt; 1.txt</code> ，echo一个新文件1.txt，并将内容”hi”添加到1.txt<br><br><code>echo &quot;hi&quot; &gt;&gt; 1.txt</code> ，追加内容”hi”到文件1.txt，若1.txt不存在，则新建1.txt再追加。<br><br><code>echo &quot;hi&quot; &gt;! 1.txt</code> 没使用过。 重定向 输出 <br><br><code>cp -r</code>  copy files and directories /copy directories recursively 拷贝文件/递归的拷贝目录 ，如 <code>cp test(必须已存在) cptest</code> <br><br><code>rm -rf</code> remove files or directories/ remove directories and their contents recursively/f-force  强制的移除文件/目录里的所有内容，如<code>rm -rf test</code><br><br> <code>mv</code> move (rename) files/Rename source to dest/move source(s) to directory. 重命名文件，如 <code>mv 1.txt(必须已存在) 2.txt</code><br><br><code>tree</code>  list contents of directories in a tree-like format 以树结构的形式列出目录里的内容。<br> </p>
+<blockquote>
+<p>git init<br><br>git add . /<em>常用</em>/<br><br>git commit . -m “hi” /<em>常用</em>/<code>git commit=Record changes to the repository`</code>-m=-message` <br><br>git pull   <br><br>git push    /<em>常用</em>/<br><br>git clone <br></p>
+</blockquote>
+<p><code>curl -L http://baidu.com</code> <br><br> <code>curl -s -v -- http://baidu.com</code></p>
+<pre><code>ping qq.com
+
+/*hexo与github快速搭建博客*/
+hexo init
+hexo g
+hexo server //不常用
+hexo deploy
+</code></pre><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>由单个命令行到写个小脚本，执行脚本，就完成一些列工作<br></p>
+<h2 id="HTTP-入门"><a href="#HTTP-入门" class="headerlink" title="HTTP 入门"></a>HTTP 入门</h2><p>前面四节课的知识都是为了HTTP入门储备知识，HTTP是前端的第一个核心知识。方方说以后也是围绕HTTP来学。前面我们用命令行curl和直接查开发者工具 学习请求和响应的四部分。<br></p>
+<blockquote>
+<p>curl -L <a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a><br><br>curl -s -v – <a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a><br></p>
+</blockquote>
+<p>请求四部分<br><br>响应四部分<br></p>
+<blockquote>
+<p>GET 请求<br><br>GET /?w=1 HTTP/1.1 <br><br>Host: baidu.com    <br><br>Accept: text/html  <br><br>对应响应 <br><br>HTTP/1.1 200 OK <br><br>Content-Type: text/html; charset=utf-8 <br><br>Content-Length: 10000 <br><br>&lt;!DOCTYPE&gt; <br><br><code>&lt;html&gt;......&lt;/html&gt;</code> <br></p>
+</blockquote>
+<blockquote>
+<p>POST 请求 <br><br>POST /login?w=1 HTTP/1.1 <br><br>Host: baidu.com   <br><br>Accept: application/ms-word <br><br>Content-Type: application/x-www-form-urlencoded  <br><br>Content-Length: 10 <br><br>username=fangfang&amp;password=mima   <br></p>
+</blockquote>
+<blockquote>
+<p>响应 <br><br>HTTP/1.1 403 Forbidden   <br><br>Content-Type: application/md-word  <br><br>Content-Length: 200  <br><br>word格式</p>
+</blockquote>
+<p><img src="https://i.imgur.com/xszkOw7.jpg" alt=""></p>
+<h2 id="Node-js-Server"><a href="#Node-js-Server" class="headerlink" title="Node.js Server"></a>Node.js Server</h2><p>Node.js Server，是为了学server，不是学Node.js，也是为了学HTTP怎么运作起来的。自己用脚本写了一个小server,平时使用别人开发出来的<code>http-server . -c-1</code>,可在本地浏览调试html<br></p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p>几个经常使用的标签 和 几个难的标签。有很多细碎的知识点。无难点，多动手。<br></p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>有很多细碎的知识点。CSS布局,从上到下。从内到外，注意细节。无难点，多动手。<br></p>
+<h2 id="最后说的话"><a href="#最后说的话" class="headerlink" title="最后说的话"></a>最后说的话</h2><p>前12次课，学了前端的<strong>简单HTTP,简单HTML，简单CSS应用</strong>，第二个练手项目-一个在线静态简历。前四节课练手项目-hexo+github搭建个人博客。<br></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/CSS学历练第三天：CSS布局/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -313,13 +466,19 @@
       
         
           
-            <h1 id="CSS布局技巧"><a href="#CSS布局技巧" class="headerlink" title="CSS布局技巧"></a>CSS布局技巧</h1><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><p>在父元素上添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
+            <h1 id="CSS布局技巧"><a href="#CSS布局技巧" class="headerlink" title="CSS布局技巧"></a>CSS布局技巧</h1><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><p>三步走：在父元素上添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
 <pre><code>.clearfix::after{
         content:&apos;&apos;;
         display:block;
         clear:both;
        }
-</code></pre><h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><p><strong>待补充。</strong></p>
+</code></pre><h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><p>五步走：父元素有三个子元素，同理给父元素添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
+<pre><code>.clearfix::after{
+        content:&apos;&apos;;
+        display:block;
+        clear:both;
+       }
+</code></pre><p>然后给后两个子元素设置<code>margin-left</code>,给父元素设置水平居中。</p>
 <h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><pre><code>&lt;div class=&quot;father&quot;&gt;  
   &lt;div class=&quot;child&quot;&gt;
     实现子元素水平和垂直居中
@@ -330,7 +489,15 @@
 <h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>垂直居中对于 子元素 是<strong>单行内联文本</strong>、<strong>多行内联文本</strong>以及<strong>块状元素</strong>采用的方案是不同的。<br><br>父元素高度确定，子元素为<strong>单行内联文本</strong>：设置父元素的<code>height</code>等于行高<code>line-height</code><br></p>
 <p>父元素高度确定，子元素为<strong>多行内联文本</strong>：设置父元素的<code>display:table-cell或inline-block</code>，再设置<code>vertical-align:middle;</code><br></p>
 <p><strong>块状元素</strong>:设置子元素<code>position:fixed（absolute）</code>，然后设置<code>margin:auto;</code><br><br><strong>通用方案</strong>: <code>flex</code>布局，给父元素设置<code>display:flex; align-items:center;</code> <br></p>
-<h3 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h3><p><a href="https://segmentfault.com/a/1190000004648754" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004648754</a><br><br><a href="https://segmentfault.com/a/1190000008789039" target="_blank" rel="noopener">参考来源</a> <br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰的博客——flex语法</a><br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">阮一峰的博客——flex布局案例</a><br><br>小细节的知识点：<br><br>1.空标签就是没有儿子的标签，比如input就是空标签，button不是空标签。<br></p>
+<h3 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h3><ul>
+<li>加阴影，看起来更立体<code>box-shadow</code>，google:<code>css shadow generator</code>,调样式，复制现成的样式代码。</li>
+<li>加动画<code>transition: all 0.3s;</code>给所有变化加入过渡动画和过渡时间。</li>
+<li>加鼠标悬停手指点击形状。<code>cursor: pointer;</code></li>
+<li>border大法好。加border进行调试，不然看不来标签在哪里。<code>border: 1px solid red;</code> </li>
+<li>配套使用。当设置<code>display: inline-block;</code>需要加上<code>vertical-align: top;</code>来去除底层多出的空间。</li>
+<li>设置背景图片：<code>background-image: url(../img/girl.jpg);</code> 设置背景图片水平垂直居中：<code>background-position: center center;</code> 设置背景图片按比例缩放：<code>background-size: cover;</code></li>
+<li>渐变色，调元素的线性渐变色，google:<code>css linear-gradient generator</code>,调样式，复制现成的样式代码。<br><br><a href="https://segmentfault.com/a/1190000004648754" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004648754</a><br><br><a href="https://segmentfault.com/a/1190000008789039" target="_blank" rel="noopener">参考来源</a> <br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰的博客——flex语法</a><br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">阮一峰的博客——flex布局案例</a><br><br>小细节的知识点：<br><br>1.空标签就是没有儿子的标签，比如input就是空标签，button不是空标签。<br></li>
+</ul>
 <ol start="2">
 <li>伪元素 不是元素，可以看做一个<code>span</code>伪元素的用法-<strong>给所有的div元素之前或之后 加 内容。</strong><img src="https://i.imgur.com/aNr6oTO.jpg" alt="">给伪元素加<code>display:block;</code>后，独占一行，我们都可以加border测试。<img src="https://i.imgur.com/WOBjCLI.jpg" alt=""><br></li>
 <li></li>
@@ -1435,6 +1602,8 @@ position: relative;
 <li>slide control 滑动控制</li>
 <li>animation 动画制作</li>
 <li>Ultimate CSS Gradient Generator 终极CSS渐变生成器</li>
+<li>hexo deploy hexo部署</li>
+<li>recursively 递归地</li>
 <li></li>
 </ol>
 
@@ -1591,125 +1760,6 @@ position: relative;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/关于Git-Bash/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/关于Git-Bash/" itemprop="url">关于Git Bash</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T20:32:02+08:00">
-                2018-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1760,7 +1810,7 @@ position: relative;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

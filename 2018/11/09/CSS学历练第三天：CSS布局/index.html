@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="CSS布局技巧左右布局在父元素上添加类 class=&amp;quot;clearfix&amp;quot;,在子元素上加 float:left(right);,在CSS样式表中加入: .clearfix::after{         content:&amp;apos;&amp;apos;;         display:block;         clear:both;        } 左中右布局待补充。 水平居中&amp;">
+<meta name="description" content="CSS布局技巧左右布局三步走：在父元素上添加类 class=&amp;quot;clearfix&amp;quot;,在子元素上加 float:left(right);,在CSS样式表中加入: .clearfix::after{         content:&amp;apos;&amp;apos;;         display:block;         clear:both;        } 左中右布局五步走：父元">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS学历练第三天：CSS布局">
 <meta property="og:url" content="http://yoursite.com/2018/11/09/CSS学历练第三天：CSS布局/index.html">
 <meta property="og:site_name" content="linyan &#39;s blog">
-<meta property="og:description" content="CSS布局技巧左右布局在父元素上添加类 class=&amp;quot;clearfix&amp;quot;,在子元素上加 float:left(right);,在CSS样式表中加入: .clearfix::after{         content:&amp;apos;&amp;apos;;         display:block;         clear:both;        } 左中右布局待补充。 水平居中&amp;">
+<meta property="og:description" content="CSS布局技巧左右布局三步走：在父元素上添加类 class=&amp;quot;clearfix&amp;quot;,在子元素上加 float:left(right);,在CSS样式表中加入: .clearfix::after{         content:&amp;apos;&amp;apos;;         display:block;         clear:both;        } 左中右布局五步走：父元">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/aNr6oTO.jpg">
 <meta property="og:image" content="https://i.imgur.com/WOBjCLI.jpg">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="https://i.imgur.com/lT0ctg0.jpg">
 <meta property="og:image" content="https://i.imgur.com/7nrm0iV.jpg">
 <meta property="og:image" content="https://i.imgur.com/VuX8YBp.jpg">
-<meta property="og:updated_time" content="2018-11-13T14:18:12.533Z">
+<meta property="og:updated_time" content="2018-11-14T03:18:11.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS学历练第三天：CSS布局">
-<meta name="twitter:description" content="CSS布局技巧左右布局在父元素上添加类 class=&amp;quot;clearfix&amp;quot;,在子元素上加 float:left(right);,在CSS样式表中加入: .clearfix::after{         content:&amp;apos;&amp;apos;;         display:block;         clear:both;        } 左中右布局待补充。 水平居中&amp;">
+<meta name="twitter:description" content="CSS布局技巧左右布局三步走：在父元素上添加类 class=&amp;quot;clearfix&amp;quot;,在子元素上加 float:left(right);,在CSS样式表中加入: .clearfix::after{         content:&amp;apos;&amp;apos;;         display:block;         clear:both;        } 左中右布局五步走：父元">
 <meta name="twitter:image" content="https://i.imgur.com/aNr6oTO.jpg">
 
 
@@ -319,13 +319,19 @@
       
 
       
-        <h1 id="CSS布局技巧"><a href="#CSS布局技巧" class="headerlink" title="CSS布局技巧"></a>CSS布局技巧</h1><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><p>在父元素上添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
+        <h1 id="CSS布局技巧"><a href="#CSS布局技巧" class="headerlink" title="CSS布局技巧"></a>CSS布局技巧</h1><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><p>三步走：在父元素上添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
 <pre><code>.clearfix::after{
         content:&apos;&apos;;
         display:block;
         clear:both;
        }
-</code></pre><h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><p><strong>待补充。</strong></p>
+</code></pre><h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><p>五步走：父元素有三个子元素，同理给父元素添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
+<pre><code>.clearfix::after{
+        content:&apos;&apos;;
+        display:block;
+        clear:both;
+       }
+</code></pre><p>然后给后两个子元素设置<code>margin-left</code>,给父元素设置水平居中。</p>
 <h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><pre><code>&lt;div class=&quot;father&quot;&gt;  
   &lt;div class=&quot;child&quot;&gt;
     实现子元素水平和垂直居中
@@ -336,7 +342,15 @@
 <h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>垂直居中对于 子元素 是<strong>单行内联文本</strong>、<strong>多行内联文本</strong>以及<strong>块状元素</strong>采用的方案是不同的。<br><br>父元素高度确定，子元素为<strong>单行内联文本</strong>：设置父元素的<code>height</code>等于行高<code>line-height</code><br></p>
 <p>父元素高度确定，子元素为<strong>多行内联文本</strong>：设置父元素的<code>display:table-cell或inline-block</code>，再设置<code>vertical-align:middle;</code><br></p>
 <p><strong>块状元素</strong>:设置子元素<code>position:fixed（absolute）</code>，然后设置<code>margin:auto;</code><br><br><strong>通用方案</strong>: <code>flex</code>布局，给父元素设置<code>display:flex; align-items:center;</code> <br></p>
-<h3 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h3><p><a href="https://segmentfault.com/a/1190000004648754" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004648754</a><br><br><a href="https://segmentfault.com/a/1190000008789039" target="_blank" rel="noopener">参考来源</a> <br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰的博客——flex语法</a><br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">阮一峰的博客——flex布局案例</a><br><br>小细节的知识点：<br><br>1.空标签就是没有儿子的标签，比如input就是空标签，button不是空标签。<br></p>
+<h3 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h3><ul>
+<li>加阴影，看起来更立体<code>box-shadow</code>，google:<code>css shadow generator</code>,调样式，复制现成的样式代码。</li>
+<li>加动画<code>transition: all 0.3s;</code>给所有变化加入过渡动画和过渡时间。</li>
+<li>加鼠标悬停手指点击形状。<code>cursor: pointer;</code></li>
+<li>border大法好。加border进行调试，不然看不来标签在哪里。<code>border: 1px solid red;</code> </li>
+<li>配套使用。当设置<code>display: inline-block;</code>需要加上<code>vertical-align: top;</code>来去除底层多出的空间。</li>
+<li>设置背景图片：<code>background-image: url(../img/girl.jpg);</code> 设置背景图片水平垂直居中：<code>background-position: center center;</code> 设置背景图片按比例缩放：<code>background-size: cover;</code></li>
+<li>渐变色，调元素的线性渐变色，google:<code>css linear-gradient generator</code>,调样式，复制现成的样式代码。<br><br><a href="https://segmentfault.com/a/1190000004648754" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004648754</a><br><br><a href="https://segmentfault.com/a/1190000008789039" target="_blank" rel="noopener">参考来源</a> <br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰的博客——flex语法</a><br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">阮一峰的博客——flex布局案例</a><br><br>小细节的知识点：<br><br>1.空标签就是没有儿子的标签，比如input就是空标签，button不是空标签。<br></li>
+</ul>
 <ol start="2">
 <li>伪元素 不是元素，可以看做一个<code>span</code>伪元素的用法-<strong>给所有的div元素之前或之后 加 内容。</strong><img src="https://i.imgur.com/aNr6oTO.jpg" alt="">给伪元素加<code>display:block;</code>后，独占一行，我们都可以加border测试。<img src="https://i.imgur.com/WOBjCLI.jpg" alt=""><br></li>
 <li></li>
@@ -391,6 +405,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/14/入门复习小结/" rel="prev" title="入门复习小结">
+                入门复习小结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -467,7 +485,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
