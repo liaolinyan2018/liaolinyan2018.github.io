@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://i.imgur.com/lT0ctg0.jpg">
 <meta property="og:image" content="https://i.imgur.com/7nrm0iV.jpg">
 <meta property="og:image" content="https://i.imgur.com/VuX8YBp.jpg">
-<meta property="og:updated_time" content="2018-11-14T03:18:11.934Z">
+<meta property="og:updated_time" content="2018-11-19T02:33:01.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS学历练第三天：CSS布局">
 <meta name="twitter:description" content="CSS布局技巧左右布局三步走：在父元素上添加类 class=&amp;quot;clearfix&amp;quot;,在子元素上加 float:left(right);,在CSS样式表中加入: .clearfix::after{         content:&amp;apos;&amp;apos;;         display:block;         clear:both;        } 左中右布局五步走：父元">
@@ -338,8 +338,9 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre><p>水平居中在布局中经常使用。要考虑：子元素为<strong>行内元素</strong>还是<strong>块状元素</strong>，<strong>宽度一定</strong>还是<strong>宽度未定</strong>，采取的布局方案不同。下面进行分析：<br></p>
-<p><strong>行内元素居中</strong>:对父元素设置<code>text-align:center;</code><br><br><strong>定宽块状元素居中</strong>：设置左右margin值为auto,即<code>margin:**px auto;</code><br><br><strong>不定宽块级元素居中</strong>：设置子元素为<code>display:inline</code>,然后在父元素上设置<code>text-align:center</code><br><br><strong>通用方案</strong>：<code>flex</code>布局，对父元素设置<code>display:flex;justify-content:center;</code><br></p>
-<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>垂直居中对于 子元素 是<strong>单行内联文本</strong>、<strong>多行内联文本</strong>以及<strong>块状元素</strong>采用的方案是不同的。<br><br>父元素高度确定，子元素为<strong>单行内联文本</strong>：设置父元素的<code>height</code>等于行高<code>line-height</code><br></p>
+<p><strong>行内元素居中</strong>:对父元素设置<code>text-align:center;</code><br><br><strong>定宽块状元素居中</strong>：设置左右margin值为auto,即<code>margin:**px auto;</code><br><br><strong>不定宽块级元素居中</strong>：方法一变成内联元素，设置子元素为<code>display:inline</code>,然后在父元素上设置<code>text-align:center</code>。方法二，定宽。<br><br><strong>通用方案</strong>：<code>flex</code>布局，对父元素设置<code>display:flex;justify-content:center;</code><br></p>
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>垂直居中对于 子元素 是<strong>单行内联文本</strong>、<strong>多行内联文本</strong>以及<strong>块状元素</strong>采用的方案是不同的。<br></p>
+<p>父元素高度确定，子元素为<strong>单行内联文本</strong>：设置父元素的<code>height</code>等于行高<code>line-height</code><br></p>
 <p>父元素高度确定，子元素为<strong>多行内联文本</strong>：设置父元素的<code>display:table-cell或inline-block</code>，再设置<code>vertical-align:middle;</code><br></p>
 <p><strong>块状元素</strong>:设置子元素<code>position:fixed（absolute）</code>，然后设置<code>margin:auto;</code><br><br><strong>通用方案</strong>: <code>flex</code>布局，给父元素设置<code>display:flex; align-items:center;</code> <br></p>
 <h3 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h3><ul>
@@ -485,7 +486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
