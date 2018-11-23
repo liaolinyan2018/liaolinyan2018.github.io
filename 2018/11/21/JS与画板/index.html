@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="画板分析：按下去鼠标-动鼠标-松开鼠标 按在哪里？事件：document.onmousedown = function(x){console(x)} 监听动作？ 事件：document.onmousemove = function(y){console(y)} 松鼠标？事件：document.onmouseup = function(z){console(z)} 通过上次键盘网站我们知道，fun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS与画板">
+<meta property="og:url" content="http://yoursite.com/2018/11/21/JS与画板/index.html">
+<meta property="og:site_name" content="linyan &#39;s blog">
+<meta property="og:description" content="画板分析：按下去鼠标-动鼠标-松开鼠标 按在哪里？事件：document.onmousedown = function(x){console(x)} 监听动作？ 事件：document.onmousemove = function(y){console(y)} 松鼠标？事件：document.onmouseup = function(z){console(z)} 通过上次键盘网站我们知道，fun">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/VRwvwvy.jpg">
+<meta property="og:image" content="https://i.imgur.com/7zMgrjW.jpg">
+<meta property="og:image" content="https://i.imgur.com/SQ2UoZY.jpg">
+<meta property="og:image" content="https://i.imgur.com/M6V8QDD.jpg">
+<meta property="og:image" content="https://i.imgur.com/C67OK65.jpg">
+<meta property="og:image" content="https://i.imgur.com/6B4NAA0.jpg">
+<meta property="og:image" content="https://i.imgur.com/ar6nGw1.jpg">
+<meta property="og:updated_time" content="2018-11-23T10:21:59.767Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS与画板">
+<meta name="twitter:description" content="画板分析：按下去鼠标-动鼠标-松开鼠标 按在哪里？事件：document.onmousedown = function(x){console(x)} 监听动作？ 事件：document.onmousemove = function(y){console(y)} 松鼠标？事件：document.onmouseup = function(z){console(z)} 通过上次键盘网站我们知道，fun">
+<meta name="twitter:image" content="https://i.imgur.com/VRwvwvy.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/21/JS与画板/">
+
+
+
+
+
+  <title>JS与画板 | linyan 's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">linyan 's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一个不曾起舞的日子都是对生命的辜负</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/21/JS与画板/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS与画板</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T20:50:07+08:00">
+                2018-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>画板分析：按下去鼠标-动鼠标-松开鼠标<br><br> <strong>按在哪里？事件：</strong><code>document.onmousedown = function(x){console(x)}</code><br><br> <strong>监听动作？ 事件：</strong><code>document.onmousemove = function(y){console(y)}</code><br><br> <strong>松鼠标？事件：</strong><code>document.onmouseup = function(z){console(z)}</code><br><br> 通过上次键盘网站我们知道，function(x)中的x/y/z都是存放对应事件所有信息的hash表。<br><br><img src="https://i.imgur.com/VRwvwvy.jpg" alt=""><br><img src="https://i.imgur.com/7zMgrjW.jpg" alt=""></li>
+<li>API-别人提供的可供程序员调用的<br><br><img src="https://i.imgur.com/SQ2UoZY.jpg" alt=""></li>
+<li>变量作用域<br></li>
+<li>用元素做画板，画得太快导致线条不连续，有缺陷<br></li>
+<li>专门有个标签做画板 <code>&lt;canvas&gt;&lt;/canvas&gt;</code><br><br> <code>canvas</code> 默认<code>inline-block</code>,不能设置为 <code>block</code>,可设置宽高<br></li>
+<li>不建议用CSS控制canvas的初始宽高，canvas的宽高是等比例缩放的，会出现滚动条，要用其它办法<br></li>
+<li>查canvas mdn，熟悉各种JS 的 API，从在canvas画一个长方形开始<br> </li>
+<li>stroke描边 fill填充 clear挖空<br><br>var canvas = document.getElementById(‘canvas’);<br>var context = canvas.getContext(“2d”);<br>context.strokeStyle = “bule”;<br>context.strokeRect(1, 1, 100, 100);<br>context.fillStyle = “white”;<br>context.fillRect(1, 1, 100, 100);<br>context.clearRect(45, 50, 40, 10);</li>
+<li>注意 <code>aaa.clientX`</code>aaa.clientY<code>是相对于视口的高度，也就是浏览器窗口(html)的高度，并不是对</code>canvas<code>的高度。canvas画图，点击时画的位置就是相对的，要解决这个bug，使相对于浏览器的位置 就是 相对于canvas的位置，即设置</code>html,body{margin:0px;}`<br></li>
+<li>bug2只要用了<code>xxx.onmousemove</code>就会出现不连续的bug。<br></li>
+<li>画rectangle 长方形 画三角形 画圈 画线<br></li>
+<li>context是上下文<br></li>
+<li>用canvas实现画连续的线思路：两个函数（画圈、画线），三个事件（按下鼠标、移动鼠标、松开鼠标)。参考视频：canvas画圈。关键点：lastPoint=newPoint<br></li>
+<li>bug3 用CSS样式给canvas加 <code>width=100vh height=100vw</code>导致画图会变形。不建议加CSS样式设置宽高，而是直接在canvas上面加宽高。<br></li>
+<li>改进，多做几个画笔颜色，就像女孩用的眼影一样，做成一个小盒子，用户可点击可选择不同的画笔；加画笔盒子；加橡皮擦；<br></li>
+<li>优化代码：给一坨东西取一个名字。<br></li>
+<li>作用域的问题，放在最外面最前面的就是全局变量了。<br></li>
+<li>用js给代码加className,添加状态实现控制，代替if()else()<br><br><img src="https://i.imgur.com/M6V8QDD.jpg" alt=""><br></li>
+<li>变量提升：JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部<br></li>
+<li>下面第二部分-添加功能<br></li>
+<li>手机上可看、可用，多种颜色的画笔，保存，眼影盘把画笔包裹起来,美工，背景图<br></li>
+<li>img 和 script用src，link用href<br></li>
+<li><code>git commit -v</code> 能看到你对仓库的所有改动,这个时候可以对仓库的改动做一个总结。下次代替’<code>git commit -m &quot;改动信息提交&quot;</code>‘</li>
+<li>google搜索的时候不想看到某个广告或内容可以用 <code>-广告</code>，如：<br><code>阻止 980 - 索爱</code><br></li>
+<li><code>meta:vp</code>，添加<code>viewport</code>可以让页面不能缩放，这样PC端内容就以<code>1：1的比例</code>展示在手机端。<strong>实现canvas可以在手机上可看</strong><br></li>
+<li><code>解决手机可用问题</code>,形如在PC端的<code>xxx.onmousedown</code>的<code>mouse</code>事件， 对应在手机上有<code>xxx.ontouchstart</code>的<code>touch</code>事件。手机没有<code>mouse</code>事件。所以当从PC端切换到手机端，只要更换监听事件就可以了。而不能简单通过手机和电脑来区分监听<code>mouse</code>和<code>touch</code>事件，有些手机不支持触屏，有些电脑可以触屏;而是<strong>根据设备是否支持touch 和mouse来区分监听哪个事件。</strong><br><br>区分设备是否支持touch触发：在PC端上：<code>id.ontouchstart === defined</code>,即touch未定义，就是说PC这个设备不支持touch事件；在手机端：<code>id.ontouchstart === null</code>,即touch被初始化了，现在为空，支持touch触发。故我们可以判断 <code>id.ontouchstart</code>的值来判断设备是否支持touch触发，测试时可直接在console命令台输入<code>&#39;ontouchstart&#39; in document.body</code> <br><br><img src="https://i.imgur.com/C67OK65.jpg" alt=""></li>
+<li>特性检测：不是检测设备，而是检测设备是否具有这个功能特性。<br></li>
+<li><code>mouse</code>对应<code>MouseEvent</code>,<code>touch</code>对应<code>TouchEvent</code>,两个事件不一样,触屏一般都是支持<strong>多点触屏（同时用几个鼠标点基本不会出现）</strong>的。获取坐标的方法也不一样。TouchEvent的x,y坐标为<code>xxx.touches[0].clientX</code>和<code>xxx.touches[0].clientY</code>,其中<code>trouches[0]</code>是数组。<br></li>
+<li>手机端的代码和PC端的代码一样，就是mouse换touch，取坐标的方法略微不一样，直接copy小改一下。<br></li>
+<li>一般改进一个功能后就上传到github进行代码备份并添加备注信息。<br></li>
+<li>给画笔加图标，给橡皮擦加图标<a href="http://iconfont.cn" title="矢量图标" target="_blank" rel="noopener">http://iconfont.cn</a><br></li>
+<li><code>id.onclick</code>某某某被点击后要执行什么，支持手机端和PC端的<br><br> <code>id.onclick = function(){ 要执行的功能操作；}</code></li>
+<li>加戏：添加默认状态示意，默认使用画笔，画笔一开始就高亮。如果<code>eraser</code>和<code>brush</code>被点击了，就变红且变大，让用户明确的知道选择了什么。<br></li>
+<li>用CSS样式先做个颜色盘（各种形状），点哪个颜色给哪个颜色高亮一下，变大: <code>transform:scale(2)；transition:all 0.3s</code><br></li>
+<li><code>context.strokeStyle = &#39;blue&#39;</code> 意思是上下文的描边样式是蓝色。<br></li>
+<li>一般标签是<code>className</code>,svg标签是<code>classList</code>。<code>id.classList.add(&#39;class&#39;)</code> <code>id.classList.remove(&#39;class&#39;)</code><br></li>
+<li>禁用滚动条，<code>body{overflow:hidden;}</code><br></li>
+<li>去掉ol,ul的样式。<code>ol,ul{list-style:none;}</code><br></li>
+<li>颜色盘的各种颜色用<code>ul&gt;li</code>结构和画笔的各种颜色也用<code>ul&gt;li</code>结构。位置都用绝对定位：<code>position:fixed;left:10px;top:10px;</code><br></li>
+<li>养成个习惯,js用id名，css用class名。<br></li>
+<li>上下文颜色 和 线条宽度 由开始的写死 变成点击对应颜色或线条后改变<br><br>如： red.onclick = function(){点击红颜色，给画笔换成红色*(context.strokeStyle = ‘red’)，其他颜色不选择}<br><br>thin.onclick = function(){点击细线，给画笔设置宽度（context.lineWidth = 3）小一点的},或者在外面定义全局变量<code>lineWidth</code>,对应点击赋值，初始设置<code>context.lineWidth = lineWidth</code><br></li>
+<li>bug是一定有的，这是线条还是不完美。需要改bug<br></li>
+<li>需求是无限加的，加 <code>清屏</code> <code>撤销</code> <code>保存下载</code>按钮,加<code>icon</code>,每次加完icon都要更新我们的js代码，重新添加js代码到我们的<code>&lt;script&gt;&lt;/script&gt;</code><br><br>清屏：google: <code>js canvas clear</code>建一个大的清空长方形<br><br>保存下载：google:<code>js canvas save as image</code><br><img src="https://i.imgur.com/6B4NAA0.jpg" alt=""></li>
+<li>学会google很重要<br></li>
+<li>修bug改bug<br></li>
+<li>上传到github更新很慢，启用局域网调试。google查windows的局域网地址，用手机访问 局域网地址:8080<br><br><img src="https://i.imgur.com/ar6nGw1.jpg" alt=""><br></li>
+<li>添加CSS样式，让canvas绝对定位 <code>position:fixed</code><br></li>
+<li>可以给画出的东西加CSS滤镜，不需要服务器，只用浏览器就可以。<br></li>
+<li>继续完善创新吧~</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/18/JS与导航栏/" rel="next" title="JS初">
+                <i class="fa fa-chevron-left"></i> JS初
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">linyanliao</p>
+              <p class="site-description motion-element" itemprop="description">前端学习 分享 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyanliao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

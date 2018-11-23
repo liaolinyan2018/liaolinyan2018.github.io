@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/iXZwoO8.jpg">
 <meta property="og:image" content="https://i.imgur.com/ICiWxeS.png">
-<meta property="og:updated_time" content="2018-11-19T06:40:40.831Z">
+<meta property="og:updated_time" content="2018-11-21T12:51:11.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS初">
 <meta name="twitter:description" content="document.onkeypress = function(randomName){ console.log(&amp;apos;你按下的这个键所有信息是：&amp;apos;) console.log(randomName)   //猜想randomName是存所有信息的hash表名   }   新建 二维数组和hash表。 用js代码写html。 添加CSS样式    监听用户事件-即用户输入q打开qq.c">
@@ -326,7 +326,39 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
 <ol start="4">
 <li>监听用户事件-即用户输入q打开qq.com<br>获取用户输入的键值–取出对应hash表的网站域名–修改当前网站地址/新开窗口打开<br><br></li>
 <li>加功能-用户自己设定按键对应的网站<br>用js给kbd里加儿子button标签，加css样式。当鼠标滑过kbd时，显示button的值。<br><br></li>
-<li>使用localStorage，将用户修改的网站地址保存到本地，避免出现用户刷新网页后，网页内容还是原来程序员自定义的网址。<br><br>方法是把存修改后地址的变量保存到这个js之外的地方去。首先获取用户编辑button对应的键值，用prompt获取用户要变更的网址，变更哈希，在这步结束以后，用户若是刷新网页，以上更改内容无效，于是用localStorage 把 变更过的hash表 保存到random的桶里，还必须在前面加上每次刷新网页时优先读取localStorage 的random 桶里的hash表。这样一来，要是上次用户修改了网页，当下次用户再次打开网页时，优先读取的是 修改过后的网站hash表。这就做到了实现用户自定义网站的要求。<br><br></li>
+<li><p>使用localStorage，将用户修改的网站地址保存到本地，避免出现用户刷新网页后，网页内容还是原来程序员自定义的网址。<br><br>方法是把存修改后地址的变量保存到这个js之外的地方去。首先获取用户编辑button对应的键值，用prompt获取用户要变更的网址，变更哈希，在这步结束以后，用户若是刷新网页，以上更改内容无效，于是用localStorage 把 变更过的hash表 保存到random的桶里，还必须在前面加上每次刷新网页时优先读取localStorage 的random 桶里的hash表。这样一来，要是上次用户修改了网页，当下次用户再次打开网页时，优先读取的是 修改过后的网站hash表。这就做到了实现用户自定义网站的要求。<br><br></p>
+</li>
+<li><p>键盘导航的功能基本够了，现在给键盘加CSS样式，立体，阴影，hover之类的。<br></p>
+</li>
+<li><p>加网站图标。 /favicon.icon <br><br>这个还挺麻烦的，加img标签及CSS样式，JS实现功能。有点容易错<br></p>
+<blockquote>
+<p>if(hash[row[index2]]){img.src = ‘http://‘ + hash[row[index2]] + ‘/favicon.ico’}<br><br>else{img.src = ‘//i.loli.net/2017/11/10/5a05afbc5e183.png’}<br><br><code>/*监听失败事件*//*console.log(&#39;获取icon失败了&#39;)*/</code><br><br>img.onerror = function(shijianName){shijianName.target.src = ‘./failphoto.jpg’}<br></p>
+</blockquote>
+</li>
+</ol>
+<p>在用户修改网站后，不仅要立即更新hash表存档，还要马上更改icon,用js实现<br></p>
+<pre><code>button.onclick = function(randomName){  //button被点击了
+//console.log(randomName) 这里的randomName就是事件click 哈希表的名称，randomName这个hash表存着这个事件的所有信息,打印出事件的所有信息
+button2 = randomName[&apos;target&apos;] //randomName[&apos;target&apos;]是用户点击的元素
+img2 = button2.nextSibling  //button2.nextSibling 可以取到当前被点击的button2的下一个兄弟
+var key = button2[&apos;id&apos;]   //q w e r t y 取出用户要编辑哪一个kbd的键值
+//console.log(randomName[&apos;target&apos;][&apos;id&apos;]  /*这里用key是错误的，这里没有按下kbd没有[&apos;key&apos;]，不能像下面一样用*/)
+var x = prompt(&apos;请输入要变更的网址&apos;)         //获取用户要更改的网址
+hash[key] = x                              //hash变更
+//console.log(hash)                  //每次都打出hash
+//hash变更后要立刻存档到randomN
+localStorage.setItem(&apos;randomN&apos;,JSON.stringify(hash)) //JSON.stringify(hash)是把hash变成字符串的                              //hash变更
+if(hash[key]){img2.src = &apos;http://&apos;+hash[key]+&apos;/favicon.ico&apos;}  //对应网站icon也要变更
+else{img2.src = &apos;//i.loli.net/2017/11/10/5a05afbc5e183.png&apos;}
+/*监听失败事件*//*console.log(&apos;获取icon失败了&apos;)*/
+img2.onerror = function(shijianName){shijianName.target.src = &apos;./failphoto.jpg&apos;}
+ }
+</code></pre><p><br></p>
+<ol start="9">
+<li><p>解决bug。onerror <br><br>各种bug，测试。一般一个事件发生以后，我们可以知道这个事件所包含的所有信息，<code>button.onclick = function(randomName){}</code>，如这个事件的所有信息都存在randomName这个桶里（也是一个hash表），我们可以打出这个桶里的信息，可以通过randomName.target获得事件每次发生的对象，而不是用button,button往往存的是最后一个值。<br></p>
+</li>
+<li><p>优化代码-组装函数。可选做很酷，先完成前面。<br><br>封装函数就是把能实现一个功能的代码包起来，命个名字。代码结构由 数组型 变成 树形，逻辑清晰，易读性高，纠错快！ 只看一个子树就好了，每个子树的代码也不会很长，这样也不会疲倦。原来我在学C语言的时候，<strong>封装成函数</strong>是这个原因啊！确实很有道理<br> </p>
+</li>
 </ol>
 <ul>
 <li>知识</li>
@@ -339,6 +371,13 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
 <li>js的API函数</li>
 <li>用js写html</li>
 <li>用开发者工具调试-console &amp; application</li>
+<li>开发者工具模拟3g慢速网</li>
+<li>背景图片不能太大，裁剪图片，太久加载不出来用户就不会打开了</li>
+<li>获取网站的icon，例如：点击获取微博的icon  <a href="http://weibo.com/favicon.ico" title="获取微博的icon" target="_blank" rel="noopener">http://weibo.com/favicon.ico</a> <br></li>
+<li>上传一个图片</li>
+<li>标签就是一个哈希表</li>
+<li>18的习题要做一个错题收集。还没学过基础知识，还是有点模糊。</li>
+<li>以上内容供自己回顾使用。</li>
 </ul>
 
       
@@ -373,6 +412,10 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/21/JS与画板/" rel="prev" title="JS与画板">
+                JS与画板 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -440,7 +483,7 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
