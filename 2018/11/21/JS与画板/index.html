@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://i.imgur.com/C67OK65.jpg">
 <meta property="og:image" content="https://i.imgur.com/6B4NAA0.jpg">
 <meta property="og:image" content="https://i.imgur.com/ar6nGw1.jpg">
-<meta property="og:updated_time" content="2018-11-23T10:21:59.767Z">
+<meta property="og:updated_time" content="2018-11-23T13:17:41.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS与画板">
 <meta name="twitter:description" content="画板分析：按下去鼠标-动鼠标-松开鼠标 按在哪里？事件：document.onmousedown = function(x){console(x)} 监听动作？ 事件：document.onmousemove = function(y){console(y)} 松鼠标？事件：document.onmouseup = function(z){console(z)} 通过上次键盘网站我们知道，fun">
@@ -323,7 +323,7 @@
 <li>变量作用域<br></li>
 <li>用元素做画板，画得太快导致线条不连续，有缺陷<br></li>
 <li>专门有个标签做画板 <code>&lt;canvas&gt;&lt;/canvas&gt;</code><br><br> <code>canvas</code> 默认<code>inline-block</code>,不能设置为 <code>block</code>,可设置宽高<br></li>
-<li>不建议用CSS控制canvas的初始宽高，canvas的宽高是等比例缩放的，会出现滚动条，要用其它办法<br></li>
+<li>不建议用CSS样式控制canvas的初始宽高，这样做你只能得到canvas等比例缩放的，会出现滚动条，要用其它办法<br></li>
 <li>查canvas mdn，熟悉各种JS 的 API，从在canvas画一个长方形开始<br> </li>
 <li>stroke描边 fill填充 clear挖空<br><br>var canvas = document.getElementById(‘canvas’);<br>var context = canvas.getContext(“2d”);<br>context.strokeStyle = “bule”;<br>context.strokeRect(1, 1, 100, 100);<br>context.fillStyle = “white”;<br>context.fillRect(1, 1, 100, 100);<br>context.clearRect(45, 50, 40, 10);</li>
 <li>注意 <code>aaa.clientX`</code>aaa.clientY<code>是相对于视口的高度，也就是浏览器窗口(html)的高度，并不是对</code>canvas<code>的高度。canvas画图，点击时画的位置就是相对的，要解决这个bug，使相对于浏览器的位置 就是 相对于canvas的位置，即设置</code>html,body{margin:0px;}`<br></li>
@@ -402,6 +402,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/27/JS的数据/" rel="prev" title="JS的数据类型">
+                JS的数据类型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -468,7 +472,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
