@@ -313,7 +313,56 @@
       
         
           
-            
+            <p>JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。<br></p>
+<h2 id="全局对象-window"><a href="#全局对象-window" class="headerlink" title="全局对象 window"></a>全局对象 window</h2><p>我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做<code>global</code>，但是浏览器把<code>window</code>作为全局对象。<br><br><strong>window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种私有。公有就是ECMAscript规定的，私有就是某些浏览器自己加的windows属性，且各浏览器表现出来的形式不一样。</strong><br></p>
+<p><strong>ECMAScript规定的</strong>：<br></p>
+<ul>
+<li>global.parseInt</li>
+<li>global.parseFloat</li>
+<li>global.Number</li>
+<li>global.String</li>
+<li>global.Boolean</li>
+<li>global.Object</li>
+</ul>
+<p><strong>各浏览器自己加的属性:</strong><br></p>
+<ul>
+<li>window.alert(弹框提示)</li>
+<li>window.prompt（用户填写）</li>
+<li>window.comfirm（用户确认）</li>
+<li>window.console.log（开发者）</li>
+<li>window.console.dir</li>
+<li>window.document（文档，其标准DOM由W3C组织制定）</li>
+<li>window.document.createElement</li>
+<li>window.document.getElementById</li>
+<li>window.history(浏览器，其标准为BOM)</li>
+<li>window.history.back</li>
+<li>全局属性，window可省略<br><img src="https://i.imgur.com/fx1VU88.png" alt=""><br><br>下面我们学习四个全局属性，<code>Number()</code> <code>String</code> <code>Boolean</code> <code>Object</code>.<br></li>
+</ul>
+<ol>
+<li><p><strong><code>var n1 = Number(&#39;1&#39;)</code> 和 <code>var n2 = 1;</code> 与 <code>var n3 = new Number(1)</code>三者的区别：前二者声明数字number类型，后者为对象object类型</strong><br><br><br><img src="https://i.imgur.com/ZN9cDuE.png" alt=""><br><br><img src="https://i.imgur.com/d54A67s.png" alt=""><br><br><strong>有一个重要的问题需要弄清楚</strong>，我们知道，简单类型（number/string/boolean）是没有属性的，但是上面为什么<code>n2.toString</code>又是成立的呢，其实是<code>n2.toString</code>返回的是一个<strong>临时对象<code>temp</code></strong>的<code>temp.toString()</code>值，这是JS设计者想的一个办法，既能语法像JAVA满足boss的要求，又能方便程序员的使用。下面我们来看看<code>var n2 = 1; n2.toString();</code> 这两句代码发生了什么：<br></p>
+<p> var n2 = 2;      //1.声明了一个简单的number类型，值为2<br> n2.toString();   //2.执行这句时，发现n2不是一个对象，这时会在内存里新建一个临时对象temp,这个临时对象temp等价于用new Number(1)创建的对象（复杂数字，由属性和值组成）。</p>
+<pre><code>//3.调用temp的toString属性，将temp.toString的值返回 作为 n2.toString的值（实际上n2是没有属性的）。
+//3.在返回值后temp这个对象会被立刻释放掉，立刻释放掉，下次又使用的时候又重新建temp临时对象。
+//4.说明：temp这个临时对象随浏览器解析n2.String()这句代码而建立，随代码执行结束而释放。
+//4.说明：可以往temp里面加属性，只不过temp用完就被释放，所以添加属性没有意义，下次找不见。
+</code></pre></li>
+</ol>
+<p><br><br>内存图<br><br><img src="https://i.imgur.com/RMpNcrF.png" alt=""><br></p>
+<p><hr><br><strong>还有一个易错的问题：</strong><br><br>1<br><br><img src="https://i.imgur.com/SgadUcG.png" alt=""><br><br>2<br><br><img src="https://i.imgur.com/oqryDG3.png" alt=""><br><br>3<br><br><img src="https://i.imgur.com/0hdTr6x.png" alt=""><br><br><br></p>
+<ol start="2">
+<li><strong><code>var s1 = String(1)</code> 和 <code>var s2 = &#39;this is a string.&#39;;</code> 与 <code>var n3 = new Number(&#39;this is a string.&#39;)</code>三者的区别：前二者声明数字string类型，后者为对象object类型。</strong>代码在内存的原理同number，不再画图复述。看下图：<br><br><br><a href="https://imgchr.com/i/Fmroex" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmroex.png" alt="Fmroex.png"></a><br></li>
+<li><strong><code>var b1 = Boolean(4)</code> 和 <code>var b2 = false;</code> 与 <code>var b3 = new Boolean(false);</code>三者的区别：前二者声明数字boolean类型，后者为对象object类型。</strong>第一为强制类型转换为boolean,第二是程序员方便使用，第三是给老板看，把 <code>false</code>包装成 对象。代码在内存的原理同number,string，不再画图复述<br><br><a href="https://imgchr.com/i/Fms9Tf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fms9Tf.png" alt="Fms9Tf.png"></a><br></li>
+<li><p><strong><code>var o1 = Object(2)</code> 和 <code>var o2 = {};</code> 与 <code>var o3 = new Object();</code>三者的区别：第一是强制类型转换成对象类型，第二程序员常用声明一个对象类型，第三应付boss，仿JAVA。但是注意o2!==o3，两个不同的对象</strong><br><br><br><a href="https://imgchr.com/i/Fm6XpF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm6XpF.png" alt="Fm6XpF.png"></a><br><br><hr></p>
+<h2 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h2><p><hr></p>
+<h2 id="公用的属性藏在哪"><a href="#公用的属性藏在哪" class="headerlink" title="公用的属性藏在哪"></a>公用的属性藏在哪</h2><p><strong>proto</strong>:object  //<strong>proto</strong>这个属性不用写就有，每一个对象的 <strong>proto</strong> 存储「公用属性组成的对象」的地址。<br><br><br><a href="https://imgchr.com/i/Fmf9J0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmf9J0.md.png" alt="Fmf9J0.md.png"></a><br><br>当解析一句代码时，如果这个不是对象，就包装成一个对象，自动生成<code>__proto__</code>。<br><br>所有对象的公有属性（也叫原型）： <code>Object.prototype</code>;<br><br>所有number的公有属性（也叫原型）： <code>Number.prototype</code><br><br>所有string的公有属性（也叫原型）： <code>String.prototype</code><br><br>所有boolean的公有属性（也叫原型）： <code>Boolean.prototype</code><br><br><a href="https://imgchr.com/i/Fm5j10" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5j10.md.png" alt="Fm5j10.md.png"></a><br><br><a href="https://imgchr.com/i/FmIiN9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIiN9.md.png" alt="FmIiN9.md.png"></a><br></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p><strong>多用开发者工具的控制台去验证，尝试理解。</strong><br><br><a href="https://imgchr.com/i/Fmhh4I" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmhh4I.md.png" alt="Fmhh4I.md.png"></a><br><br><code>prototype</code>和<code>__proto__</code>的区别：<br><br><a href="https://imgchr.com/i/Fm5nFs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5nFs.md.png" alt="Fm5nFs.md.png"></a><br><br><hr></p>
+<h2 id="重要公式-原型与原型链"><a href="#重要公式-原型与原型链" class="headerlink" title="重要公式-原型与原型链"></a>重要公式-原型与原型链</h2><p>var 对象 = new 函数（）<br>对象.<strong>proto</strong> === 函数.prototype  //都指向同一个公有属性对象地址，调用API<br>// 推论<br>var number = new Number()<br>number.<strong>proto</strong> = Number.prototype<br>Number.<strong>proto</strong> = Function.prototype // ?因为 Number 是 Function 的实例</p>
+<p>var object = new Object()<br>object.<strong>proto</strong> = Object.prototype<br>Object.<strong>proto</strong> = Function.prototype //? 因为 Object 是 Function 的实例,Function 是 Object 的构造函数。</p>
+<p>var function = new Function()<br>function.<strong>proto</strong> = Function.prototype<br>Function.<strong>proto</strong> == Function.prototye // ?因为 Function 是 Function 的实例！</p>
+</li>
+</ol>
+<p><a href="https://imgchr.com/i/FmIcuT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIcuT.png" alt="FmIcuT.png"></a><br></p>
+
           
         
       
