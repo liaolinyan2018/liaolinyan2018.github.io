@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="关于HTML的几个小知识HTML（超文本标记语言——HyperText Markup Language）是构成 Web 世界的一砖一瓦。它定义了网页内容的含义和结构。除 HTML 以外的其它技术则通常用来描述一个网页的表现与展示效果（如 CSS），或功能与行为（如 JavaScript）  什么是W3CW3C是英文 World Wide Web Consortium 的缩写，中文意思是W3C理事会">
+<meta name="description" content="前言开始系统学习CSS，做了几个小demo后，我发现调试CSS需要花很长时间，而且大多数时间都是去试，效果都是我们想出来，用CSS样式实现时要不停的试，花的时间越多，做出来的页面越美。 CSS不正交及表现CSS不正交的意思就是，CSS的各个属性之间存在相互影响，也就是会自相矛盾。所以很可能你现在实现了效果，再加入一个属性以后效果就完全打乱了。 CSS的学习方法CSS是艺术，不是科学。不要尝试去理解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于HTML">
-<meta property="og:url" content="http://yoursite.com/2018/11/02/关于HTML/index.html">
+<meta property="og:title" content="CSS系列1">
+<meta property="og:url" content="http://yoursite.com/2018/12/01/CSS系列1/index.html">
 <meta property="og:site_name" content="linyan &#39;s blog">
-<meta property="og:description" content="关于HTML的几个小知识HTML（超文本标记语言——HyperText Markup Language）是构成 Web 世界的一砖一瓦。它定义了网页内容的含义和结构。除 HTML 以外的其它技术则通常用来描述一个网页的表现与展示效果（如 CSS），或功能与行为（如 JavaScript）  什么是W3CW3C是英文 World Wide Web Consortium 的缩写，中文意思是W3C理事会">
+<meta property="og:description" content="前言开始系统学习CSS，做了几个小demo后，我发现调试CSS需要花很长时间，而且大多数时间都是去试，效果都是我们想出来，用CSS样式实现时要不停的试，花的时间越多，做出来的页面越美。 CSS不正交及表现CSS不正交的意思就是，CSS的各个属性之间存在相互影响，也就是会自相矛盾。所以很可能你现在实现了效果，再加入一个属性以后效果就完全打乱了。 CSS的学习方法CSS是艺术，不是科学。不要尝试去理解">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-03T12:22:15.759Z">
+<meta property="og:updated_time" content="2018-12-01T09:04:42.899Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于HTML">
-<meta name="twitter:description" content="关于HTML的几个小知识HTML（超文本标记语言——HyperText Markup Language）是构成 Web 世界的一砖一瓦。它定义了网页内容的含义和结构。除 HTML 以外的其它技术则通常用来描述一个网页的表现与展示效果（如 CSS），或功能与行为（如 JavaScript）  什么是W3CW3C是英文 World Wide Web Consortium 的缩写，中文意思是W3C理事会">
+<meta name="twitter:title" content="CSS系列1">
+<meta name="twitter:description" content="前言开始系统学习CSS，做了几个小demo后，我发现调试CSS需要花很长时间，而且大多数时间都是去试，效果都是我们想出来，用CSS样式实现时要不停的试，花的时间越多，做出来的页面越美。 CSS不正交及表现CSS不正交的意思就是，CSS的各个属性之间存在相互影响，也就是会自相矛盾。所以很可能你现在实现了效果，再加入一个属性以后效果就完全打乱了。 CSS的学习方法CSS是艺术，不是科学。不要尝试去理解">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/02/关于HTML/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/01/CSS系列1/">
 
 
 
 
 
-  <title>关于HTML | linyan 's blog</title>
+  <title>CSS系列1 | linyan 's blog</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/关于HTML/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/CSS系列1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="linyanliao">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于HTML</h1>
+          <h1 class="post-title" itemprop="name headline">CSS系列1</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-02T18:48:18+08:00">
-                2018-11-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:22:39+08:00">
+                2018-12-01
               </time>
             
 
@@ -309,49 +309,64 @@
       
 
       
-        <p></p><h1>关于HTML的几个小知识</h1><br><br><br><code>HTML</code>（超文本标记语言——HyperText Markup Language）是构成 Web 世界的一砖一瓦。它定义了网页内容的含义和结构。除 HTML 以外的其它技术则通常用来描述一个网页的表现与展示效果（如 <code>CSS</code>），或功能与行为（如 <code>JavaScript</code>）<br><p></p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>开始系统学习CSS，做了几个小demo后，我发现调试CSS需要花很长时间，而且大多数时间都是去试，效果都是我们想出来，用CSS样式实现时要不停的试，花的时间越多，做出来的页面越美。<br></p>
+<h2 id="CSS不正交及表现"><a href="#CSS不正交及表现" class="headerlink" title="CSS不正交及表现"></a>CSS不正交及表现</h2><p>CSS不正交的意思就是，CSS的各个属性之间存在相互影响，也就是会自相矛盾。所以很可能你现在实现了效果，再加入一个属性以后效果就完全打乱了。<br></p>
+<h2 id="CSS的学习方法"><a href="#CSS的学习方法" class="headerlink" title="CSS的学习方法"></a>CSS的学习方法</h2><p>CSS是艺术，不是科学。不要尝试去理解CSS的复杂原理，满足需要就行了。<br></p>
+<ul>
+<li>自己试（会累死的）</li>
+<li>让别人研究，我用现成的，现在有很多这样的网站。</li>
+<li>多实践，多总结</li>
+<li>先学会套路：布局&amp;居中&amp;自适应&amp;媒体查询&amp;响应式&amp;能做页面就可以了。</li>
+<li>熟练常用的，其他效果用到再google。</li>
+<li>平时有时间就写博客总结以下CSS的用法。</li>
+<li>记住几个常见的写法即可：<strong>居中</strong>{两种水平居中，三种垂直居中}、<strong>布局</strong>{两种左右结构，两种左中右结构}、一行省略、多行省略</li>
+</ul>
+<h2 id="CSS难学（不正交-属性多-性价比低）"><a href="#CSS难学（不正交-属性多-性价比低）" class="headerlink" title="CSS难学（不正交 + 属性多 + 性价比低）"></a>CSS难学（不正交 + 属性多 + 性价比低）</h2><p>CSS 不正交，因而有些反直觉。不正交主要表现在两点：</p>
 <ol>
-<li>什么是W3C<br><br>W3C是英文 World Wide Web Consortium 的缩写，中文意思是W3C理事会或万维网联盟。W3C组织是制定万维网标准的一个非赢利组织，像HTML、XHTML、CSS、XML的标准就是由W3C来定制。<br><br><br></li>
-<li>MDN是什么？<br><br>MDN Web Docs（旧称Mozilla Developer Network、Mozilla Developer Center，简称MDN）是一个汇集众多Mozilla基金会产品和网上技术开发文档的免费网站。<br><br>简单说，W3C和MDN是平时学习前端的工具，我们可以到上去查找学习资料，比如要想知道一个标签的语义及用法就可以搜 标签 MDN/W3C。<br><br><br></li>
-<li>HTML所有标签列表<br><br>标签建议统一使用小写。<br>所有HTML标签按功能分组为：<br><ul>
-<li>根元素<br></li>
-<li>文档元数据<br></li>
-<li>内容分区<br></li>
-<li>文本内容<br></li>
-<li>内联文本语义<br></li>
-<li>图片和多媒体<br></li>
-<li>内嵌内容<br></li>
-<li>脚本<br></li>
-<li>编辑标识<br></li>
-<li>表格内容<br></li>
-<li>表单<br></li>
-<li>交互元素<br></li>
-<li>Web组件<br></li>
-<li>过时和弃用的元素<br><br><br>参考MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element</a><br><br><br></li>
+<li>同一元素的各属性之间互相影响<ul>
+<li><code>margin</code>合并 VS <code>border</code></li>
+<li><code>ul&gt;li</code> VS <code>display</code></li>
+<li><code>position: absolute</code> VS <code>display: inline</code></li>
 </ul>
 </li>
-<li>什么是空标签？<br><br>HTML文档是包含多个 <code>HTML元素</code> 的文本文档。每个元素都用一对 开始和结束标签 包裹。每个标签以尖括号（&lt;&gt;）开始和结束。<code>其中也有一部分标签中不需要包含文本，这些标签称为空标签</code>，如 <code>&lt;img&gt;</code> <br><br>在HTML中有如下的空标签（空标签无子元素）：<br><ul>
-<li><code>&lt;area&gt;</code><br></li>
-<li><code>&lt;base&gt;</code><br></li>
-<li><code>&lt;br&gt;</code><br></li>
-<li><code>&lt;col&gt;</code><br></li>
-<li><code>&lt;colgroup&gt;</code> when the span is present  <br></li>
-<li><code>&lt;command&gt;</code><br></li>
-<li><code>&lt;embed&gt;</code><br></li>
-<li><code>&lt;hr&gt;</code><br></li>
-<li><code>&lt;img&gt;</code><br></li>
-<li><code>&lt;input&gt;</code><br></li>
-<li><code>&lt;keygen&gt;</code><br></li>
-<li><code>&lt;link&gt;</code><br></li>
-<li><code>&lt;meta&gt;</code><br></li>
-<li><code>&lt;param&gt;</code><br></li>
-<li><code>&lt;source&gt;</code><br></li>
-<li><code>&lt;track&gt;</code><br></li>
-<li><code>&lt;wbr&gt;</code><br><br><br><br><br></li>
+<li>各元素之间互相影响<ul>
+<li><code>position: fixed</code> VS <code>transform</code></li>
+<li><code>float</code> 影响 <code>inline</code> 元素<h2 id="CSS容易学？"><a href="#CSS容易学？" class="headerlink" title="CSS容易学？"></a>CSS容易学？</h2><strong>背套路即可应付日常工作</strong><br></li>
 </ul>
 </li>
-<li>什么是可替换标签？<br><br>CSS 里，可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类 外观渲染独立于CSS的 外部对象。 典型的可替换元素有 <code>&lt;img&gt;</code>、 <code>&lt;object&gt;</code>、 <code>&lt;video&gt;</code> 和 表单元素，如<code>&lt;textarea&gt;</code>、 <code>&lt;input&gt;</code> 。 某些元素只在一些特殊情况下表现为可替换元素，例如 <code>&lt;audio&gt;</code> 和 <code>&lt;canvas&gt;</code> 。通过 CSS content 属性来插入的对象 被称作 匿名可替换元素（anonymous replaced elements）。<br>CSS在某些情况下会对可替换元素做特殊处理，比如计算外边距和一些auto值。需要注意的是，一部分（并非全部）可替换元素，本身具有尺寸和基线（baseline），会被像vertical-align之类的一些 CSS 属性用到。<br><br>参考MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element" title="参考MDN" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element</a> <br><br>这个可替换元素还是不是很懂耶~遇到了再来补充吧。</li>
 </ol>
+<ul>
+<li>水平居中</li>
+<li>垂直居中<br><br><strong>巧用工具</strong><br><br><a href="http://css3generator.com" target="_blank" rel="noopener">CSS3 Generator</a><br><br><strong>张鑫旭博客</strong><br><br><a href="https://www.zhangxinxu.com/wordpress/category/css/" target="_blank" rel="noopener">goole: 张鑫旭 CSS</a><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3></li>
+<li><p>PC端</p>
+<ul>
+<li>IE8 :只用float布局。float布局依赖盒子模型的特点<br><br>父元素加 <code>.clearfix</code>类名，加 <code>.clearfix{CSS样式}</code>。子元素为两个/三个宽度固定的div，加CSS样式 <code>.child{float:left；width：xx px}</code> 。<ul>
+<li>Chrome:flex布局。待补充。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mobile<br>flex布局。待补充。<h3 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h3></li>
+<li><p>水平居中。</p>
+<ul>
+<li>child是块级元素<br><br>  child宽度不确定 <code>.child{margin:0 20px;}</code> ;child 宽度固定 <code>.child{margin:0 auto;}</code></li>
+<li>child是inline元素<br><br>给父元素加 <code>.parent{text-align:center;}</code></li>
+</ul>
+</li>
+<li><p>垂直居中(7种方法)<br><br>垂直居中的要点就是<strong>一定不要给父元素加 固定死高度</strong>，加了固定高度又要想实现里面内容就是给自己找麻烦。不给父元素加固定高度，实现里面内容垂直居中很容易。Good idea是先把里面child元素的内容和样式加好，再<strong>用padding撑起你要想要的父元素的高度</strong>，这样一来就实现了<strong>自然的垂直居中</strong>。因为不管child元素的高度是否固定，通过给父元素加上下相等的padding，就能实现child元素垂直居中。如：<code>.parent{padding-top:20px;padding:20px;}</code><br></p>
+<ul>
+<li>child高度固定 或 child高度不确定（里面有几行文本不确定）,要实现垂直居中，给父元素加：<code>.parent{padding:20px 0px;}</code></li>
+<li>parent高度固定<br><br>  工作中一定要避免这种情况发生。先固定外容器，再实现内居中，这不是好的idea，通常要用更多的代码解决这个麻烦。<br><br>解决办法有： IE浏览器 用 table/div(table)，代码兼容性强；Chrome浏览器 和 手机 使用flex布局实现垂直居中，代码简单。</li>
+</ul>
+</li>
+</ul>
+<h2 id="要学好CSS"><a href="#要学好CSS" class="headerlink" title="要学好CSS"></a>要学好CSS</h2><ul>
+<li>通读CSS规范文档-17章。<a href="http://cndevdocs.com" target="_blank" rel="noopener">CSS2中文文档</a>CSS3没有中文，英语要求高，人类根本都不读不完<br></li>
+<li>让张鑫旭（国内CSS研究前端最深的）研究，我用。</li>
+<li>CSS研究再厉害，不能变成商业价值也没有用。</li>
+<li>所以一切够用就行。</li>
+<li>JS才是前端核心</li>
+</ul>
 
       
     </div>
@@ -376,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/01/HTML入门/" rel="next" title="HTML入门">
-                <i class="fa fa-chevron-left"></i> HTML入门
+              <a href="/2018/12/01/搜索引擎大法/" rel="next" title="搜索引擎大法">
+                <i class="fa fa-chevron-left"></i> 搜索引擎大法
               </a>
             
           </div>
@@ -385,10 +400,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/03/关于github/" rel="prev" title="关于github">
-                关于github <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">关于HTML的几个小知识</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS不正交及表现"><span class="nav-number"></span> <span class="nav-text">CSS不正交及表现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS的学习方法"><span class="nav-number"></span> <span class="nav-text">CSS的学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS难学（不正交-属性多-性价比低）"><span class="nav-number"></span> <span class="nav-text">CSS难学（不正交 + 属性多 + 性价比低）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS容易学？"><span class="nav-number"></span> <span class="nav-text">CSS容易学？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#居中"><span class="nav-number">2.</span> <span class="nav-text">居中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要学好CSS"><span class="nav-number"></span> <span class="nav-text">要学好CSS</span></a></li></div>
             
 
           </div>

@@ -242,6 +242,306 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/CSS系列1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/CSS系列1/" itemprop="url">CSS系列1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:22:39+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>开始系统学习CSS，做了几个小demo后，我发现调试CSS需要花很长时间，而且大多数时间都是去试，效果都是我们想出来，用CSS样式实现时要不停的试，花的时间越多，做出来的页面越美。<br></p>
+<h2 id="CSS不正交及表现"><a href="#CSS不正交及表现" class="headerlink" title="CSS不正交及表现"></a>CSS不正交及表现</h2><p>CSS不正交的意思就是，CSS的各个属性之间存在相互影响，也就是会自相矛盾。所以很可能你现在实现了效果，再加入一个属性以后效果就完全打乱了。<br></p>
+<h2 id="CSS的学习方法"><a href="#CSS的学习方法" class="headerlink" title="CSS的学习方法"></a>CSS的学习方法</h2><p>CSS是艺术，不是科学。不要尝试去理解CSS的复杂原理，满足需要就行了。<br></p>
+<ul>
+<li>自己试（会累死的）</li>
+<li>让别人研究，我用现成的，现在有很多这样的网站。</li>
+<li>多实践，多总结</li>
+<li>先学会套路：布局&amp;居中&amp;自适应&amp;媒体查询&amp;响应式&amp;能做页面就可以了。</li>
+<li>熟练常用的，其他效果用到再google。</li>
+<li>平时有时间就写博客总结以下CSS的用法。</li>
+<li>记住几个常见的写法即可：<strong>居中</strong>{两种水平居中，三种垂直居中}、<strong>布局</strong>{两种左右结构，两种左中右结构}、一行省略、多行省略</li>
+</ul>
+<h2 id="CSS难学（不正交-属性多-性价比低）"><a href="#CSS难学（不正交-属性多-性价比低）" class="headerlink" title="CSS难学（不正交 + 属性多 + 性价比低）"></a>CSS难学（不正交 + 属性多 + 性价比低）</h2><p>CSS 不正交，因而有些反直觉。不正交主要表现在两点：</p>
+<ol>
+<li>同一元素的各属性之间互相影响<ul>
+<li><code>margin</code>合并 VS <code>border</code></li>
+<li><code>ul&gt;li</code> VS <code>display</code></li>
+<li><code>position: absolute</code> VS <code>display: inline</code></li>
+</ul>
+</li>
+<li>各元素之间互相影响<ul>
+<li><code>position: fixed</code> VS <code>transform</code></li>
+<li><code>float</code> 影响 <code>inline</code> 元素<h2 id="CSS容易学？"><a href="#CSS容易学？" class="headerlink" title="CSS容易学？"></a>CSS容易学？</h2><strong>背套路即可应付日常工作</strong><br></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>水平居中</li>
+<li>垂直居中<br><br><strong>巧用工具</strong><br><br><a href="http://css3generator.com" target="_blank" rel="noopener">CSS3 Generator</a><br><br><strong>张鑫旭博客</strong><br><br><a href="https://www.zhangxinxu.com/wordpress/category/css/" target="_blank" rel="noopener">goole: 张鑫旭 CSS</a><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3></li>
+<li><p>PC端</p>
+<ul>
+<li>IE8 :只用float布局。float布局依赖盒子模型的特点<br><br>父元素加 <code>.clearfix</code>类名，加 <code>.clearfix{CSS样式}</code>。子元素为两个/三个宽度固定的div，加CSS样式 <code>.child{float:left；width：xx px}</code> 。<ul>
+<li>Chrome:flex布局。待补充。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mobile<br>flex布局。待补充。<h3 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h3></li>
+<li><p>水平居中。</p>
+<ul>
+<li>child是块级元素<br><br>  child宽度不确定 <code>.child{margin:0 20px;}</code> ;child 宽度固定 <code>.child{margin:0 auto;}</code></li>
+<li>child是inline元素<br><br>给父元素加 <code>.parent{text-align:center;}</code></li>
+</ul>
+</li>
+<li><p>垂直居中(7种方法)<br><br>垂直居中的要点就是<strong>一定不要给父元素加 固定死高度</strong>，加了固定高度又要想实现里面内容就是给自己找麻烦。不给父元素加固定高度，实现里面内容垂直居中很容易。Good idea是先把里面child元素的内容和样式加好，再<strong>用padding撑起你要想要的父元素的高度</strong>，这样一来就实现了<strong>自然的垂直居中</strong>。因为不管child元素的高度是否固定，通过给父元素加上下相等的padding，就能实现child元素垂直居中。如：<code>.parent{padding-top:20px;padding:20px;}</code><br></p>
+<ul>
+<li>child高度固定 或 child高度不确定（里面有几行文本不确定）,要实现垂直居中，给父元素加：<code>.parent{padding:20px 0px;}</code></li>
+<li>parent高度固定<br><br>  工作中一定要避免这种情况发生。先固定外容器，再实现内居中，这不是好的idea，通常要用更多的代码解决这个麻烦。<br><br>解决办法有： IE浏览器 用 table/div(table)，代码兼容性强；Chrome浏览器 和 手机 使用flex布局实现垂直居中，代码简单。</li>
+</ul>
+</li>
+</ul>
+<h2 id="要学好CSS"><a href="#要学好CSS" class="headerlink" title="要学好CSS"></a>要学好CSS</h2><ul>
+<li>通读CSS规范文档-17章。<a href="http://cndevdocs.com" target="_blank" rel="noopener">CSS2中文文档</a>CSS3没有中文，英语要求高，人类根本都不读不完<br></li>
+<li>让张鑫旭（国内CSS研究前端最深的）研究，我用。</li>
+<li>CSS研究再厉害，不能变成商业价值也没有用。</li>
+<li>所以一切够用就行。</li>
+<li>JS才是前端核心</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/搜索引擎大法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/搜索引擎大法/" itemprop="url">搜索引擎大法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:21:18+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>写这篇文章的原因是发现自己不太会用搜索引擎，为了不做一个古人，决定收录一些常用的例子。<br></p>
+<ul>
+<li>size:zhihu.com css不正交</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JS的对象/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1601,316 +1901,6 @@ hexo deploy
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/CSS学历练第三天：CSS布局/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/09/CSS学历练第三天：CSS布局/" itemprop="url">CSS学历练第三天：CSS布局</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T21:31:08+08:00">
-                2018-11-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="CSS布局技巧"><a href="#CSS布局技巧" class="headerlink" title="CSS布局技巧"></a>CSS布局技巧</h1><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><p>三步走：在父元素上添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
-<pre><code>.clearfix::after{
-        content:&apos;&apos;;
-        display:block;
-        clear:both;
-       }
-</code></pre><h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><p>五步走：父元素有三个子元素，同理给父元素添加类 <code>class=&quot;clearfix&quot;</code>,在子元素上加 <code>float:left(right);</code>,在CSS样式表中加入:<br></p>
-<pre><code>.clearfix::after{
-        content:&apos;&apos;;
-        display:block;
-        clear:both;
-       }
-</code></pre><p>然后给后两个子元素设置<code>margin-left</code>,给父元素设置水平居中。</p>
-<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><pre><code>&lt;div class=&quot;father&quot;&gt;  
-  &lt;div class=&quot;child&quot;&gt;
-    实现子元素水平和垂直居中
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>水平居中在布局中经常使用。要考虑：子元素为<strong>行内元素</strong>还是<strong>块状元素</strong>，<strong>宽度一定</strong>还是<strong>宽度未定</strong>，采取的布局方案不同。下面进行分析：<br></p>
-<p><strong>行内元素居中</strong>:对父元素设置<code>text-align:center;</code><br><br><strong>定宽块状元素居中</strong>：设置左右margin值为auto,即<code>margin:**px auto;</code><br><br><strong>不定宽块级元素居中</strong>：方法一变成内联元素，设置子元素为<code>display:inline</code>,然后在父元素上设置<code>text-align:center</code>。方法二，定宽。<br><br><strong>通用方案</strong>：<code>flex</code>布局，对父元素设置<code>display:flex;justify-content:center;</code><br></p>
-<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>垂直居中对于 子元素 是<strong>单行内联文本</strong>、<strong>多行内联文本</strong>以及<strong>块状元素</strong>采用的方案是不同的。<br></p>
-<p>父元素高度确定，子元素为<strong>单行内联文本</strong>：设置父元素的<code>height</code>等于行高<code>line-height</code><br></p>
-<p>父元素高度确定，子元素为<strong>多行内联文本</strong>：设置父元素的<code>display:table-cell或inline-block</code>，再设置<code>vertical-align:middle;</code><br></p>
-<p><strong>块状元素</strong>:设置子元素<code>position:fixed（absolute）</code>，然后设置<code>margin:auto;</code><br><br><strong>通用方案</strong>: <code>flex</code>布局，给父元素设置<code>display:flex; align-items:center;</code> <br></p>
-<h3 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h3><ul>
-<li>加阴影，看起来更立体<code>box-shadow</code>，google:<code>css shadow generator</code>,调样式，复制现成的样式代码。</li>
-<li>加动画<code>transition: all 0.3s;</code>给所有变化加入过渡动画和过渡时间。</li>
-<li>加鼠标悬停手指点击形状。<code>cursor: pointer;</code></li>
-<li>border大法好。加border进行调试，不然看不来标签在哪里。<code>border: 1px solid red;</code> </li>
-<li>配套使用。当设置<code>display: inline-block;</code>需要加上<code>vertical-align: top;</code>来去除底层多出的空间。</li>
-<li>设置背景图片：<code>background-image: url(../img/girl.jpg);</code> 设置背景图片水平垂直居中：<code>background-position: center center;</code> 设置背景图片按比例缩放：<code>background-size: cover;</code></li>
-<li>渐变色，调元素的线性渐变色，google:<code>css linear-gradient generator</code>,调样式，复制现成的样式代码。<br><br><a href="https://segmentfault.com/a/1190000004648754" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004648754</a><br><br><a href="https://segmentfault.com/a/1190000008789039" target="_blank" rel="noopener">参考来源</a> <br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰的博客——flex语法</a><br><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">阮一峰的博客——flex布局案例</a><br><br>小细节的知识点：<br><br>1.空标签就是没有儿子的标签，比如input就是空标签，button不是空标签。<br></li>
-</ul>
-<ol start="2">
-<li>伪元素 不是元素，可以看做一个<code>span</code>伪元素的用法-<strong>给所有的div元素之前或之后 加 内容。</strong><img src="https://i.imgur.com/aNr6oTO.jpg" alt="">给伪元素加<code>display:block;</code>后，独占一行，我们都可以加border测试。<img src="https://i.imgur.com/WOBjCLI.jpg" alt=""><br></li>
-<li></li>
-<li>伪元素用法-before 和after都可以代替div，但是局限是before里不能再有before。例如用before画阴阳<img src="https://i.imgur.com/N7gNzeJ.jpg" alt=""><br><br>使用伪元素以后就可以用<code>:before</code>和<code>:after</code>代替div。<strong>然后我们只使用一个div就画出了阴阳图<code>:before</code>和<code>:after</code>是写在CSS样式里面的。</strong><img src="https://i.imgur.com/HoSyi2u.jpg" alt=""><br></li>
-<li><p>伪元素很装逼<br></p>
-</li>
-<li><p>工具 <a href="http://www.colorzilla.com/gradient-editor/" target="_blank" rel="noopener">线性渐变代码生成器</a> ,写CSS就是会很多工具，不然有时候=代码都自己写就很麻烦。<br><br><img src="https://i.imgur.com/SopWeJE.jpg" alt=""><br></p>
-</li>
-<li><p>给阴阳图加上CSS动画,阴阳转起来：查MDN。<br><br>创建动画序列，需要使用<code>animation</code>属性或其子属性，该属性允许配置动画时间、时长以及其他动画细节，但该属性不能配置动画的实际表现，动画的实际表现是由 <code>@keyframes</code>规则实现。<br><br><img src="https://i.imgur.com/uD0hsRz.jpg" alt=""><br></p>
-</li>
-<li>CSS有很多杂碎的东西，要多去试就能学到更多的东西。<br></li>
-<li>对页面某一块，先实现功能内容，再加CSS样式，即先html，后CSS。<br></li>
-<li>a 是内联元素。<strong>内联元素的水平居中要写在父元素上面，子元素会继承父元素内容居中属性</strong>如<code>&lt;p style=&quot;text-align&quot;&gt;&lt;a&gt;内联元素实现居中方法&lt;/a&gt;&lt;/p&gt;</code>。<br><br><img src="https://i.imgur.com/lT0ctg0.jpg" alt=""><br></li>
-<li>从里往外写CSS样式，最后加padding,margin撑起来。<br></li>
-<li>伪类是一个分号，如<code>:hover</code> <code>:nth-child</code>,它是不存在的，表示标签的某种状态。伪元素是两个分号，如： <code>::before</code> <code>::after</code>,伪元素是真实存在的，但是不是一个元素，它一个替代一个元素的作用。<br></li>
-<li>CSS样式复用 <code>选择器,选择器{CSS样式}</code></li>
-<li>id是唯一标识一个标签的，class是一个大类。<br></li>
-<li>状态机，js切换左中右三种状态,新学知识。<br><br><img src="https://i.imgur.com/7nrm0iV.jpg" alt=""><br><br><img src="https://i.imgur.com/VuX8YBp.jpg" alt=""><br><br><br></li>
-<li><code>display:inline-block;</code><br><code>vertical-align: top;</code>是配套使用的，设置了inline-block，就要同时设置后者。inlne-block可以让标签宽度等于文档流元素，另起一行。<br></li>
-<li>inlne-block既可以另起一行，又可以让标签宽度等于文档流元素，是收缩的。块级元素会继承父亲的属性。故可以利用文档流使大家的宽度都合适。<br></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/CSS画太极/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/09/CSS画太极/" itemprop="url">CSS画太极</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T18:41:05+08:00">
-                2018-11-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><code>：after</code>或<code>：before</code>将它与<code>position：absolute</code>一起使用。这对于连接到图像，段落或其他任何内容的天赋项非常有用。例如：<br></li>
-</ol>
-<p><code>.div:after {
- content: &quot;*&quot;;
-position: absolute;
-top: 5px;
-right: 35px;
-font-size: 85px;
-color: #fff;
-}</code></p>
-<p><code>.div {
-position: relative;
-}</code><br><br></p>
-<ol start="2">
-<li><a href="https://www.cnblogs.com/ys-ys/p/5092760.html" target="_blank" rel="noopener">好文</a><br></li>
-<li>第一次<br><br><img src="https://i.imgur.com/ywBHHmh.jpg" alt=""><br><br>第二次，细节改进,<code>.yinyang:before</code>和<code>.yinyang:before</code>应为阴阳本体的一半。<br><br><img src="https://i.imgur.com/HoSyi2u.jpg" alt=""></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1961,7 +1951,7 @@ position: relative;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
