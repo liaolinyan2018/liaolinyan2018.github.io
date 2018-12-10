@@ -242,6 +242,834 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/21/JS与画板/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/21/JS与画板/" itemprop="url">JS与画板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T20:50:07+08:00">
+                2018-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>画板分析：按下去鼠标-动鼠标-松开鼠标<br><br> <strong>按在哪里？事件：</strong><code>document.onmousedown = function(x){console(x)}</code><br><br> <strong>监听动作？ 事件：</strong><code>document.onmousemove = function(y){console(y)}</code><br><br> <strong>松鼠标？事件：</strong><code>document.onmouseup = function(z){console(z)}</code><br><br> 通过上次键盘网站我们知道，function(x)中的x/y/z都是存放对应事件所有信息的hash表。<br><br><img src="https://i.imgur.com/VRwvwvy.jpg" alt=""><br><img src="https://i.imgur.com/7zMgrjW.jpg" alt=""></li>
+<li>API-别人提供的可供程序员调用的<br><br><img src="https://i.imgur.com/SQ2UoZY.jpg" alt=""></li>
+<li>变量作用域<br></li>
+<li>用元素做画板，画得太快导致线条不连续，有缺陷<br></li>
+<li>专门有个标签做画板 <code>&lt;canvas&gt;&lt;/canvas&gt;</code><br><br> <code>canvas</code> 默认<code>inline-block</code>,不能设置为 <code>block</code>,可设置宽高<br></li>
+<li>不建议用CSS样式控制canvas的初始宽高，这样做你只能得到canvas等比例缩放的，会出现滚动条，要用其它办法<br></li>
+<li>查canvas mdn，熟悉各种JS 的 API，从在canvas画一个长方形开始<br> </li>
+<li>stroke描边 fill填充 clear挖空<br><br>var canvas = document.getElementById(‘canvas’);<br>var context = canvas.getContext(“2d”);<br>context.strokeStyle = “bule”;<br>context.strokeRect(1, 1, 100, 100);<br>context.fillStyle = “white”;<br>context.fillRect(1, 1, 100, 100);<br>context.clearRect(45, 50, 40, 10);</li>
+<li>注意 <code>aaa.clientX`</code>aaa.clientY<code>是相对于视口的高度，也就是浏览器窗口(html)的高度，并不是对</code>canvas<code>的高度。canvas画图，点击时画的位置就是相对的，要解决这个bug，使相对于浏览器的位置 就是 相对于canvas的位置，即设置</code>html,body{margin:0px;}`<br></li>
+<li>bug2只要用了<code>xxx.onmousemove</code>就会出现不连续的bug。<br></li>
+<li>画rectangle 长方形 画三角形 画圈 画线<br></li>
+<li>context是上下文<br></li>
+<li>用canvas实现画连续的线思路：两个函数（画圈、画线），三个事件（按下鼠标、移动鼠标、松开鼠标)。参考视频：canvas画圈。关键点：lastPoint=newPoint<br></li>
+<li>bug3 用CSS样式给canvas加 <code>width=100vh height=100vw</code>导致画图会变形。不建议加CSS样式设置宽高，而是直接在canvas上面加宽高。<br></li>
+<li>改进，多做几个画笔颜色，就像女孩用的眼影一样，做成一个小盒子，用户可点击可选择不同的画笔；加画笔盒子；加橡皮擦；<br></li>
+<li>优化代码：给一坨东西取一个名字。<br></li>
+<li>作用域的问题，放在最外面最前面的就是全局变量了。<br></li>
+<li>用js给代码加className,添加状态实现控制，代替if()else()<br><br><img src="https://i.imgur.com/M6V8QDD.jpg" alt=""><br></li>
+<li>变量提升：JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部<br></li>
+<li>下面第二部分-添加功能<br></li>
+<li>手机上可看、可用，多种颜色的画笔，保存，眼影盘把画笔包裹起来,美工，背景图<br></li>
+<li>img 和 script用src，link用href<br></li>
+<li><code>git commit -v</code> 能看到你对仓库的所有改动,这个时候可以对仓库的改动做一个总结。下次代替’<code>git commit -m &quot;改动信息提交&quot;</code>‘</li>
+<li>google搜索的时候不想看到某个广告或内容可以用 <code>-广告</code>，如：<br><code>阻止 980 - 索爱</code><br></li>
+<li><code>meta:vp</code>，添加<code>viewport</code>可以让页面不能缩放，这样PC端内容就以<code>1：1的比例</code>展示在手机端。<strong>实现canvas可以在手机上可看</strong><br></li>
+<li><code>解决手机可用问题</code>,形如在PC端的<code>xxx.onmousedown</code>的<code>mouse</code>事件， 对应在手机上有<code>xxx.ontouchstart</code>的<code>touch</code>事件。手机没有<code>mouse</code>事件。所以当从PC端切换到手机端，只要更换监听事件就可以了。而不能简单通过手机和电脑来区分监听<code>mouse</code>和<code>touch</code>事件，有些手机不支持触屏，有些电脑可以触屏;而是<strong>根据设备是否支持touch 和mouse来区分监听哪个事件。</strong><br><br>区分设备是否支持touch触发：在PC端上：<code>id.ontouchstart === defined</code>,即touch未定义，就是说PC这个设备不支持touch事件；在手机端：<code>id.ontouchstart === null</code>,即touch被初始化了，现在为空，支持touch触发。故我们可以判断 <code>id.ontouchstart</code>的值来判断设备是否支持touch触发，测试时可直接在console命令台输入<code>&#39;ontouchstart&#39; in document.body</code> <br><br><img src="https://i.imgur.com/C67OK65.jpg" alt=""></li>
+<li>特性检测：不是检测设备，而是检测设备是否具有这个功能特性。<br></li>
+<li><code>mouse</code>对应<code>MouseEvent</code>,<code>touch</code>对应<code>TouchEvent</code>,两个事件不一样,触屏一般都是支持<strong>多点触屏（同时用几个鼠标点基本不会出现）</strong>的。获取坐标的方法也不一样。TouchEvent的x,y坐标为<code>xxx.touches[0].clientX</code>和<code>xxx.touches[0].clientY</code>,其中<code>trouches[0]</code>是数组。<br></li>
+<li>手机端的代码和PC端的代码一样，就是mouse换touch，取坐标的方法略微不一样，直接copy小改一下。<br></li>
+<li>一般改进一个功能后就上传到github进行代码备份并添加备注信息。<br></li>
+<li>给画笔加图标，给橡皮擦加图标<a href="http://iconfont.cn" title="矢量图标" target="_blank" rel="noopener">http://iconfont.cn</a><br></li>
+<li><code>id.onclick</code>某某某被点击后要执行什么，支持手机端和PC端的<br><br> <code>id.onclick = function(){ 要执行的功能操作；}</code></li>
+<li>加戏：添加默认状态示意，默认使用画笔，画笔一开始就高亮。如果<code>eraser</code>和<code>brush</code>被点击了，就变红且变大，让用户明确的知道选择了什么。<br></li>
+<li>用CSS样式先做个颜色盘（各种形状），点哪个颜色给哪个颜色高亮一下，变大: <code>transform:scale(2)；transition:all 0.3s</code><br></li>
+<li><code>context.strokeStyle = &#39;blue&#39;</code> 意思是上下文的描边样式是蓝色。<br></li>
+<li>一般标签是<code>className</code>,svg标签是<code>classList</code>。<code>id.classList.add(&#39;class&#39;)</code> <code>id.classList.remove(&#39;class&#39;)</code><br></li>
+<li>禁用滚动条，<code>body{overflow:hidden;}</code><br></li>
+<li>去掉ol,ul的样式。<code>ol,ul{list-style:none;}</code><br></li>
+<li>颜色盘的各种颜色用<code>ul&gt;li</code>结构和画笔的各种颜色也用<code>ul&gt;li</code>结构。位置都用绝对定位：<code>position:fixed;left:10px;top:10px;</code><br></li>
+<li>养成个习惯,js用id名，css用class名。<br></li>
+<li>上下文颜色 和 线条宽度 由开始的写死 变成点击对应颜色或线条后改变<br><br>如： red.onclick = function(){点击红颜色，给画笔换成红色*(context.strokeStyle = ‘red’)，其他颜色不选择}<br><br>thin.onclick = function(){点击细线，给画笔设置宽度（context.lineWidth = 3）小一点的},或者在外面定义全局变量<code>lineWidth</code>,对应点击赋值，初始设置<code>context.lineWidth = lineWidth</code><br></li>
+<li>bug是一定有的，这是线条还是不完美。需要改bug<br></li>
+<li>需求是无限加的，加 <code>清屏</code> <code>撤销</code> <code>保存下载</code>按钮,加<code>icon</code>,每次加完icon都要更新我们的js代码，重新添加js代码到我们的<code>&lt;script&gt;&lt;/script&gt;</code><br><br>清屏：google: <code>js canvas clear</code>建一个大的清空长方形<br><br>保存下载：google:<code>js canvas save as image</code><br><img src="https://i.imgur.com/6B4NAA0.jpg" alt=""></li>
+<li>学会google很重要<br></li>
+<li>修bug改bug<br></li>
+<li>上传到github更新很慢，启用局域网调试。google查windows的局域网地址，用手机访问 局域网地址:8080<br><br><img src="https://i.imgur.com/ar6nGw1.jpg" alt=""><br></li>
+<li>添加CSS样式，让canvas绝对定位 <code>position:fixed</code><br></li>
+<li>可以给画出的东西加CSS滤镜，不需要服务器，只用浏览器就可以。<br></li>
+<li>继续完善创新吧~</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/JS与导航栏/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/18/JS与导航栏/" itemprop="url">JS初</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T09:38:46+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>document.onkeypress = function(randomName){
+console.log(&apos;你按下的这个键所有信息是：&apos;)
+console.log(randomName)   //猜想randomName是存所有信息的hash表名
+  }
+</code></pre><p><img src="https://i.imgur.com/iXZwoO8.jpg" alt=""></p>
+<ol>
+<li>新建 二维数组和hash表。</li>
+<li>用js代码写html。</li>
+<li>添加CSS样式<br></li>
+</ol>
+<p><img src="https://i.imgur.com/ICiWxeS.png" alt=""><br><br></p>
+<ol start="4">
+<li>监听用户事件-即用户输入q打开qq.com<br>获取用户输入的键值–取出对应hash表的网站域名–修改当前网站地址/新开窗口打开<br><br></li>
+<li>加功能-用户自己设定按键对应的网站<br>用js给kbd里加儿子button标签，加css样式。当鼠标滑过kbd时，显示button的值。<br><br></li>
+<li><p>使用localStorage，将用户修改的网站地址保存到本地，避免出现用户刷新网页后，网页内容还是原来程序员自定义的网址。<br><br>方法是把存修改后地址的变量保存到这个js之外的地方去。首先获取用户编辑button对应的键值，用prompt获取用户要变更的网址，变更哈希，在这步结束以后，用户若是刷新网页，以上更改内容无效，于是用localStorage 把 变更过的hash表 保存到random的桶里，还必须在前面加上每次刷新网页时优先读取localStorage 的random 桶里的hash表。这样一来，要是上次用户修改了网页，当下次用户再次打开网页时，优先读取的是 修改过后的网站hash表。这就做到了实现用户自定义网站的要求。<br><br></p>
+</li>
+<li><p>键盘导航的功能基本够了，现在给键盘加CSS样式，立体，阴影，hover之类的。<br></p>
+</li>
+<li><p>加网站图标。 /favicon.icon <br><br>这个还挺麻烦的，加img标签及CSS样式，JS实现功能。有点容易错<br></p>
+<blockquote>
+<p>if(hash[row[index2]]){img.src = ‘http://‘ + hash[row[index2]] + ‘/favicon.ico’}<br><br>else{img.src = ‘//i.loli.net/2017/11/10/5a05afbc5e183.png’}<br><br><code>/*监听失败事件*//*console.log(&#39;获取icon失败了&#39;)*/</code><br><br>img.onerror = function(shijianName){shijianName.target.src = ‘./failphoto.jpg’}<br></p>
+</blockquote>
+</li>
+</ol>
+<p>在用户修改网站后，不仅要立即更新hash表存档，还要马上更改icon,用js实现<br></p>
+<pre><code>button.onclick = function(randomName){  //button被点击了
+//console.log(randomName) 这里的randomName就是事件click 哈希表的名称，randomName这个hash表存着这个事件的所有信息,打印出事件的所有信息
+button2 = randomName[&apos;target&apos;] //randomName[&apos;target&apos;]是用户点击的元素
+img2 = button2.nextSibling  //button2.nextSibling 可以取到当前被点击的button2的下一个兄弟
+var key = button2[&apos;id&apos;]   //q w e r t y 取出用户要编辑哪一个kbd的键值
+//console.log(randomName[&apos;target&apos;][&apos;id&apos;]  /*这里用key是错误的，这里没有按下kbd没有[&apos;key&apos;]，不能像下面一样用*/)
+var x = prompt(&apos;请输入要变更的网址&apos;)         //获取用户要更改的网址
+hash[key] = x                              //hash变更
+//console.log(hash)                  //每次都打出hash
+//hash变更后要立刻存档到randomN
+localStorage.setItem(&apos;randomN&apos;,JSON.stringify(hash)) //JSON.stringify(hash)是把hash变成字符串的                              //hash变更
+if(hash[key]){img2.src = &apos;http://&apos;+hash[key]+&apos;/favicon.ico&apos;}  //对应网站icon也要变更
+else{img2.src = &apos;//i.loli.net/2017/11/10/5a05afbc5e183.png&apos;}
+/*监听失败事件*//*console.log(&apos;获取icon失败了&apos;)*/
+img2.onerror = function(shijianName){shijianName.target.src = &apos;./failphoto.jpg&apos;}
+ }
+</code></pre><p><br></p>
+<ol start="9">
+<li><p>解决bug。onerror <br><br>各种bug，测试。一般一个事件发生以后，我们可以知道这个事件所包含的所有信息，<code>button.onclick = function(randomName){}</code>，如这个事件的所有信息都存在randomName这个桶里（也是一个hash表），我们可以打出这个桶里的信息，可以通过randomName.target获得事件每次发生的对象，而不是用button,button往往存的是最后一个值。<br></p>
+</li>
+<li><p>优化代码-组装函数。可选做很酷，先完成前面。<br><br>封装函数就是把能实现一个功能的代码包起来，命个名字。代码结构由 数组型 变成 树形，逻辑清晰，易读性高，纠错快！ 只看一个子树就好了，每个子树的代码也不会很长，这样也不会疲倦。原来我在学C语言的时候，<strong>封装成函数</strong>是这个原因啊！确实很有道理<br> </p>
+</li>
+</ol>
+<ul>
+<li>知识</li>
+<li>在写页面之前，先画一下这个页面的功能有哪些。</li>
+<li>用数据结构分析页面</li>
+<li>数组的样子，和 hash表的样子</li>
+<li>js声明变量</li>
+<li>js的if结构</li>
+<li>js的while结构</li>
+<li>js的API函数</li>
+<li>用js写html</li>
+<li>用开发者工具调试-console &amp; application</li>
+<li>开发者工具模拟3g慢速网</li>
+<li>背景图片不能太大，裁剪图片，太久加载不出来用户就不会打开了</li>
+<li>获取网站的icon，例如：点击获取微博的icon  <a href="http://weibo.com/favicon.ico" title="获取微博的icon" target="_blank" rel="noopener">http://weibo.com/favicon.ico</a> <br></li>
+<li>上传一个图片</li>
+<li>标签就是一个哈希表</li>
+<li>18的习题要做一个错题收集。还没学过基础知识，还是有点模糊。</li>
+<li>以上内容供自己回顾使用。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/数据结构/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/15/数据结构/" itemprop="url">数据结构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T08:28:28+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>前言：只有先搞清楚数据结构，才能去想算法。</strong><br></p>
+<h3 id="哈希表（Hash-Table）"><a href="#哈希表（Hash-Table）" class="headerlink" title="哈希表（Hash Table）"></a>哈希表（Hash Table）</h3><p>在计算中，哈希表（哈希映射）是实现关联数组抽象数据类型的数据结构，该数据结构可以<strong>将键映射到值</strong>。哈希表使用哈希函数来计算桶或槽阵列的<strong>索引</strong>，从中可以找到所需的<strong>值</strong>。<strong>简单说，哈希表(数组)的结构就是</strong></p>
+<blockquote>
+<p>{<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>}<br><br><img src="https://i.imgur.com/K32QmYD.png" alt=""><br><br><img src="https://i.imgur.com/Utvt3VP.jpg" alt=""></p>
+</blockquote>
+<ul>
+<li><p><strong>计数排序</strong>中的桶（复杂度 O(n+max)，比快排还快<br><br>n是数的总数，max是hash表的长度（桶的个数）。计数排序算法看上次笔记《算法》<br></p>
+</li>
+<li><p><strong>桶排序思想</strong><br><br>很多排序里面都有桶，桶排序每个桶里不止放一个数，<strong>桶排序每一个桶里放一个范围内的数</strong>，然后每个桶里的数是乱序，还要采用其他排序。<br></p>
+</li>
+<li><p><strong>基数排序思想</strong><br><br>定下0-9十个基数（<strong>基数排序10个桶固定</strong>），将一组数 先按个位数相同进桶，按照<strong>先进先出</strong>的原则出桶，此时得到的一组数个位是按从小到大排好的；将上步得到的这组数 按十位数相同进桶，按照<strong>先进先出</strong>的原则出桶，此时得到的数十位是按从小到大排好的，同时<strong>十位相同的一组数的个位</strong>也是排好从小到大顺序的；再将上步得到的这组数按百位数相同依次进桶，依此类推，第三次进桶出桶以后，这组数百位从小到大排列的，同时百位数相同的几个数，其低位是排好序的（也就是个位和十位是排好的）,这就是基数排序的算法思想。这里特地说一下，进桶的原则是<strong>基数相同进同一个桶</strong>，出桶的原则是<strong> 同一个基数桶里，按先进先出的原则 出桶</strong>。<br><br><img src="https://i.imgur.com/LNPj9hg.jpg" alt=""><br></p>
+</li>
+<li><p>计数排序、桶排序、基数排序三者的区别<br><br><strong>排序就是要么浪费空间，要么浪费时间。这三种排序都是出桶和入桶</strong>桶排序就是<strong>先分范围再排序</strong>，桶数量不固定，浪费空间； 计数排序一个桶内放一个数，排序简单，桶数量不固定，浪费桶； 基数排序适合1-10万这种差距大的数，桶数量固定。<br></p>
+</li>
+</ul>
+<h3 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h3><p><img src="https://i.imgur.com/nMEtbIM.jpg" alt=""></p>
+<ul>
+<li><strong>先进先出</strong><br></li>
+<li>可以用<strong>数组</strong>实现<br></li>
+<li>举例：排队，线上购买火车票,前面基数排序 同一个桶出桶就是按照先进先出原则，也就是说同一个桶中所有的数就构成一个队列。<br></li>
+</ul>
+<h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><p><img src="https://i.imgur.com/soP3a3u.jpg" alt=""></p>
+<ul>
+<li><strong>先进后出</strong></li>
+<li>可以用<strong>数组</strong>实现</li>
+<li>举例：上楼下楼</li>
+</ul>
+<p><strong>故数组既可以是队列quene，也可以是栈stack。数组不是数据结构，数组是哈希表,一个索引标记的空间装着一个数</strong><br></p>
+<h3 id="链表（Linked-List）"><a href="#链表（Linked-List）" class="headerlink" title="链表（Linked List）"></a>链表（Linked List）</h3><p><img src="https://i.imgur.com/3kMKXcb.png" alt=""><br><br><img src="https://i.imgur.com/KzbzfXB.png" alt=""></p>
+<ul>
+<li>数组无法直接删除中间的一项，链表可以<br><br>数组删除一个数，非常复杂，先清空该位置，再将后面的数依次前移。<br></li>
+<li><p>用哈希（<strong>JS里面用对象表示哈希（对象的结构就是哈希表结构）</strong>）实现链表。只要看到一个哈希指向另一个哈希，另一个哈希又指向另一个哈希的结构就是链表。j不常用链表<br><br>在链表中，删除一个数，只需要把这个数上一个节点的指针指向这个数下一个节点，再释放掉这个数所在的节点空间。<br></p>
+</li>
+<li><p>head表头、<strong>node节点</strong> 概念<br></p>
+</li>
+</ul>
+<p><strong>故发现数组查询一项很快，而 链表（尤其中间删除）删除很快。前端常用 数组 而 不是链表</strong><br></p>
+<h3 id="树（tree）"><a href="#树（tree）" class="headerlink" title="树（tree）"></a>树（tree）</h3><p>如果哈希表之间满足如下关系，就是树。<br><br><img src="https://i.imgur.com/OwqMEDs.png" alt=""><br><img src="https://i.imgur.com/LUSUBxS.png" alt=""><br></p>
+<ul>
+<li>举例：层级结构、DOM<br><br>只要用到 <strong>层级结构</strong> 就用到 <strong>树</strong>。<br></li>
+<li>概念：层数、深度、节点个数</li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_tree" target="_blank" rel="noopener">二叉树binary tree</a>—一个节点只能开两个叉</li>
+<li>满二叉树—-叶子节点是长满的</li>
+<li>完全二叉树—除最后一层外其他层都是满的/最后一层某些节点差右子树</li>
+<li><strong>完全二叉树和满二叉树可以用数组实现，普通树只能用链表表示</strong>,<strong>因为从节点从左到右，不存在跳跃</strong>，利用<code>节点层数</code>和<code>树的节点规律</code>可以算出<code>数组的索引</code>，从而树结构用数组实现后，取数很方便。<br> </li>
+</ul>
+<p><img src="https://i.imgur.com/ktGXmEx.png" alt=""><br><img src="https://i.imgur.com/RB4iaDw.png" alt=""></p>
+<ul>
+<li>其他树可以用哈希（对象）实现,类似链表。<br></li>
+<li>操作：增删改查</li>
+<li><strong>堆排序用到了 tree</strong><h3 id="其他树：B树、红黑树、AVL树"><a href="#其他树：B树、红黑树、AVL树" class="headerlink" title="其他树：B树、红黑树、AVL树"></a>其他树：B树、红黑树、AVL树</h3></li>
+</ul>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><ul>
+<li>堆排序可视为一棵完全二叉树<br><br>即除最底层外，每一层都是满的，最底层可以缺少右边的叶子节点（相当于数组后面元素没有了）。故 <strong>堆</strong>可以用数组表示，每一个节点 对应 数组中的一个元素。</li>
+<li>堆的特征：上面的数大下面的数小</li>
+<li>最大堆：最大数在上面、最小堆：最小的数在上面</li>
+<li>最大堆调整</li>
+<li>堆排序概念最多、算法复杂</li>
+<li>从右到左遍历数组（因为数组最右边是树的最右叶子结点），先做一次<strong>最大堆调整</strong>，得到最大数，再把最大数放在一遍，将剩下的数做最大堆调整，依次类推，最后我们就得到了一个堆。从最外层开始调，俩儿子做对比，挑出厉害的再跟爸爸对比， 爸爸辈再和爷爷做对比，如果爸爸有调整，那么儿子们需要和新来的爸爸再打架。不断这样做，做到没法打架。<br></li>
+</ul>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html
+" target="_blank" rel="noopener">堆排序可视化</a><br><br><a href="http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/" target="_blank" rel="noopener">堆排序JS代码完整讲解（看到最后）</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/算法/" itemprop="url">算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T16:23:03+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="结构化编程"><a href="#结构化编程" class="headerlink" title="结构化编程"></a>结构化编程</h3><ul>
+<li>顺序结构</li>
+<li>条件结构</li>
+<li>循环结构<h3 id="变量-amp-常量"><a href="#变量-amp-常量" class="headerlink" title="变量&amp;常量"></a>变量&amp;常量</h3>js 不能使用数字,会自动把数字转成 字符串string，如<code>&#39;字符串&#39;</code>。不加引号的则是<strong>变量</strong>，变量是一个容器，可以装东西，而字符串是常量，不能变。<br>排序算法思想，局部的结果就是最终的结果。<br><h3 id="画流程图"><a href="#画流程图" class="headerlink" title="画流程图"></a>画流程图</h3>程序是 赋值+运算，画流程图 普通赋值/运算 是 方形，比较判断是 菱形。<br><br><img src="https://i.imgur.com/4NrCfzV.jpg" alt=""><h3 id="数据结构和算法的相互依存性"><a href="#数据结构和算法的相互依存性" class="headerlink" title="数据结构和算法的相互依存性"></a>数据结构和算法的相互依存性</h3>解决一个和数据有关的问题，分析问题，建立这个问题的数据结构，最后才去写算法，解决这个问题。在前端中，js使用的数据结构是 <strong>数组</strong> 和 <strong>对象</strong>，js没有指针，不用链表。<br><h3 id="5种算法大分类"><a href="#5种算法大分类" class="headerlink" title="5种算法大分类"></a>5种算法大分类</h3>会第一种-<strong>分而治之算法</strong>，熟悉前三种，贪婪算法就是 把眼前最优解 当作整体最优解，动态规划算法 是把局部最优解当作 整体最优解。<strong>分而治之是最好用的。</strong><br><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><strong>冒泡排序</strong>（大的往后排）<br><br><strong>选择排序</strong>（每次都找出一个极端排最前或最后）<br><br><img src="https://i.imgur.com/CBMrPxF.jpg" alt=""><br><strong>插入排序</strong>（扑克牌起牌算法）<img src="https://i.imgur.com/td5BAg2.jpg" alt=""><br><br><strong>计数排序</strong>（强迫症收牌算法）：<strong>优点速度比快排还快</strong>，缺点需要空间大需要先放好桶（准备好空间）。在收牌结束的时候就排好序了。不能排小数和复数，不然需要的空间太大了。<br><br><img src="https://i.imgur.com/RUHKShe.jpg" alt=""><br><br>计数排序—入桶演示：<br><br><img src="https://i.imgur.com/apsZUAz.jpg" alt=""><br><br><img src="https://i.imgur.com/kjRL6WV.jpg" alt=""><br><br><img src="https://i.imgur.com/EMKiN6z.png" alt=""><br></li>
+</ul>
+<p><strong>快排</strong>（排序的速度快），不要老是选择第一个元素为轴心<br><br><img src="https://i.imgur.com/Vs2qFc1.jpg" alt=""><br><br><strong>归并排序</strong><br><br><strong>堆排序</strong><br></p>
+<h3 id="排序变成伪代码"><a href="#排序变成伪代码" class="headerlink" title="排序变成伪代码"></a>排序变成伪代码</h3><p><a href="https://visualgo.net/zh/sorting" target="_blank" rel="noopener">查看排序效果演示<br></a><br><br>通过看演示效果，冒泡排序算法就是一堆机械重复。<br><br><img src="https://i.imgur.com/0OUdKEo.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/入门复习小结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/入门复习小结/" itemprop="url">入门复习小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T08:13:44+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="回顾目前所学的知识点"><a href="#回顾目前所学的知识点" class="headerlink" title="回顾目前所学的知识点"></a>回顾目前所学的知识点</h1><h2 id="计算机是如何存储数据的"><a href="#计算机是如何存储数据的" class="headerlink" title="计算机是如何存储数据的"></a>计算机是如何存储数据的</h2><p>0和1的存储<br></p>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p>主要是gitbash<br></p>
+<h2 id="命令行基础"><a href="#命令行基础" class="headerlink" title="命令行基础"></a>命令行基础</h2><p>多记单词<br><br><code>pwd</code>   print working dir 打印出当前正在使用的目录名<br><br><code>cd</code>    change dir        进入这个目录,常用的如 返回上一级目录<code>cd ..</code>，进入hexo目录 <code>cd /e/hexo</code><br><br><code>mkdir</code> make directories 创建一个新的目录，如<code>mkdir test</code> <code>mkdir /e/hexo/test</code><br><br><code>touch</code>  新建一个文件，不可给文件添加内容，如<code>touch 1.txt</code><br><br><code>echo &quot;hi&quot; &gt; 1.txt</code> ，echo一个新文件1.txt，并将内容”hi”添加到1.txt<br><br><code>echo &quot;hi&quot; &gt;&gt; 1.txt</code> ，追加内容”hi”到文件1.txt，若1.txt不存在，则新建1.txt再追加。<br><br><code>echo &quot;hi&quot; &gt;! 1.txt</code> 没使用过。强制覆盖内容 <br><br><code>cp -r</code>  copy files and directories /copy directories recursively 拷贝文件/递归的拷贝目录 ，如 <code>cp test(必须已存在) cptest</code> <br><br><code>rm -rf</code> remove files or directories/ remove directories and their contents recursively/f-force  强制的移除文件/目录里的所有内容，如<code>rm -rf test</code><br><br> <code>mv</code> move (rename) files/Rename source to dest/move source(s) to directory. 重命名文件，如 <code>mv 1.txt(必须已存在) 2.txt</code><br><br><code>tree</code>  list contents of directories in a tree-like format 以树结构的形式列出目录里的内容。<br> </p>
+<blockquote>
+<p>git init<br><br>git add . /<em>常用</em>/<br><br>git commit . -m “hi” /<em>常用</em>/<code>git commit=Record changes to the repository`</code>-m=-message` <br><br>git pull   <br><br>git push    /<em>常用</em>/<br><br>git clone <br></p>
+</blockquote>
+<p><code>curl -L http://baidu.com</code> <br><br> <code>curl -s -v -- http://baidu.com</code></p>
+<pre><code>ping qq.com
+
+/*hexo与github快速搭建博客*/
+hexo init
+hexo g
+hexo server //不常用
+hexo deploy
+</code></pre><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>由单个命令行到写个小脚本，计算机按照你写的脚本执行脚本，就完成一些列工作。<strong>程序复用</strong>可以省很多工作。<br></p>
+<h2 id="HTTP-入门"><a href="#HTTP-入门" class="headerlink" title="HTTP 入门"></a>HTTP 入门</h2><p>前面四节课的知识都是为了HTTP入门储备知识，HTTP是前端的第一个核心知识。方方说以后也是围绕HTTP来学。前面我们用命令行curl和直接查开发者工具 学习请求和响应的四部分。<br></p>
+<p>命令行查看：</p>
+<blockquote>
+<p>curl -L <a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a><br><br>curl -s -v – <a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a><br><br>开发者工具查看：<br><br><img src="https://i.imgur.com/Yre7GGW.jpg" alt=""><br><strong>面试考默写请求和响应四部分、状态码：</strong><br>请求四部分<br><br>响应四部分<br></p>
+</blockquote>
+<blockquote>
+<p><strong>GET 请求</strong><br><br>GET /?w=1 HTTP/1.1 <br><br>Host: baidu.com    <br><br>Accept: text/html  <br><br><strong>对应响应</strong> <br><br>HTTP/1.1 200 OK <br><br>Content-Type: text/html; charset=utf-8 <br><br>Content-Length: 10000 <br><br>&lt;!DOCTYPE&gt; <br><br><code>&lt;html&gt;......&lt;/html&gt;</code> <br></p>
+</blockquote>
+<blockquote>
+<p><strong>POST 请求</strong> <br><br>POST /login?w=1 HTTP/1.1 <br><br>Host: baidu.com   <br><br>Accept: application/ms-word <br><br>Content-Type: application/x-www-form-urlencoded  <br><br>Content-Length: 10 <br><br>username=fangfang&amp;password=mima   <br></p>
+</blockquote>
+<blockquote>
+<p><strong>响应</strong> <br><br>HTTP/1.1 403 Forbidden   <br><br>Content-Type: application/md-word  <br><br>Content-Length: 200  <br><br>word格式</p>
+</blockquote>
+<p><img src="https://i.imgur.com/HnMyrXm.jpg" alt=""><br><img src="https://i.imgur.com/xszkOw7.jpg" alt=""></p>
+<h2 id="Node-js-Server"><a href="#Node-js-Server" class="headerlink" title="Node.js Server"></a>Node.js Server</h2><p>Node.js Server，是为了学server，不是学Node.js，也是为了学HTTP怎么运作起来的。自己用脚本写了一个小server,平时使用别人开发出来的<code>http-server . -c-1</code>,可在本地浏览调试html<br></p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
+<li>几个经常使用的标签 和 几个难的标签。有很多细碎的知识点。无难点，多动手。</li>
+<li>可加meta<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code></li>
+<li>要想浏览器浏览量高，可加<code>&lt;meta name=&quot;keyword&quot; content=&quot;前端开发&quot;&gt;</code> <code>&lt;meta name=&quot;description&quot; content=&quot;前端开发&quot;&gt;</code></li>
+<li><p>a标签是发起get请求，form标签是发起post请求。<br><br><img src="https://i.imgur.com/sHKJpl8.jpg" alt=""></p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>有很多细碎的知识点。CSS布局,从上到下。从内到外，注意细节。无难点，多动手。<br></p>
+<h2 id="最后说的话"><a href="#最后说的话" class="headerlink" title="最后说的话"></a>最后说的话</h2></li>
+<li><p>前12次课，学了前端的<strong>简单HTTP,简单HTML，简单CSS应用</strong>，第二个练手项目-一个在线静态简历。前四节课练手项目-hexo+github搭建个人博客。</p>
+</li>
+<li>要多练手CSS写静态页面，上<a href="https://dribbble.com/" target="_blank" rel="noopener">设计师网站</a>去临摹作品，google:<code>web page free psd</code>,上<a href="web page free psd">切图网站</a>可以下载很多PSD文件<br></li>
+<li>看阮一峰的CSS理论+小demo</li>
+<li>CSS页面只有 好看 好看 好看 的说法，没有人关心CSS代码写得好不好</li>
+<li>src和href的搭配。a和link标签用href，img和script和iframe用href</li>
+<li></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/CSS学历练第三天：CSS布局/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -978,769 +1806,11 @@ position: relative;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/设计网站收藏/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/设计网站收藏/" itemprop="url">设计网站收藏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T10:36:59+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><a href="http://Dribbble.com" target="_blank" rel="noopener">Dribbble.com</a>相当于是设计师的facebook，就像github是程序员的facebook一样。设计师们将其作品上传至Dribbble.com，相互交流点赞，而我们可以去上面看作品。<br></li>
-<li>会不断更新的~</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/HTML有点难的标签/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/HTML有点难的标签/" itemprop="url">HTML常用标签</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T09:35:44+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="今天学几个比较难的标签"><a href="#今天学几个比较难的标签" class="headerlink" title="今天学几个比较难的标签"></a>今天学几个比较难的标签</h1><p>学习标签就是重点学标签的<code>语义</code>和<code>属性</code>。标签单词懂了，语义一般就懂了。而标签有什么属性则是需要查文档，然后练习和记忆的，标签<code>常见的属性</code>是必须熟悉熟悉熟悉的。<br><br></p>
-<h1 id="1-iframe-标签"><a href="#1-iframe-标签" class="headerlink" title="1. iframe 标签"></a>1. iframe 标签</h1><p><br><br>iframe 标签是在当前页面嵌入一个窗口，这个窗口的内容可以直接显示一个网站内容，或者用a标签间接指向iframe嵌入的窗口，在这个嵌入的窗口内打开a标签跳转的页面。iframe在现在的前端开发中很少用，在五年前一些遗留的项目中还能看到iframe标签的使用。iframe的name属性和a标签结合使用，不结合则name属性没什么用;iframeborder属性是用来消除iframe自带的很丑的边框的，一般都要写；src属性一般是填网址，也支持相对路径。下面举例说明。<br><br><br>用法示例1：<br><br><img src="https://i.imgur.com/Dvke53a.jpg" alt=""><br><br>效果<br><br><img src="https://i.imgur.com/2DQYafD.jpg" alt="效果"><br><br>用法示例2：a标签和iframe的name属性一起使用，a标签要在name=xxx的窗口中打开<br><br><img src="https://i.imgur.com/2ttHKnl.jpg" alt=""><br><br><strong>效果</strong>：发现用a标签跳转的页面出现在 用iframe在当前页面嵌入的窗口中<br><br><img src="https://i.imgur.com/Fq5DEgf.jpg" alt=""><br><br><br><br>用法示例3：iframe支持相对路径。在当前页面嵌入一个窗口，在这个嵌入窗口中打开当前目录下的某文件。注意页面(index.html)文件和“某文件”在同一目录下<br><br><img src="https://i.imgur.com/oai1igX.jpg" alt=""><br><br><strong>效果</strong>：2.html的内容就出现在了iframe在当前页面嵌入的窗口里。<br><br><img src="https://i.imgur.com/h42vBl0.jpg" alt=""><br><br><br></p>
-<h1 id="2-a标签"><a href="#2-a标签" class="headerlink" title="2. a标签"></a>2. a标签</h1><p><br><br>a是<code>anchor</code>锚的缩写， HTML<code>&lt;a&gt;</code>元素(或锚元素)可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。介绍<code>&lt;a&gt;</code>的三个常用属性<code>target</code> <code>href</code> <code>download</code>。<br><br><br><br><strong>target属性</strong>有四个值，分别是单词对应意思。<br></p>
-<pre><code>&lt;a href=&quot;http://qq.com&quot; target=&quot;_blank&quot;&gt;blank_qq&lt;/a&gt; &lt;!--在新开空窗口打开--&gt;
-
-&lt;a href=&quot;http://qq.com&quot; target=&quot;_self&quot;&gt;self_qq&lt;/a&gt;  &lt;!--在自己这个窗口（2.html）打开--&gt;
-
-&lt;a href=&quot;http://qq.com&quot; target=&quot;_parent&quot;&gt;parent_qq&lt;/a&gt; &lt;!--在父亲窗口(这里是index.html)打开和iframe一起使用才有体会--&gt;
-
-&lt;a href=&quot;http://qq.com&quot; target=&quot;_top&quot;&gt;top_qq&lt;/a&gt; &lt;!--在顶级窗口打开，在至少有祖孙三代才能体会到--&gt;
-</code></pre><p><strong>效果：</strong><br><br><br>点击第1个qq以后会新开窗口(即不会把爷爷index.html页面覆盖掉)打开<br><br><br>点击第2个qq以后在自己的窗口(3.html，不会覆盖掉父亲2.html页面)打开<br><br><br>点击第3个qq以后在父窗口(即会把父亲2.html页面覆盖掉)打开<br><br><br>点击第4个qq在顶层口打开(即覆盖掉爷爷index.html页面)，可以依次打开其他qq可深刻体会到效果<br><br><img src="https://i.imgur.com/esj7mSt.jpg" alt=""><br><br><img src="https://i.imgur.com/DWi2jMf.jpg" alt=""><br><br><img src="https://i.imgur.com/7aQUHfW.jpg" alt=""><br><br><img src="https://i.imgur.com/3m8SeyY.jpg" alt=""><br><br><img src="https://i.imgur.com/UbMbg7y.jpg" alt=""><br><br><img src="https://i.imgur.com/CrlQGAW.jpg" alt=""><br><br><br><br><strong>download属性</strong><br><br>强制下载 属性指示浏览器下载URL而不是导航到它，因此将提示用户将其保存为本地文件。如果属性有一个值，那么它将在Save提示符中作为预填充的文件名使用。告诉浏览器我这个网页不是拿来查看的，是用浏览器下载的。<br></p>
-<pre><code>&lt;a href=&quot;./2.html&quot; download=&quot;&quot;&gt;下载&lt;/a&gt;
-</code></pre><p><strong>href可以写内容:</strong><br><br>href除了常见的网址内容外还能写:<br><br>1 <code>&lt;a href=&quot;//qq.com&quot;&gt;QQ&lt;/a&gt;</code>a标签的无协议绝对地址，则当前页面用什么协议用什么协议。<br>还可以写相对路径 <code>&lt;a href=&quot;./2.html&quot;&gt;click&lt;/a&gt;</code>，直接打开了2.html<br>2 直接写查询字符串<code>#xxx</code>锚点是不发起请求的。<code>?name=linyan</code>发起请求<br><br>3 javascript 伪协议<code>&lt;a href=&quot;javascript:alert(1);&quot;&gt;QQ&lt;/a&gt;</code> <code>&lt;a href=&quot;javascript:;&quot;&gt;QQ&lt;/a&gt;</code>后者是点击以后什么<br>不做，工作以后就会遇见要求用a标签写一个点击以后页面不动。而<code>&lt;a href=&quot;#&quot;&gt;QQ&lt;/a&gt;&lt;br&gt;</code>则会回到顶部<br>若是写<a href="qq.com" download="">QQ</a>,浏览器会把qq.com当作一个文件,不可这样写。href属性必须写。<br><br><br></p>
-<h1 id="3-form标签"><a href="#3-form标签" class="headerlink" title="3. form标签"></a>3. form标签</h1><p><br><br>get 是获取这个页面内容，post 是上传数据到服务器。除了form，HTML没有其他标签能上传内容到服务器。a 标签是get，form 是post。get会默认把参数放到查询参数里面，直接出现在地址栏里，post会默认把参数放到 请求的第四部分里面。我们没有办法让get请求有第四部分。总结就是a标签和form标签都是发起一个请求的，只不过a标签是get一个页面，form标签是post一个页面。<br><br><strong>form标签属性:</strong><code>action</code>属性指定请求路径， <code>method</code>属性指定请求动词，值是post， <code>target</code>属性值和a标签的<code>target</code>属性使用方法相同。<br></p>
-<pre><code>&lt;form action=&quot;users&quot; method=&quot;post&quot; target=&quot;与a标签一样用法&quot;&gt;
- &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;
- &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
- &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt; &lt;!--只有有了提交按钮才能将数据提交到服务器,submit是唯一能确定这个表单能提交的--&gt;
-&lt;/form&gt; 
-</code></pre><p><br></p>
-<h1 id="4-input-button-标签"><a href="#4-input-button-标签" class="headerlink" title="4. input/button 标签"></a>4. input/button 标签</h1><p><br><br>input最难记的是type属性值，有很多。input按type值确定功能。input一般是form标签的子元素。</p>
-<pre><code>&lt;form action=&quot;users&quot; method=&quot;post&quot; target=&quot;与a标签一样用法&quot;&gt;
- &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;
- &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
- &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt; &lt;!--提交按钮--&gt;
- &lt;input type=&quot;button&quot; value=&quot;button&quot;&gt; &lt;!--这只是普通按钮--&gt;
-&lt;/form&gt; 
-</code></pre><p>提交按钮和普通button按钮长得一样，但是功能不一样。<br><br><img src="https://i.imgur.com/Ru4hVw7.jpg" alt=""><br><br>有个特例，当form表单里只有botton按钮时，botton会自动上升为submit按钮。如下的button就是submit按钮。<br>例1</p>
-<pre><code>&lt;form action=&quot;users&quot; method=&quot;post&quot; target=&quot;与a标签一样用法&quot;&gt;
-&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;
-&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
-&lt;button&gt;提交&lt;/button&gt; &lt;!--普通按钮升级成提交按钮--&gt;
-&lt;/form&gt;
-</code></pre><p><br>label和input配对使用作为form的子元素，label包围input，当用户在文字上点击就能选中复选框或者输入框<br>例2<br></p>
-<pre><code>&lt;form action=&quot;users&quot; method=&quot;post&quot; target=&quot;与a标签一样用法&quot;&gt;
-&lt;label&gt;用户名&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/label&gt;
-&lt;label&gt;密码&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/label&gt;
-&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;苹果&lt;/label&gt;
-&lt;input type=&quot;button&quot; value=&quot;button&quot;&gt;   
-&lt;/form&gt;
-</code></pre><p><br>点击文字就能选中框，培养用户的懒性。<br><br><img src="https://i.imgur.com/mpo6HOi.jpg" alt=""><br><br>例3<br></p>
-<pre><code>&lt;form action=&quot;users&quot; method=&quot;post&quot; target=&quot;与a标签一样用法&quot;&gt;
- &lt;label &gt;用户名&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/label&gt;
- &lt;label &gt;密码&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/label&gt;
- 喜欢的水果
- &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; value=&quot;orange&quot;&gt;橘子&lt;/label&gt;
- &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; value=&quot;apple&quot;&gt;苹果&lt;/label&gt;
- 喜欢我
- &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;loveme&quot; value=&quot;yes&quot;&gt;YES&lt;/label&gt;
- &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;loveme&quot; value=&quot;no&quot;&gt;NO&lt;/label&gt;   
- &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt; 
- &lt;select name=&quot;group&quot; multiple&gt;
-        &lt;option value=&quot;&quot;&gt;-&lt;/option&gt;
-        &lt;option value=&quot;1&quot;&gt;第一组&lt;/option&gt;
-        &lt;option value=&quot;2&quot;&gt;第二组&lt;/option&gt;
-        &lt;option value=&quot;3&quot; disabled&gt;第三组&lt;/option&gt;
-        &lt;option value=&quot;4&quot; selected&gt;第四组&lt;/option&gt;
- &lt;/select&gt; 
- &lt;!--多行文本，用css控制宽高--&gt;  
- &lt;textarea name=&quot;爱好&quot; style=&quot;resize: none;width: 100px;height: 200px&quot;&gt;&lt;/textarea&gt;    
-&lt;/form&gt;
-</code></pre><p><img src="https://i.imgur.com/aEI4Ewu.jpg" alt=""><br><br><img src="https://i.imgur.com/v8TJJia.jpg" alt=""><br><br><img src="https://i.imgur.com/z84omDd.jpg" alt=""><br><br><img src="https://i.imgur.com/iR7CnqX.jpg" alt=""><br><br>提交时会把参数都带上给服务器。<br><br>input其他的type值要多靠自己去试出来，然后做笔记。<br><strong>input的属性值：</strong><code>type</code> <code>name</code> <code>id</code> <code>value</code> <br><br>button前面讲了一点，注意input和button的区别，input没有子元素，button有子元素。form 标签里面的input若不加 name属性，那么在表单提交时，input 的值就不会出现在请求里，必须要有name属性才能提交数据到服务器，切记<br><br></p>
-<h1 id="5-table标签"><a href="#5-table标签" class="headerlink" title="5. table标签"></a>5. table标签</h1><p>table标签不常用。 HTML规定table标签只能有三个子元素thead、tbody、tfoot。子元素里面又可以有很多元素。<br><br>例一：</p>
-<pre><code>&lt;table&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&lt;/th&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;班级&lt;/th&gt;&lt;th&gt;分数&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&lt;/th&gt;&lt;td&gt;小明&lt;/td&gt;&lt;td&gt;1班&lt;/td&gt;&lt;td&gt;96&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&lt;/th&gt;&lt;td&gt;小红&lt;/td&gt;&lt;td&gt;2班&lt;/td&gt;&lt;td&gt;94&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th&gt;平均分&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;tfoot&gt;
-        &lt;tr&gt;
-            &lt;th&gt;总分&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;190&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tfoot&gt;
-&lt;/table&gt;
-</code></pre><p><img src="https://i.imgur.com/aPFYKTX.jpg" alt=""><br><br><br>例2：table的完整用法<br></p>
-<pre><code> &lt;table border=1&gt;
-    &lt;colgroup&gt;
-        &lt;col width=100&gt;
-        &lt;col width=200 bgcolor=red&gt;
-        &lt;col width=100&gt;
-        &lt;col width=70&gt;
-    &lt;/colgroup&gt;            &lt;!--colgroup和col列配套使用--&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&lt;/th&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;班级&lt;/th&gt;&lt;th&gt;分数&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&lt;/th&gt;&lt;td&gt;小明&lt;/td&gt;&lt;td&gt;1班&lt;/td&gt;&lt;td&gt;96&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&lt;/th&gt;&lt;td&gt;小红&lt;/td&gt;&lt;td&gt;2班&lt;/td&gt;&lt;td&gt;94&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th&gt;平均分&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;tfoot&gt;
-        &lt;tr&gt;
-            &lt;th&gt;总分&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;190&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tfoot&gt;
-&lt;/table&gt;
-</code></pre><p><img src="https://i.imgur.com/2gAyOiD.jpg" alt=""><br><br><br>注意当tbody、tfoot、thead、colgroup顺序混乱时，浏览器会自动更正他们的显示顺序依然是thead、tbody、tfoot、colgroup。当你thead、tbody、tfoot这些标签都不写的时候，浏览器会认为你写的都是tbody的内容，此时就会按你写的内容顺序展示给用户。当你在头head标签加入css样式可以去掉table之间的间隙，如下：<br></p>
-<pre><code>&lt;head&gt;
-......
-   &lt;style&gt;
-     table{
-        border-collapse: collapse;
-        }
-   &lt;/style&gt;
-&lt;/head&gt;
-</code></pre><p><img src="https://i.imgur.com/ogIRxIW.jpg" alt=""><br><br></p>
-<p><strong>补充</strong>:接下来是谷里的笔记。<br></p>
-<ol>
-<li><p>iframe 标签<br><br>嵌套页面</p>
- <iframe src="https://www.baidu.com" name="xxx"></iframe>
-
-</li>
-</ol>
-<p><br></p>
-<ol start="2">
-<li>a 标签<br><br>跳转页面（HTTP GET 请求）<br>属性见 MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a</a><br><br></li>
-<li>form 标签<br><br>跳转页面（HTTP POST 请求）<br>属性见 MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form</a><br><br></li>
-<li>input / button<br><br>区别：是否为「空标签」<br>input 的属性见：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input</a><br>button 的属性见：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button</a><br><br></li>
-<li>table 标签示例<br><br>用于展示数据<br>属性见：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table</a><br><br><br><strong>知识点：</strong><br>空标签<br><br>可替换标签<br><br>全局属性?<br><br>display 不止 3 种?</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/Word-Learning/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/Word-Learning/" itemprop="url">Word Learning</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T20:41:28+08:00">
-                2018-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>embe 嵌入</li>
-<li>iframe 框架</li>
-<li>omit 删掉省略</li>
-<li>audio 声音、声卡、音频</li>
-<li>contenteditable 内容可编辑的</li>
-<li>Graphics 图形、图形、显卡</li>
-<li>slide control 滑动控制</li>
-<li>animation 动画制作</li>
-<li>Ultimate CSS Gradient Generator 终极CSS渐变生成器</li>
-<li>hexo deploy hexo部署</li>
-<li>recursively 递归地</li>
-<li>console 控制台，安慰</li>
-<li>append 追加</li>
-<li>canvas 画布</li>
-<li>rectangle 长方形</li>
-<li>parse 解析</li>
-<li>prototype 原型</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/git、Git-Bash、github三者的联系/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/git、Git-Bash、github三者的联系/" itemprop="url">git、Git Bash、github三者的联系</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T20:37:09+08:00">
-                2018-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/关于Git-Bash/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/关于Git-Bash/" itemprop="url">关于Git Bash</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T20:32:02+08:00">
-                2018-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1786,7 +1856,7 @@ position: relative;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

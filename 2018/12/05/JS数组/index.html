@@ -79,27 +79,41 @@
 
 
 
-<meta name="description" content="结构化编程 顺序结构 条件结构 循环结构变量&amp;amp;常量js 不能使用数字,会自动把数字转成 字符串string，如&amp;#39;字符串&amp;#39;。不加引号的则是变量，变量是一个容器，可以装东西，而字符串是常量，不能变。排序算法思想，局部的结果就是最终的结果。画流程图程序是 赋值+运算，画流程图 普通赋值/运算 是 方形，比较判断是 菱形。数据结构和算法的相互依存性解决一个和数据有关的问题，分析问题">
+<meta name="description" content="回忆：简单类型number,string,boolean加new生成对象，不加new就是生成简单类型。而对象array,function,狭义object加不加new都是生成object。 Array声明 var a = Array(3);  var a = Array(3,3);     var a = [];  数组var a = [1,2,3] a.xxx = &amp;apos;xxx&amp;apos;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法">
-<meta property="og:url" content="http://yoursite.com/2018/11/14/算法/index.html">
+<meta property="og:title" content="JS数组">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/JS数组/index.html">
 <meta property="og:site_name" content="linyan &#39;s blog">
-<meta property="og:description" content="结构化编程 顺序结构 条件结构 循环结构变量&amp;amp;常量js 不能使用数字,会自动把数字转成 字符串string，如&amp;#39;字符串&amp;#39;。不加引号的则是变量，变量是一个容器，可以装东西，而字符串是常量，不能变。排序算法思想，局部的结果就是最终的结果。画流程图程序是 赋值+运算，画流程图 普通赋值/运算 是 方形，比较判断是 菱形。数据结构和算法的相互依存性解决一个和数据有关的问题，分析问题">
+<meta property="og:description" content="回忆：简单类型number,string,boolean加new生成对象，不加new就是生成简单类型。而对象array,function,狭义object加不加new都是生成object。 Array声明 var a = Array(3);  var a = Array(3,3);     var a = [];  数组var a = [1,2,3] a.xxx = &amp;apos;xxx&amp;apos;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/4NrCfzV.jpg">
-<meta property="og:image" content="https://i.imgur.com/CBMrPxF.jpg">
-<meta property="og:image" content="https://i.imgur.com/td5BAg2.jpg">
-<meta property="og:image" content="https://i.imgur.com/RUHKShe.jpg">
-<meta property="og:image" content="https://i.imgur.com/apsZUAz.jpg">
-<meta property="og:image" content="https://i.imgur.com/kjRL6WV.jpg">
-<meta property="og:image" content="https://i.imgur.com/EMKiN6z.png">
-<meta property="og:image" content="https://i.imgur.com/Vs2qFc1.jpg">
-<meta property="og:image" content="https://i.imgur.com/0OUdKEo.jpg">
-<meta property="og:updated_time" content="2018-11-15T03:46:49.342Z">
+<meta property="og:image" content="https://i.imgur.com/On5SxXQ.jpg">
+<meta property="og:image" content="https://i.imgur.com/Wxn2PfC.jpg">
+<meta property="og:image" content="https://i.imgur.com/GHc7XGv.jpg">
+<meta property="og:image" content="https://i.imgur.com/vQRrMlp.jpg">
+<meta property="og:image" content="https://i.imgur.com/6PCtvZ2.jpg">
+<meta property="og:image" content="https://i.imgur.com/ZJE17n3.jpg">
+<meta property="og:image" content="https://i.imgur.com/cNghW38.jpg">
+<meta property="og:image" content="https://i.imgur.com/TmN7zgL.png">
+<meta property="og:image" content="https://i.imgur.com/bxXq2SA.png">
+<meta property="og:image" content="https://i.imgur.com/vnMMF3X.png">
+<meta property="og:image" content="https://i.imgur.com/6AZ73qY.jpg">
+<meta property="og:image" content="https://i.imgur.com/GZqqlF5.jpg">
+<meta property="og:image" content="https://i.imgur.com/SEW9uiF.jpg">
+<meta property="og:image" content="https://i.imgur.com/VKXCX4J.jpg">
+<meta property="og:image" content="https://i.imgur.com/55fc4YF.jpg">
+<meta property="og:image" content="https://i.imgur.com/3cm39nX.jpg">
+<meta property="og:image" content="https://i.imgur.com/jQ81Oeq.jpg">
+<meta property="og:image" content="https://i.imgur.com/U9usixe.jpg">
+<meta property="og:image" content="https://i.imgur.com/YeveT2I.jpg">
+<meta property="og:image" content="https://i.imgur.com/BCt1sbN.jpg">
+<meta property="og:image" content="https://i.imgur.com/e5dnypt.jpg">
+<meta property="og:image" content="https://i.imgur.com/cXkJIMl.png">
+<meta property="og:image" content="https://i.imgur.com/rOXrL4e.jpg">
+<meta property="og:updated_time" content="2018-12-10T03:14:47.594Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法">
-<meta name="twitter:description" content="结构化编程 顺序结构 条件结构 循环结构变量&amp;amp;常量js 不能使用数字,会自动把数字转成 字符串string，如&amp;#39;字符串&amp;#39;。不加引号的则是变量，变量是一个容器，可以装东西，而字符串是常量，不能变。排序算法思想，局部的结果就是最终的结果。画流程图程序是 赋值+运算，画流程图 普通赋值/运算 是 方形，比较判断是 菱形。数据结构和算法的相互依存性解决一个和数据有关的问题，分析问题">
-<meta name="twitter:image" content="https://i.imgur.com/4NrCfzV.jpg">
+<meta name="twitter:title" content="JS数组">
+<meta name="twitter:description" content="回忆：简单类型number,string,boolean加new生成对象，不加new就是生成简单类型。而对象array,function,狭义object加不加new都是生成object。 Array声明 var a = Array(3);  var a = Array(3,3);     var a = [];  数组var a = [1,2,3] a.xxx = &amp;apos;xxx&amp;apos;">
+<meta name="twitter:image" content="https://i.imgur.com/On5SxXQ.jpg">
 
 
 
@@ -129,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/14/算法/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/05/JS数组/">
 
 
 
 
 
-  <title>算法 | linyan 's blog</title>
+  <title>JS数组 | linyan 's blog</title>
   
 
 
@@ -252,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/JS数组/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="linyanliao">
@@ -269,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法</h1>
+          <h1 class="post-title" itemprop="name headline">JS数组</h1>
         
 
         <div class="post-meta">
@@ -281,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T16:23:03+08:00">
-                2018-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T19:50:18+08:00">
+                2018-12-05
               </time>
             
 
@@ -319,13 +333,53 @@
       
 
       
-        <h3 id="结构化编程"><a href="#结构化编程" class="headerlink" title="结构化编程"></a>结构化编程</h3><ul>
-<li>顺序结构</li>
-<li>条件结构</li>
-<li>循环结构<h3 id="变量-amp-常量"><a href="#变量-amp-常量" class="headerlink" title="变量&amp;常量"></a>变量&amp;常量</h3>js 不能使用数字,会自动把数字转成 字符串string，如<code>&#39;字符串&#39;</code>。不加引号的则是<strong>变量</strong>，变量是一个容器，可以装东西，而字符串是常量，不能变。<br>排序算法思想，局部的结果就是最终的结果。<br><h3 id="画流程图"><a href="#画流程图" class="headerlink" title="画流程图"></a>画流程图</h3>程序是 赋值+运算，画流程图 普通赋值/运算 是 方形，比较判断是 菱形。<br><br><img src="https://i.imgur.com/4NrCfzV.jpg" alt=""><h3 id="数据结构和算法的相互依存性"><a href="#数据结构和算法的相互依存性" class="headerlink" title="数据结构和算法的相互依存性"></a>数据结构和算法的相互依存性</h3>解决一个和数据有关的问题，分析问题，建立这个问题的数据结构，最后才去写算法，解决这个问题。在前端中，js使用的数据结构是 <strong>数组</strong> 和 <strong>对象</strong>，js没有指针，不用链表。<br><h3 id="5种算法大分类"><a href="#5种算法大分类" class="headerlink" title="5种算法大分类"></a>5种算法大分类</h3>会第一种-<strong>分而治之算法</strong>，熟悉前三种，贪婪算法就是 把眼前最优解 当作整体最优解，动态规划算法 是把局部最优解当作 整体最优解。<strong>分而治之是最好用的。</strong><br><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><strong>冒泡排序</strong>（大的往后排）<br><br><strong>选择排序</strong>（每次都找出一个极端排最前或最后）<br><br><img src="https://i.imgur.com/CBMrPxF.jpg" alt=""><br><strong>插入排序</strong>（扑克牌起牌算法）<img src="https://i.imgur.com/td5BAg2.jpg" alt=""><br><br><strong>计数排序</strong>（强迫症收牌算法）：<strong>优点速度比快排还快</strong>，缺点需要空间大需要先放好桶（准备好空间）。在收牌结束的时候就排好序了。不能排小数和复数，不然需要的空间太大了。<br><br><img src="https://i.imgur.com/RUHKShe.jpg" alt=""><br><br>计数排序—入桶演示：<br><br><img src="https://i.imgur.com/apsZUAz.jpg" alt=""><br><br><img src="https://i.imgur.com/kjRL6WV.jpg" alt=""><br><br><img src="https://i.imgur.com/EMKiN6z.png" alt=""><br></li>
+        <p><img src="https://i.imgur.com/On5SxXQ.jpg" alt=""><br>回忆：简单类型<code>number</code>,<code>string</code>,<code>boolean</code>加<code>new</code>生成对象，不加<code>new</code>就是生成简单类型。而对象<code>array</code>,<code>function</code>,狭义<code>object</code>加不加<code>new</code>都是生成<code>object</code>。<br></p>
+<h2 id="Array声明"><a href="#Array声明" class="headerlink" title="Array声明"></a>Array声明</h2><ul>
+<li><p><code>var a = Array(3);</code><br><img src="https://i.imgur.com/Wxn2PfC.jpg" alt=""><br><img src="https://i.imgur.com/GHc7XGv.jpg" alt=""></p>
+</li>
+<li><p><code>var a = Array(3,3);</code></p>
+</li>
 </ul>
-<p><strong>快排</strong>（排序的速度快），不要老是选择第一个元素为轴心<br><br><img src="https://i.imgur.com/Vs2qFc1.jpg" alt=""><br><br><strong>归并排序</strong><br><br><strong>堆排序</strong><br></p>
-<h3 id="排序变成伪代码"><a href="#排序变成伪代码" class="headerlink" title="排序变成伪代码"></a>排序变成伪代码</h3><p><a href="https://visualgo.net/zh/sorting" target="_blank" rel="noopener">查看排序效果演示<br></a><br><br>通过看演示效果，冒泡排序算法就是一堆机械重复。<br><br><img src="https://i.imgur.com/0OUdKEo.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/vQRrMlp.jpg" alt=""></p>
+<ul>
+<li><code>var a = [];</code></li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><pre><code>var a = [1,2,3]
+a.xxx = &apos;xxx&apos; //&quot;xxx&quot;
+a.yyy = &apos;yyy&apos; //&quot;yyy&quot;
+a             //(3) [1, 2, 3, xxx: &quot;xxx&quot;, yyy: &quot;yyy&quot;]
+                    0：1
+                    1：2
+                    2：3
+                    xxx:&quot;xxx&quot;
+                    yyy:&quot;yyy&quot;
+                    length:3
+                    __proto__:Array(0)
+//遍历数组1
+for(let i =0 ;i &lt; a.length; i++){console.log(a[i])} //1 2 3
+//遍历数组2
+for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
+</code></pre><h2 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h2><p>伪数组就是你的原型链中没有Array.prototype.<br><br>说实话，我也没听懂这个是啥，先记着。<br><br><img src="https://i.imgur.com/6PCtvZ2.jpg" alt=""><br></p>
+<h2 id="数组的API"><a href="#数组的API" class="headerlink" title="数组的API"></a>数组的API</h2><p>这些数组的API貌似都有遍历数组的功能。<br></p>
+<ol>
+<li><code>a.forEach( function(x,y){function-body} )</code>遍历。传函数参数。且函数必须有两个参数,第一个参数对应数组的value,第二个参数对应数组的key。函数参数可以有第三个参数，第三个参数就是数组a本身。实际上通过 <code>.</code>已经把数组a传入到forEach当中。<br><br><img src="https://i.imgur.com/ZJE17n3.jpg" alt=""><br><br><img src="https://i.imgur.com/cNghW38.jpg" alt=""><br><br>以下分布分解：<br><br><img src="https://i.imgur.com/TmN7zgL.png" alt=""><br><br><img src="https://i.imgur.com/bxXq2SA.png" alt=""><br><br><img src="https://i.imgur.com/vnMMF3X.png" alt=""><br><br>下面来看<code>a.forEach</code>的实质：<br><br><img src="https://i.imgur.com/6AZ73qY.jpg" alt=""><br></li>
+</ol>
+<p>API都是函数,函数的参数还可以是函数。<br><br>控制台里: <code>shift+回车</code> 可以换行。<br><br>JS内置排序为快速排序<br><br><br></p>
+<ol start="2">
+<li><p><code>a.sort(function(firstNumber,secondNumber){return firstNumber-secondNumber})</code>,传函数参数，函数参数必须有两个参数，分别对应数组a的第一、第二个数。函数体return回的值决定排序顺序，默认采用快排。return回的值是正值表示从大到小排，负值表示从小到大排，0表示fn和sn相等，<code>fn-sn</code>表示从小到大排，<code>sn-fn</code>表示从大到小排。排完序后是覆盖原来的a数组，即存回原来a的内存处。<br><br><img src="https://i.imgur.com/GZqqlF5.jpg" alt=""><br><br><img src="https://i.imgur.com/SEW9uiF.jpg" alt=""><br></p>
+</li>
+<li><p><code>a.join(&#39;连接符&#39;)</code>,用间隔符间隔连接。<br></p>
+</li>
+</ol>
+<p><img src="https://i.imgur.com/VKXCX4J.jpg" alt=""><br></p>
+<ol start="4">
+<li><code>a.contact</code><br>两个数组合并成一个数组，常用于数组复制。<br><br><img src="https://i.imgur.com/55fc4YF.jpg" alt=""><br></li>
+</ol>
+<ol start="5">
+<li><code>a.map</code>类似<code>a.forEach</code>，映射。<br><br><img src="https://i.imgur.com/3cm39nX.jpg" alt=""><br><br><img src="https://i.imgur.com/jQ81Oeq.jpg" alt=""><br><br>区别是<code>a.forEach</code>没有返回值(<code>undefined</code>),而<code>a.map</code>要有返回值，要<code>return</code>返回一个值。<br></li>
+<li><code>a.filter</code>过滤<br><br><img src="https://i.imgur.com/U9usixe.jpg" alt=""><br><br><img src="https://i.imgur.com/YeveT2I.jpg" alt=""><br><br><img src="https://i.imgur.com/BCt1sbN.jpg" alt=""><br><br>两个API链起来使用。<br></li>
+<li><code>a.reduce(function(){},0)</code>,这个<strong>求和API</strong>有两个参数，前一个是函数，要返回的，后一个是初始值。<br><br><img src="https://i.imgur.com/e5dnypt.jpg" alt=""><br><br><img src="https://i.imgur.com/cXkJIMl.png" alt=""><br><br><img src="https://i.imgur.com/rOXrL4e.jpg" alt=""><br></li>
+</ol>
 
       
     </div>
@@ -350,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/14/入门复习小结/" rel="next" title="入门复习小结">
-                <i class="fa fa-chevron-left"></i> 入门复习小结
+              <a href="/2018/12/05/给简历加JS-1/" rel="next" title="给简历加JS">
+                <i class="fa fa-chevron-left"></i> 给简历加JS
               </a>
             
           </div>
@@ -360,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/15/数据结构/" rel="prev" title="数据结构">
-                数据结构 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/10/JS函数/" rel="prev" title="JS函数">
+                JS函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -485,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构化编程"><span class="nav-number">1.</span> <span class="nav-text">结构化编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量-amp-常量"><span class="nav-number">2.</span> <span class="nav-text">变量&amp;常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画流程图"><span class="nav-number">3.</span> <span class="nav-text">画流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构和算法的相互依存性"><span class="nav-number">4.</span> <span class="nav-text">数据结构和算法的相互依存性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5种算法大分类"><span class="nav-number">5.</span> <span class="nav-text">5种算法大分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">6.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序变成伪代码"><span class="nav-number">7.</span> <span class="nav-text">排序变成伪代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array声明"><span class="nav-number">1.</span> <span class="nav-text">Array声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪数组"><span class="nav-number">3.</span> <span class="nav-text">伪数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的API"><span class="nav-number">4.</span> <span class="nav-text">数组的API</span></a></li></ol></div>
             
 
           </div>
