@@ -79,17 +79,22 @@
 
 
 
-<meta name="description" content="前端学习 分享 旅行">
+<meta name="description" content="&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;body&amp;gt;//三个标签都可以省略 DOM 是一棵树（tree）DOM--Document Object Model是XML文档的。DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型。即在内存中Document的结点node是用一个个对象进行存储的，而我们程序员操作内存，就是操作这些对象。对象里面存储的内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS:DOM的API">
 <meta property="og:url" content="http://yoursite.com/2018/12/10/JS-DOM的API/index.html">
 <meta property="og:site_name" content="linyan &#39;s blog">
-<meta property="og:description" content="前端学习 分享 旅行">
+<meta property="og:description" content="&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;body&amp;gt;//三个标签都可以省略 DOM 是一棵树（tree）DOM--Document Object Model是XML文档的。DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型。即在内存中Document的结点node是用一个个对象进行存储的，而我们程序员操作内存，就是操作这些对象。对象里面存储的内容">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-10T07:49:57.960Z">
+<meta property="og:image" content="https://i.imgur.com/GdD3Py5.png">
+<meta property="og:image" content="https://i.imgur.com/WJYX9Zx.png">
+<meta property="og:image" content="https://i.imgur.com/SkJFGOj.png">
+<meta property="og:image" content="https://i.imgur.com/Gw1mPYG.png">
+<meta property="og:updated_time" content="2018-12-11T03:52:54.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS:DOM的API">
-<meta name="twitter:description" content="前端学习 分享 旅行">
+<meta name="twitter:description" content="&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;body&amp;gt;//三个标签都可以省略 DOM 是一棵树（tree）DOM--Document Object Model是XML文档的。DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型。即在内存中Document的结点node是用一个个对象进行存储的，而我们程序员操作内存，就是操作这些对象。对象里面存储的内容">
+<meta name="twitter:image" content="https://i.imgur.com/GdD3Py5.png">
 
 
 
@@ -309,7 +314,112 @@
       
 
       
-        
+        <pre><code>&lt;html&gt;&lt;head&gt;&lt;body&gt;//三个标签都可以省略
+</code></pre><h2 id="DOM-是一棵树（tree）"><a href="#DOM-是一棵树（tree）" class="headerlink" title="DOM 是一棵树（tree）"></a>DOM 是一棵树（tree）</h2><p><code>DOM--Document Object Model</code>是<code>XML</code>文档的。<strong>DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型</strong>。即在内存中Document的<strong>结点node</strong>是用一个个<strong>对象</strong>进行<strong>存储</strong>的，而我们程序员操作内存，就是操作这些对象。对象里面存储的内容又得看DOM规范来确定。<br></p>
+<p><img src="https://i.imgur.com/GdD3Py5.png" alt=""><br><br><img src="https://i.imgur.com/WJYX9Zx.png" alt=""><br></p>
+<h2 id="树上有-Node"><a href="#树上有-Node" class="headerlink" title="树上有 Node"></a>树上有 Node</h2><p>Node 分为 Document（是html的爸爸）、Element（元素/标签）和 Text（文本），以及其他不重要的(注释结点等)。注意回车算文本结点。通过构造函数把结点变成对象。<br><br><img src="https://i.imgur.com/SkJFGOj.png" alt=""><br><br>Node的原型链关系<br><br><img src="https://i.imgur.com/Gw1mPYG.png" alt=""></p>
+<h2 id="Node-的接口"><a href="#Node-的接口" class="headerlink" title="Node 的接口"></a>Node 的接口</h2><ul>
+<li><p>属性</p>
+<ul>
+<li>childNodes 获取子结点（包括文本结点），children获取子标签结点</li>
+<li>firstChild </li>
+<li>lastChild</li>
+<li>nextSibling</li>
+<li>previousSibling</li>
+<li>nodeName 一般都为大写</li>
+<li>nodeType  记 1为标签结点，3为文本结点。</li>
+<li>nodeValue</li>
+<li>innerText   注意：面试问：innerText的textContext的区别,同都是获取页面内容</li>
+<li>textContent </li>
+<li>outerText</li>
+<li>ownerDocument 属于哪个文档</li>
+<li>parentElement</li>
+<li><p>parentNode</p>
+</li>
+<li><p>涉及单词有：</p>
+</li>
+<li>child / children / parent</li>
+<li>node</li>
+<li>first / last</li>
+<li>next / previous</li>
+<li>sibling / siblings</li>
+<li>type</li>
+<li>value / text / content</li>
+<li>inner / outer</li>
+<li>element</li>
+<li>然后互相组合<br><br></li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li>如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性<br></li>
+<li>appendChild()</li>
+<li>cloneNode() true深拷贝 false浅拷贝 面试：深拷贝与浅拷贝的区别</li>
+<li>contains()</li>
+<li>hasChildNodes()</li>
+<li>insertBefore()</li>
+<li>isEqualNode() 两个独立标签相等，但是不是相同的，相等和相同的概念不一样</li>
+<li>isSameNode() 相同，同一个（标签），<code>===</code></li>
+<li>removeChild() 只是从页面中移除了这个标签，但是它还存在内存中</li>
+<li>replaceChild() 替换</li>
+<li>normalize() // 常规化，合并文本结点 看MDN例子</li>
+<li>搞清楚英文单词的意思就知道用法</li>
+<li>如果发现知道英文后依然不明白用法，看 <code>MDN</code> 的例子即可</li>
+<li>DOM APi 无外乎「<strong>增删改查</strong>」</li>
+</ul>
+</li>
+</ul>
+<h2 id="Document-接口"><a href="#Document-接口" class="headerlink" title="Document 接口"></a>Document 接口</h2><ul>
+<li>属性<ul>
+<li>anchors 弃用</li>
+<li>body</li>
+<li>characterSet</li>
+<li>childElementCount</li>
+<li>children</li>
+<li>doctype</li>
+<li>documentElement</li>
+<li>domain</li>
+<li>fullscreen</li>
+<li>head</li>
+<li>hidden</li>
+<li>images</li>
+<li>links 获取页面中所有的a标签</li>
+<li>location</li>
+<li>onxxxxxxxxx</li>
+<li>origin</li>
+<li>plugins</li>
+<li>readyState</li>
+<li>referrer</li>
+<li>scripts</li>
+<li>scrollingElement</li>
+<li>styleSheets</li>
+<li>title</li>
+<li>visibilityState</li>
+</ul>
+</li>
+<li>方法：<ul>
+<li>close()</li>
+<li>open()</li>
+<li>createDocumentFragment()</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+<li>execCommand() 当你想设计一个父文本编辑器时才用到。</li>
+<li>exitFullscreen()</li>
+<li>getElementById() 基本没人用</li>
+<li>getElementsByClassName() 基本没人用</li>
+<li>getElementsByName() 基本没人用</li>
+<li>getElementsByTagName() 基本没人用</li>
+<li>getSelection()</li>
+<li>hasFocus()</li>
+<li>querySelector()  主要使用 只返回一个元素</li>
+<li>querySelectorAll() 主要使用 返回所有元素，返回的是个伪数组</li>
+<li>registerElement()</li>
+<li>write()</li>
+<li>writeln() 写一行<h2 id="Element-的接口"><a href="#Element-的接口" class="headerlink" title="Element 的接口"></a>Element 的接口</h2>看MDN<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>当我们在控制台输入API的时候，控制台会告诉我们使用的API是哪个类型的结点提供的,如此你就能知道你将得到什么类型的Node。<br><br>DOM面试唯一考点，<strong>google: DocumentFragment优化</strong>，面试前看一篇。<br></li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
@@ -342,6 +452,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/11/jQuery/" rel="prev" title="jQuery">
+                jQuery <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -393,8 +507,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -409,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -445,6 +568,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-是一棵树（tree）"><span class="nav-number">1.</span> <span class="nav-text">DOM 是一棵树（tree）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树上有-Node"><span class="nav-number">2.</span> <span class="nav-text">树上有 Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-的接口"><span class="nav-number">3.</span> <span class="nav-text">Node 的接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document-接口"><span class="nav-number">4.</span> <span class="nav-text">Document 接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-的接口"><span class="nav-number">5.</span> <span class="nav-text">Element 的接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
