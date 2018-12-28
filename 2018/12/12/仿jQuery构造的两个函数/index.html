@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="linyan &#39;s blog">
 <meta property="og:description" content="在我的理解，jQuery就是一个个封装好的函数，这些函数里面就是调用了DOM的API,可以理解为DOM的API难用，然后我们进行了API升级改造。jQuery对象是对dom对象的封装，在获取dom对象的基础上增加了很多对象的方法，所以它们是很类似但又不同的两种对象。 通过仿写jQuery来理解jQuery这是我在jsbin上写的两个封装函数的例子,供学复习使用。http://js.jirengu.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T03:33:47.485Z">
+<meta property="og:updated_time" content="2018-12-14T02:41:58.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="仿jQuery构造的两个函数">
 <meta name="twitter:description" content="在我的理解，jQuery就是一个个封装好的函数，这些函数里面就是调用了DOM的API,可以理解为DOM的API难用，然后我们进行了API升级改造。jQuery对象是对dom对象的封装，在获取dom对象的基础上增加了很多对象的方法，所以它们是很类似但又不同的两种对象。 通过仿写jQuery来理解jQuery这是我在jsbin上写的两个封装函数的例子,供学复习使用。http://js.jirengu.">
@@ -381,9 +381,21 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
 <li><code>window.$ = jQuery</code>,那么<code>$</code>就是<code>jQuery</code>这个函数，可以少写单词。<br></li>
 <li><code>var $div = $(&#39;div&#39;)</code>,此时<code>$div</code>就是<code>nodes</code>对象,这样我们就通过标签名获得了一组同名标签对象。建议在声明jQuery对象时在变量名前加<code>$</code>，这样就能清楚地知道这是jQuery的对象，要使用jQuery的API,而不是使用DOM的API。<br></li>
 <li><code>$div.addClass([&#39;red&#39;])</code>，这句话就是<code>$div</code>这个对象调用了它的属性函数<code>addClass</code>，同时传了一个数组参数<code>[&#39;red&#39;]</code>，注意必须是数组，因为我们用了forEach。这里还要注意一点是<code>$div</code>实际上也被传入到这个属性函数<code>addClass</code>里面了，这是不同于以前我学C语言。因为<code>$div.addClass([&#39;red&#39;])</code>实际上是<code>$div.addClass.call($div,[&#39;red&#39;])</code>的简写，后者是js函数调用的规范版。<code>.</code>前面的东西也是作为参数传入到函数里面的。</li>
-<li><code>$div.setText(&#39;hi&#39;)</code>，也是同上的原理，<code>$div</code>调用了它的属性函数<code>setText</code>，实际传入了两个参数<code>$div</code>和<code>&#39;hi&#39;</code>。</li>
+<li><code>$div.setText(&#39;hi&#39;)</code>，也是同上的原理，<code>$div</code>调用了它的属性函数<code>setText</code>，实际传入了两个参数<code>$div</code>和<code>&#39;hi&#39;</code>。<hr>
+
+</li>
 </ul>
 </li>
+</ol>
+<p><strong>以下内容是我随堂记的笔记，比较零散，你可不看。</strong><br></p>
+<ol>
+<li>在编程里，变量名大写默认是常量。</li>
+<li>有一个易错的点，不要用全局变量当作id，比如alert,parent之类的，你用了要么就是你覆盖别人，要么就是别人覆盖你。所以要么你不用全局变量，要么你造一个函数，把这个变量变成局部的。</li>
+<li>DOM作业某题引发的关于全局变量、局部变量、立即执行函数的问题:用var声明一个变量，var会先找作用域，如果发现没有函数，那么var就会声明一个全局变量，那么就有可能将window的全局变量覆盖掉。然后JS就想了一个办法升级，用let在块{}里面声明变量，let是跑不出去{}外面的，如<code>{let parent}</code>,这个parent就是局部变量，跑不出{}。而var由于可以变量提升，块{}是包不住var的，只有函数才能包住var，让var声明一个局部变量，如<code>（ function(){var parent}.call() ）</code>,这是立即调用函数的例子，必须用括号将函数括起来，不然会报错。立即调用函数可以写为<code>(   function(){var parent}()  )</code></li>
+<li><div id="parent"></div> 易错题</li>
+<li>调试大法，出bug时，一行行删能找到bug，但是注意你删的过程中不要造成新的bug。排bug大法。</li>
+<li>jQuery的设计思想：给我一个node，给你返回对象；你给我一个id，我就能给你找到这个选择器。</li>
+<li></li>
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>简单说，jQuery就是封装了一些DOM的API的函数集合，也叫jQuery的API。jQuery的对象使用jQuery的API，DOM的对象使用DOM的API。</strong></p>
 
@@ -419,6 +431,10 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/12/用jQuery做一个轮播/" rel="prev" title="用jQuery做一个轮播">
+                用jQuery做一个轮播 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -495,7 +511,7 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

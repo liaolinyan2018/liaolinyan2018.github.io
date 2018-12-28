@@ -79,42 +79,32 @@
 
 
 
-<meta name="description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收如果一个对象没有被引用，它就是垃圾，将被回收。但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。">
+<meta name="description" content="DOM事件简介我们主要学DOM Level2 ,因为DOM level 1介绍得很简单，而现在通行的DOM Level3并没有对事件进行大的修改和补充，所以我们主要学DOM Level2。       DOM事件零散知识 举例：addEventListener()监听事件两类：  在同一个元素上设置多个监听事件。则监听事件按队列排序存储，一次点击同时触发，按照队列先进先出的原则触发。 在不同元素上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS的类型">
-<meta property="og:url" content="http://yoursite.com/2018/11/27/JS的类型/index.html">
+<meta property="og:title" content="DOM事件">
+<meta property="og:url" content="http://yoursite.com/2018/12/15/DOM事件/index.html">
 <meta property="og:site_name" content="linyan &#39;s blog">
-<meta property="og:description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收如果一个对象没有被引用，它就是垃圾，将被回收。但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。">
+<meta property="og:description" content="DOM事件简介我们主要学DOM Level2 ,因为DOM level 1介绍得很简单，而现在通行的DOM Level3并没有对事件进行大的修改和补充，所以我们主要学DOM Level2。       DOM事件零散知识 举例：addEventListener()监听事件两类：  在同一个元素上设置多个监听事件。则监听事件按队列排序存储，一次点击同时触发，按照队列先进先出的原则触发。 在不同元素上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/4MxR1Li.png">
-<meta property="og:image" content="https://i.imgur.com/FvVy9nS.png">
-<meta property="og:image" content="https://i.imgur.com/egBJvqk.png">
-<meta property="og:image" content="https://i.imgur.com/cYzQnUe.png">
-<meta property="og:image" content="https://i.imgur.com/fmzWD84.png">
-<meta property="og:image" content="https://i.imgur.com/RSxZigs.png">
-<meta property="og:image" content="https://i.imgur.com/bgzHswA.png">
-<meta property="og:image" content="https://i.imgur.com/utx9BKM.png">
-<meta property="og:image" content="https://i.imgur.com/uLFYNp8.png">
-<meta property="og:image" content="https://i.imgur.com/tr29BA4.png">
-<meta property="og:image" content="https://i.imgur.com/OfRyeP1.png">
-<meta property="og:image" content="https://i.imgur.com/qOVFLE9.png">
-<meta property="og:image" content="https://i.imgur.com/iGdRLrR.png">
-<meta property="og:image" content="https://i.imgur.com/Ay3XdaH.png">
-<meta property="og:image" content="https://i.imgur.com/2fRI7bR.png">
-<meta property="og:image" content="https://i.imgur.com/lm7PENg.png">
-<meta property="og:image" content="https://i.imgur.com/kBLfmYV.png">
-<meta property="og:image" content="https://i.imgur.com/bS9LAHt.png">
-<meta property="og:image" content="https://i.imgur.com/DOjtmGJ.png">
-<meta property="og:image" content="https://i.imgur.com/sEQUrem.png">
-<meta property="og:image" content="https://i.imgur.com/6oFr3hE.png">
-<meta property="og:image" content="https://i.imgur.com/qMmxRJy.png">
-<meta property="og:image" content="https://i.imgur.com/Mkv9kOx.png">
-<meta property="og:image" content="https://i.imgur.com/qZ4Olzw.png">
-<meta property="og:updated_time" content="2018-11-30T01:49:45.982Z">
+<meta property="og:image" content="https://i.imgur.com/D4OtACk.png">
+<meta property="og:image" content="https://i.imgur.com/Brf8clx.png">
+<meta property="og:image" content="https://i.imgur.com/vcU4H6s.png">
+<meta property="og:image" content="https://i.imgur.com/4RnFU0r.png">
+<meta property="og:image" content="https://i.imgur.com/oHw7IwT.png">
+<meta property="og:image" content="https://i.imgur.com/AGFfzG5.png">
+<meta property="og:image" content="https://i.imgur.com/wxX0GpH.png">
+<meta property="og:image" content="https://i.imgur.com/04MeUma.png">
+<meta property="og:image" content="https://i.imgur.com/xMGozV1.png">
+<meta property="og:image" content="https://i.imgur.com/viGlaWt.png">
+<meta property="og:image" content="https://i.imgur.com/a57ZsSx.png">
+<meta property="og:image" content="https://i.imgur.com/MEOETwj.png">
+<meta property="og:image" content="https://i.imgur.com/olctP56.png">
+<meta property="og:image" content="https://i.imgur.com/V1yoa7U.jpg">
+<meta property="og:updated_time" content="2018-12-17T03:02:36.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS的类型">
-<meta name="twitter:description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收如果一个对象没有被引用，它就是垃圾，将被回收。但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。">
-<meta name="twitter:image" content="https://i.imgur.com/4MxR1Li.png">
+<meta name="twitter:title" content="DOM事件">
+<meta name="twitter:description" content="DOM事件简介我们主要学DOM Level2 ,因为DOM level 1介绍得很简单，而现在通行的DOM Level3并没有对事件进行大的修改和补充，所以我们主要学DOM Level2。       DOM事件零散知识 举例：addEventListener()监听事件两类：  在同一个元素上设置多个监听事件。则监听事件按队列排序存储，一次点击同时触发，按照队列先进先出的原则触发。 在不同元素上">
+<meta name="twitter:image" content="https://i.imgur.com/D4OtACk.png">
 
 
 
@@ -144,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/27/JS的类型/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/15/DOM事件/">
 
 
 
 
 
-  <title>JS的类型 | linyan 's blog</title>
+  <title>DOM事件 | linyan 's blog</title>
   
 
 
@@ -267,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JS的类型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/15/DOM事件/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="linyanliao">
@@ -284,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS的类型</h1>
+          <h1 class="post-title" itemprop="name headline">DOM事件</h1>
         
 
         <div class="post-meta">
@@ -296,8 +286,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T14:17:31+08:00">
-                2018-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T09:17:53+08:00">
+                2018-12-15
               </time>
             
 
@@ -334,32 +324,29 @@
       
 
       
-        <h3 id="类型的转换"><a href="#类型的转换" class="headerlink" title="类型的转换"></a>类型的转换</h3><ul>
-<li>转化为<code>string</code><br><br><img src="https://i.imgur.com/4MxR1Li.png" alt=""><br><br><img src="https://i.imgur.com/FvVy9nS.png" alt=""><br><br><img src="https://i.imgur.com/egBJvqk.png" alt=""><br><br><img src="https://i.imgur.com/cYzQnUe.png" alt=""><br><br><br><hr></li>
-<li>转化为<code>number</code><br><br><img src="https://i.imgur.com/fmzWD84.png" alt=""><br><br><img src="https://i.imgur.com/RSxZigs.png" alt=""><br><br><img src="https://i.imgur.com/bgzHswA.png" alt=""><br><br><br><hr></li>
-<li>转化为<code>boolean</code><br><br><img src="https://i.imgur.com/utx9BKM.png" alt=""><br><br><img src="https://i.imgur.com/uLFYNp8.png" alt=""><br><br><br><br><code>falsy</code>(虚值)是在 Boolean 上下文中已认定可转换为’<strong>假</strong>‘的值，在使用强制类型转换转换成boolean时为 <code>false</code>。有以下五个为false,其他值都为true。<br><br><img src="https://i.imgur.com/tr29BA4.png" alt=""><br><br><br><hr>
-
+        <h1 id="DOM事件简介"><a href="#DOM事件简介" class="headerlink" title="DOM事件简介"></a>DOM事件简介</h1><p>我们主要学DOM Level2 ,因为DOM level 1介绍得很简单，而现在通行的DOM Level3并没有对事件进行大的修改和补充，所以我们主要学DOM Level2。<br><br><img src="https://i.imgur.com/D4OtACk.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/Brf8clx.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/vcU4H6s.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/4RnFU0r.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/oHw7IwT.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/AGFfzG5.png" alt=""><br></p>
+<p><hr></p>
+<h1 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h1><h2 id="零散知识"><a href="#零散知识" class="headerlink" title="零散知识"></a>零散知识</h2><p><img src="https://i.imgur.com/wxX0GpH.png" alt=""></p>
+<h2 id="举例：addEventListener"><a href="#举例：addEventListener" class="headerlink" title="举例：addEventListener()"></a>举例：addEventListener()</h2><p>监听事件两类：<br></p>
+<ul>
+<li>在同一个元素上设置多个监听事件。则监听事件按队列排序存储，一次点击同时触发，按照队列先进先出的原则触发。</li>
+<li>在不同元素上设置监听事件，但这些元素存在爷爷爸爸儿子这样的关系。当点击子元素时，子父爷及祖先的监听事件都会被触发，即监听事件会传播。这样的监听事件触发分为<strong>捕获阶段</strong>和<strong>冒泡阶段</strong>，可通过设置参数<code>true</code>只执行捕获阶段，或者默认<code>false</code>冒泡阶段。设置<code>stopPropagation</code>可以阻断监听事件的传播。建议阻止传播，不然点击元素，容易同时触发父元素，爷爷元素的监听事件。bug就来了。<br><br><br>从上到下：捕获阶段，从下到上，冒泡阶段。<br><br><br><img src="https://i.imgur.com/04MeUma.png" alt=""><br><br></li>
+</ul>
+<h3 id="实例：点击别处关闭浮层"><a href="#实例：点击别处关闭浮层" class="headerlink" title="实例：点击别处关闭浮层"></a>实例：点击别处关闭浮层</h3><ul>
+<li>解决法<br>用DOM事件<code>addEventListener（）</code>。<br><br><br><br>用<code>jQuery</code>写。这样写节省内存。<br><br><img src="https://i.imgur.com/xMGozV1.png" alt=""><br><br><br></li>
+<li><p>易错1 不知不觉一次触发多个事件，事件冲突<br><img src="https://i.imgur.com/viGlaWt.png" alt=""><br><img src="https://i.imgur.com/a57ZsSx.png" alt=""></p>
+</li>
+<li><p>易错2 false会阻止<code>prevent</code>事件发生和传播<code>propagation</code>,建议单独设置<br><br>设置<code>false</code>后，这个浮层里面<code>checkbox</code>点击不了<br><img src="https://i.imgur.com/MEOETwj.png" alt=""></p>
+</li>
+<li><p>易错3 不加阻止传播<br><img src="https://i.imgur.com/olctP56.png" alt=""><br><img src="https://i.imgur.com/V1yoa7U.jpg" alt=""></p>
 </li>
 </ul>
-<h3 id="各类型的API"><a href="#各类型的API" class="headerlink" title="各类型的API"></a>各类型的API</h3><p>待补充<br></p>
-<hr>
-
-<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>如果一个对象没有被引用，它就是垃圾，将被回收。<br><br><img src="https://i.imgur.com/OfRyeP1.png" alt=""><br><br>但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。<br><br><img src="https://i.imgur.com/qOVFLE9.png" alt=""><br></p>
-<p><hr></p>
-<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p>内存速度快，断电不保存；外存相对内存速度慢，断电内容保存。<br><br>SSD外存速度接近内存，贵，易坏；机械硬盘，不易坏；固态硬盘；开机将硬盘的内容读到内存，给操作系统、浏览器等分配空间。<br><br><img src="https://i.imgur.com/iGdRLrR.png" alt=""><br><br><img src="https://i.imgur.com/Ay3XdaH.png" alt=""><br><br>浏览器先进行所有的变量提升（变量声明）;按顺序在stack先存好对象，后期再加属性值会很麻烦,所以在<strong>stack栈内存</strong> <strong>存</strong> 对象在heap堆内存的<strong>地址</strong>，对象的内容实际上存在堆内存里。<br><br><img src="https://i.imgur.com/2fRI7bR.png" alt=""><br><br><img src="https://i.imgur.com/lm7PENg.png" alt=""><br><br><img src="https://i.imgur.com/kBLfmYV.png" alt=""><br></p>
-<p><hr></p>
-<h3 id="深复制-amp-浅复制"><a href="#深复制-amp-浅复制" class="headerlink" title="深复制&amp;浅复制"></a>深复制&amp;浅复制</h3><p>对于简单类型来说，赋值就是深复制,比较简单。<br><br><code>var a = 1;var b = a;b = 2 ;a = ?  //a===1</code>，即b变a不变就是深复制<br><br><strong>对复杂类型的数据（对象）来说才分浅复制和深复制。对于对象来说，对Stack内存的地址拷贝（一个变，全都变）就是浅复制；对Heap内存进行完全的拷贝才是深拷贝</strong><br><br><br><br>这是浅复制的例子：<br><br><img src="https://i.imgur.com/bS9LAHt.png" alt=""><br><br><img src="https://i.imgur.com/DOjtmGJ.png" alt=""><br><br>这是深复制的例子：<br><br><img src="https://i.imgur.com/sEQUrem.png" alt=""><br><br>注意 <code>b= a; b=null;</code>是不会改变隐藏对象里的内容的,只有x.key = ‘yyy’才能改变对象里的内容，画图好理解。<br></p>
-<h3 id="面试题举例（易混）"><a href="#面试题举例（易混）" class="headerlink" title="面试题举例（易混）"></a>面试题举例（易混）</h3><p>1<br><br><img src="https://i.imgur.com/6oFr3hE.png" alt=""><br></p>
-<p><hr><br>2<br><br>??????<br><br><img src="https://i.imgur.com/qMmxRJy.png" alt=""><br><br><img src="https://i.imgur.com/Mkv9kOx.png" alt=""><br><br>3<br><br><img src="https://i.imgur.com/qZ4Olzw.png" alt=""><br><br>模拟执行过程：(Heap堆内存里存着两个对象{n：1}和{n:2}，地址为随机分配的addr34 和addr54)<br></p>
-<pre><code>var a = {n:1}//var a,var {n:1}, a===addr34
-var b = a        //var b ,b===addr34 &apos;=&apos;是浅复制
-a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看，再从右往左计算。
-                //从左往右看的时候，`a.x`和`a`里的`a===addr34`，
-                //从右往左计算的时候，先执行a={n:2},执行后a===addr54；
-                //然后a(addr34).x=a(addr54)。故a.x = a = {n:2}执行结束后，addr34地址存的对象多了一个属性x,属性x的值为addr54,即对象{n:2}在Heap里的地址。
-               //而b还是指向Heap地址为addr34这个对象，即b===addr54
-</code></pre><p><br></p>
-
+<h3 id="冒泡的演示"><a href="#冒泡的演示" class="headerlink" title="冒泡的演示"></a>冒泡的演示</h3>
       
     </div>
     
@@ -383,8 +370,8 @@ a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/27/JS的数据/" rel="next" title="JS的数据类型">
-                <i class="fa fa-chevron-left"></i> JS的数据类型
+              <a href="/2018/12/13/用jQuery实现我们的简历吧/" rel="next" title="用jQuery实现我们的简历吧">
+                <i class="fa fa-chevron-left"></i> 用jQuery实现我们的简历吧
               </a>
             
           </div>
@@ -393,8 +380,8 @@ a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/27/JS的对象/" rel="prev" title="JS的对象">
-                JS的对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/28/初识JSONP/" rel="prev" title="初识JSONP">
+                初识JSONP <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -518,7 +505,7 @@ a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型的转换"><span class="nav-number">1.</span> <span class="nav-text">类型的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各类型的API"><span class="nav-number">2.</span> <span class="nav-text">各类型的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存图"><span class="nav-number">4.</span> <span class="nav-text">内存图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制-amp-浅复制"><span class="nav-number">5.</span> <span class="nav-text">深复制&amp;浅复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题举例（易混）"><span class="nav-number">6.</span> <span class="nav-text">面试题举例（易混）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM事件简介"><span class="nav-number">1.</span> <span class="nav-text">DOM事件简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM事件"><span class="nav-number">2.</span> <span class="nav-text">DOM事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#零散知识"><span class="nav-number">2.1.</span> <span class="nav-text">零散知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例：addEventListener"><span class="nav-number">2.2.</span> <span class="nav-text">举例：addEventListener()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例：点击别处关闭浮层"><span class="nav-number">2.2.1.</span> <span class="nav-text">实例：点击别处关闭浮层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡的演示"><span class="nav-number">2.2.2.</span> <span class="nav-text">冒泡的演示</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

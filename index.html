@@ -242,6 +242,550 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/初识JSONP/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/28/初识JSONP/" itemprop="url">初识JSONP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T17:17:39+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="为什么需要有JSONP？"><a href="#为什么需要有JSONP？" class="headerlink" title="为什么需要有JSONP？"></a>为什么需要有JSONP？</h2><p>JSONP是在改进用户体验中产生的。<br><br>form表单提交数据会刷新页面，刷新就要重新渲染页面，用户体验就会下降；用img只能知道成功和失败，不能知道更多的数据，那用script怎么让后端知道我要执行什么代码呢，那就加callback参数，[script+callback参数]就是【JSONP】,然后后端就根据callback构造一个函数调用，把数据塞到函数的第一个参数，然后call一下，这样浏览器就得到了它想到的数据。这就是跨域获取数据。</p>
+<h2 id="什么是-JSONP？"><a href="#什么是-JSONP？" class="headerlink" title="什么是 JSONP？"></a>什么是 JSONP？</h2><p>答：<br><strong>JSONP 是指在浏览器中通过动态创建 script 标签来发送GET请求，来得到服务端的数据的这么一种技术</strong><br><br>例如：<br><br>请求方：frank.com 的前端程序员（浏览器）<br><br>响应方：jack.com 的后端程序员（服务器）<br></p>
+<ol>
+<li>请求方创建 script，src 指向响应方，同时传一个查询参数 <code>?callbackName=yyy</code></li>
+<li>响应方根据查询参数<code>callbackName</code>，构造形如 <code>yyy.call(undefined, &#39;你要的数据&#39;)</code> 或 <code>yyy(&#39;你要的数据&#39;)</code> 这样的响应<br></li>
+<li>浏览器接收到响应，就会执行<code>yyy.call(undefined, &#39;你要的数据&#39;)</code><br></li>
+<li>那么请求方就知道了他要的数据<br><br>这就是 JSONP<br></li>
+</ol>
+<p>约定：<br></p>
+<pre><code>1. `callbackName -&gt; callback` &lt;br&gt;
+2. yyy -&gt; 随机数 frank12312312312321325()&lt;br&gt;
+ 3. jQuery 用法
+
+$.ajax({
+ url: &quot;http://jack.com:8002/pay&quot;,
+ dataType: &quot;jsonp&quot;,
+ success: function( response ) {
+     if(response === &apos;success&apos;){
+     amount.innerText = amount.innerText - 1
+     }
+ }
+ })
+</code></pre><h2 id="请问JSONP为什么不支持POST请求？"><a href="#请问JSONP为什么不支持POST请求？" class="headerlink" title="请问JSONP为什么不支持POST请求？"></a>请问JSONP为什么不支持POST请求？</h2><p>答：因为JSONP是通过动态创建script实现的，动态创建script时只能用get，不能用post。</p>
+<h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库本质上就是一个文件。<br><br>数据库其实就是硬盘上的一个文件<br><br>数据库再厉害也不能不用文件存。<br></p>
+<h3 id="进入高级以后就是跟后端（服务器）打交道了。"><a href="#进入高级以后就是跟后端（服务器）打交道了。" class="headerlink" title="进入高级以后就是跟后端（服务器）打交道了。"></a>进入高级以后就是跟后端（服务器）打交道了。</h3><h3 id="可以向后端发请求的标签"><a href="#可以向后端发请求的标签" class="headerlink" title="可以向后端发请求的标签"></a>可以向后端发请求的标签</h3><p><code>form</code>表单,<code>script</code>,<code>a</code>,<code>link</code>都可以向后台服务器发请求。但是form表单提交一定会刷新页面。script,a,link只能发起get请求，没有办法选择get，post。</p>
+<h3 id="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"><a href="#Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。" class="headerlink" title="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"></a>Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。</h3><h3 id="JSON也是一门语言，其特点就是一定要加双引号。"><a href="#JSON也是一门语言，其特点就是一定要加双引号。" class="headerlink" title="JSON也是一门语言，其特点就是一定要加双引号。"></a>JSON也是一门语言，其特点就是一定要加双引号。</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/15/DOM事件/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/15/DOM事件/" itemprop="url">DOM事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T09:17:53+08:00">
+                2018-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DOM事件简介"><a href="#DOM事件简介" class="headerlink" title="DOM事件简介"></a>DOM事件简介</h1><p>我们主要学DOM Level2 ,因为DOM level 1介绍得很简单，而现在通行的DOM Level3并没有对事件进行大的修改和补充，所以我们主要学DOM Level2。<br><br><img src="https://i.imgur.com/D4OtACk.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/Brf8clx.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/vcU4H6s.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/4RnFU0r.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/oHw7IwT.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/AGFfzG5.png" alt=""><br></p>
+<p><hr></p>
+<h1 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h1><h2 id="零散知识"><a href="#零散知识" class="headerlink" title="零散知识"></a>零散知识</h2><p><img src="https://i.imgur.com/wxX0GpH.png" alt=""></p>
+<h2 id="举例：addEventListener"><a href="#举例：addEventListener" class="headerlink" title="举例：addEventListener()"></a>举例：addEventListener()</h2><p>监听事件两类：<br></p>
+<ul>
+<li>在同一个元素上设置多个监听事件。则监听事件按队列排序存储，一次点击同时触发，按照队列先进先出的原则触发。</li>
+<li>在不同元素上设置监听事件，但这些元素存在爷爷爸爸儿子这样的关系。当点击子元素时，子父爷及祖先的监听事件都会被触发，即监听事件会传播。这样的监听事件触发分为<strong>捕获阶段</strong>和<strong>冒泡阶段</strong>，可通过设置参数<code>true</code>只执行捕获阶段，或者默认<code>false</code>冒泡阶段。设置<code>stopPropagation</code>可以阻断监听事件的传播。建议阻止传播，不然点击元素，容易同时触发父元素，爷爷元素的监听事件。bug就来了。<br><br><br>从上到下：捕获阶段，从下到上，冒泡阶段。<br><br><br><img src="https://i.imgur.com/04MeUma.png" alt=""><br><br></li>
+</ul>
+<h3 id="实例：点击别处关闭浮层"><a href="#实例：点击别处关闭浮层" class="headerlink" title="实例：点击别处关闭浮层"></a>实例：点击别处关闭浮层</h3><ul>
+<li>解决法<br>用DOM事件<code>addEventListener（）</code>。<br><br><br><br>用<code>jQuery</code>写。这样写节省内存。<br><br><img src="https://i.imgur.com/xMGozV1.png" alt=""><br><br><br></li>
+<li><p>易错1 不知不觉一次触发多个事件，事件冲突<br><img src="https://i.imgur.com/viGlaWt.png" alt=""><br><img src="https://i.imgur.com/a57ZsSx.png" alt=""></p>
+</li>
+<li><p>易错2 false会阻止<code>prevent</code>事件发生和传播<code>propagation</code>,建议单独设置<br><br>设置<code>false</code>后，这个浮层里面<code>checkbox</code>点击不了<br><img src="https://i.imgur.com/MEOETwj.png" alt=""></p>
+</li>
+<li><p>易错3 不加阻止传播<br><img src="https://i.imgur.com/olctP56.png" alt=""><br><img src="https://i.imgur.com/V1yoa7U.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="冒泡的演示"><a href="#冒泡的演示" class="headerlink" title="冒泡的演示"></a>冒泡的演示</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/用jQuery实现我们的简历吧/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/13/用jQuery实现我们的简历吧/" itemprop="url">用jQuery实现我们的简历吧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T18:24:26+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/用jQuery做一个轮播/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/12/用jQuery做一个轮播/" itemprop="url">用jQuery做一个轮播</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T19:22:32+08:00">
+                2018-12-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="内容样式行为分离"><a href="#内容样式行为分离" class="headerlink" title="内容样式行为分离"></a>内容样式行为分离</h2><p>内容（html负责） 样式（css负责）行为（JavaScript负责）分离。如果不这样做，用html做样式，代码混乱，主次不分；如果用css写内容，用户选择不了这个内容且js也选择不了；如果用css控制逻辑行为，那么css加载将会很慢；如果用JS控制css，比如$div.show(),  $div.hide() 这两个API建议建议<strong>不使用</strong>,因为$div.hide()返回的display不确定，可能会影响我们原来的布局。其实这个解决办法很简单，我们只要用JS去切换状态就好了，如$div.addClass(‘active’),我们只用JS切换状态，至于这个状态下的样式该是什么样子，就由你CSS控制就好了。<br></p>
+<h2 id="轮播需求分析"><a href="#轮播需求分析" class="headerlink" title="轮播需求分析"></a>轮播需求分析</h2><p>用户点击按钮，可以切换图片到可视窗口。<br><br><img src="https://i.imgur.com/LLzUm86.png" alt=""></p>
+<h2 id="轮播分析"><a href="#轮播分析" class="headerlink" title="轮播分析"></a>轮播分析</h2><h3 id="轮播的思路"><a href="#轮播的思路" class="headerlink" title="轮播的思路"></a>轮播的思路</h3><p>思路1:用户看到的只是局部画面<br><br>让4张图片横排后就像一张大图片images，而我们的让用户看到的窗口只有一张图片大小。<br><br>思路2：滚来滚去<br><br>用户点击按钮，将组合成的这一大张图片整体左移或者右移。<br></p>
+<h3 id="轮播功能优化"><a href="#轮播功能优化" class="headerlink" title="轮播功能优化"></a>轮播功能优化</h3><ol>
+<li>支持图片数量不限</li>
+<li>实现自动播放(播放图片数量===图片应有数量)<br><img src="https://i.imgur.com/EqSDeRN.png" alt=""><br><br><img src="https://i.imgur.com/YjN9HIA.png" alt=""><br><br><img src="https://i.imgur.com/wnL2yLA.png" alt=""><br><br><img src="https://i.imgur.com/fhpF988.png" alt=""><br></li>
+<li>自动切换到某图片对应按钮高亮<br><br><br>使用jQuery的链式操作，可以一直<code>..</code> ，注意下一次的操作对象是上一次链式操作的结果。<br><br><img src="https://i.imgur.com/O59VVj6.png" alt=""><br></li>
+<li>鼠标滑过图片自动轮播停止，滑出图片自动轮播继续。<br><br><img src="https://i.imgur.com/dXFSk93.png" alt=""><br></li>
+<li>自动轮播同时可点击按钮实现图片切换，同时按钮高亮<br><img src="https://i.imgur.com/R7yMVih.png" alt=""><br></li>
+<li>优化代码<br><br>优化代码原则：看哪里有重复代码，哪里就能优化。<br></li>
+</ol>
+<h3 id="轮播技术细节"><a href="#轮播技术细节" class="headerlink" title="轮播技术细节"></a>轮播技术细节</h3><ol>
+<li>CSS布局就使用两种 <code>display:flex;align-items:flex-start;</code> <code>display:float</code></li>
+<li><code>$(p1).on(&#39;click&#39;,function(xxx){function-body})</code>,这是jQuery的写法，第一个参数是要触发事件的名称，第二个是触发的事件执行的函数。</li>
+<li>img是可替换标签，要提前写好宽高，这样当浏览器图片还没有下载下来的时候，就会有个占位符占据这个位置，当浏览器把图片下载下来以后就用图片把占位符替换掉。<strong>提前写好img的宽高可避免重排问题，重排问题特别浪费cup。</strong></li>
+<li>注意<code>allButtons[i]</code>是DOM对象，log打出来就知道了</li>
+<li>注意给用户看到的窗口只有一张图片大小，每次移动的宽度也是图片的宽度。即 窗口宽度 === 移动宽度/次 === 图片宽度<br> </li>
+<li>移动过程记得加动画过渡。<br></li>
+<li>用括号把立即执行函数包起来就能避免使用全局变量。</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/仿jQuery构造的两个函数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -385,9 +929,21 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
 <li><code>window.$ = jQuery</code>,那么<code>$</code>就是<code>jQuery</code>这个函数，可以少写单词。<br></li>
 <li><code>var $div = $(&#39;div&#39;)</code>,此时<code>$div</code>就是<code>nodes</code>对象,这样我们就通过标签名获得了一组同名标签对象。建议在声明jQuery对象时在变量名前加<code>$</code>，这样就能清楚地知道这是jQuery的对象，要使用jQuery的API,而不是使用DOM的API。<br></li>
 <li><code>$div.addClass([&#39;red&#39;])</code>，这句话就是<code>$div</code>这个对象调用了它的属性函数<code>addClass</code>，同时传了一个数组参数<code>[&#39;red&#39;]</code>，注意必须是数组，因为我们用了forEach。这里还要注意一点是<code>$div</code>实际上也被传入到这个属性函数<code>addClass</code>里面了，这是不同于以前我学C语言。因为<code>$div.addClass([&#39;red&#39;])</code>实际上是<code>$div.addClass.call($div,[&#39;red&#39;])</code>的简写，后者是js函数调用的规范版。<code>.</code>前面的东西也是作为参数传入到函数里面的。</li>
-<li><code>$div.setText(&#39;hi&#39;)</code>，也是同上的原理，<code>$div</code>调用了它的属性函数<code>setText</code>，实际传入了两个参数<code>$div</code>和<code>&#39;hi&#39;</code>。</li>
+<li><code>$div.setText(&#39;hi&#39;)</code>，也是同上的原理，<code>$div</code>调用了它的属性函数<code>setText</code>，实际传入了两个参数<code>$div</code>和<code>&#39;hi&#39;</code>。<hr>
+
+</li>
 </ul>
 </li>
+</ol>
+<p><strong>以下内容是我随堂记的笔记，比较零散，你可不看。</strong><br></p>
+<ol>
+<li>在编程里，变量名大写默认是常量。</li>
+<li>有一个易错的点，不要用全局变量当作id，比如alert,parent之类的，你用了要么就是你覆盖别人，要么就是别人覆盖你。所以要么你不用全局变量，要么你造一个函数，把这个变量变成局部的。</li>
+<li>DOM作业某题引发的关于全局变量、局部变量、立即执行函数的问题:用var声明一个变量，var会先找作用域，如果发现没有函数，那么var就会声明一个全局变量，那么就有可能将window的全局变量覆盖掉。然后JS就想了一个办法升级，用let在块{}里面声明变量，let是跑不出去{}外面的，如<code>{let parent}</code>,这个parent就是局部变量，跑不出{}。而var由于可以变量提升，块{}是包不住var的，只有函数才能包住var，让var声明一个局部变量，如<code>（ function(){var parent}.call() ）</code>,这是立即调用函数的例子，必须用括号将函数括起来，不然会报错。立即调用函数可以写为<code>(   function(){var parent}()  )</code></li>
+<li><div id="parent"></div> 易错题</li>
+<li>调试大法，出bug时，一行行删能找到bug，但是注意你删的过程中不要造成新的bug。排bug大法。</li>
+<li>jQuery的设计思想：给我一个node，给你返回对象；你给我一个id，我就能给你找到这个选择器。</li>
+<li></li>
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>简单说，jQuery就是封装了一些DOM的API的函数集合，也叫jQuery的API。jQuery的对象使用jQuery的API，DOM的对象使用DOM的API。</strong></p>
 
@@ -1202,611 +1758,6 @@ for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/给简历加JS/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/01/给简历加JS/" itemprop="url">给简历加JS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T18:42:28+08:00">
-                2018-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>没办法用CSS控制滚动条，只能用JS控制滚动条。<br><br>如果1s内有24帧,人眼睛看起来就像在动。<br></p>
-<ol>
-<li><code>setInterval（code，delay）</code>;</li>
-<li>JS调试： console.log()调试大法。<br></li>
-<li>tween.js 在github上。当我们用一个代码时，先看示例，然后在jsbin上做成功后，再加入到我们的代码里。<br></li>
-<li><a href="https://cdnjs.com/" target="_blank" rel="noopener">https://cdnjs.com/</a> 去这个网站找js代码引入。<br></li>
-<li>解决一个问题的关键是先着手解决这个问题<br></li>
-<li>学会在不懂的情况下搞定这个问题<br></li>
-<li>找到能用的代码，试着改一改，每次先小改，再大改。<br></li>
-<li>写代码的时候，在关键的地方打log，能确保你的代码按你想的去做。<br></li>
-<li>不要将两个动作用一个状态表示，容易出Bug.<br></li>
-<li>动画能用CSS做，也能用JS做。JS更多是用来加删active,来切换用CSS写的动画（静态）状态。<br></li>
-<li>初级JS永远都在找元素、给元素加class<br></li>
-<li>JS animatian transition<br></li>
-<li>浏览器给你提供的东西 就叫API.API看mdn的更好。MDN上的API最全面，学得更深入。阮一峰更多的是教你怎么用。<br></li>
-<li></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/CSS系列1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/01/CSS系列1/" itemprop="url">CSS系列1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:22:39+08:00">
-                2018-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>开始系统学习CSS，做了几个小demo后，我发现调试CSS需要花很长时间，而且大多数时间都是去试，效果都是我们想出来，用CSS样式实现时要不停的试，花的时间越多，做出来的页面越美。<br></p>
-<h2 id="CSS不正交及表现"><a href="#CSS不正交及表现" class="headerlink" title="CSS不正交及表现"></a>CSS不正交及表现</h2><p>CSS不正交的意思就是，CSS的各个属性之间存在相互影响，也就是会自相矛盾。所以很可能你现在实现了效果，再加入一个属性以后效果就完全打乱了。<br></p>
-<h2 id="CSS的学习方法"><a href="#CSS的学习方法" class="headerlink" title="CSS的学习方法"></a>CSS的学习方法</h2><p>CSS是艺术，不是科学。不要尝试去理解CSS的复杂原理，满足需要就行了。<br></p>
-<ul>
-<li>自己试（会累死的）</li>
-<li>让别人研究，我用现成的，现在有很多这样的网站。</li>
-<li>多实践，多总结</li>
-<li>先学会套路：布局&amp;居中&amp;自适应&amp;媒体查询&amp;响应式&amp;能做页面就可以了。</li>
-<li>熟练常用的，其他效果用到再google。</li>
-<li>平时有时间就写博客总结以下CSS的用法。</li>
-<li>记住几个常见的写法即可：<strong>居中</strong>{两种水平居中，三种垂直居中}、<strong>布局</strong>{两种左右结构，两种左中右结构}、一行省略、多行省略</li>
-</ul>
-<h2 id="CSS难学（不正交-属性多-性价比低）"><a href="#CSS难学（不正交-属性多-性价比低）" class="headerlink" title="CSS难学（不正交 + 属性多 + 性价比低）"></a>CSS难学（不正交 + 属性多 + 性价比低）</h2><p>CSS 不正交，因而有些反直觉。不正交主要表现在两点：</p>
-<ol>
-<li>同一元素的各属性之间互相影响<ul>
-<li><code>margin</code>合并 VS <code>border</code></li>
-<li><code>ul&gt;li</code> VS <code>display</code></li>
-<li><code>position: absolute</code> VS <code>display: inline</code></li>
-</ul>
-</li>
-<li>各元素之间互相影响<ul>
-<li><code>position: fixed</code> VS <code>transform</code></li>
-<li><code>float</code> 影响 <code>inline</code> 元素<h2 id="CSS容易学？"><a href="#CSS容易学？" class="headerlink" title="CSS容易学？"></a>CSS容易学？</h2><strong>背套路即可应付日常工作</strong><br></li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>水平居中</li>
-<li>垂直居中<br><br><strong>巧用工具</strong><br><br><a href="http://css3generator.com" target="_blank" rel="noopener">CSS3 Generator</a><br><br><strong>张鑫旭博客</strong><br><br><a href="https://www.zhangxinxu.com/wordpress/category/css/" target="_blank" rel="noopener">goole: 张鑫旭 CSS</a><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3></li>
-<li><p>PC端</p>
-<ul>
-<li>IE8 :只用float布局。float布局依赖盒子模型的特点<br><br>父元素加 <code>.clearfix</code>类名，加 <code>.clearfix{CSS样式}</code>。子元素为两个/三个宽度固定的div，加CSS样式 <code>.child{float:left；width：xx px}</code> 。<ul>
-<li>Chrome:flex布局。待补充。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>mobile<br>flex布局。待补充。<h3 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h3></li>
-<li><p>水平居中。</p>
-<ul>
-<li>child是块级元素<br><br>  child宽度不确定 <code>.child{margin:0 20px;}</code> ;child 宽度固定 <code>.child{margin:0 auto;}</code></li>
-<li>child是inline元素<br><br>给父元素加 <code>.parent{text-align:center;}</code></li>
-</ul>
-</li>
-<li><p>垂直居中(7种方法)<br><br>垂直居中的要点就是<strong>一定不要给父元素加 固定死高度</strong>，加了固定高度又要想实现里面内容就是给自己找麻烦。不给父元素加固定高度，实现里面内容垂直居中很容易。Good idea是先把里面child元素的内容和样式加好，再<strong>用padding撑起你要想要的父元素的高度</strong>，这样一来就实现了<strong>自然的垂直居中</strong>。因为不管child元素的高度是否固定，通过给父元素加上下相等的padding，就能实现child元素垂直居中。如：<code>.parent{padding-top:20px;padding:20px;}</code><br></p>
-<ul>
-<li>child高度固定 或 child高度不确定（里面有几行文本不确定）,要实现垂直居中，给父元素加：<code>.parent{padding:20px 0px;}</code></li>
-<li>parent高度固定<br><br>  工作中一定要避免这种情况发生。先固定外容器，再实现内居中，这不是好的idea，通常要用更多的代码解决这个麻烦。<br><br>解决办法有： IE浏览器 用 table/div(table)，代码兼容性强；Chrome浏览器 和 手机 使用flex布局实现垂直居中，代码简单。</li>
-</ul>
-</li>
-</ul>
-<h2 id="要学好CSS"><a href="#要学好CSS" class="headerlink" title="要学好CSS"></a>要学好CSS</h2><ul>
-<li>通读CSS规范文档-17章。<a href="http://cndevdocs.com" target="_blank" rel="noopener">CSS2中文文档</a>CSS3没有中文，英语要求高，人类根本都不读不完<br></li>
-<li>让张鑫旭（国内CSS研究前端最深的）研究，我用。</li>
-<li>CSS研究再厉害，不能变成商业价值也没有用。</li>
-<li>所以一切够用就行。</li>
-<li>JS才是前端核心</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/搜索引擎大法/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/01/搜索引擎大法/" itemprop="url">搜索引擎大法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:21:18+08:00">
-                2018-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>写这篇文章的原因是发现自己不太会用搜索引擎，为了不做一个古人，决定收录一些常用的例子。<br></p>
-<ul>
-<li>size:zhihu.com css不正交</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JS的对象/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/27/JS的对象/" itemprop="url">JS的对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T14:18:03+08:00">
-                2018-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。<br></p>
-<h2 id="全局对象-window"><a href="#全局对象-window" class="headerlink" title="全局对象 window"></a>全局对象 window</h2><p>我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做<code>global</code>，但是浏览器把<code>window</code>作为全局对象。<br><br><strong>window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种私有。公有就是ECMAscript规定的，私有就是某些浏览器自己加的windows属性，且各浏览器表现出来的形式不一样。</strong><br></p>
-<p><strong>ECMAScript规定的</strong>：<br></p>
-<ul>
-<li>global.parseInt</li>
-<li>global.parseFloat</li>
-<li>global.Number</li>
-<li>global.String</li>
-<li>global.Boolean</li>
-<li>global.Object</li>
-</ul>
-<p><strong>各浏览器自己加的属性:</strong><br></p>
-<ul>
-<li>window.alert(弹框提示)</li>
-<li>window.prompt（用户填写）</li>
-<li>window.comfirm（用户确认）</li>
-<li>window.console.log（开发者）</li>
-<li>window.console.dir</li>
-<li>window.document（文档，其标准DOM由W3C组织制定）</li>
-<li>window.document.createElement</li>
-<li>window.document.getElementById</li>
-<li>window.history(浏览器，其标准为BOM)</li>
-<li>window.history.back</li>
-<li>全局属性，window可省略<br><img src="https://i.imgur.com/fx1VU88.png" alt=""><br><br>下面我们学习四个全局属性，<code>Number()</code> <code>String</code> <code>Boolean</code> <code>Object</code>.<br></li>
-</ul>
-<ol>
-<li><strong><code>var n1 = Number(&#39;1&#39;)</code> 和 <code>var n2 = 1;</code> 与 <code>var n3 = new Number(1)</code>三者的区别：前二者声明数字number类型，后者为对象object类型</strong><br><br><br><img src="https://i.imgur.com/ZN9cDuE.png" alt=""><br><br><img src="https://i.imgur.com/d54A67s.png" alt=""><br></li>
-</ol>
-<p><strong>有一个重要的问题需要弄清楚</strong>，我们知道，简单类型（number/string/boolean）是没有属性的，但是上面为什么<code>n2.toString</code>又是成立的呢，其实是<code>n2.toString</code>返回的是一个<strong>临时对象<code>temp</code></strong>的<code>temp.toString()</code>值，这是JS设计者想的一个办法，既能语法像JAVA满足boss的要求，又能方便程序员的使用。下面我们来看看<code>var n2 = 1; n2.toString();</code> 这两句代码发生了什么：<br></p>
-<pre><code>var n2 = 2;      //1.声明了一个简单的number类型，值为2
-n2.toString();   //2.执行这句时，发现n2不是一个对象，这时会在内存里新建一个临时对象temp,这个临时对象temp等价于用new Number(1)创建的对象（复杂数字，由属性和值组成）。
-                //3.调用temp的toString属性，将temp.toString的值返回 作为 n2.toString的值（实际上n2是没有属性的）。
-                //3.在返回值后temp这个对象会被立刻释放掉，立刻释放掉，下次又使用的时候又重新建temp临时对象。
-                //4.说明：temp这个临时对象随浏览器解析n2.String()这句代码而建立，随代码执行结束而释放。
-                //4.说明：可以往temp里面加属性，只不过temp用完就被释放，所以添加属性没有意义，下次找不见。
-</code></pre><p><br><br>内存图<br><br><img src="https://i.imgur.com/RMpNcrF.png" alt=""><br></p>
-<p><hr><br><strong>还有一个易错的问题：</strong><br><br>1<br><br><img src="https://i.imgur.com/SgadUcG.png" alt=""><br><br>2<br><br><img src="https://i.imgur.com/oqryDG3.png" alt=""><br><br>3<br><br><img src="https://i.imgur.com/0hdTr6x.png" alt=""><br><br><br></p>
-<ol start="2">
-<li><strong><code>var s1 = String(1)</code> 和 <code>var s2 = &#39;this is a string.&#39;;</code> 与 <code>var n3 = new Number(&#39;this is a string.&#39;)</code>三者的区别：前二者声明数字string类型，后者为对象object类型。</strong>代码在内存的原理同number，不再画图复述。看下图：<br><br><br><a href="https://imgchr.com/i/Fmroex" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmroex.png" alt="Fmroex.png"></a><br></li>
-<li><strong><code>var b1 = Boolean(4)</code> 和 <code>var b2 = false;</code> 与 <code>var b3 = new Boolean(false);</code>三者的区别：前二者声明数字boolean类型，后者为对象object类型。</strong>第一为强制类型转换为boolean,第二是程序员方便使用，第三是给老板看，把 <code>false</code>包装成 对象。代码在内存的原理同number,string，不再画图复述<br><br><a href="https://imgchr.com/i/Fms9Tf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fms9Tf.png" alt="Fms9Tf.png"></a><br></li>
-<li><p><strong><code>var o1 = Object(2)</code> 和 <code>var o2 = {};</code> 与 <code>var o3 = new Object();</code>三者的区别：第一是强制类型转换成对象类型，第二程序员常用声明一个对象类型，第三应付boss，仿JAVA。但是注意o2!==o3，两个不同的对象</strong><br><br><br><a href="https://imgchr.com/i/Fm6XpF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm6XpF.png" alt="Fm6XpF.png"></a><br><br><hr></p>
-<h2 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h2><p><hr></p>
-<h2 id="公用的属性藏在哪"><a href="#公用的属性藏在哪" class="headerlink" title="公用的属性藏在哪"></a>公用的属性藏在哪</h2><p><strong>proto</strong>:object  //<strong>proto</strong>这个属性不用写就有，每一个对象的 <strong>proto</strong> 存储「公用属性组成的对象」的地址。<br><br><br><a href="https://imgchr.com/i/Fmf9J0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmf9J0.md.png" alt="Fmf9J0.md.png"></a><br><br>当解析一句代码时，如果这个不是对象，就包装成一个对象，自动生成<code>__proto__</code>。<br><br>所有对象的公有属性（也叫原型）： <code>Object.prototype</code>;<br><br>所有number的公有属性（也叫原型）： <code>Number.prototype</code><br><br>所有string的公有属性（也叫原型）： <code>String.prototype</code><br><br>所有boolean的公有属性（也叫原型）： <code>Boolean.prototype</code><br><br><a href="https://imgchr.com/i/Fm5j10" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5j10.md.png" alt="Fm5j10.md.png"></a><br><br><a href="https://imgchr.com/i/FmIiN9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIiN9.md.png" alt="FmIiN9.md.png"></a><br></p>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p><strong>多用开发者工具的控制台去验证，尝试理解。</strong><br><br><a href="https://imgchr.com/i/Fmhh4I" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmhh4I.md.png" alt="Fmhh4I.md.png"></a><br><br><code>prototype</code>和<code>__proto__</code>的区别：前者的函数的属性，后者是对象的属性。<br><br><a href="https://imgchr.com/i/Fm5nFs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5nFs.md.png" alt="Fm5nFs.md.png"></a><br><br><hr></p>
-<h2 id="重要公式-原型与原型链"><a href="#重要公式-原型与原型链" class="headerlink" title="重要公式-原型与原型链"></a>重要公式-原型与原型链</h2><p>var 对象 = new 函数（）<br>对象.<strong>proto</strong> === 函数.prototype  //都指向同一个公有属性对象地址，调用API<br>// 推论<br>var number = new Number()<br>number.<strong>proto</strong> = Number.prototype<br>Number.<strong>proto</strong> = Function.prototype // ?因为 Number 是 Function 的实例</p>
-<p>var object = new Object()<br>object.<strong>proto</strong> = Object.prototype<br>Object.<strong>proto</strong> = Function.prototype //? 因为 Object 是 Function 的实例,Function 是 Object 的构造函数。</p>
-<p>var function = new Function()<br>function.<strong>proto</strong> = Function.prototype<br>Function.<strong>proto</strong> == Function.prototye // ?因为 Function 是 Function 的实例！</p>
-</li>
-</ol>
-<p><a href="https://imgchr.com/i/FmIcuT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIcuT.png" alt="FmIcuT.png"></a><br></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1857,7 +1808,7 @@ n2.toString();   //2.执行这句时，发现n2不是一个对象，这时会在
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
