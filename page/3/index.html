@@ -242,6 +242,313 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/数据结构/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/15/数据结构/" itemprop="url">数据结构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T08:28:28+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>前言：只有先搞清楚数据结构，才能去想算法。</strong><br></p>
+<h3 id="哈希表（Hash-Table）"><a href="#哈希表（Hash-Table）" class="headerlink" title="哈希表（Hash Table）"></a>哈希表（Hash Table）</h3><p>在计算中，哈希表（哈希映射）是实现关联数组抽象数据类型的数据结构，该数据结构可以<strong>将键映射到值</strong>。哈希表使用哈希函数来计算桶或槽阵列的<strong>索引</strong>，从中可以找到所需的<strong>值</strong>。<strong>简单说，哈希表(数组)的结构就是</strong></p>
+<blockquote>
+<p>{<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>}<br><br><img src="https://i.imgur.com/K32QmYD.png" alt=""><br><br><img src="https://i.imgur.com/Utvt3VP.jpg" alt=""></p>
+</blockquote>
+<ul>
+<li><p><strong>计数排序</strong>中的桶（复杂度 O(n+max)，比快排还快<br><br>n是数的总数，max是hash表的长度（桶的个数）。计数排序算法看上次笔记《算法》<br></p>
+</li>
+<li><p><strong>桶排序思想</strong><br><br>很多排序里面都有桶，桶排序每个桶里不止放一个数，<strong>桶排序每一个桶里放一个范围内的数</strong>，然后每个桶里的数是乱序，还要采用其他排序。<br></p>
+</li>
+<li><p><strong>基数排序思想</strong><br><br>定下0-9十个基数（<strong>基数排序10个桶固定</strong>），将一组数 先按个位数相同进桶，按照<strong>先进先出</strong>的原则出桶，此时得到的一组数个位是按从小到大排好的；将上步得到的这组数 按十位数相同进桶，按照<strong>先进先出</strong>的原则出桶，此时得到的数十位是按从小到大排好的，同时<strong>十位相同的一组数的个位</strong>也是排好从小到大顺序的；再将上步得到的这组数按百位数相同依次进桶，依此类推，第三次进桶出桶以后，这组数百位从小到大排列的，同时百位数相同的几个数，其低位是排好序的（也就是个位和十位是排好的）,这就是基数排序的算法思想。这里特地说一下，进桶的原则是<strong>基数相同进同一个桶</strong>，出桶的原则是<strong> 同一个基数桶里，按先进先出的原则 出桶</strong>。<br><br><img src="https://i.imgur.com/LNPj9hg.jpg" alt=""><br></p>
+</li>
+<li><p>计数排序、桶排序、基数排序三者的区别<br><br><strong>排序就是要么浪费空间，要么浪费时间。这三种排序都是出桶和入桶</strong>桶排序就是<strong>先分范围再排序</strong>，桶数量不固定，浪费空间； 计数排序一个桶内放一个数，排序简单，桶数量不固定，浪费桶； 基数排序适合1-10万这种差距大的数，桶数量固定。<br></p>
+</li>
+</ul>
+<h3 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h3><p><img src="https://i.imgur.com/nMEtbIM.jpg" alt=""></p>
+<ul>
+<li><strong>先进先出</strong><br></li>
+<li>可以用<strong>数组</strong>实现<br></li>
+<li>举例：排队，线上购买火车票,前面基数排序 同一个桶出桶就是按照先进先出原则，也就是说同一个桶中所有的数就构成一个队列。<br></li>
+</ul>
+<h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><p><img src="https://i.imgur.com/soP3a3u.jpg" alt=""></p>
+<ul>
+<li><strong>先进后出</strong></li>
+<li>可以用<strong>数组</strong>实现</li>
+<li>举例：上楼下楼</li>
+</ul>
+<p><strong>故数组既可以是队列quene，也可以是栈stack。数组不是数据结构，数组是哈希表,一个索引标记的空间装着一个数</strong><br></p>
+<h3 id="链表（Linked-List）"><a href="#链表（Linked-List）" class="headerlink" title="链表（Linked List）"></a>链表（Linked List）</h3><p><img src="https://i.imgur.com/3kMKXcb.png" alt=""><br><br><img src="https://i.imgur.com/KzbzfXB.png" alt=""></p>
+<ul>
+<li>数组无法直接删除中间的一项，链表可以<br><br>数组删除一个数，非常复杂，先清空该位置，再将后面的数依次前移。<br></li>
+<li><p>用哈希（<strong>JS里面用对象表示哈希（对象的结构就是哈希表结构）</strong>）实现链表。只要看到一个哈希指向另一个哈希，另一个哈希又指向另一个哈希的结构就是链表。j不常用链表<br><br>在链表中，删除一个数，只需要把这个数上一个节点的指针指向这个数下一个节点，再释放掉这个数所在的节点空间。<br></p>
+</li>
+<li><p>head表头、<strong>node节点</strong> 概念<br></p>
+</li>
+</ul>
+<p><strong>故发现数组查询一项很快，而 链表（尤其中间删除）删除很快。前端常用 数组 而 不是链表</strong><br></p>
+<h3 id="树（tree）"><a href="#树（tree）" class="headerlink" title="树（tree）"></a>树（tree）</h3><p>如果哈希表之间满足如下关系，就是树。<br><br><img src="https://i.imgur.com/OwqMEDs.png" alt=""><br><img src="https://i.imgur.com/LUSUBxS.png" alt=""><br></p>
+<ul>
+<li>举例：层级结构、DOM<br><br>只要用到 <strong>层级结构</strong> 就用到 <strong>树</strong>。<br></li>
+<li>概念：层数、深度、节点个数</li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_tree" target="_blank" rel="noopener">二叉树binary tree</a>—一个节点只能开两个叉</li>
+<li>满二叉树—-叶子节点是长满的</li>
+<li>完全二叉树—除最后一层外其他层都是满的/最后一层某些节点差右子树</li>
+<li><strong>完全二叉树和满二叉树可以用数组实现，普通树只能用链表表示</strong>,<strong>因为从节点从左到右，不存在跳跃</strong>，利用<code>节点层数</code>和<code>树的节点规律</code>可以算出<code>数组的索引</code>，从而树结构用数组实现后，取数很方便。<br> </li>
+</ul>
+<p><img src="https://i.imgur.com/ktGXmEx.png" alt=""><br><img src="https://i.imgur.com/RB4iaDw.png" alt=""></p>
+<ul>
+<li>其他树可以用哈希（对象）实现,类似链表。<br></li>
+<li>操作：增删改查</li>
+<li><strong>堆排序用到了 tree</strong><h3 id="其他树：B树、红黑树、AVL树"><a href="#其他树：B树、红黑树、AVL树" class="headerlink" title="其他树：B树、红黑树、AVL树"></a>其他树：B树、红黑树、AVL树</h3></li>
+</ul>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><ul>
+<li>堆排序可视为一棵完全二叉树<br><br>即除最底层外，每一层都是满的，最底层可以缺少右边的叶子节点（相当于数组后面元素没有了）。故 <strong>堆</strong>可以用数组表示，每一个节点 对应 数组中的一个元素。</li>
+<li>堆的特征：上面的数大下面的数小</li>
+<li>最大堆：最大数在上面、最小堆：最小的数在上面</li>
+<li>最大堆调整</li>
+<li>堆排序概念最多、算法复杂</li>
+<li>从右到左遍历数组（因为数组最右边是树的最右叶子结点），先做一次<strong>最大堆调整</strong>，得到最大数，再把最大数放在一遍，将剩下的数做最大堆调整，依次类推，最后我们就得到了一个堆。从最外层开始调，俩儿子做对比，挑出厉害的再跟爸爸对比， 爸爸辈再和爷爷做对比，如果爸爸有调整，那么儿子们需要和新来的爸爸再打架。不断这样做，做到没法打架。<br></li>
+</ul>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html
+" target="_blank" rel="noopener">堆排序可视化</a><br><br><a href="http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/" target="_blank" rel="noopener">堆排序JS代码完整讲解（看到最后）</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/算法/" itemprop="url">算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T16:23:03+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="结构化编程"><a href="#结构化编程" class="headerlink" title="结构化编程"></a>结构化编程</h3><ul>
+<li>顺序结构</li>
+<li>条件结构</li>
+<li>循环结构<h3 id="变量-amp-常量"><a href="#变量-amp-常量" class="headerlink" title="变量&amp;常量"></a>变量&amp;常量</h3>js 不能使用数字,会自动把数字转成 字符串string，如<code>&#39;字符串&#39;</code>。不加引号的则是<strong>变量</strong>，变量是一个容器，可以装东西，而字符串是常量，不能变。<br>排序算法思想，局部的结果就是最终的结果。<br><h3 id="画流程图"><a href="#画流程图" class="headerlink" title="画流程图"></a>画流程图</h3>程序是 赋值+运算，画流程图 普通赋值/运算 是 方形，比较判断是 菱形。<br><br><img src="https://i.imgur.com/4NrCfzV.jpg" alt=""><h3 id="数据结构和算法的相互依存性"><a href="#数据结构和算法的相互依存性" class="headerlink" title="数据结构和算法的相互依存性"></a>数据结构和算法的相互依存性</h3>解决一个和数据有关的问题，分析问题，建立这个问题的数据结构，最后才去写算法，解决这个问题。在前端中，js使用的数据结构是 <strong>数组</strong> 和 <strong>对象</strong>，js没有指针，不用链表。<br><h3 id="5种算法大分类"><a href="#5种算法大分类" class="headerlink" title="5种算法大分类"></a>5种算法大分类</h3>会第一种-<strong>分而治之算法</strong>，熟悉前三种，贪婪算法就是 把眼前最优解 当作整体最优解，动态规划算法 是把局部最优解当作 整体最优解。<strong>分而治之是最好用的。</strong><br><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><strong>冒泡排序</strong>（大的往后排）<br><br><strong>选择排序</strong>（每次都找出一个极端排最前或最后）<br><br><img src="https://i.imgur.com/CBMrPxF.jpg" alt=""><br><strong>插入排序</strong>（扑克牌起牌算法）<img src="https://i.imgur.com/td5BAg2.jpg" alt=""><br><br><strong>计数排序</strong>（强迫症收牌算法）：<strong>优点速度比快排还快</strong>，缺点需要空间大需要先放好桶（准备好空间）。在收牌结束的时候就排好序了。不能排小数和复数，不然需要的空间太大了。<br><br><img src="https://i.imgur.com/RUHKShe.jpg" alt=""><br><br>计数排序—入桶演示：<br><br><img src="https://i.imgur.com/apsZUAz.jpg" alt=""><br><br><img src="https://i.imgur.com/kjRL6WV.jpg" alt=""><br><br><img src="https://i.imgur.com/EMKiN6z.png" alt=""><br></li>
+</ul>
+<p><strong>快排</strong>（排序的速度快），不要老是选择第一个元素为轴心<br><br><img src="https://i.imgur.com/Vs2qFc1.jpg" alt=""><br><br><strong>归并排序</strong><br><br><strong>堆排序</strong><br></p>
+<h3 id="排序变成伪代码"><a href="#排序变成伪代码" class="headerlink" title="排序变成伪代码"></a>排序变成伪代码</h3><p><a href="https://visualgo.net/zh/sorting" target="_blank" rel="noopener">查看排序效果演示<br></a><br><br>通过看演示效果，冒泡排序算法就是一堆机械重复。<br><br><img src="https://i.imgur.com/0OUdKEo.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/入门复习小结/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1525,292 +1832,11 @@ position: relative;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/Word-Learning/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/Word-Learning/" itemprop="url">Word Learning</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T20:41:28+08:00">
-                2018-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>embe 嵌入</li>
-<li>iframe 框架</li>
-<li>omit 删掉省略</li>
-<li>audio 声音、声卡、音频</li>
-<li>contenteditable 内容可编辑的</li>
-<li>Graphics 图形、图形、显卡</li>
-<li>slide control 滑动控制</li>
-<li>animation 动画制作</li>
-<li>Ultimate CSS Gradient Generator 终极CSS渐变生成器</li>
-<li>hexo deploy hexo部署</li>
-<li>recursively 递归地</li>
-<li>console 控制台，安慰</li>
-<li>append 追加</li>
-<li>canvas 画布</li>
-<li>rectangle 长方形</li>
-<li>parse 解析</li>
-<li>prototype 原型</li>
-<li>infinite 无限的</li>
-<li>sticky 黏性的</li>
-<li>pseudo - elements 伪元素</li>
-<li>sibling 兄弟姐妹</li>
-<li>nextSibling 下一个兄弟节点</li>
-<li>coords 坐标</li>
-<li>alias 别名</li>
-<li>compressed压缩的</li>
-<li>trigger 触发</li>
-<li>layout 布局</li>
-<li>axis 轴线</li>
-<li>column 按纵队排列</li>
-<li>row 按行排列</li>
-<li>stretch 延伸 伸展</li>
-<li>rotate 旋转</li>
-<li>skew 歪的 斜的</li>
-<li>slides 轮播</li>
-<li>viewport 视口</li>
-<li>negative margin负边距</li>
-<li>assign 分配</li>
-<li>align 排队</li>
-<li>detach 分离、拆开</li>
-<li>bind 约束，装订</li>
-<li></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/git、Git-Bash、github三者的联系/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/git、Git-Bash、github三者的联系/" itemprop="url">git、Git Bash、github三者的联系</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T20:37:09+08:00">
-                2018-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1856,7 +1882,7 @@ position: relative;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1906,7 +1932,7 @@ position: relative;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

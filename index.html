@@ -242,6 +242,393 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/30/实现AJAX/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/实现AJAX/" itemprop="url">实现AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-30T11:19:36+08:00">
+                2018-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="AJAX-的所有功能"><a href="#AJAX-的所有功能" class="headerlink" title="AJAX 的所有功能"></a>AJAX 的所有功能</h2><ul>
+<li>客户端的JS发起请求（浏览器上的）</li>
+<li>服务端的JS发送响应（Node.js上的）</li>
+</ul>
+<p><br></p>
+<ol>
+<li>JS 可以设置任意请求<code>header</code>吗？<br><br>第一部分 <code>request.open(&#39;get&#39;, &#39;/xxx&#39;)</code>,设置请求的方式，路径。<br><br>第二部分 <code>request.setRequestHeader(&#39;content-type&#39;,&#39;x-www-form-urlencoded&#39;)</code>设置请求头,<code>request.setRequestHeader</code>必须写在open和send之间<br><br>第三部分 是回车，不设置也不显示<br><br>第四部分<code>request.send(&#39;我非要设置请求体&#39;)</code><br><br><img src="https://i.imgur.com/ZJvmRVl.png" alt=""><br></li>
+<li>JS 可以获取任意响应 header 吗？<br><br>第一部分    <code>request.status</code>(200)/<code>request.statusText</code>(OK)<br><br>第二部分响应头<code>request.getResponseHeader()</code>/<code>request.getResponseHeader(&#39;Content-Type&#39;)</code> <code>request.getAllResponseHeaders()</code><br><br>第四部分响应体<code>request.responseText</code><br><br><img src="https://i.imgur.com/d0zfdFz.png" alt=""><br><br><img src="https://i.imgur.com/MB1m6hp.png" alt=""></li>
+</ol>
+<h2 id="今天写-window-jQuery-ajax"><a href="#今天写-window-jQuery-ajax" class="headerlink" title="今天写 window.jQuery.ajax"></a>今天写 window.jQuery.ajax</h2><p>封装AJAX是为了将AJAX的功能封装在一个函数里，以后要使用AJAX就调用这个函数就可以了。<br></p>
+<pre><code>window.jQuery.ajax = function(options){
+  // 代码
+}
+</code></pre><h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><img src="https://i.imgur.com/88L2IoG.png" alt=""></p>
+<h3 id="自己封装jQuery-ajax代码"><a href="#自己封装jQuery-ajax代码" class="headerlink" title="自己封装jQuery.ajax代码"></a>自己封装jQuery.ajax代码</h3><h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p><img src="https://i.imgur.com/ZQLmQsA.png" alt=""></p>
+<h2 id="callback回调就是满足某个条件的函数function"><a href="#callback回调就是满足某个条件的函数function" class="headerlink" title="callback回调就是满足某个条件的函数function"></a>callback回调就是满足某个条件的函数function</h2><pre><code>call a function
+call a function back
+</code></pre><h2 id="回调的问题"><a href="#回调的问题" class="headerlink" title="回调的问题"></a>回调的问题</h2><p>问题是每个程序员的回调名不一样</p>
+<h2 id="Promise-解决了回调名不一样这个问题"><a href="#Promise-解决了回调名不一样这个问题" class="headerlink" title="Promise 解决了回调名不一样这个问题"></a>Promise 解决了回调名不一样这个问题</h2><p>promise本质上是为了规定一种形式，统一。<br><br><strong>请背</strong></p>
+<pre><code>function xxx(){
+return new Promise((f1, f2) =&gt; {
+    doSomething()
+    setTimeout(()=&gt;{
+        // 成功就调用 f1，失败就调用 f2
+    },3000)
+})
+}
+
+xxx().then(success, fail)
+
+// 链式操作
+xxx().then(success, fail).then(success, fail)
+</code></pre><h2 id="升级你的-jQuery-ajax-满足-Promise-规则"><a href="#升级你的-jQuery-ajax-满足-Promise-规则" class="headerlink" title="升级你的 jQuery.ajax 满足 Promise 规则"></a>升级你的 jQuery.ajax 满足 Promise 规则</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/29/AJAX/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linyanliao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/29/AJAX/" itemprop="url">AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T09:59:34+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端如何向后端发请求？"><a href="#前端如何向后端发请求？" class="headerlink" title="前端如何向后端发请求？"></a>前端如何向后端发请求？</h2><ul>
+<li>用<code>form</code>可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好</li>
+<li>用<code>a</code>可以发 get 请求，但是也会刷新页面或新开页面</li>
+<li>用<code>img</code>可以发 get 请求，但是只能以图片的形式展示- </li>
+<li>用<code>link</code>可以发 get 请求，但是只能以 CSS、favicon 的形式展示</li>
+<li>用<code>script</code>可以发 get 请求，但是只能以脚本的形式运行</li>
+<li>有没有什么方式可以实现发get、post、put、delete请求都行，想以什么形式展示就以什么形式展示？？？？？？？？</li>
+</ul>
+<p><img src="https://i.imgur.com/quQJU55.png" alt=""><br><img src="https://i.imgur.com/2aIct9J.png" alt=""><br><img src="https://i.imgur.com/sj7jda5.png" alt=""><br><img src="https://i.imgur.com/fn6AevS.png" alt=""><br><img src="https://i.imgur.com/fwykQQa.png" alt=""></p>
+<h2 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h2><p><code>IE5</code> 率先在<code>JS</code>中引入 <code>ActiveX</code> 对象（API），使得 <strong>JS 可以直接发起 HTTP 请求</strong>。随后 Firefox浏览器、 Safari浏览器、 Opera浏览器 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 W3C 规范。<strong>实际上，AJAX就是用JS发HTTP请求这个技术的代名词。用脚本发请求就是AJAX。</strong>从此以后，<strong>AJAX奠定了前端的基础</strong>。很神奇地说。</p>
+<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>预习：<a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/bom/ajax.html</a><br></p>
+<p>Jesse James Garrett 给 AJAX取名叫做：<strong>异步的 JavaScript 和 XML</strong>（<code>Asynchronous JavaScript and XML</code>）<br><br>具体一点，AJAX包括以下几个步骤：<br></p>
+<ol>
+<li>使用<code>XMLHttpRequest</code>发HTTP请求</li>
+<li>服务器返回 <code>XML</code> 格式的字符串 (现在服务器返回的都是<code>JSON</code>格式的字符串，<code>XML</code> 格式已经过时了)</li>
+<li>JS 解析<code>XML</code>，从中提取数据，并更新局部页面</li>
+</ol>
+<p>后来，AJAX就成为 <strong>JavaScript 脚本发起 HTTP 请求</strong>的代名词，<strong>只要用脚本发起请求，就可以叫做 AJAX 请求</strong>,AJAX这个词已经成为了一个代名词，字面含义已经消失了。其实AJAX现在应该是AJAJ，异步的JavaScript和XML<br></p>
+<h2 id="如何使用-XMLHttpRequest"><a href="#如何使用-XMLHttpRequest" class="headerlink" title="如何使用 XMLHttpRequest"></a>如何使用 XMLHttpRequest</h2><p>整个过程是请求（request），响应(response)，浏览器解析(JSON.parse)</p>
+<pre><code>//前端程序员写在main.js里的代码
+myButton.addEventListener(&apos;click&apos;, (e)=&gt;{
+  let request = new XMLHttpRequest() //1.生成一个XMLHttpRequest实例对象request
+  request.open(&apos;get&apos;, &apos;/xxx&apos;) // 2.配置request对象
+  request.send() //3.发送request对象
+  request.onreadystatechange = ()=&gt;{ //4.监听request对象的readystate变化
+      if(request.readyState === 4){
+          console.log(&apos;请求响应都完毕了&apos;)
+          console.log(request.status)
+          if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300){
+            console.log(&apos;说明请求成功&apos;)
+            //我们在开发者工具里可以看到request.responseText的内容
+            console.log(typeof request.responseText)
+            console.log(request.responseText)
+            let string = request.responseText
+            // 把符合 JSON 语法的字符串
+            // 转换成 JS 对应的值
+            let object = window.JSON.parse(string) 
+            // JSON.parse 是浏览器提供的
+            console.log(typeof object)
+            console.log(object)
+            console.log(&apos;object.note&apos;)
+            console.log(object.note)
+            console.log(&apos;object.note.from&apos;)    
+            console.log(object.note.from)    
+          }else if(request.status &gt;= 400){
+            console.log(&apos;说明请求失败&apos;) 
+          }
+    }
+  }    
+})
+
+// 后端程序员写在server.js里的代码
+}else if(path===&apos;/xxx&apos;){
+response.statusCode = 200
+response.setHeader(&apos;Content-Type&apos;, &apos;text/json;charset=utf-8&apos;)
+response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+response.write(`
+    {
+      &quot;note&quot;:{
+        &quot;to&quot;: &quot;小谷&quot;,
+        &quot;from&quot;: &quot;方方&quot;,
+        &quot;heading&quot;: &quot;打招呼&quot;,
+        &quot;content&quot;: &quot;hi&quot;
+      }
+    }
+`)
+response.end()
+}
+</code></pre><p>使用XMLHttpRequest分为四步:<br></p>
+<ol>
+<li><strong>生成一个XMLHttpRequest实例对象request</strong></li>
+<li><strong>配置request对象</strong></li>
+<li><strong>发送request对象</strong></li>
+<li><strong>监听request对象的readystate变化</strong></li>
+</ol>
+<p><br><br>细节分析：<br></p>
+<ul>
+<li><code>window.XMLHttpRequest</code>是个函数。<br></li>
+<li><code>var request = new XMLHttpRequest()</code>用关键词new可以构造一个对象，有很多属性。称request是XMLHttpRequest的一个构造实例。<br> </li>
+<li>当<code>request.readyState</code>值为4时，整个请求过程已经完成（响应体已经下好了）。</li>
+<li><code>request.onreadystatechange</code>监听<code>request.readyState</code><br></li>
+<li>后台只能返回一个字符串给前端，不能返回对象，只不过这个字符串可以可以是XML格式的，也可以是JSON格式，或者CSS格式，例如上面后端代码就是返回JSON格式的字符串给浏览器，<code>response.setHeader(&#39;Content-Type&#39;, &#39;text/json;charset=utf-8&#39;)</code></li>
+<li>响应的第四部分是字符串，可以用 JSON 语法表示一个对象，也可以用 JSON 语法表示一个数组，还可以用 XML 语法，还可以用 HTML 语法，还可以用 CSS 语法，还可以用 JS 语法，还可以用我自创的语法</li>
+</ul>
+<h2 id="JSON-——-一门新语言，但不是一门编程语言"><a href="#JSON-——-一门新语言，但不是一门编程语言" class="headerlink" title="JSON —— 一门新语言，但不是一门编程语言"></a>JSON —— 一门新语言，但不是一门编程语言</h2><p><a href="http://json.org" target="_blank" rel="noopener">http://json.org</a>查看JSON的铁轨图。<br><br>JSON和JS是两门语言。JSON是抄袭JS，但JSON没有抄袭JS的<code>function</code>,<code>undefined</code>,<code>symbol</code>。JSON的作者还写了《语言精粹》来说JS的不好。<br><br>JSON的字符串必须使用双引号。例如<code>&quot;string&quot;</code><br></p>
+<pre><code>//左边`JS` VS `JSON`右边
+undefined           没有
+null                null
+true,false            true,false
+&apos;frank&apos;                &quot;frank&quot;
+[&apos;a&apos;,&apos;b&apos;]            [&quot;a&quot;,&quot;b&quot;]
+function fn(){}        没有      
+   {name:&apos;frank&apos;}        {&quot;name&quot;:&quot;frank&quot;}
+var a={};a.self=a    办不到（JSON没有变量）
+{__proto__}            没有原型链
+</code></pre><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>只有 <strong>协议+端口+域名一模一样</strong>才允许发 AJAX 请求,所以AJAX相当安全<br><br>例如<br><br>你只要不是baidu.com里面的JS,你就不能向baidu.com这个网站发起AJAX请求。实际上AJAX请求已经发出去了，但<code>request.readyState</code>值始终为0，浏览器根本看不到响应的内容。<br><br><a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a>可以向<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a>发 AJAX 请求吗?   <strong>NO!</strong><br><br><a href="http://baidu.com:80" target="_blank" rel="noopener">http://baidu.com:80</a>可以向 <a href="http://baidu.com:81" target="_blank" rel="noopener">http://baidu.com:81</a>发 AJAX 请求吗? <strong>NO!</strong><br></p>
+<p><strong>浏览器必须保证 只有 协议+端口+域名 一模一样才允许发 AJAX 请求</strong><br><br><strong>CORS 可以告诉浏览器，我俩一家的，我们一摸一样，别阻止他</strong><br><br>例如：当<code>frank.com:8001</code>想要访问<code>jack.com:8002</code>时,你要打电话给<code>jack.com:8002</code>的后端程序员，当<code>jack.com:8002</code>的后端程序员给sever.js要加上如下响应头后，<code>frank.com:8001</code>才能访问<code>jack.com:8002</code>。<br></p>
+<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+</code></pre><h2 id="CORS-跨域"><a href="#CORS-跨域" class="headerlink" title="CORS 跨域"></a>CORS 跨域</h2><p><strong>突破同源策略 === 跨域</strong><br>CORS是一个W3C标准，全称是”跨域资源共享”（<code>Cross-origin resource sharing</code>）。它允许浏览器向跨源服务器，发出<code>XMLHttpRequest</code>请求，从而克服了AJAX只能同源使用的限制。<br><br>例如上面代码：<br></p>
+<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+</code></pre><p><br><br><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
+<h2 id="使用CORS跨域-和-使用JSONP"><a href="#使用CORS跨域-和-使用JSONP" class="headerlink" title="使用CORS跨域 和 使用JSONP"></a>使用CORS跨域 和 使用JSONP</h2><p>使用CORS跨域可以发送的请求种类不受限制，如：<code>GET</code>,<code>POST</code>,<code>DELETE</code>，<code>PUT</code>而JSONP只能发起GET请求。<br><br>主要还是看后台的水平。<br></p>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><p>windows下修改hosts文件，添加两个域名<code>frank.com</code>，<code>jack.com</code>，开两个服务器server，一个作浏览器，一个作服务器，模拟访问。<br></p>
+<h2 id="使用原生JS来发送AJAX请求"><a href="#使用原生JS来发送AJAX请求" class="headerlink" title="使用原生JS来发送AJAX请求"></a>使用原生JS来发送AJAX请求</h2><p><strong>请背：</strong></p>
+<pre><code>  let request = new XMLHttpRequest() //1.生成一个XMLHttpRequest实例对象request
+  request.open(&apos;get&apos;, &apos;/xxx&apos;) // 2.配置request对象
+  request.send() //3.发送request对象
+  request.onreadystatechange = ()=&gt;{ //4.监听request对象的readystate变化
+      if(request.readyState === 4){
+          if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300){
+            console.log(&apos;说明请求成功&apos;)
+          }else if(request.status &gt;= 400){
+            console.log(&apos;说明请求失败&apos;) 
+          }
+      }
+}
+</code></pre><h2 id="自己的心得"><a href="#自己的心得" class="headerlink" title="自己的心得"></a>自己的心得</h2><p>标签有可以添加路径的属性就能向后台发送请求，比如form的action属性，img的src，link的href。<br><br>AJAX貌似是前端的一个新的开始，此后开始百家争鸣。<br><br>学到高级以后就慢慢接触一些简单的后端代码，知道<strong>当浏览器遇到路径时，会进到路径里面去。</strong>这应该就是浏览器遇到路径，就会给这个路径的后端服务器发送请求，后端可以在这个路径里写好会执行什么代码，而浏览器会获取服务器端数据。<br>    </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/初识JSONP/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1473,296 +1860,11 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/JS数组/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/JS数组/" itemprop="url">JS数组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T19:50:18+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="https://i.imgur.com/On5SxXQ.jpg" alt=""><br>回忆：简单类型<code>number</code>,<code>string</code>,<code>boolean</code>加<code>new</code>生成对象，不加<code>new</code>就是生成简单类型。而对象<code>array</code>,<code>function</code>,狭义<code>object</code>加不加<code>new</code>都是生成<code>object</code>。<br></p>
-<h2 id="Array声明"><a href="#Array声明" class="headerlink" title="Array声明"></a>Array声明</h2><ul>
-<li><p><code>var a = Array(3);</code><br><img src="https://i.imgur.com/Wxn2PfC.jpg" alt=""><br><img src="https://i.imgur.com/GHc7XGv.jpg" alt=""></p>
-</li>
-<li><p><code>var a = Array(3,3);</code></p>
-</li>
-</ul>
-<p><img src="https://i.imgur.com/vQRrMlp.jpg" alt=""></p>
-<ul>
-<li><code>var a = [];</code></li>
-</ul>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><pre><code>var a = [1,2,3]
-a.xxx = &apos;xxx&apos; //&quot;xxx&quot;
-a.yyy = &apos;yyy&apos; //&quot;yyy&quot;
-a             //(3) [1, 2, 3, xxx: &quot;xxx&quot;, yyy: &quot;yyy&quot;]
-                    0：1
-                    1：2
-                    2：3
-                    xxx:&quot;xxx&quot;
-                    yyy:&quot;yyy&quot;
-                    length:3
-                    __proto__:Array(0)
-//遍历数组1
-for(let i =0 ;i &lt; a.length; i++){console.log(a[i])} //1 2 3
-//遍历数组2
-for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
-</code></pre><h2 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h2><p>伪数组就是你的原型链中没有Array.prototype.<br><br>说实话，我也没听懂这个是啥，先记着。<br><br><img src="https://i.imgur.com/6PCtvZ2.jpg" alt=""><br></p>
-<h2 id="数组的API"><a href="#数组的API" class="headerlink" title="数组的API"></a>数组的API</h2><p>这些数组的API貌似都有遍历数组的功能。<br></p>
-<ol>
-<li><code>a.forEach( function(x,y){function-body} )</code>遍历。传函数参数。且函数必须有两个参数,第一个参数对应数组的value,第二个参数对应数组的key。函数参数可以有第三个参数，第三个参数就是数组a本身。实际上通过 <code>.</code>已经把数组a传入到forEach当中。<br><br><img src="https://i.imgur.com/ZJE17n3.jpg" alt=""><br><br><img src="https://i.imgur.com/cNghW38.jpg" alt=""><br><br>以下分布分解：<br><br><img src="https://i.imgur.com/TmN7zgL.png" alt=""><br><br><img src="https://i.imgur.com/bxXq2SA.png" alt=""><br><br><img src="https://i.imgur.com/vnMMF3X.png" alt=""><br><br>下面来看<code>a.forEach</code>的实质：<br><br><img src="https://i.imgur.com/6AZ73qY.jpg" alt=""><br></li>
-</ol>
-<p>API都是函数,函数的参数还可以是函数。<br><br>控制台里: <code>shift+回车</code> 可以换行。<br><br>JS内置排序为快速排序<br><br><br></p>
-<ol start="2">
-<li><p><code>a.sort(function(firstNumber,secondNumber){return firstNumber-secondNumber})</code>,传函数参数，函数参数必须有两个参数，分别对应数组a的第一、第二个数。函数体return回的值决定排序顺序，默认采用快排。return回的值是正值表示从大到小排，负值表示从小到大排，0表示fn和sn相等，<code>fn-sn</code>表示从小到大排，<code>sn-fn</code>表示从大到小排。排完序后是覆盖原来的a数组，即存回原来a的内存处。<br><br><img src="https://i.imgur.com/GZqqlF5.jpg" alt=""><br><br><img src="https://i.imgur.com/SEW9uiF.jpg" alt=""><br></p>
-</li>
-<li><p><code>a.join(&#39;连接符&#39;)</code>,用间隔符间隔连接。<br></p>
-</li>
-</ol>
-<p><img src="https://i.imgur.com/VKXCX4J.jpg" alt=""><br></p>
-<ol start="4">
-<li><code>a.contact</code><br>两个数组合并成一个数组，常用于数组复制。<br><br><img src="https://i.imgur.com/55fc4YF.jpg" alt=""><br></li>
-</ol>
-<ol start="5">
-<li><code>a.map</code>类似<code>a.forEach</code>，映射。<br><br><img src="https://i.imgur.com/3cm39nX.jpg" alt=""><br><br><img src="https://i.imgur.com/jQ81Oeq.jpg" alt=""><br><br>区别是<code>a.forEach</code>没有返回值(<code>undefined</code>),而<code>a.map</code>要有返回值，要<code>return</code>返回一个值。<br></li>
-<li><code>a.filter</code>过滤<br><br><img src="https://i.imgur.com/U9usixe.jpg" alt=""><br><br><img src="https://i.imgur.com/YeveT2I.jpg" alt=""><br><br><img src="https://i.imgur.com/BCt1sbN.jpg" alt=""><br><br>两个API链起来使用。<br></li>
-<li><code>a.reduce(function(){},0)</code>,这个<strong>求和API</strong>有两个参数，前一个是函数，要返回的，后一个是初始值。<br><br><img src="https://i.imgur.com/e5dnypt.jpg" alt=""><br><br><img src="https://i.imgur.com/cXkJIMl.png" alt=""><br><br><img src="https://i.imgur.com/rOXrL4e.jpg" alt=""><br></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/给简历加JS-1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linyanliao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan 's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/给简历加JS-1/" itemprop="url">给简历加JS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T08:10:21+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1808,7 +1910,7 @@ for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1858,7 +1960,7 @@ for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
