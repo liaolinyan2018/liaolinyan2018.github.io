@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前端如何向后端发请求？ 用form可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好 用a可以发 get 请求，但是也会刷新页面或新开页面 用img可以发 get 请求，但是只能以图片的形式展示-  用link可以发 get 请求，但是只能以 CSS、favicon 的形式展示 用script可以发 get 请求，但是只能以脚本的形式运行 有没有什么方式可以实现发ge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX">
+<meta property="og:url" content="http://yoursite.com/2018/12/29/37AJAX/index.html">
+<meta property="og:site_name" content="linyan &#39;s blog">
+<meta property="og:description" content="前端如何向后端发请求？ 用form可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好 用a可以发 get 请求，但是也会刷新页面或新开页面 用img可以发 get 请求，但是只能以图片的形式展示-  用link可以发 get 请求，但是只能以 CSS、favicon 的形式展示 用script可以发 get 请求，但是只能以脚本的形式运行 有没有什么方式可以实现发ge">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/quQJU55.png">
+<meta property="og:image" content="https://i.imgur.com/2aIct9J.png">
+<meta property="og:image" content="https://i.imgur.com/sj7jda5.png">
+<meta property="og:image" content="https://i.imgur.com/fn6AevS.png">
+<meta property="og:image" content="https://i.imgur.com/fwykQQa.png">
+<meta property="og:updated_time" content="2019-01-02T08:26:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AJAX">
+<meta name="twitter:description" content="前端如何向后端发请求？ 用form可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好 用a可以发 get 请求，但是也会刷新页面或新开页面 用img可以发 get 请求，但是只能以图片的形式展示-  用link可以发 get 请求，但是只能以 CSS、favicon 的形式展示 用script可以发 get 请求，但是只能以脚本的形式运行 有没有什么方式可以实现发ge">
+<meta name="twitter:image" content="https://i.imgur.com/quQJU55.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/29/37AJAX/">
+
+
+
+
+
+  <title>AJAX | linyan 's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">linyan 's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">√爱技术也爱美，×拒绝一成不变的生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/29/37AJAX/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan 's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">AJAX</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T09:59:34+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前端如何向后端发请求？"><a href="#前端如何向后端发请求？" class="headerlink" title="前端如何向后端发请求？"></a>前端如何向后端发请求？</h2><ul>
+<li>用<code>form</code>可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好</li>
+<li>用<code>a</code>可以发 get 请求，但是也会刷新页面或新开页面</li>
+<li>用<code>img</code>可以发 get 请求，但是只能以图片的形式展示- </li>
+<li>用<code>link</code>可以发 get 请求，但是只能以 CSS、favicon 的形式展示</li>
+<li>用<code>script</code>可以发 get 请求，但是只能以脚本的形式运行</li>
+<li>有没有什么方式可以实现发get、post、put、delete请求都行，想以什么形式展示就以什么形式展示？？？？？？？？</li>
+</ul>
+<p><img src="https://i.imgur.com/quQJU55.png" alt=""><br><img src="https://i.imgur.com/2aIct9J.png" alt=""><br><img src="https://i.imgur.com/sj7jda5.png" alt=""><br><img src="https://i.imgur.com/fn6AevS.png" alt=""><br><img src="https://i.imgur.com/fwykQQa.png" alt=""></p>
+<h2 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h2><p><code>IE5</code> 率先在<code>JS</code>中引入 <code>ActiveX</code> 对象（API），使得 <strong>JS 可以直接发起 HTTP 请求</strong>。随后 Firefox浏览器、 Safari浏览器、 Opera浏览器 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 W3C 规范。<strong>实际上，AJAX就是用JS发HTTP请求这个技术的代名词。用脚本发请求就是AJAX。</strong>从此以后，<strong>AJAX奠定了前端的基础</strong>。很神奇地说。</p>
+<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>预习：<a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/bom/ajax.html</a><br></p>
+<p>Jesse James Garrett 给 AJAX取名叫做：<strong>异步的 JavaScript 和 XML</strong>（<code>Asynchronous JavaScript and XML</code>）<br><br>具体一点，AJAX包括以下几个步骤：<br></p>
+<ol>
+<li>使用<code>XMLHttpRequest</code>发HTTP请求</li>
+<li>服务器返回 <code>XML</code> 格式的字符串 (现在服务器返回的都是<code>JSON</code>格式的字符串，<code>XML</code> 格式已经过时了)</li>
+<li>JS 解析<code>XML</code>，从中提取数据，并更新局部页面</li>
+</ol>
+<p>后来，AJAX就成为 <strong>JavaScript 脚本发起 HTTP 请求</strong>的代名词，<strong>只要用脚本发起请求，就可以叫做 AJAX 请求</strong>,AJAX这个词已经成为了一个代名词，字面含义已经消失了。其实AJAX现在应该是AJAJ，异步的JavaScript和XML<br></p>
+<h2 id="如何使用-XMLHttpRequest"><a href="#如何使用-XMLHttpRequest" class="headerlink" title="如何使用 XMLHttpRequest"></a>如何使用 XMLHttpRequest</h2><p>整个过程是请求（request），响应(response)，浏览器解析(JSON.parse)</p>
+<pre><code>//前端程序员写在main.js里的代码
+myButton.addEventListener(&apos;click&apos;, (e)=&gt;{
+  let request = new XMLHttpRequest() //1.生成一个XMLHttpRequest实例对象request
+  request.open(&apos;get&apos;, &apos;/xxx&apos;) // 2.配置request对象
+  request.send() //3.发送request对象
+  request.onreadystatechange = ()=&gt;{ //4.监听request对象的readystate变化
+      if(request.readyState === 4){
+          console.log(&apos;请求响应都完毕了&apos;)
+          console.log(request.status)
+          if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300){
+            console.log(&apos;说明请求成功&apos;)
+            //我们在开发者工具里可以看到request.responseText的内容
+            console.log(typeof request.responseText)
+            console.log(request.responseText)
+            let string = request.responseText
+            // 把符合 JSON 语法的字符串
+            // 转换成 JS 对应的值
+            let object = window.JSON.parse(string) 
+            // JSON.parse 是浏览器提供的
+            console.log(typeof object)
+            console.log(object)
+            console.log(&apos;object.note&apos;)
+            console.log(object.note)
+            console.log(&apos;object.note.from&apos;)    
+            console.log(object.note.from)    
+          }else if(request.status &gt;= 400){
+            console.log(&apos;说明请求失败&apos;) 
+          }
+    }
+  }    
+})
+
+// 后端程序员写在server.js里的代码
+}else if(path===&apos;/xxx&apos;){
+response.statusCode = 200
+response.setHeader(&apos;Content-Type&apos;, &apos;text/json;charset=utf-8&apos;)
+response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+response.write(`
+    {
+      &quot;note&quot;:{
+        &quot;to&quot;: &quot;小谷&quot;,
+        &quot;from&quot;: &quot;方方&quot;,
+        &quot;heading&quot;: &quot;打招呼&quot;,
+        &quot;content&quot;: &quot;hi&quot;
+      }
+    }
+`)
+response.end()
+}
+</code></pre><p>使用XMLHttpRequest分为四步:<br></p>
+<ol>
+<li><strong>生成一个XMLHttpRequest实例对象request</strong></li>
+<li><strong>配置request对象</strong></li>
+<li><strong>发送request对象</strong></li>
+<li><strong>监听request对象的readystate变化</strong></li>
+</ol>
+<p><br><br>细节分析：<br></p>
+<ul>
+<li><code>window.XMLHttpRequest</code>是个函数。<br></li>
+<li><code>var request = new XMLHttpRequest()</code>用关键词new可以构造一个对象，有很多属性。称request是XMLHttpRequest的一个构造实例。<br> </li>
+<li>当<code>request.readyState</code>值为4时，整个请求过程已经完成（响应体已经下好了）。</li>
+<li><code>request.onreadystatechange</code>监听<code>request.readyState</code><br></li>
+<li>后台只能返回一个字符串给前端，不能返回对象，只不过这个字符串可以可以是XML格式的，也可以是JSON格式，或者CSS格式，例如上面后端代码就是返回JSON格式的字符串给浏览器，<code>response.setHeader(&#39;Content-Type&#39;, &#39;text/json;charset=utf-8&#39;)</code></li>
+<li>响应的第四部分是字符串，可以用 JSON 语法表示一个对象，也可以用 JSON 语法表示一个数组，还可以用 XML 语法，还可以用 HTML 语法，还可以用 CSS 语法，还可以用 JS 语法，还可以用我自创的语法</li>
+</ul>
+<h2 id="JSON-——-一门新语言，但不是一门编程语言"><a href="#JSON-——-一门新语言，但不是一门编程语言" class="headerlink" title="JSON —— 一门新语言，但不是一门编程语言"></a>JSON —— 一门新语言，但不是一门编程语言</h2><p><a href="http://json.org" target="_blank" rel="noopener">http://json.org</a>查看JSON的铁轨图。<br><br>JSON和JS是两门语言。JSON是抄袭JS，但JSON没有抄袭JS的<code>function</code>,<code>undefined</code>,<code>symbol</code>。JSON的作者还写了《语言精粹》来说JS的不好。<br><br>JSON的字符串必须使用双引号。例如<code>&quot;string&quot;</code><br></p>
+<pre><code>//左边`JS` VS `JSON`右边
+undefined           没有
+null                null
+true,false            true,false
+&apos;frank&apos;                &quot;frank&quot;
+[&apos;a&apos;,&apos;b&apos;]            [&quot;a&quot;,&quot;b&quot;]
+function fn(){}        没有      
+   {name:&apos;frank&apos;}        {&quot;name&quot;:&quot;frank&quot;}
+var a={};a.self=a    办不到（JSON没有变量）
+{__proto__}            没有原型链
+</code></pre><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>只有 <strong>协议+端口+域名一模一样</strong>才允许发 AJAX 请求,所以AJAX相当安全<br><br>例如<br><br>你只要不是baidu.com里面的JS,你就不能向baidu.com这个网站发起AJAX请求。实际上AJAX请求已经发出去了，但<code>request.readyState</code>值始终为0，浏览器根本看不到响应的内容。<br><br><a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a>可以向<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a>发 AJAX 请求吗?   <strong>NO!</strong><br><br><a href="http://baidu.com:80" target="_blank" rel="noopener">http://baidu.com:80</a>可以向 <a href="http://baidu.com:81" target="_blank" rel="noopener">http://baidu.com:81</a>发 AJAX 请求吗? <strong>NO!</strong><br></p>
+<p><strong>浏览器必须保证 只有 协议+端口+域名 一模一样才允许发 AJAX 请求</strong><br><br><strong>CORS 可以告诉浏览器，我俩一家的，我们一摸一样，别阻止他</strong><br><br>例如：当<code>frank.com:8001</code>想要访问<code>jack.com:8002</code>时,你要打电话给<code>jack.com:8002</code>的后端程序员，当<code>jack.com:8002</code>的后端程序员给sever.js要加上如下响应头后，<code>frank.com:8001</code>才能访问<code>jack.com:8002</code>。<br></p>
+<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+</code></pre><h2 id="CORS-跨域"><a href="#CORS-跨域" class="headerlink" title="CORS 跨域"></a>CORS 跨域</h2><p><strong>突破同源策略 === 跨域</strong><br>CORS是一个W3C标准，全称是”跨域资源共享”（<code>Cross-origin resource sharing</code>）。它允许浏览器向跨源服务器，发出<code>XMLHttpRequest</code>请求，从而克服了AJAX只能同源使用的限制。<br><br>例如上面代码：<br></p>
+<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+</code></pre><p><br><br><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
+<h2 id="使用CORS跨域-和-使用JSONP"><a href="#使用CORS跨域-和-使用JSONP" class="headerlink" title="使用CORS跨域 和 使用JSONP"></a>使用CORS跨域 和 使用JSONP</h2><p>使用CORS跨域可以发送的请求种类不受限制，如：<code>GET</code>,<code>POST</code>,<code>DELETE</code>，<code>PUT</code>而JSONP只能发起GET请求。<br><br>主要还是看后台的水平。<br></p>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><p>windows下修改hosts文件，添加两个域名<code>frank.com</code>，<code>jack.com</code>，开两个服务器server，一个作浏览器，一个作服务器，模拟访问。<br></p>
+<h2 id="使用原生JS来发送AJAX请求"><a href="#使用原生JS来发送AJAX请求" class="headerlink" title="使用原生JS来发送AJAX请求"></a>使用原生JS来发送AJAX请求</h2><p><strong>请背：</strong></p>
+<pre><code>  let request = new XMLHttpRequest() //1.生成一个XMLHttpRequest实例对象request
+  request.open(&apos;get&apos;, &apos;/xxx&apos;) // 2.配置request对象
+  request.send() //3.发送request对象
+  request.onreadystatechange = ()=&gt;{ //4.监听request对象的readystate变化
+      if(request.readyState === 4){
+          if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300){
+            console.log(&apos;说明请求成功&apos;)
+          }else if(request.status &gt;= 400){
+            console.log(&apos;说明请求失败&apos;) 
+          }
+      }
+}
+</code></pre><h2 id="自己的心得"><a href="#自己的心得" class="headerlink" title="自己的心得"></a>自己的心得</h2><p>标签有可以添加路径的属性就能向后台发送请求，比如form的action属性，img的src，link的href。<br><br>AJAX貌似是前端的一个新的开始，此后开始百家争鸣。<br><br>学到高级以后就慢慢接触一些简单的后端代码，知道<strong>当浏览器遇到路径时，会进到路径里面去。</strong>这应该就是浏览器遇到路径，就会给这个路径的后端服务器发送请求，后端可以在这个路径里写好会执行什么代码，而浏览器会获取服务器端数据。<br>    </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/28/初识JSONP/" rel="next" title="初识JSONP">
+                <i class="fa fa-chevron-left"></i> 初识JSONP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/30/37实现AJAX/" rel="prev" title="实现AJAX">
+                实现AJAX <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liaolinyan</p>
+              <p class="site-description motion-element" itemprop="description">前端学习 生活 旅行 美食</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端如何向后端发请求？"><span class="nav-number">1.</span> <span class="nav-text">前端如何向后端发请求？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微软的突破"><span class="nav-number">2.</span> <span class="nav-text">微软的突破</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX"><span class="nav-number">3.</span> <span class="nav-text">AJAX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用-XMLHttpRequest"><span class="nav-number">4.</span> <span class="nav-text">如何使用 XMLHttpRequest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-——-一门新语言，但不是一门编程语言"><span class="nav-number">5.</span> <span class="nav-text">JSON —— 一门新语言，但不是一门编程语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同源策略"><span class="nav-number">6.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS-跨域"><span class="nav-number">7.</span> <span class="nav-text">CORS 跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CORS跨域-和-使用JSONP"><span class="nav-number">8.</span> <span class="nav-text">使用CORS跨域 和 使用JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟"><span class="nav-number">9.</span> <span class="nav-text">模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用原生JS来发送AJAX请求"><span class="nav-number">10.</span> <span class="nav-text">使用原生JS来发送AJAX请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己的心得"><span class="nav-number">11.</span> <span class="nav-text">自己的心得</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liaolinyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
