@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="hexo,">
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="用hexo+GitHub快速搭建博客 进入一个安全的目录,如 cd frontend。  在 GitHub 上新建一个空 repo（仓库），repo 名称是「你的用户名.github.io」（注意仓库名称是你的GitHub用户名，不是你的电脑用户名）   注意在frontend这个目录下，复制命令npm install -g hexo-cli到Git Bash，安装 Hexo  注意在fronte">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速搭建博客">
 <meta property="og:url" content="http://yoursite.com/2018/10/28/4用hexo和github快速搭建一篇博客/index.html">
@@ -90,7 +91,7 @@
 <meta property="og:image" content="https://video.jirengu.com/FqHIo4pU6kbk3R66KdlMwYJaAbQn">
 <meta property="og:image" content="https://i.loli.net/2019/01/11/5c388907deb93.png">
 <meta property="og:image" content="https://video.jirengu.com/Fpl8Cw-Pb4FCBdE_OE_N0ftCrtry">
-<meta property="og:updated_time" content="2019-01-11T13:15:19.070Z">
+<meta property="og:updated_time" content="2019-01-11T14:09:35.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速搭建博客">
 <meta name="twitter:description" content="用hexo+GitHub快速搭建博客 进入一个安全的目录,如 cd frontend。  在 GitHub 上新建一个空 repo（仓库），repo 名称是「你的用户名.github.io」（注意仓库名称是你的GitHub用户名，不是你的电脑用户名）   注意在frontend这个目录下，复制命令npm install -g hexo-cli到Git Bash，安装 Hexo  注意在fronte">
@@ -363,7 +364,7 @@
 <li>去看你的博客，应该能看到第二篇博客了</li>
 </ol>
 <h2 id="换主题"><a href="#换主题" class="headerlink" title="换主题"></a>换主题</h2><ol>
-<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">https://github.com/hexojs/hexo/wiki/Themes</a> 上面有主题合集</li>
+<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">博客主题合集</a> </li>
 <li>随便找一个主题，进入主题的 GitHub 首页。</li>
 <li>复制它的 SSH 地址或 HTTPS 地址，假设地址为 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:iissnan/hexo-theme-next.git</li>
 <li><code>cd themes</code></li>
@@ -387,12 +388,12 @@
 <p>这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面。</p>
 <h2 id="总结：平时搭建博客步骤"><a href="#总结：平时搭建博客步骤" class="headerlink" title="总结：平时搭建博客步骤"></a>总结：平时搭建博客步骤</h2><p>共五步骤，其中三步必须</p>
 <ol>
-<li>hexo new “博客文章名”<br>hexo会帮我们在/e/hexo/source/_posts目录下生成<code>博客文章名.md</code>文件，这篇博客标题就是”博客文章名”</li>
-<li>start 博客路径<br>注意博客路径要写完整,上一步有提示。用Markdown编辑器打开这个博客文件，编辑博客内容</li>
+<li>hexo new “博客文章名”<br> hexo会帮我们在/e/hexo/source/_posts目录下生成<code>博客文章名.md</code>文件，这篇博客标题就是”博客文章名”</li>
+<li>start 博客路径<br> 注意博客路径要写完整,上一步有提示。用Markdown编辑器打开这个博客文件，编辑博客内容</li>
 <li>部署到github之前打开站点配置文件_config.yml进行修改配置，不熟悉最好google找篇教程。这步部署一次以后，以后有需要再改，也就是说并不是你每次写完博客都要做这步。以下三步是部署到github。</li>
 <li>hexo clean</li>
-<li>hexo g<br>全称hexo generate,执行之后,hexo就会在/hexo/public文件夹下生成相关html文件，这些文件将来都是要提交到github上一个叫 [你的用户名.github.io]的仓库上去的     </li>
-<li><p>hexo d<br>全称hexo deploy,执行之后,就部署到github了。</p>
+<li>hexo g<br> 全称hexo generate,执行之后,hexo就会在/hexo/public文件夹下生成相关html文件，这些文件将来都是要提交到github上一个叫 [你的用户名.github.io]的仓库上去的     </li>
+<li><p>hexo d<br> 全称hexo deploy,执行之后,就部署到github了。</p>
 <h2 id="使用github-pages服务搭建博客的好处"><a href="#使用github-pages服务搭建博客的好处" class="headerlink" title="使用github pages服务搭建博客的好处"></a>使用github pages服务搭建博客的好处</h2></li>
 <li><p>全是静态文件，访问速度快；</p>
 </li>
@@ -417,6 +418,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
       
 
       
@@ -525,7 +532,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
