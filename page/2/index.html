@@ -242,6 +242,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/JS函数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/JS函数/" itemprop="url">JS函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T11:06:34+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这是面试知识点最密集的一课。<br><br>函数可以没有参数，但一定要有<code>return</code>，不然会自动给你加<code>return undefined</code>；<br></p>
+<h2 id="函数的-5-种声明"><a href="#函数的-5-种声明" class="headerlink" title="函数的 5 种声明"></a>函数的 5 种声明</h2><p>函数只有两种声明方法Function和function。<br><br><img src="https://i.imgur.com/v6208LZ.png" alt=""></p>
+<ul>
+<li><code>function f(){}</code>直接用关键字<code>function</code>声明<strong>具名函数</strong></li>
+<li><code>function (){}</code>用关键字<code>function</code>声明<strong>匿名函数</strong>,但是<strong>不能单独声明一个匿名函数</strong>，必须先声明一个变量，然后把匿名函数赋值给它。即 <code>var f = function(){};</code><br></li>
+<li><p><code>var f = function yy(){}</code><br><img src="https://i.imgur.com/hYMDw0m.png" alt=""><br><img src="https://i.imgur.com/vw65lpX.png" alt=""><br></p>
+</li>
+<li><p><code>var f =new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+b&#39;)</code>用全局对象<code>Function</code>在声明一个函数，<strong>基本没人用</strong>。可采用拼接法。<code>var n =1 ;var f =new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+&#39; + n + &#39;+b&#39;);f(1,2)//4</code><br></p>
+</li>
+<li><p>箭头函数。 <code>f = (x,y)=&gt;{return x+y}</code><br><br>箭头函数是匿名函数。<br><br><img src="https://i.imgur.com/UPTwAiP.png" alt=""><br><br>数组和对象的区别：原型不同。数组和对象不同，其中之一就是两者的公有属性不同。数组之所以是数组，是因为它有数组的特点，而对象没有数组的特点。它们二者的原型是不一样的。<br><br><img src="https://i.imgur.com/b5pk7E6.jpg" alt=""><br></p>
+</li>
+</ul>
+<h2 id="函数的name属性"><a href="#函数的name属性" class="headerlink" title="函数的name属性"></a>函数的name属性</h2><p><img src="https://i.imgur.com/LRhdzd0.png" alt=""></p>
+<h2 id="函数的本质"><a href="#函数的本质" class="headerlink" title="函数的本质"></a>函数的本质</h2><p>函数就是一段可以反复调用的代码块。作为一个程序员要更深地去理解函数，就要理解函数在内存是如何放的。函数是可以执行一段代码的对象。<br><br><img src="https://i.imgur.com/Jvy7QHs.png" alt=""><br></p>
+<h2 id="如何调用函数-f-call"><a href="#如何调用函数-f-call" class="headerlink" title="如何调用函数 f.call"></a>如何调用函数 f.call</h2><p>小白执行<code>f(1,2)</code><br><br><strong>正式的应该这样</strong> <code>f.call(undefined,1,2)</code>。只有这样写才能正确理解<code>this</code>。用call方法时，第二个才是我们要传的参数。<br></p>
+<h2 id="this-和-arguments"><a href="#this-和-arguments" class="headerlink" title="this 和 arguments"></a>this 和 arguments</h2><ul>
+<li>this就是f.call()里面的第一个参数，在JAVA里面比较有用，在JS里没什么用。当初是为了像JAVA而设计的，在JS里面没什么用，this就是一个参数。<br></li>
+</ul>
+<p><img src="https://i.imgur.com/zwCCASq.png" alt=""><br><br><img src="https://i.imgur.com/mOfZWAX.png" alt=""><br></p>
+<ul>
+<li>arguments就是f.call()里除了第一个参数以外的其他参数。<br><br>arguments是一个伪数组，伪数组的意思就是长得像数组，但是它的<code>__proto__</code>指向的不是<code>Array.prototype</code>，并且伪数组的整个原型链中都没有<code>Array.prototype</code>，即也使用不了a.push（）之类数组特有的函数API(没有数组的公有属性)。arguments就是一个长得像数组的普通对象。<br><br><img src="https://i.imgur.com/lEnaGUb.png" alt=""><br><br><img src="https://i.imgur.com/LZj7FyN.png" alt=""><br></li>
+</ul>
+<h2 id="什么是-call-stack"><a href="#什么是-call-stack" class="headerlink" title="什么是 call stack"></a>什么是 call stack</h2><p>f.call()的过程就是先进后出的过程，类似栈。看到call就进入到函数里面,同时记下返回的地方，看到return就返回原来标记的地方，继续执行接下来的代码。<br><br>栈空间有限，调用次数太多就会发生<code>stack overflow</code>.<br></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>有函数就有作用域。<br>一定要变量提升，一开始看见题目就要变量提升。<br><br>浏览器在画作用域树的时候都是先找到所有变量声明，然后把这些声明都放到最前面。<br><br><img src="https://i.imgur.com/DJatZzf.png" alt=""><br><br><img src="https://i.imgur.com/k6rEjwD.png" alt=""><br></p>
+<ul>
+<li>变量提升(我错了两次)<br><img src="https://i.imgur.com/K5kPAuw.png" alt=""><br><br><img src="https://i.imgur.com/A8ibmze.png" alt=""><br></li>
+<li>作用域混淆<br><img src="https://i.imgur.com/Q4HGfBl.png" alt=""><br></li>
+<li>变量是这个变量，但是值会变，不一定相等。<br><br><img src="https://i.imgur.com/Xov4bDR.png" alt=""><br><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2>闭包就是如果一个函数使用了它范围外（作用域）的变量，那么 【这个函数+这个变量】组合的整体 就叫做闭包。<br></li>
+</ul>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>这节课的习题真是不走寻常路。<br></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/JS数组/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1664,192 +1813,6 @@ var obj = {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/JS与导航栏/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/18/JS与导航栏/" itemprop="url">JS初</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T09:38:46+08:00">
-                2018-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>document.onkeypress = function(randomName){
-console.log(&apos;你按下的这个键所有信息是：&apos;)
-console.log(randomName)   //猜想randomName是存所有信息的hash表名
-  }
-</code></pre><p><img src="https://i.imgur.com/iXZwoO8.jpg" alt=""></p>
-<ol>
-<li>新建 二维数组和hash表。</li>
-<li>用js代码写html。</li>
-<li>添加CSS样式<br></li>
-</ol>
-<p><img src="https://i.imgur.com/ICiWxeS.png" alt=""><br><br></p>
-<ol start="4">
-<li>监听用户事件-即用户输入q打开qq.com<br>获取用户输入的键值–取出对应hash表的网站域名–修改当前网站地址/新开窗口打开<br><br></li>
-<li>加功能-用户自己设定按键对应的网站<br>用js给kbd里加儿子button标签，加css样式。当鼠标滑过kbd时，显示button的值。<br><br></li>
-<li><p>使用localStorage，将用户修改的网站地址保存到本地，避免出现用户刷新网页后，网页内容还是原来程序员自定义的网址。<br><br>方法是把存修改后地址的变量保存到这个js之外的地方去。首先获取用户编辑button对应的键值，用prompt获取用户要变更的网址，变更哈希，在这步结束以后，用户若是刷新网页，以上更改内容无效，于是用localStorage 把 变更过的hash表 保存到random的桶里，还必须在前面加上每次刷新网页时优先读取localStorage 的random 桶里的hash表。这样一来，要是上次用户修改了网页，当下次用户再次打开网页时，优先读取的是 修改过后的网站hash表。这就做到了实现用户自定义网站的要求。<br><br></p>
-</li>
-<li><p>键盘导航的功能基本够了，现在给键盘加CSS样式，立体，阴影，hover之类的。<br></p>
-</li>
-<li><p>加网站图标。 /favicon.icon <br><br>这个还挺麻烦的，加img标签及CSS样式，JS实现功能。有点容易错<br></p>
-<blockquote>
-<p>if(hash[row[index2]]){img.src = ‘http://‘ + hash[row[index2]] + ‘/favicon.ico’}<br><br>else{img.src = ‘//i.loli.net/2017/11/10/5a05afbc5e183.png’}<br><br><code>/*监听失败事件*//*console.log(&#39;获取icon失败了&#39;)*/</code><br><br>img.onerror = function(shijianName){shijianName.target.src = ‘./failphoto.jpg’}<br></p>
-</blockquote>
-</li>
-</ol>
-<p>在用户修改网站后，不仅要立即更新hash表存档，还要马上更改icon,用js实现<br></p>
-<pre><code>button.onclick = function(randomName){  //button被点击了
-//console.log(randomName) 这里的randomName就是事件click 哈希表的名称，randomName这个hash表存着这个事件的所有信息,打印出事件的所有信息
-button2 = randomName[&apos;target&apos;] //randomName[&apos;target&apos;]是用户点击的元素
-img2 = button2.nextSibling  //button2.nextSibling 可以取到当前被点击的button2的下一个兄弟
-var key = button2[&apos;id&apos;]   //q w e r t y 取出用户要编辑哪一个kbd的键值
-//console.log(randomName[&apos;target&apos;][&apos;id&apos;]  /*这里用key是错误的，这里没有按下kbd没有[&apos;key&apos;]，不能像下面一样用*/)
-var x = prompt(&apos;请输入要变更的网址&apos;)         //获取用户要更改的网址
-hash[key] = x                              //hash变更
-//console.log(hash)                  //每次都打出hash
-//hash变更后要立刻存档到randomN
-localStorage.setItem(&apos;randomN&apos;,JSON.stringify(hash)) //JSON.stringify(hash)是把hash变成字符串的                              //hash变更
-if(hash[key]){img2.src = &apos;http://&apos;+hash[key]+&apos;/favicon.ico&apos;}  //对应网站icon也要变更
-else{img2.src = &apos;//i.loli.net/2017/11/10/5a05afbc5e183.png&apos;}
-/*监听失败事件*//*console.log(&apos;获取icon失败了&apos;)*/
-img2.onerror = function(shijianName){shijianName.target.src = &apos;./failphoto.jpg&apos;}
- }
-</code></pre><p><br></p>
-<ol start="9">
-<li><p>解决bug。onerror <br><br>各种bug，测试。一般一个事件发生以后，我们可以知道这个事件所包含的所有信息，<code>button.onclick = function(randomName){}</code>，如这个事件的所有信息都存在randomName这个桶里（也是一个hash表），我们可以打出这个桶里的信息，可以通过randomName.target获得事件每次发生的对象，而不是用button,button往往存的是最后一个值。<br></p>
-</li>
-<li><p>优化代码-组装函数。可选做很酷，先完成前面。<br><br>封装函数就是把能实现一个功能的代码包起来，命个名字。代码结构由 数组型 变成 树形，逻辑清晰，易读性高，纠错快！ 只看一个子树就好了，每个子树的代码也不会很长，这样也不会疲倦。原来我在学C语言的时候，<strong>封装成函数</strong>是这个原因啊！确实很有道理<br> </p>
-</li>
-</ol>
-<ul>
-<li>知识</li>
-<li>在写页面之前，先画一下这个页面的功能有哪些。</li>
-<li>用数据结构分析页面</li>
-<li>数组的样子，和 hash表的样子</li>
-<li>js声明变量</li>
-<li>js的if结构</li>
-<li>js的while结构</li>
-<li>js的API函数</li>
-<li>用js写html</li>
-<li>用开发者工具调试-console &amp; application</li>
-<li>开发者工具模拟3g慢速网</li>
-<li>背景图片不能太大，裁剪图片，太久加载不出来用户就不会打开了</li>
-<li>获取网站的icon，例如：点击获取微博的icon  <a href="http://weibo.com/favicon.ico" title="获取微博的icon" target="_blank" rel="noopener">http://weibo.com/favicon.ico</a> <br></li>
-<li>上传一个图片</li>
-<li>标签就是一个哈希表</li>
-<li>18的习题要做一个错题收集。还没学过基础知识，还是有点模糊。</li>
-<li>以上内容供自己回顾使用。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1900,7 +1863,7 @@ img2.onerror = function(shijianName){shijianName.target.src = &apos;./failphoto.
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
