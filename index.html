@@ -242,6 +242,465 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/07/40面向对象编程/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/07/40面向对象编程/" itemprop="url">40面向对象编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-07T18:40:55+08:00">
+                2019-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/27/Anaconda安装和tensorflow安装/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/27/Anaconda安装和tensorflow安装/" itemprop="url">Anaconda安装和tensorflow安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-27T14:39:33+08:00">
+                2019-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>补充：这是我第二次在Anaconda下安装tensorflow，第一次安装tansorflow安装了一天，从早到晚吧，参考了好几篇教程，最后还是直接在Anaconda Navigator的tensorflow环境下直接安装tensorflow，也没报错。第二次安装只记得今天这篇教程了，因为之前电脑系统崩了，又得重头来一遍，用的这篇教程，但是里面有些指令不管用了，自己摸索了一下，大概花了两三个小时就安装上了Anaconda和tensorflow，花时间把修改后的内容写了一篇博客，留给自己复习用。这次是为了春运抢票需要用python，干脆就给装了。不敢居功，<a href="http://blog.51cto.com/acevi/2103437" target="_blank" rel="noopener">原文链接</a>奉上。</p>
+<h3 id="一、什么是Anaconda？"><a href="#一、什么是Anaconda？" class="headerlink" title="一、什么是Anaconda？"></a>一、什么是Anaconda？</h3><p>​       简单来说，Anaconda是一个包管理器和环境管理器。当安装好Anaconda并开始运行时，就会发现我们电脑里面安装好的环境和依赖包都可以在Anaconda里面找到，管理（安装、更新、卸载等）起来简直不能再方便。而且Anaconda附带一大批常用的数据科学包，这样在使用Python等处理数据的时候就不用安装完这个包再装那个包了。还有一个Anaconda非常强的方面就是环境管理，一台电脑多种环境可以造成很多混乱和错误，但是用Anaconda可以创建并管理多个不同的环境，需要哪个用哪个，Mom再也不用担心我的项目在不同环境下疯狂报错的问题啦。</p>
+<h3 id="二、安装Anaconda"><a href="#二、安装Anaconda" class="headerlink" title="二、安装Anaconda"></a>二、安装Anaconda</h3><h4 id="1下载Anaconda"><a href="#1下载Anaconda" class="headerlink" title="1下载Anaconda"></a>1下载Anaconda</h4><p>我是在Windows 10环境下安装Anaconda，我从<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">官网</a>下载Anaconda安装包，我是连着家里的网，下载速度感觉和使用镜像下载差不多。或者选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学镜像网站</a>，最下面找到最新版的，选择要安装的操作系统，下载就OK。</p>
+<h4 id="2安装Anaconda"><a href="#2安装Anaconda" class="headerlink" title="2安装Anaconda"></a>2安装Anaconda</h4><p>下载好之后就跟安装一般的软件没啥区别，选择自己安装的文件夹路径，下一步就ok，需要注意下图中的两项都需要勾选。</p>
+<p><img src="http://blog.51cto.com/static/js/ueditor1.4.3/themes/default/images/spacer.gif" alt="img"><img src="http://s1.51cto.com/images/20180414/1523693376832648.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=" alt="图片.png"></p>
+<p><strong>补充</strong>：勾选了，等安装结束以后还是检查一下电脑的环境变量-系统变量里面有没有Anaconda的安装路径，如果没有的话，你就要手动添加了，反正我的是勾选了还是没有路径，自己手动添加的。</p>
+<p>接下来就是一小段时间的等待，可以去喝杯茶。时间真的挺长的。</p>
+<h4 id="3测试Anaconda是否完成"><a href="#3测试Anaconda是否完成" class="headerlink" title="3测试Anaconda是否完成"></a>3测试Anaconda是否完成</h4><p>它安装完成后，在开始菜单找到并打开Anaconda控制台:Anaconda Prompt ，也叫<strong>终端</strong>。</p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d6774de93e.jpg" alt="zzz.jpg"></p>
+<p>执行命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+<p>可以看到自己电脑上安装的一些包，至此Anaconda安装完成。</p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d66cf6aead.png" alt="9T.png"></p>
+<h4 id="4更新Anaconda"><a href="#4更新Anaconda" class="headerlink" title="4更新Anaconda"></a>4更新Anaconda</h4><p>如果发现自己安装的Anaconda不是最新版本的,更新命令：<code>conda update --prefix 安装路径 anaconda</code></p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d650dbc7bf.png" alt="B.png"></p>
+<h3 id="三、在Anaconda下安装Tensorflow"><a href="#三、在Anaconda下安装Tensorflow" class="headerlink" title="三、在Anaconda下安装Tensorflow"></a>三、在Anaconda下安装Tensorflow</h3><ol>
+<li>因为要下载Tensorflow，所以我先在Anaconda的配置文件中添加清华镜像库，这样下载和更新的速度会快很多，命令：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/01/27/5c4d6480a4e50.png" alt="M7.png"></p>
+<ol start="2">
+<li>Tensorflow目前只支持Python3.5/3.6环境，而且在Python3.5环境下的表现更好一些。所以利用Anaconda创建Python3.5的环境，用来安装Tensorflow，执行命令：</li>
+</ol>
+<p><code>conda create -n tensoeflow python=3.5</code></p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d6336145c9.png" alt="V.png"></p>
+<p>然后打开Anaconda Navigator，点击环境（Environment），可以看到我已经创建了一个名为tensorflow的环境。</p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d6844087c4.png" alt="7.png"></p>
+<ol start="3">
+<li><p>在Anaconda Prompt启动刚刚配置好的Tensorflow环境，命令：</p>
+<p> <code>conda activate Tensorflow</code></p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/01/27/5c4d66043f7f6.png" alt="F8.png"></p>
+<p>如果不使用Tensorflow了，需要将环境关掉，命令：<code>conda deactivate</code></p>
+<ol start="4">
+<li><p>接下来就在这个环境中安装Tensorflow（之前的工作是给安装Tensorflow准备环境），执行命令：</p>
+<p><code>pip install tensorflow</code></p>
+</li>
+</ol>
+<p><strong>安装tensorfdlow的时间也是很长很长，耐心等吧。</strong></p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d62b6e2d0f.png" alt="0.png"></p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d61dbecb48.png" alt="RZQ.png"></p>
+<p>使用这个命令我成功安装了tensorflow，然后终端提醒我<strong>更新pip版本</strong>，告诉我使用命令：</p>
+<p><code>python -m pip install --upgrade pip</code></p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d625393ad1.png" alt="F.png"></p>
+<p>5.等安装过程完成后，我们来测试一下：打开Python编辑器，输入import tensorflow，没有报错信息，则安装完成</p>
+<p><img src="https://i.loli.net/2019/01/27/5c4d602a1feff.png" alt="92K.png"></p>
+<p>这应该算是时间比较新的一个教程了，全为亲身实践，可用，在安装的过程中就遇见了一个错误。</p>
+<p>pip3指令不可用，估计是pip没有更新导致的，我换成<code>pip install tansorflow</code>就安装成功了，之后终端也提示我更新pip了，上文有提到。好了，我要抢车票去了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/给简历加数据库/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/给简历加数据库/" itemprop="url">给简历加数据库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T14:09:13+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="事出有因"><a href="#事出有因" class="headerlink" title="事出有因"></a>事出有因</h3><p>数据是存在服务器端才能实现跨设备使用数据。我们没有学服务器，但是要存数据就要有一个服务器，但是上阿里云看了买一个服务器又太贵了。所以我们使用免费的。<a href="https://leancloud.cn" target="_blank" rel="noopener">https://leancloud.cn</a> 。</p>
+<h3 id="LeanCloud-介绍"><a href="#LeanCloud-介绍" class="headerlink" title="LeanCloud 介绍"></a>LeanCloud 介绍</h3><p>一个自带数据库和增删改查（CRUD）功能的后台系统。</p>
+<p>拥有：</p>
+<ol>
+<li>登录注册、手机验证码功能（收费）</li>
+<li>存储任意信息</li>
+<li>读取任意信息</li>
+<li>搜索任意信息</li>
+<li>删除任意信息</li>
+<li>更新任意信息</li>
+</ol>
+<p>等功能。</p>
+<h3 id="把LeanCloud集成到我们的简历"><a href="#把LeanCloud集成到我们的简历" class="headerlink" title="把LeanCloud集成到我们的简历"></a>把LeanCloud集成到我们的简历</h3><p>   给简历添加留言思路：将用户提交的留言保存到数据库，将数据库中的留言展示出来。</p>
+<p>   留言板功能：</p>
+<ol>
+<li>用户可以新增留言</li>
+<li>没有其他功能</li>
+</ol>
+<h3 id="使用LeanCloud"><a href="#使用LeanCloud" class="headerlink" title="使用LeanCloud"></a>使用LeanCloud</h3><p><strong>遇到没有见过的知识时，使用 Copy-Run-Modify 套路即可。</strong></p>
+<ol>
+<li><p>注册leancloud账号</p>
+</li>
+<li><p>创建一个应用resume-2019-1</p>
+</li>
+<li><p>点击你刚创建的<strong>应用</strong>-点击右边的<strong>帮助</strong>-点击<strong>入门指导</strong></p>
+</li>
+<li><p>引入 av-min.js，得到 window.AV</p>
+</li>
+<li><p>初始化 AV 对象（代码直接拷）</p>
+</li>
+<li><p>新建一条数据（代码直接拷）</p>
+<p><img src="https://i.loli.net/2019/01/26/5c4bfcaf3fba1.jpg" alt="cloud.jpg"></p>
+<p><img src="https://i.loli.net/2019/01/26/5c4bfd9bf27f1.png" alt="H1.png"></p>
+<p>这样我们就有了一个免费的数据库，还不需要服务器。</p>
+<p>使用这个数据库需要我们懂：<code>JS</code>,<code>promise</code>,<code>Http</code></p>
+<h3 id="封装成一个-Model"><a href="#封装成一个-Model" class="headerlink" title="封装成一个 Model"></a>封装成一个 Model</h3><p><strong>Model 就是一个操作数据的对象而已</strong></p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
+<h3 id="注意，不允许上传-node-modules-到-github-！"><a href="#注意，不允许上传-node-modules-到-github-！" class="headerlink" title="注意，不允许上传 node_modules 到 github ！"></a>注意，不允许上传 node_modules 到 github ！</h3><ol>
+<li>如果你把 node_modules 目录上传到 github，那么你的项目将变得非常大</li>
+<li>请在每个项目里创建 .gitignore 文件，在文件里写上一行 <code>/node_modules/</code> ，即可防止 node_modules 目录被提交</li>
+<li>如果你已经手贱把 node_modules 提交到了 github，那么请这样来撤销：<ol>
+<li><code>touch .gitignore</code></li>
+<li><code>echo /node_modules/ &gt;&gt; .gitignore</code></li>
+<li><code>git rm -r --cached node_modules</code></li>
+<li><code>git add . -A</code></li>
+<li><code>git commit -m &quot;remove node_modules&quot;</code></li>
+<li><code>git push</code></li>
+<li><code>npm install 或者 yarn install</code></li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/把MVC的VC加到简历里/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -385,13 +844,32 @@
 <li>任何地方都可以使用 window.linyanGrowUp  <strong>=&gt;</strong>  任何地方都可以使用 window.linyanGrowUp 操作 person，但是不能直接访问 person</li>
 <li>总结：<strong>立即执行函数肯定是和闭包结合起来用的。</strong></li>
 </ol>
-<h2 id="MVC-及注意事项"><a href="#MVC-及注意事项" class="headerlink" title="MVC 及注意事项"></a>MVC 及注意事项</h2><p>MVC就是Model-View-Controller。</p>
-<p>1.View 用户看得见的视图</p>
+<h2 id="MVC-及注意事项"><a href="#MVC-及注意事项" class="headerlink" title="MVC 及注意事项"></a>MVC 及注意事项</h2><p>MVC就是<code>Model-View-Controller</code>。MVC 是一个抽象的知识，你很有可能短时间无法理解。但是没有关系，多写类似的代码形成肌肉记忆就可以了。<strong>MVC的前提是你的代码经过模块化</strong>。</p>
+<ol>
+<li>View 用户看得见的视图</li>
+</ol>
 <p>只要你操作了页面，<strong>一个模块的js就对应一个View</strong>。<strong>添加了View以后，HTML代码也分块了</strong>，实际上用户看到的是<code>HTML + CSS</code>,因为CSS的样式是加在HTML内容上的。View的作用就是告诉js你这个模块对应着页面中哪些内容。</p>
 <p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt="图片"></p>
 <p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt=")8Y7XJKCN8N8E)W)BV28H{Y.png"></p>
-<p>2.</p>
-<p>MVC 是一个抽象的知识，你很有可能短时间无法理解。但是没有关系，多写类似的代码形成肌肉记忆就可以了。<strong>MVC的前提是你的代码经过模块化</strong>。</p>
+<ol start="2">
+<li>controller操纵view。从整个代码结构上来看，html构成view,js代码构成controller，controller操纵view。整个代码就变得很有结构。</li>
+</ol>
+<p>例如：</p>
+<p><img src="https://i.loli.net/2019/01/28/5c4ecab62dd71.png" alt="WY.png"></p>
+<p>这里的controller控制功能还是简单的，再看下图：</p>
+<p>### </p>
+<p><img src="https://i.loli.net/2019/02/03/5c56c922b4edb.png" alt="LD9Y.png"></p>
+<ol start="3">
+<li><p>Model 就是一个操作数据的对象</p>
+<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
+</li>
+</ol>
+<h2 id="MVC思想"><a href="#MVC思想" class="headerlink" title="MVC思想"></a>MVC思想</h2><p>Model 操作数据<br>View 表示视图<br>Controller 是控制器</p>
+<p>Model 和服务器交互，Model 将得到的数据交给 Controller，Controller 把数据填入 View，并监听 View；<br>用户操作 View，如点击按钮，Controller 就会接受到点击事件，Controller 这时会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据就去更新 View</p>
+<p><img src="https://i.loli.net/2019/02/07/5c5c06de7cfce.png" alt="CC@HCMA.png"></p>
+<p> MVC就是一种代码的组织形式，model和view传给controller，controller负责对model初始化，然后对view进行操作。view只负责看得见的东西（HTML元素），model负责请求和保存数据。controller负责操作，controller代码会相对复杂一些。</p>
+<p>有了MVC思想以后，代码就不至于写成一坨。以前还用注释来分隔代码，现在不需要用注释分隔代码，直接用MVC思想来组织代码。</p>
+<p>当引入了MVC的思想以后，你就发现所有的代码结构都一样。</p>
 
           
         
@@ -1396,473 +1874,6 @@ $.ajax({
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/用jQuery做一个轮播/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/12/用jQuery做一个轮播/" itemprop="url">用jQuery做一个轮播</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T19:22:32+08:00">
-                2018-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="内容样式行为分离"><a href="#内容样式行为分离" class="headerlink" title="内容样式行为分离"></a>内容样式行为分离</h2><p>内容（html负责） 样式（css负责）行为（JavaScript负责）分离。如果不这样做，用html做样式，代码混乱，主次不分；如果用css写内容，用户选择不了这个内容且js也选择不了；如果用css控制逻辑行为，那么css加载将会很慢；如果用JS控制css，比如$div.show(),  $div.hide() 这两个API建议建议<strong>不使用</strong>,因为$div.hide()返回的display不确定，可能会影响我们原来的布局。其实这个解决办法很简单，我们只要用JS去切换状态就好了，如$div.addClass(‘active’),我们只用JS切换状态，至于这个状态下的样式该是什么样子，就由你CSS控制就好了。<br></p>
-<h2 id="轮播需求分析"><a href="#轮播需求分析" class="headerlink" title="轮播需求分析"></a>轮播需求分析</h2><p>用户点击按钮，可以切换图片到可视窗口。<br><br><img src="https://i.imgur.com/LLzUm86.png" alt=""></p>
-<h2 id="轮播分析"><a href="#轮播分析" class="headerlink" title="轮播分析"></a>轮播分析</h2><h3 id="轮播的思路"><a href="#轮播的思路" class="headerlink" title="轮播的思路"></a>轮播的思路</h3><p>思路1:用户看到的只是局部画面<br><br>让4张图片横排后就像一张大图片images，而我们的让用户看到的窗口只有一张图片大小。<br><br>思路2：滚来滚去<br><br>用户点击按钮，将组合成的这一大张图片整体左移或者右移。<br></p>
-<h3 id="轮播功能优化"><a href="#轮播功能优化" class="headerlink" title="轮播功能优化"></a>轮播功能优化</h3><ol>
-<li>支持图片数量不限</li>
-<li>实现自动播放(播放图片数量===图片应有数量)<br><img src="https://i.imgur.com/EqSDeRN.png" alt=""><br><br><img src="https://i.imgur.com/YjN9HIA.png" alt=""><br><br><img src="https://i.imgur.com/wnL2yLA.png" alt=""><br><br><img src="https://i.imgur.com/fhpF988.png" alt=""><br></li>
-<li>自动切换到某图片对应按钮高亮<br><br><br>使用jQuery的链式操作，可以一直<code>..</code> ，注意下一次的操作对象是上一次链式操作的结果。<br><br><img src="https://i.imgur.com/O59VVj6.png" alt=""><br></li>
-<li>鼠标滑过图片自动轮播停止，滑出图片自动轮播继续。<br><br><img src="https://i.imgur.com/dXFSk93.png" alt=""><br></li>
-<li>自动轮播同时可点击按钮实现图片切换，同时按钮高亮<br><img src="https://i.imgur.com/R7yMVih.png" alt=""><br></li>
-<li>优化代码<br><br>优化代码原则：看哪里有重复代码，哪里就能优化。<br></li>
-</ol>
-<h3 id="轮播技术细节"><a href="#轮播技术细节" class="headerlink" title="轮播技术细节"></a>轮播技术细节</h3><ol>
-<li>CSS布局就使用两种 <code>display:flex;align-items:flex-start;</code> <code>display:float</code></li>
-<li><code>$(p1).on(&#39;click&#39;,function(xxx){function-body})</code>,这是jQuery的写法，第一个参数是要触发事件的名称，第二个是触发的事件执行的函数。</li>
-<li>img是可替换标签，要提前写好宽高，这样当浏览器图片还没有下载下来的时候，就会有个占位符占据这个位置，当浏览器把图片下载下来以后就用图片把占位符替换掉。<strong>提前写好img的宽高可避免重排问题，重排问题特别浪费cup。</strong></li>
-<li>注意<code>allButtons[i]</code>是DOM对象，log打出来就知道了</li>
-<li>注意给用户看到的窗口只有一张图片大小，每次移动的宽度也是图片的宽度。即 窗口宽度 === 移动宽度/次 === 图片宽度<br> </li>
-<li>移动过程记得加动画过渡。<br></li>
-<li>用括号把立即执行函数包起来就能避免使用全局变量。</li>
-<li></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/仿jQuery构造的两个函数/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/12/仿jQuery构造的两个函数/" itemprop="url">仿jQuery构造的两个函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T10:39:27+08:00">
-                2018-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在我的理解，jQuery就是一个个封装好的函数，这些函数里面就是调用了DOM的API,可以理解为DOM的API难用，然后我们进行了API升级改造。jQuery对象是对dom对象的封装，在获取dom对象的基础上增加了很多对象的方法，所以它们是很类似但又不同的两种对象。<br></p>
-<h2 id="通过仿写jQuery来理解jQuery"><a href="#通过仿写jQuery来理解jQuery" class="headerlink" title="通过仿写jQuery来理解jQuery"></a>通过仿写jQuery来理解jQuery</h2><p>这是我在jsbin上写的两个封装函数的例子,供学复习使用。<br><br><a href="http://js.jirengu.com/hibeh/4/edit?html,css,js,console,output" target="_blank" rel="noopener">http://js.jirengu.com/hibeh/4/edit?html,css,js,console,output</a><br><br></p>
-<p>HTML代码<br><br></p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-      &lt;meta charset=&quot;utf-8&quot;&gt;
-      &lt;title&gt;JS Bin&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div&gt;div1&lt;/div&gt;
-        &lt;div&gt;div2&lt;/div&gt;
-        &lt;div&gt;div3&lt;/div&gt;
-        &lt;div&gt;div4&lt;/div&gt;
-        &lt;div&gt;div5&lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p><br><br>JavaScript代码</p>
-<pre><code>/*一、jQuery的API封装*/
-
-window.jQuery = function(nodeOrselector){
-  /*1. 获取并重构nodes对象*/
-  let nodes = {};
-  if(typeof nodeOrselector === &apos;string&apos;){
-    let temp = document.querySelectorAll(nodeOrselector);//伪数组
-
-    for(let i = 0;i&lt;temp.length;i++){
-      nodes[i] = temp[i];
-    }
-    nodes.length = temp.length;
-  }else if(nodeOrselector instanceof Node){
-    nodes = {0: nodeOrselector,length: 1};
-  }
-
-
-  /*2.1 给对象nodes添加方法addClass（函数属性）*/
-  nodes.addClass = function(classes){
-     //把classes值通过forEach函数传进去
-    classes.forEach( (value) =&gt; {
-      for(let i=0;i&lt;nodes.length;i++){
-        nodes[i].classList.add(value);
-      }
-    });         
-  }
-
-
-  /*2.2 给对象nodes添加方法setText（函数属性）*/
-  nodes.setText = function(text){
-    if(text){
-      for(let i=0 ;i&lt;nodes.length;i++){
-        nodes[i].textContent = text;
-      }
-    }
-  }
-  /*3. 返回nodes对象*/
-  return nodes
-}
-
-
-/*二、jQuery的API使用*/
-window.$ = jQuery
-var $div = $(&apos;div&apos;)
-$div.addClass([&apos;red&apos;]) // 可将所有 div 的 class 添加一个 red
-$div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
-</code></pre><h2 id="代码细节问题"><a href="#代码细节问题" class="headerlink" title="代码细节问题"></a>代码细节问题</h2><ol>
-<li>html 就是加了几个div，没什么好说的。</li>
-<li>js代码分为两部分，第一部分是封装jQuery的API过程。第二部分是使用jQuery的API<br></li>
-<li>简单说，封装jQuery的API就是个把一堆代码封装成函数的过程，这个跟普通封装函数没有什么区别。这部分分为3步：<br>1获取并重构nodes对象，也是个伪数组，有length。注意先要初始化nodes，即 <code>let nodes = {};</code>,然后我们在获取nodes对象的成员时，使用了<strong>DOM的API</strong> - <code>querySelectorAll</code>。<br>2.1给对象nodes添加方法addClass（函数属性）,说白了就是nodes本来就是个对象，给对象加个（key）属性addClass，属性值(value)是个函数，这样我们在使用属性就能调用这个函数。在编写addClass这个函数我们用到了数组属性forEach，<strong>一定要记得传数组参数</strong>。还用到了箭头函数以及<strong>DOM的API</strong> - <code>ndoe.classList.add</code>。<br>2.2 同理，给对象nodes添加方法setText（函数属性），这个函数也用了<strong>DOM的API</strong> - <code>node.textContent</code>。<br>3 <code>return nodes</code>,一定要记得返回值，函数一定要有返回值，不然就给你 <code>return undefined</code>。<br></li>
-<li>第二部分，jQuery的API使用。<br><ul>
-<li><code>window.$ = jQuery</code>,那么<code>$</code>就是<code>jQuery</code>这个函数，可以少写单词。<br></li>
-<li><code>var $div = $(&#39;div&#39;)</code>,此时<code>$div</code>就是<code>nodes</code>对象,这样我们就通过标签名获得了一组同名标签对象。建议在声明jQuery对象时在变量名前加<code>$</code>，这样就能清楚地知道这是jQuery的对象，要使用jQuery的API,而不是使用DOM的API。<br></li>
-<li><code>$div.addClass([&#39;red&#39;])</code>，这句话就是<code>$div</code>这个对象调用了它的属性函数<code>addClass</code>，同时传了一个数组参数<code>[&#39;red&#39;]</code>，注意必须是数组，因为我们用了forEach。这里还要注意一点是<code>$div</code>实际上也被传入到这个属性函数<code>addClass</code>里面了，这是不同于以前我学C语言。因为<code>$div.addClass([&#39;red&#39;])</code>实际上是<code>$div.addClass.call($div,[&#39;red&#39;])</code>的简写，后者是js函数调用的规范版。<code>.</code>前面的东西也是作为参数传入到函数里面的。</li>
-<li><code>$div.setText(&#39;hi&#39;)</code>，也是同上的原理，<code>$div</code>调用了它的属性函数<code>setText</code>，实际传入了两个参数<code>$div</code>和<code>&#39;hi&#39;</code>。<hr>
-
-</li>
-</ul>
-</li>
-</ol>
-<p><strong>以下内容是我随堂记的笔记，比较零散，你可不看。</strong><br></p>
-<ol>
-<li>在编程里，变量名大写默认是常量。</li>
-<li>有一个易错的点，不要用全局变量当作id，比如alert,parent之类的，你用了要么就是你覆盖别人，要么就是别人覆盖你。所以要么你不用全局变量，要么你造一个函数，把这个变量变成局部的。</li>
-<li>DOM作业某题引发的关于全局变量、局部变量、立即执行函数的问题:用var声明一个变量，var会先找作用域，如果发现没有函数，那么var就会声明一个全局变量，那么就有可能将window的全局变量覆盖掉。然后JS就想了一个办法升级，用let在块{}里面声明变量，let是跑不出去{}外面的，如<code>{let parent}</code>,这个parent就是局部变量，跑不出{}。而var由于可以变量提升，块{}是包不住var的，只有函数才能包住var，让var声明一个局部变量，如<code>（ function(){var parent}.call() ）</code>,这是立即调用函数的例子，必须用括号将函数括起来，不然会报错。立即调用函数可以写为<code>(   function(){var parent}()  )</code></li>
-<li><div id="parent"></div> 易错题</li>
-<li>调试大法，出bug时，一行行删能找到bug，但是注意你删的过程中不要造成新的bug。排bug大法。</li>
-<li>jQuery的设计思想：给我一个node，给你返回对象；你给我一个id，我就能给你找到这个选择器。</li>
-<li></li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>简单说，jQuery就是封装了一些DOM的API的函数集合，也叫jQuery的API。jQuery的对象使用jQuery的API，DOM的对象使用DOM的API。</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/jQuery/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/11/jQuery/" itemprop="url">jQuery</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T15:33:42+08:00">
-                2018-12-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1913,7 +1924,7 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

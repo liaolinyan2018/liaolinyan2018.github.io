@@ -91,7 +91,11 @@
 <meta property="og:image" content="https://i.loli.net/2019/01/12/5c39e030e6742.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/12/5c39eca298b38.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/12/5c39eca298b38.png">
-<meta property="og:updated_time" content="2019-01-12T14:03:58.795Z">
+<meta property="og:image" content="https://i.loli.net/2019/01/28/5c4ecab62dd71.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/03/5c56c922b4edb.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/07/5c5c09cd1191f.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/07/5c5c06de7cfce.png">
+<meta property="og:updated_time" content="2019-02-07T10:38:00.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="把MVC的VC加到简历里">
 <meta name="twitter:description" content="把MVC的VC加到简历里完整代码：https://github.com/FrankFang/resume-15-6  在简历里使用 Swiper  进入 Swiper 官网 ,仔细读已经写得很详细了。 安装 Swiper  命令行：npm install swiper 在页面引入 Swiper（引入Swiper的CSS和JS)">
@@ -387,13 +391,32 @@
 <li>任何地方都可以使用 window.linyanGrowUp  <strong>=&gt;</strong>  任何地方都可以使用 window.linyanGrowUp 操作 person，但是不能直接访问 person</li>
 <li>总结：<strong>立即执行函数肯定是和闭包结合起来用的。</strong></li>
 </ol>
-<h2 id="MVC-及注意事项"><a href="#MVC-及注意事项" class="headerlink" title="MVC 及注意事项"></a>MVC 及注意事项</h2><p>MVC就是Model-View-Controller。</p>
-<p>1.View 用户看得见的视图</p>
+<h2 id="MVC-及注意事项"><a href="#MVC-及注意事项" class="headerlink" title="MVC 及注意事项"></a>MVC 及注意事项</h2><p>MVC就是<code>Model-View-Controller</code>。MVC 是一个抽象的知识，你很有可能短时间无法理解。但是没有关系，多写类似的代码形成肌肉记忆就可以了。<strong>MVC的前提是你的代码经过模块化</strong>。</p>
+<ol>
+<li>View 用户看得见的视图</li>
+</ol>
 <p>只要你操作了页面，<strong>一个模块的js就对应一个View</strong>。<strong>添加了View以后，HTML代码也分块了</strong>，实际上用户看到的是<code>HTML + CSS</code>,因为CSS的样式是加在HTML内容上的。View的作用就是告诉js你这个模块对应着页面中哪些内容。</p>
 <p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt="图片"></p>
 <p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt=")8Y7XJKCN8N8E)W)BV28H{Y.png"></p>
-<p>2.</p>
-<p>MVC 是一个抽象的知识，你很有可能短时间无法理解。但是没有关系，多写类似的代码形成肌肉记忆就可以了。<strong>MVC的前提是你的代码经过模块化</strong>。</p>
+<ol start="2">
+<li>controller操纵view。从整个代码结构上来看，html构成view,js代码构成controller，controller操纵view。整个代码就变得很有结构。</li>
+</ol>
+<p>例如：</p>
+<p><img src="https://i.loli.net/2019/01/28/5c4ecab62dd71.png" alt="WY.png"></p>
+<p>这里的controller控制功能还是简单的，再看下图：</p>
+<p>### </p>
+<p><img src="https://i.loli.net/2019/02/03/5c56c922b4edb.png" alt="LD9Y.png"></p>
+<ol start="3">
+<li><p>Model 就是一个操作数据的对象</p>
+<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
+</li>
+</ol>
+<h2 id="MVC思想"><a href="#MVC思想" class="headerlink" title="MVC思想"></a>MVC思想</h2><p>Model 操作数据<br>View 表示视图<br>Controller 是控制器</p>
+<p>Model 和服务器交互，Model 将得到的数据交给 Controller，Controller 把数据填入 View，并监听 View；<br>用户操作 View，如点击按钮，Controller 就会接受到点击事件，Controller 这时会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据就去更新 View</p>
+<p><img src="https://i.loli.net/2019/02/07/5c5c06de7cfce.png" alt="CC@HCMA.png"></p>
+<p> MVC就是一种代码的组织形式，model和view传给controller，controller负责对model初始化，然后对view进行操作。view只负责看得见的东西（HTML元素），model负责请求和保存数据。controller负责操作，controller代码会相对复杂一些。</p>
+<p>有了MVC思想以后，代码就不至于写成一坨。以前还用注释来分隔代码，现在不需要用注释分隔代码，直接用MVC思想来组织代码。</p>
+<p>当引入了MVC的思想以后，你就发现所有的代码结构都一样。</p>
 
       
     </div>
@@ -433,6 +456,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/26/给简历加数据库/" rel="prev" title="给简历加数据库">
+                给简历加数据库 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -509,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -555,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#把MVC的VC加到简历里"><span class="nav-number">1.</span> <span class="nav-text">把MVC的VC加到简历里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Swiper"><span class="nav-number">2.</span> <span class="nav-text">如何使用Swiper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数的产生过程"><span class="nav-number">3.</span> <span class="nav-text">立即执行函数的产生过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用立即执行函数"><span class="nav-number">4.</span> <span class="nav-text">使用立即执行函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数的作用"><span class="nav-number">5.</span> <span class="nav-text">立即执行函数的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个独立模块的变量想交流怎么办？"><span class="nav-number">6.</span> <span class="nav-text">两个独立模块的变量想交流怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-及注意事项"><span class="nav-number">7.</span> <span class="nav-text">MVC 及注意事项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#把MVC的VC加到简历里"><span class="nav-number">1.</span> <span class="nav-text">把MVC的VC加到简历里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Swiper"><span class="nav-number">2.</span> <span class="nav-text">如何使用Swiper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数的产生过程"><span class="nav-number">3.</span> <span class="nav-text">立即执行函数的产生过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用立即执行函数"><span class="nav-number">4.</span> <span class="nav-text">使用立即执行函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数的作用"><span class="nav-number">5.</span> <span class="nav-text">立即执行函数的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个独立模块的变量想交流怎么办？"><span class="nav-number">6.</span> <span class="nav-text">两个独立模块的变量想交流怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-及注意事项"><span class="nav-number">7.</span> <span class="nav-text">MVC 及注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC思想"><span class="nav-number">8.</span> <span class="nav-text">MVC思想</span></a></li></ol></div>
             
 
           </div>
