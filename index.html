@@ -242,6 +242,390 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/19/会动的简历/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/19/会动的简历/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-19T10:12:38+08:00">
+                2019-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="页面会动的原理"><a href="#页面会动的原理" class="headerlink" title="页面会动的原理"></a>页面会动的原理</h2><p>首先分析一下我们的需求，页面内容（html）和CSS样式效果（CSS）<strong>同步自动</strong>显示。关键词有html页面内容，CSS样式，自动显示，同步显示。自动显示意味着不是人为操作 写页面和样式，那只能是JS写页面和样式，那如何显示内容和样式呢？JS写完内容一定得加入到页面中（<code>&lt;body&gt;</code>标签中，加入到<code>&lt;pre&gt;</code>标签中更好，保留代码格式呈现）才能显示页面内容，JS写完样式得加入到<code>&lt;style&gt;</code>标签中才能显示CSS样式，这都是<strong>JS操作页面</strong>的体现。同步显示就是JS将写好的样式和内容同时分别加入<code>&lt;style&gt;</code> 和<code>&lt;pre&gt;</code>标签中。</p>
+<p>综上，页面会动的原理就是JS同时往<code>&lt;style&gt;</code> 和<code>&lt;pre&gt;</code>中写内容，只是两者的解析方式不一样。为了效果逼真，使用<code>setInterval( () =&gt; {},间隔时间)</code>一点点往页面中添加内容。<a href="http://js.jirengu.com/tudixaxaxe/1/edit?html,css,js,output" target="_blank" rel="noopener">预览</a></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6b7cd2de0b9.png" alt="7P.png"></p>
+<h2 id="实战-页面会动的简历"><a href="#实战-页面会动的简历" class="headerlink" title="实战-页面会动的简历"></a>实战-页面会动的简历</h2><h3 id="文本加注释"><a href="#文本加注释" class="headerlink" title="文本加注释"></a>文本加注释</h3><p>加到<code></code><style>`标签的内容不能出现文本，故将文本都加上注释。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6b89cbdb711.png" alt="F.png"></p>
+<h3 id="代码高亮功能"><a href="#代码高亮功能" class="headerlink" title="代码高亮功能"></a>代码高亮功能</h3><p>原理：给页面的选择器加span标签</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6b85e8619ac.png" alt="M.png"></p>
+<p>自己写肯定不划算，引用别人的代码高亮库，Copy-Run-Modify</p>
+<p>引入<code>Prism.css</code> <code>Prism.js</code>库，并查看官方文档如何使用</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bbb196459b.png" alt="XR.png"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bbe89330de.png" alt="U5.png"></p>
+<p>代码高亮效果</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bbba308e86.png" alt="XY4.png"></p>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步就是先写的代码后执行。也是 <strong>不等结果直接进行下一步</strong>。例如：</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6beef20b84f.png" alt="IEX.png"></p>
+<p>同理可知，<strong>同步就是先等结果再执行下一步</strong>。</p>
+<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>回调是拿到异步结果的一种方式</p>
+<p>回调也可以拿同步结果。</p>
+<p>回调就是回电话通知。</p>
+</style></p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/19/JS常用DOM-API/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/19/JS常用DOM-API/" itemprop="url">JS常用DOM API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-19T10:05:56+08:00">
+                2019-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line">str.substring(indexStart[, indexEnd]) <span class="comment">//字符串切片，含头不含尾</span></span><br><span class="line">str.slice(beginSlice[, endSlice]) <span class="comment">//slice() 返回一个从原字符串中提取出来的新字符串包括beginSlice但不包括 endSlice。</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="keyword">var</span> id = setInterval( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; , 间隔时间)</span><br><span class="line">clearInterval(id)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'#idName'</span>)</span><br><span class="line">body.querySelector(<span class="string">'#className'</span>)</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'divOrOtherSelector'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'#idName'</span>) <span class="comment">//得到NodeList</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'#className'</span>)</span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'divOrOtherSelector'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="keyword">const</span> content = idName.innerHTML <span class="comment">//获取HTML语法表示的元素的后代</span></span><br><span class="line">idName.innerHTML = htmlString   <span class="comment">//设置HTML语法表示的元素的后代</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(paper)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/16/虚拟DOM深入讲解/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/16/虚拟DOM深入讲解/" itemprop="url">虚拟DOM深入讲解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-16T08:26:00+08:00">
+                2019-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="虚拟-DOM是什么"><a href="#虚拟-DOM是什么" class="headerlink" title="虚拟 DOM是什么"></a>虚拟 DOM是什么</h2><h2 id="虚拟-DOM有什么用"><a href="#虚拟-DOM有什么用" class="headerlink" title="虚拟 DOM有什么用"></a>虚拟 DOM有什么用</h2><h2 id="虚拟-DOM如何实现"><a href="#虚拟-DOM如何实现" class="headerlink" title="虚拟 DOM如何实现"></a>虚拟 DOM如何实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author ruoyu</span><br><span class="line"> * @description 虚拟 DOM Demo</span><br><span class="line"> * @todo 暂时不考虑复杂情况</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">class VNode &#123;</span><br><span class="line">  constructor(tag, children, text) &#123;</span><br><span class="line">    this.tag = tag</span><br><span class="line">    this.text = text</span><br><span class="line">    this.children = children</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    if(this.tag === &apos;#text&apos;) &#123;</span><br><span class="line">      return document.createTextNode(this.text)</span><br><span class="line">    &#125;</span><br><span class="line">    let el = document.createElement(this.tag)</span><br><span class="line">    this.children.forEach(vChild =&gt; &#123;</span><br><span class="line">      el.appendChild(vChild.render())</span><br><span class="line">    &#125;)</span><br><span class="line">    return el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function v(tag, children, text) &#123;</span><br><span class="line">  if(typeof children === &apos;string&apos;) &#123;</span><br><span class="line">    text = children</span><br><span class="line">    children = []</span><br><span class="line">  &#125;</span><br><span class="line">  return new VNode(tag, children, text)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">let nodesData = &#123;</span><br><span class="line">  tag: &apos;div&apos;,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      tag: &apos;p&apos;,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          tag: &apos;span&apos;,</span><br><span class="line">          children: [</span><br><span class="line">            &#123;</span><br><span class="line">              tag: &apos;#text&apos;,</span><br><span class="line">              text: &apos;xiedaimala.com&apos;</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      tag: &apos;span&apos;,</span><br><span class="line">        children: [</span><br><span class="line">          &#123;</span><br><span class="line">            tag: &apos;#text&apos;,</span><br><span class="line">            text: &apos;jirengu.com&apos;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/*创建vNodes实例*/</span><br><span class="line">let vNodes = v(&apos;div&apos;, [</span><br><span class="line">      v(&apos;p&apos;, [</span><br><span class="line">        v(&apos;span&apos;, [ v(&apos;#text&apos;, &apos;xiedaimala.com&apos;) ] )</span><br><span class="line">        ]</span><br><span class="line">      ),</span><br><span class="line">      v(&apos;span&apos;, [</span><br><span class="line">        v(&apos;#text&apos;,  &apos;jirengu.com&apos;)</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">  )</span><br><span class="line">console.log(vNodes)</span><br><span class="line">console.log(vNodes.render())</span><br><span class="line"></span><br><span class="line">//虚拟DOM实现数据更新</span><br><span class="line">//增加、删除、修改一个元素</span><br><span class="line">function patchElement(parent, newVNode, oldVNode, index = 0) &#123;</span><br><span class="line">  if(!oldVNode) &#123;</span><br><span class="line">    parent.appendChild(newVNode.render())</span><br><span class="line">  &#125; else if(!newVNode) &#123;</span><br><span class="line">    parent.removeChild(parent.childNodes[index])</span><br><span class="line">  &#125; else if(newVNode.tag !== oldVNode.tag || newVNode.text !== oldVNode.text) &#123;</span><br><span class="line">    parent.replaceChild(newVNode.render(), parent.childNodes[index])</span><br><span class="line">  &#125;  else &#123;</span><br><span class="line">    for(let i = 0; i &lt; newVNode.children.length || i &lt; oldVNode.children.length; i++) &#123;</span><br><span class="line">      patchElement(parent.childNodes[index], newVNode.children[i], oldVNode.children[i], i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let vNodes1 = v(&apos;div&apos;, [</span><br><span class="line">      v(&apos;p&apos;, [</span><br><span class="line">        v(&apos;span&apos;, [ v(&apos;#text&apos;, &apos;xiedaimala.com&apos;) ] )</span><br><span class="line">        ]</span><br><span class="line">      ),</span><br><span class="line">      v(&apos;span&apos;, [</span><br><span class="line">        v(&apos;#text&apos;,  &apos;jirengu.com&apos;)</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">let vNodes2 = v(&apos;div&apos;, [</span><br><span class="line">      v(&apos;p&apos;, [</span><br><span class="line">        v(&apos;span&apos;, [ </span><br><span class="line">          v(&apos;#text&apos;, &apos;xiedaimala.com&apos;) </span><br><span class="line">          ] )</span><br><span class="line">        ]</span><br><span class="line">      ),</span><br><span class="line">      v(&apos;span&apos;, [</span><br><span class="line">        v(&apos;#text&apos;,  &apos;jirengu.coms&apos;),</span><br><span class="line">        v(&apos;#text&apos;,  &apos;ruoyu&apos;)</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">  )</span><br><span class="line">const root = document.querySelector(&apos;#root&apos;)</span><br><span class="line">patchElement(root, vNodes1)</span><br></pre></td></tr></table></figure>
+<h3 id="分析虚拟DOM实现（1）"><a href="#分析虚拟DOM实现（1）" class="headerlink" title="分析虚拟DOM实现（1）"></a>分析虚拟DOM实现（1）</h3><p>### </p>
+<p><img src="https://i.loli.net/2019/02/17/5c68c303a7e71.png" alt="4.png"></p>
+<p><img src="https://i.loli.net/2019/02/17/5c68c303cd8b4.png" alt="T.png"></p>
+<p><img src="https://i.loli.net/2019/02/17/5c68b8cf8073b.png" alt="L.png"></p>
+<p><img src="https://i.loli.net/2019/02/17/5c68b8cf92594.png" alt="PW.png"></p>
+<h3 id="分析虚拟DOM实现（2）"><a href="#分析虚拟DOM实现（2）" class="headerlink" title="分析虚拟DOM实现（2）"></a>分析虚拟DOM实现（2）</h3><p><img src="https://i.loli.net/2019/02/17/5c68d0a178b2f.png" alt="1.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/07/40面向对象编程/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -313,7 +697,67 @@
       
         
           
-            
+            <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>预习：</p>
+<ol>
+<li><a href="https://www.zhihu.com/question/19854505" target="_blank" rel="noopener">程序员也不知道什么是面向对象</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="noopener">MDN 给了我们一堆术语</a></li>
+</ol>
+<p>请尝试理解面向对象，并背诵 MDN 里的以下内容</p>
+<blockquote>
+</blockquote>
+<p><strong>Class 类</strong>，定义对象的特征。它是对象的属性和方法的模板定义.<br><strong>Object 对象</strong>，类的一个实例。<br><strong>Property 属性</strong>，对象的特征，比如颜色。<br><strong>Method 方法</strong>，对象的能力，比如行走。<br><strong>Constructor 构造函数</strong>，对象初始化的瞬间, 被调用的方法. 通常它的名字与包含它的类一致.例如：Object() String() Number(</p>
+<p>)<br><strong>Inheritance 继承</strong>，一个类可以继承另一个类的特征。<br><strong>Encapsulation 封装</strong>，一种把数据和相关的方法绑定在一起使用的方法.<br><strong>Abstraction 抽象</strong>，结合复杂的继承，方法，属性的对象能够模拟现实的模型。<br><strong>Polymorphism 多态</strong>，多意为‘许多’，态意为‘形态’。不同类可以定义相同的方法或属性。</p>
+<p>namespace 命名空间，包含了很多名字的空间。</p>
+<h2 id="封装-Model-View-Controller"><a href="#封装-Model-View-Controller" class="headerlink" title="封装 Model View Controller"></a>封装 Model View Controller</h2><p>完整代码：<a href="https://github.com/FrankFang/resume-15-8" target="_blank" rel="noopener">https://github.com/FrankFang/resume-15-8</a></p>
+<ol>
+<li>controller === object</li>
+<li><code>controller.init(view, model)</code> === <code>controller.init.call(controller, view, model)</code><br>那么 controller.init 里面的 this 当然 TM 是 controller<br>也就是这个1里面的object<br>controller.init 里面的 this 就是 object<br>object.init 里面的 this 就是 object</li>
+<li>initB.call(this)<br>initB 里面的 this === call 后面的this<br>call 后面 this === 第二条里的 this<br>第二条里面的 this === object<br>=&gt; initB 里面的 this 就是 object</li>
+</ol>
+<h2 id="复习-this"><a href="#复习-this" class="headerlink" title="复习 this"></a>复习 this</h2><p>对this的理解是细节，牢记this就是<strong>call后面的第一个参数</strong>，当对象的属性是函数，又称方法，当函数作为对象里的方法被调用时，函数里的 this 是调用该函数的对象，例如 controller是一个对象，controller.init(view) 等价于controller.init.call(controller,view),而函数init()里的this就是controller,view才是调用函数init时传进去的参数。</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5daa9987477.png" alt="KT3.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">button.onclick = function f1()&#123;</span><br><span class="line">    console.log(this) // this值是，触发事件的元素button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button.onclick.call(&#123;name: &apos;frank&apos;&#125;) //则this就是call后的第一个参数&#123;name: &apos;frank&apos;&#125;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">button.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">    console.log(this) // this值是，该元素的引用button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3.</span><br><span class="line">$(&apos;ul&apos;).on(&apos;click&apos;, &apos;li&apos; /*selector*/, function()&#123;</span><br><span class="line">    console.log(this) //this 则代表了与 selector 相匹配的元素，即li 元素</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">以上的解决办法：</span><br><span class="line">去看 on 的源码呀 -&gt; 做不到</span><br><span class="line">jQuery 的开发者知道 onclick 的源码，f1.call(???)</span><br><span class="line">jQuery 的开发者写了文档</span><br><span class="line">看文档呀</span><br></pre></td></tr></table></figure>
+<p>例题：</p>
+<p>1</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da7c32aa34.png" alt=")M.png"></p>
+<p>2</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da7f016aa5.png" alt="36.png"></p>
+<p>3</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da78d637f9.png" alt="W.png"></p>
+<p><strong>箭头函数内是没有this的，所以箭头函数内外this值是一样的。</strong></p>
+<p><img src="https://i.loli.net/2019/02/09/5c5daa26bc147.png" alt="L5.png"></p>
+<p><img src="https://i.loli.net/2019/02/09/5c5daa26d2072.png" alt="H.png"></p>
+<h2 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a>new 的作用</h2><p><a href="https://zhuanlan.zhihu.com/p/23987456" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/23987456</a></p>
+<p>总结：回顾进阶时我们记住的关于原型链</p>
+<p><code>var object = new Object()</code></p>
+<p>自有属性 空(0)</p>
+<p><code>object.__proto__ === Object.prototype</code></p>
+<p><code>var array = new Array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)</code></p>
+<p>自有属性 0:’a’ 1:’b’ 2:’c’,length:3<br><code>array.__proto__ === Array.prototype</code><br><code>Array.prototype.**proto** === Object.prototype</code></p>
+<p><code>var fn = new Function(&#39;x&#39;, &#39;y&#39;, &#39;return x+y&#39;)</code><br>自有属性 length:2, 不可见的函数体: ‘return x+y’<br><code>fn.**proto** === Function.prototype</code></p>
+<p><code>Array is a function</code></p>
+<p><code>Array = function(){...}</code><br> Array.<strong>proto</strong> === Function.prototype</p>
+<h2 id="和-amp-amp"><a href="#和-amp-amp" class="headerlink" title="|| 和&amp;&amp;"></a>|| 和&amp;&amp;</h2><p><code>或</code> 和 <code>且</code> 的值一般都不是false/true, 而是falsy/truthy。回忆一下五个falsy值，<code>0</code> <code>NaN</code> <code>&#39;&#39;</code> <code>null</code> <code>undefined</code></p>
+<p>例如：a||b c&amp;&amp;d 的值一般都是从a b c d中选取一个值，它的值永远都是现取的，而不是重新生成一个值。</p>
+<ol>
+<li><code>a&amp;&amp;b</code> 与运算从左到右依次找第一个falsy值，若找到第一个falsy值，则返回第一个falsy值，后面不再执行;若没有falsy值(<strong>全为truthy值</strong>)，则返回最后一个表达式的truthy值。</li>
+</ol>
+<p>例如：</p>
+<p><img src="https://i.loli.net/2019/02/08/5c5cf1010e32c.png" alt="$50.png"></p>
+<ol start="2">
+<li><p><code>c||d</code>或运算符从左到右依次找到第一个truthy值，若找到第一个truthy值，则返回第一个truthy值，后面不再执行；若没有truthy值(<strong>全为falsy值</strong>)，则返回最后一个表达式的falsy值。</p>
+<p>例如：</p>
+<p><img src="https://i.loli.net/2019/02/08/5c5cf62967dc1.png" alt="RH.png"></p>
+</li>
+</ol>
+<h2 id="var-app-与-var-app-app"><a href="#var-app-与-var-app-app" class="headerlink" title="var app = {} 与 var app = app || {}"></a>var app = {} 与 var app = app || {}</h2><ol>
+<li><p><code>var app = {}</code> 是危险代码,可能会覆盖之前声明的app变量</p>
+</li>
+<li><p><code>var app = app || {}</code> 是安全代码，它就是 <code>if(app){ app = app；} else{ app={}； }</code></p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da850beed4.png" alt="N.png"></p>
+</li>
+</ol>
+
           
         
       
@@ -857,7 +1301,6 @@
 <p>例如：</p>
 <p><img src="https://i.loli.net/2019/01/28/5c4ecab62dd71.png" alt="WY.png"></p>
 <p>这里的controller控制功能还是简单的，再看下图：</p>
-<p>### </p>
 <p><img src="https://i.loli.net/2019/02/03/5c56c922b4edb.png" alt="LD9Y.png"></p>
 <ol start="3">
 <li><p>Model 就是一个操作数据的对象</p>
@@ -1170,18 +1613,18 @@
 <p><br></p>
 <ol>
 <li>JS 可以设置任意请求<code>header</code>吗？<br><br>第一部分 <code>request.open(&#39;get&#39;, &#39;/xxx&#39;)</code>,设置请求的方式，路径。<br><br>第二部分 <code>request.setRequestHeader(&#39;content-type&#39;,&#39;x-www-form-urlencoded&#39;)</code>设置请求头,<code>request.setRequestHeader</code>必须写在open和send之间<br><br>第三部分 是回车，不设置也不显示<br><br>第四部分<code>request.send(&#39;我非要设置请求体&#39;)</code><br><br><img src="https://i.imgur.com/ZJvmRVl.png" alt=""><br></li>
-<li>JS 可以获取任意响应 header 吗？<br><br>第一部分    <code>request.status</code>(200)/<code>request.statusText</code>(OK)<br><br>第二部分响应头<code>request.getResponseHeader()</code>/<code>request.getResponseHeader(&#39;Content-Type&#39;)</code> <code>request.getAllResponseHeaders()</code><br><br>第四部分响应体<code>request.responseText</code><br><br><img src="https://i.imgur.com/d0zfdFz.png" alt=""><br><br><img src="https://i.imgur.com/MB1m6hp.png" alt=""></li>
+<li>JS 可以获取任意响应 header 吗？<br><br> 第一部分    <code>request.status</code>(200)/<code>request.statusText</code>(OK)<br><br>第二部分响应头<code>request.getResponseHeader()</code>/<code>request.getResponseHeader(&#39;Content-Type&#39;)</code> <code>request.getAllResponseHeaders()</code><br><br>第四部分响应体<code>request.responseText</code><br><br><img src="https://i.imgur.com/d0zfdFz.png" alt=""><br><br><img src="https://i.imgur.com/MB1m6hp.png" alt=""></li>
 </ol>
 <h2 id="今天写-window-jQuery-ajax"><a href="#今天写-window-jQuery-ajax" class="headerlink" title="今天写 window.jQuery.ajax"></a>今天写 window.jQuery.ajax</h2><p>封装AJAX是为了将AJAX的功能封装在一个函数里，以后要使用AJAX就调用这个函数就可以了。<br></p>
 <pre><code>window.jQuery.ajax = function(options){
   // 代码
-}
-</code></pre><h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><img src="https://i.imgur.com/88L2IoG.png" alt=""></p>
+</code></pre><p>​    }</p>
+<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><img src="https://i.imgur.com/88L2IoG.png" alt=""></p>
 <h3 id="自己封装jQuery-ajax代码"><a href="#自己封装jQuery-ajax代码" class="headerlink" title="自己封装jQuery.ajax代码"></a>自己封装jQuery.ajax代码</h3><h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p><img src="https://i.imgur.com/ZQLmQsA.png" alt=""></p>
 <h2 id="callback回调就是满足某个条件的函数function"><a href="#callback回调就是满足某个条件的函数function" class="headerlink" title="callback回调就是满足某个条件的函数function"></a>callback回调就是满足某个条件的函数function</h2><pre><code>call a function
 call a function back
 </code></pre><h2 id="回调的问题"><a href="#回调的问题" class="headerlink" title="回调的问题"></a>回调的问题</h2><p>问题是每个程序员的回调名不一样</p>
-<h2 id="Promise-解决了回调名不一样这个问题"><a href="#Promise-解决了回调名不一样这个问题" class="headerlink" title="Promise 解决了回调名不一样这个问题"></a>Promise 解决了回调名不一样这个问题</h2><p>promise本质上是为了规定一种形式，统一。<br><br><strong>请背</strong></p>
+<h2 id="Promise-解决了回调名不一样这个问题"><a href="#Promise-解决了回调名不一样这个问题" class="headerlink" title="Promise 解决了回调名不一样这个问题"></a>Promise 解决了回调名不一样这个问题</h2><p>promise本质上是为了规定一种形式统一。<br><br><strong>请背</strong></p>
 <pre><code>function xxx(){
 return new Promise((f1, f2) =&gt; {
     doSomething()
@@ -1470,410 +1913,6 @@ var a={};a.self=a    办不到（JSON没有变量）
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/初识JSONP/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/28/初识JSONP/" itemprop="url">初识JSONP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T17:17:39+08:00">
-                2018-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="为什么需要有JSONP？"><a href="#为什么需要有JSONP？" class="headerlink" title="为什么需要有JSONP？"></a>为什么需要有JSONP？</h2><p>JSONP是在改进用户体验中产生的。<br><br>form表单提交数据会刷新页面，刷新就要重新渲染页面，用户体验就会下降；用img只能知道成功和失败，不能知道更多的数据，那用script怎么让后端知道我要执行什么代码呢，那就加callback参数，[script+callback参数]就是【JSONP】,然后后端就根据callback构造一个函数调用，把数据塞到函数的第一个参数，然后call一下，这样浏览器就得到了它想到的数据。这就是跨域获取数据。</p>
-<h2 id="什么是-JSONP？"><a href="#什么是-JSONP？" class="headerlink" title="什么是 JSONP？"></a>什么是 JSONP？</h2><p>答：<br><strong>JSONP 是指在浏览器中通过动态创建 script 标签来发送GET请求，来得到服务端的数据的这么一种技术</strong><br><br>例如：<br><br>请求方：frank.com 的前端程序员（浏览器）<br><br>响应方：jack.com 的后端程序员（服务器）<br></p>
-<ol>
-<li>请求方创建 script，src 指向响应方，同时传一个查询参数 <code>?callbackName=yyy</code></li>
-<li>响应方根据查询参数<code>callbackName</code>，构造形如 <code>yyy.call(undefined, &#39;你要的数据&#39;)</code> 或 <code>yyy(&#39;你要的数据&#39;)</code> 这样的响应<br></li>
-<li>浏览器接收到响应，就会执行<code>yyy.call(undefined, &#39;你要的数据&#39;)</code><br></li>
-<li>那么请求方就知道了他要的数据<br><br>这就是 JSONP<br></li>
-</ol>
-<p>约定：<br></p>
-<pre><code>1. `callbackName -&gt; callback` &lt;br&gt;
-2. yyy -&gt; 随机数 frank12312312312321325()&lt;br&gt;
- 3. jQuery 用法
-
-$.ajax({
- url: &quot;http://jack.com:8002/pay&quot;,
- dataType: &quot;jsonp&quot;,
- success: function( response ) {
-     if(response === &apos;success&apos;){
-     amount.innerText = amount.innerText - 1
-     }
- }
- })
-</code></pre><h2 id="请问JSONP为什么不支持POST请求？"><a href="#请问JSONP为什么不支持POST请求？" class="headerlink" title="请问JSONP为什么不支持POST请求？"></a>请问JSONP为什么不支持POST请求？</h2><p>答：因为JSONP是通过动态创建script实现的，动态创建script时只能用get，不能用post。</p>
-<h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库本质上就是一个文件。<br><br>数据库其实就是硬盘上的一个文件<br><br>数据库再厉害也不能不用文件存。<br></p>
-<h3 id="进入高级以后就是跟后端（服务器）打交道了。"><a href="#进入高级以后就是跟后端（服务器）打交道了。" class="headerlink" title="进入高级以后就是跟后端（服务器）打交道了。"></a>进入高级以后就是跟后端（服务器）打交道了。</h3><h3 id="可以向后端发请求的标签"><a href="#可以向后端发请求的标签" class="headerlink" title="可以向后端发请求的标签"></a>可以向后端发请求的标签</h3><p><code>form</code>表单,<code>script</code>,<code>a</code>,<code>link</code>都可以向后台服务器发请求。但是form表单提交一定会刷新页面。script,a,link只能发起get请求，没有办法选择get，post。</p>
-<h3 id="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"><a href="#Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。" class="headerlink" title="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"></a>Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。</h3><h3 id="JSON也是一门语言，其特点就是一定要加双引号。"><a href="#JSON也是一门语言，其特点就是一定要加双引号。" class="headerlink" title="JSON也是一门语言，其特点就是一定要加双引号。"></a>JSON也是一门语言，其特点就是一定要加双引号。</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/15/DOM事件/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/15/DOM事件/" itemprop="url">DOM事件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T09:17:53+08:00">
-                2018-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="DOM事件简介"><a href="#DOM事件简介" class="headerlink" title="DOM事件简介"></a>DOM事件简介</h1><p>我们主要学DOM Level2 ,因为DOM level 1介绍得很简单，而现在通行的DOM Level3并没有对事件进行大的修改和补充，所以我们主要学DOM Level2。<br><br><img src="https://i.imgur.com/D4OtACk.png" alt=""><br></p>
-<p><hr><br><img src="https://i.imgur.com/Brf8clx.png" alt=""><br></p>
-<p><hr><br><img src="https://i.imgur.com/vcU4H6s.png" alt=""><br></p>
-<p><hr><br><img src="https://i.imgur.com/4RnFU0r.png" alt=""><br></p>
-<p><hr><br><img src="https://i.imgur.com/oHw7IwT.png" alt=""><br></p>
-<p><hr><br><img src="https://i.imgur.com/AGFfzG5.png" alt=""><br></p>
-<p><hr></p>
-<h1 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h1><h2 id="零散知识"><a href="#零散知识" class="headerlink" title="零散知识"></a>零散知识</h2><p><img src="https://i.imgur.com/wxX0GpH.png" alt=""></p>
-<h2 id="举例：addEventListener"><a href="#举例：addEventListener" class="headerlink" title="举例：addEventListener()"></a>举例：addEventListener()</h2><p>监听事件两类：<br></p>
-<ul>
-<li>在同一个元素上设置多个监听事件。则监听事件按队列排序存储，一次点击同时触发，按照队列先进先出的原则触发。</li>
-<li>在不同元素上设置监听事件，但这些元素存在爷爷爸爸儿子这样的关系。当点击子元素时，子父爷及祖先的监听事件都会被触发，即监听事件会传播。这样的监听事件触发分为<strong>捕获阶段</strong>和<strong>冒泡阶段</strong>，可通过设置参数<code>true</code>只执行捕获阶段，或者默认<code>false</code>冒泡阶段。设置<code>stopPropagation</code>可以阻断监听事件的传播。建议阻止传播，不然点击元素，容易同时触发父元素，爷爷元素的监听事件。bug就来了。<br><br><br>从上到下：捕获阶段，从下到上，冒泡阶段。<br><br><br><img src="https://i.imgur.com/04MeUma.png" alt=""><br><br></li>
-</ul>
-<h3 id="实例：点击别处关闭浮层"><a href="#实例：点击别处关闭浮层" class="headerlink" title="实例：点击别处关闭浮层"></a>实例：点击别处关闭浮层</h3><ul>
-<li>解决法<br>用DOM事件<code>addEventListener（）</code>。<br><br><br><br>用<code>jQuery</code>写。这样写节省内存。<br><br><img src="https://i.imgur.com/xMGozV1.png" alt=""><br><br><br></li>
-<li><p>易错1 不知不觉一次触发多个事件，事件冲突<br><img src="https://i.imgur.com/viGlaWt.png" alt=""><br><img src="https://i.imgur.com/a57ZsSx.png" alt=""></p>
-</li>
-<li><p>易错2 false会阻止<code>prevent</code>事件发生和传播<code>propagation</code>,建议单独设置<br><br>设置<code>false</code>后，这个浮层里面<code>checkbox</code>点击不了<br><img src="https://i.imgur.com/MEOETwj.png" alt=""></p>
-</li>
-<li><p>易错3 不加阻止传播<br><img src="https://i.imgur.com/olctP56.png" alt=""><br><img src="https://i.imgur.com/V1yoa7U.jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="冒泡的演示"><a href="#冒泡的演示" class="headerlink" title="冒泡的演示"></a>冒泡的演示</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/用jQuery实现我们的简历吧/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/13/用jQuery实现我们的简历吧/" itemprop="url">用jQuery实现我们的简历吧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T18:24:26+08:00">
-                2018-12-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1924,7 +1963,7 @@ $.ajax({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

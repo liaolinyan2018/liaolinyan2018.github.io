@@ -87,7 +87,7 @@
 <meta property="og:description" content="以下内容为学习笔记，供复习参考使用 为什么要学命令行123456789101. 命令行是啥 	先有的命令行，后有的图形界面。学习命令行就是背单词。2. 哪些系统提供了命令行    1. Windows 的命令提示符和 Git Bash 是命令行    2. Linux（如 Ubuntu) 的终端也是命令行    3. Unix（如 macOS）的终端也是命令行2. 为什么要学    - 因为现代的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RV3ZTTu.jpg">
-<meta property="og:updated_time" content="2019-01-11T02:25:23.324Z">
+<meta property="og:updated_time" content="2019-02-14T10:15:03.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4命令行入门">
 <meta name="twitter:description" content="以下内容为学习笔记，供复习参考使用 为什么要学命令行123456789101. 命令行是啥 	先有的命令行，后有的图形界面。学习命令行就是背单词。2. 哪些系统提供了命令行    1. Windows 的命令提示符和 Git Bash 是命令行    2. Linux（如 Ubuntu) 的终端也是命令行    3. Unix（如 macOS）的终端也是命令行2. 为什么要学    - 因为现代的">
@@ -328,21 +328,21 @@
 <h5 id="mv命令"><a href="#mv命令" class="headerlink" title="mv命令"></a>mv命令</h5><p><strong>语法</strong>: <code>mv 源文件 目标文件</code><br><strong>解释</strong>: <code>mv</code>是<code>move</code>的缩写,功能是<code>Move or rename files and directories</code>,移动或重命名文件。<br><strong>常用举例</strong>: </p>
 <p><code>mv 1.txt 2.txt</code> :  给1.txt重命名为2.txt，文件内容不变</p>
 <h5 id="mkdir命令"><a href="#mkdir命令" class="headerlink" title="mkdir命令"></a>mkdir命令</h5><p><strong>语法</strong>: <code>mkdir 文件夹名</code><br><strong>解释</strong>: 修改文件夹创建时间或者在当前目录下创建一个新的文件夹<br><strong>常用举例</strong>: </p>
-<p><code>Mkdir demo-6</code>  创建一个文件夹demo-6</p>
+<p><code>mkdir demo-6</code>  创建一个文件夹demo-6</p>
 <p><code>mkdir -p &quot;demo-1/demo-2/demo-3/demo-4&quot;</code>  创建父子关系的文件夹demo-1/demo-2/demo-3/demo-4</p>
 <p><code>mkdir demo 2</code>     创建两个文件夹 demo 和 2</p>
 <h5 id="touch命令"><a href="#touch命令" class="headerlink" title="touch命令"></a>touch命令</h5><p><strong>语法</strong>: <code>touch 文件名</code><br><strong>解释</strong>: 修改文件创建时间或者在当前目录下创建一个新的文件<br><strong>常用举例</strong>: </p>
 <p><code>touch 1.txt</code> :<code>touch</code>了一个存在的文件<code>1.txt</code>，修改了文件建立时间，但文件内容不变   </p>
 <p><code>touch 2.txt</code> :在当前目录下新建了一个文件<code>2.txt</code></p>
-<h5 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h5><p><strong>语法</strong>: <code>echo “content” &gt; 文件名</code><br><strong>解释</strong>: 回声<br><strong>常用举例</strong>: </p>
-<p><code>echo “1” &gt; 1.txt</code>    新创建一个文件<code>1,txt</code>，并把<code>1</code>写入<code>1.txt</code>。执行两次会覆盖原来的内容。</p>
-<p><code>echo “1” &gt; ! 2.txt</code>   windows不能用</p>
-<p><code>echo “1” &gt; &gt; 1.txt</code>   给文件1.txt追加内容<code>1</code>，并不覆盖原来的内容</p>
+<h5 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h5><p><strong>语法</strong>: <code>echo &#39;&#39;conten&#39;&#39; &gt; 文件名</code><br><strong>解释</strong>: 回声<br><strong>常用举例</strong>: </p>
+<p><code>echo &#39;&#39;1&#39;&#39; &gt; 1.txt</code>    新创建一个文件<code>1,txt</code>，并把<code>1</code>写入<code>1.txt</code>。执行两次会覆盖原来的内容。</p>
+<p><code>echo &#39;&#39;1&#39;&#39; &gt; ! 2.txt</code>   windows不能用</p>
+<p><code>echo &#39;&#39;1&#39;&#39; &gt;&gt; 1.txt</code>   给文件1.txt追加内容<code>1</code>，并不覆盖原来的内容</p>
 <p><code>touch 3.txt</code>         也是创建文件<code>3.txt</code>,但是不能指定内容。再<code>touch 3.txt</code> 一次，其实touch就是改变文件的更新时间用的，再touch一次文件内容不会变</p>
 <h5 id="rm命令"><a href="#rm命令" class="headerlink" title="rm命令"></a>rm命令</h5><p><strong>语法</strong>: <code>rm 文件夹名</code><br><strong>解释</strong>: 修改文件创建时间或者在当前目录下创建一个新的文件<br><strong>常用举例</strong>: </p>
-<p><code>rm –f 文件名</code>   删除文件路径,<code>-r</code> 表示递归的删除·</p>
-<p><code>rm –r 文件夹名</code> 删除整个文件夹</p>
-<p><code>rm –rf 文件夹名</code>   强制删除整个文件夹，连文件夹的子文件夹也删除,<code>-f</code> 是强制删除的意思,所以删除目录用<code>-rf</code> </p>
+<p><code>rm –f 文件名</code>   删除文件路径，<code>-f</code>表示强制删除</p>
+<p><code>rm –r 文件夹名</code> 删除整个文件夹，<code>-r</code> 表示递归的删除·</p>
+<p><code>rm –rf 文件夹名</code>   强制删除整个文件夹，连文件夹的子文件夹也删除，<code>-f</code> 是强制删除的意思,所以删除目录用<code>-rf</code> </p>
 <p><code>df –kh</code>  磁盘占用</p>
 <p><code>du –sh</code>  当前目录大小(s 是总结 h 是人类，给人类看的）</p>
 <p><code>du –h</code>  各文件大小</p>
@@ -499,7 +499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

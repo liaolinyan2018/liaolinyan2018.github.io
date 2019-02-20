@@ -79,17 +79,27 @@
 
 
 
-<meta name="description" content="前端学习 生活 旅行 美食">
+<meta name="description" content="面向对象预习：  程序员也不知道什么是面向对象 MDN 给了我们一堆术语  请尝试理解面向对象，并背诵 MDN 里的以下内容   Class 类，定义对象的特征。它是对象的属性和方法的模板定义.Object 对象，类的一个实例。Property 属性，对象的特征，比如颜色。Method 方法，对象的能力，比如行走。Constructor 构造函数，对象初始化的瞬间, 被调用的方法. 通常它的名字与">
 <meta property="og:type" content="article">
 <meta property="og:title" content="40面向对象编程">
 <meta property="og:url" content="http://yoursite.com/2019/02/07/40面向对象编程/index.html">
 <meta property="og:site_name" content="linyan&#39;s blog">
-<meta property="og:description" content="前端学习 生活 旅行 美食">
+<meta property="og:description" content="面向对象预习：  程序员也不知道什么是面向对象 MDN 给了我们一堆术语  请尝试理解面向对象，并背诵 MDN 里的以下内容   Class 类，定义对象的特征。它是对象的属性和方法的模板定义.Object 对象，类的一个实例。Property 属性，对象的特征，比如颜色。Method 方法，对象的能力，比如行走。Constructor 构造函数，对象初始化的瞬间, 被调用的方法. 通常它的名字与">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-07T10:40:55.564Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5daa9987477.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5da7c32aa34.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5da7f016aa5.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5da78d637f9.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5daa26bc147.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5daa26d2072.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5cf1010e32c.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5cf62967dc1.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5da850beed4.png">
+<meta property="og:updated_time" content="2019-02-16T00:54:42.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="40面向对象编程">
-<meta name="twitter:description" content="前端学习 生活 旅行 美食">
+<meta name="twitter:description" content="面向对象预习：  程序员也不知道什么是面向对象 MDN 给了我们一堆术语  请尝试理解面向对象，并背诵 MDN 里的以下内容   Class 类，定义对象的特征。它是对象的属性和方法的模板定义.Object 对象，类的一个实例。Property 属性，对象的特征，比如颜色。Method 方法，对象的能力，比如行走。Constructor 构造函数，对象初始化的瞬间, 被调用的方法. 通常它的名字与">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/09/5c5daa9987477.png">
 
 
 
@@ -309,7 +319,67 @@
       
 
       
-        
+        <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>预习：</p>
+<ol>
+<li><a href="https://www.zhihu.com/question/19854505" target="_blank" rel="noopener">程序员也不知道什么是面向对象</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="noopener">MDN 给了我们一堆术语</a></li>
+</ol>
+<p>请尝试理解面向对象，并背诵 MDN 里的以下内容</p>
+<blockquote>
+</blockquote>
+<p><strong>Class 类</strong>，定义对象的特征。它是对象的属性和方法的模板定义.<br><strong>Object 对象</strong>，类的一个实例。<br><strong>Property 属性</strong>，对象的特征，比如颜色。<br><strong>Method 方法</strong>，对象的能力，比如行走。<br><strong>Constructor 构造函数</strong>，对象初始化的瞬间, 被调用的方法. 通常它的名字与包含它的类一致.例如：Object() String() Number(</p>
+<p>)<br><strong>Inheritance 继承</strong>，一个类可以继承另一个类的特征。<br><strong>Encapsulation 封装</strong>，一种把数据和相关的方法绑定在一起使用的方法.<br><strong>Abstraction 抽象</strong>，结合复杂的继承，方法，属性的对象能够模拟现实的模型。<br><strong>Polymorphism 多态</strong>，多意为‘许多’，态意为‘形态’。不同类可以定义相同的方法或属性。</p>
+<p>namespace 命名空间，包含了很多名字的空间。</p>
+<h2 id="封装-Model-View-Controller"><a href="#封装-Model-View-Controller" class="headerlink" title="封装 Model View Controller"></a>封装 Model View Controller</h2><p>完整代码：<a href="https://github.com/FrankFang/resume-15-8" target="_blank" rel="noopener">https://github.com/FrankFang/resume-15-8</a></p>
+<ol>
+<li>controller === object</li>
+<li><code>controller.init(view, model)</code> === <code>controller.init.call(controller, view, model)</code><br>那么 controller.init 里面的 this 当然 TM 是 controller<br>也就是这个1里面的object<br>controller.init 里面的 this 就是 object<br>object.init 里面的 this 就是 object</li>
+<li>initB.call(this)<br>initB 里面的 this === call 后面的this<br>call 后面 this === 第二条里的 this<br>第二条里面的 this === object<br>=&gt; initB 里面的 this 就是 object</li>
+</ol>
+<h2 id="复习-this"><a href="#复习-this" class="headerlink" title="复习 this"></a>复习 this</h2><p>对this的理解是细节，牢记this就是<strong>call后面的第一个参数</strong>，当对象的属性是函数，又称方法，当函数作为对象里的方法被调用时，函数里的 this 是调用该函数的对象，例如 controller是一个对象，controller.init(view) 等价于controller.init.call(controller,view),而函数init()里的this就是controller,view才是调用函数init时传进去的参数。</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5daa9987477.png" alt="KT3.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">button.onclick = function f1()&#123;</span><br><span class="line">    console.log(this) // this值是，触发事件的元素button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button.onclick.call(&#123;name: &apos;frank&apos;&#125;) //则this就是call后的第一个参数&#123;name: &apos;frank&apos;&#125;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">button.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">    console.log(this) // this值是，该元素的引用button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3.</span><br><span class="line">$(&apos;ul&apos;).on(&apos;click&apos;, &apos;li&apos; /*selector*/, function()&#123;</span><br><span class="line">    console.log(this) //this 则代表了与 selector 相匹配的元素，即li 元素</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">以上的解决办法：</span><br><span class="line">去看 on 的源码呀 -&gt; 做不到</span><br><span class="line">jQuery 的开发者知道 onclick 的源码，f1.call(???)</span><br><span class="line">jQuery 的开发者写了文档</span><br><span class="line">看文档呀</span><br></pre></td></tr></table></figure>
+<p>例题：</p>
+<p>1</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da7c32aa34.png" alt=")M.png"></p>
+<p>2</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da7f016aa5.png" alt="36.png"></p>
+<p>3</p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da78d637f9.png" alt="W.png"></p>
+<p><strong>箭头函数内是没有this的，所以箭头函数内外this值是一样的。</strong></p>
+<p><img src="https://i.loli.net/2019/02/09/5c5daa26bc147.png" alt="L5.png"></p>
+<p><img src="https://i.loli.net/2019/02/09/5c5daa26d2072.png" alt="H.png"></p>
+<h2 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a>new 的作用</h2><p><a href="https://zhuanlan.zhihu.com/p/23987456" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/23987456</a></p>
+<p>总结：回顾进阶时我们记住的关于原型链</p>
+<p><code>var object = new Object()</code></p>
+<p>自有属性 空(0)</p>
+<p><code>object.__proto__ === Object.prototype</code></p>
+<p><code>var array = new Array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)</code></p>
+<p>自有属性 0:’a’ 1:’b’ 2:’c’,length:3<br><code>array.__proto__ === Array.prototype</code><br><code>Array.prototype.**proto** === Object.prototype</code></p>
+<p><code>var fn = new Function(&#39;x&#39;, &#39;y&#39;, &#39;return x+y&#39;)</code><br>自有属性 length:2, 不可见的函数体: ‘return x+y’<br><code>fn.**proto** === Function.prototype</code></p>
+<p><code>Array is a function</code></p>
+<p><code>Array = function(){...}</code><br> Array.<strong>proto</strong> === Function.prototype</p>
+<h2 id="和-amp-amp"><a href="#和-amp-amp" class="headerlink" title="|| 和&amp;&amp;"></a>|| 和&amp;&amp;</h2><p><code>或</code> 和 <code>且</code> 的值一般都不是false/true, 而是falsy/truthy。回忆一下五个falsy值，<code>0</code> <code>NaN</code> <code>&#39;&#39;</code> <code>null</code> <code>undefined</code></p>
+<p>例如：a||b c&amp;&amp;d 的值一般都是从a b c d中选取一个值，它的值永远都是现取的，而不是重新生成一个值。</p>
+<ol>
+<li><code>a&amp;&amp;b</code> 与运算从左到右依次找第一个falsy值，若找到第一个falsy值，则返回第一个falsy值，后面不再执行;若没有falsy值(<strong>全为truthy值</strong>)，则返回最后一个表达式的truthy值。</li>
+</ol>
+<p>例如：</p>
+<p><img src="https://i.loli.net/2019/02/08/5c5cf1010e32c.png" alt="$50.png"></p>
+<ol start="2">
+<li><p><code>c||d</code>或运算符从左到右依次找到第一个truthy值，若找到第一个truthy值，则返回第一个truthy值，后面不再执行；若没有truthy值(<strong>全为falsy值</strong>)，则返回最后一个表达式的falsy值。</p>
+<p>例如：</p>
+<p><img src="https://i.loli.net/2019/02/08/5c5cf62967dc1.png" alt="RH.png"></p>
+</li>
+</ol>
+<h2 id="var-app-与-var-app-app"><a href="#var-app-与-var-app-app" class="headerlink" title="var app = {} 与 var app = app || {}"></a>var app = {} 与 var app = app || {}</h2><ol>
+<li><p><code>var app = {}</code> 是危险代码,可能会覆盖之前声明的app变量</p>
+</li>
+<li><p><code>var app = app || {}</code> 是安全代码，它就是 <code>if(app){ app = app；} else{ app={}； }</code></p>
+<p><img src="https://i.loli.net/2019/02/09/5c5da850beed4.png" alt="N.png"></p>
+</li>
+</ol>
+
       
     </div>
     
@@ -342,6 +412,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/16/虚拟DOM深入讲解/" rel="prev" title="虚拟DOM深入讲解">
+                虚拟DOM深入讲解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -393,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -409,7 +492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -445,6 +528,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象"><span class="nav-number">1.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装-Model-View-Controller"><span class="nav-number">2.</span> <span class="nav-text">封装 Model View Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复习-this"><span class="nav-number">3.</span> <span class="nav-text">复习 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new-的作用"><span class="nav-number">4.</span> <span class="nav-text">new 的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和-amp-amp"><span class="nav-number">5.</span> <span class="nav-text">|| 和&amp;&amp;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var-app-与-var-app-app"><span class="nav-number">6.</span> <span class="nav-text">var app = {} 与 var app = app || {}</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

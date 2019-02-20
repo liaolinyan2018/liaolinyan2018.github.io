@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.imgur.com/MB1m6hp.png">
 <meta property="og:image" content="https://i.imgur.com/88L2IoG.png">
 <meta property="og:image" content="https://i.imgur.com/ZQLmQsA.png">
-<meta property="og:updated_time" content="2019-01-02T13:48:20.000Z">
+<meta property="og:updated_time" content="2019-02-18T11:45:37.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现AJAX">
 <meta name="twitter:description" content="AJAX 的所有功能 客户端的JS发起请求（浏览器上的） 服务端的JS发送响应（Node.js上的）    JS 可以设置任意请求header吗？第一部分 request.open(&amp;#39;get&amp;#39;, &amp;#39;/xxx&amp;#39;),设置请求的方式，路径。第二部分 request.setRequestHeader(&amp;#39;content-type&amp;#39;,&amp;#39;x-www-for">
@@ -322,18 +322,18 @@
 <p><br></p>
 <ol>
 <li>JS 可以设置任意请求<code>header</code>吗？<br><br>第一部分 <code>request.open(&#39;get&#39;, &#39;/xxx&#39;)</code>,设置请求的方式，路径。<br><br>第二部分 <code>request.setRequestHeader(&#39;content-type&#39;,&#39;x-www-form-urlencoded&#39;)</code>设置请求头,<code>request.setRequestHeader</code>必须写在open和send之间<br><br>第三部分 是回车，不设置也不显示<br><br>第四部分<code>request.send(&#39;我非要设置请求体&#39;)</code><br><br><img src="https://i.imgur.com/ZJvmRVl.png" alt=""><br></li>
-<li>JS 可以获取任意响应 header 吗？<br><br>第一部分    <code>request.status</code>(200)/<code>request.statusText</code>(OK)<br><br>第二部分响应头<code>request.getResponseHeader()</code>/<code>request.getResponseHeader(&#39;Content-Type&#39;)</code> <code>request.getAllResponseHeaders()</code><br><br>第四部分响应体<code>request.responseText</code><br><br><img src="https://i.imgur.com/d0zfdFz.png" alt=""><br><br><img src="https://i.imgur.com/MB1m6hp.png" alt=""></li>
+<li>JS 可以获取任意响应 header 吗？<br><br> 第一部分    <code>request.status</code>(200)/<code>request.statusText</code>(OK)<br><br>第二部分响应头<code>request.getResponseHeader()</code>/<code>request.getResponseHeader(&#39;Content-Type&#39;)</code> <code>request.getAllResponseHeaders()</code><br><br>第四部分响应体<code>request.responseText</code><br><br><img src="https://i.imgur.com/d0zfdFz.png" alt=""><br><br><img src="https://i.imgur.com/MB1m6hp.png" alt=""></li>
 </ol>
 <h2 id="今天写-window-jQuery-ajax"><a href="#今天写-window-jQuery-ajax" class="headerlink" title="今天写 window.jQuery.ajax"></a>今天写 window.jQuery.ajax</h2><p>封装AJAX是为了将AJAX的功能封装在一个函数里，以后要使用AJAX就调用这个函数就可以了。<br></p>
 <pre><code>window.jQuery.ajax = function(options){
   // 代码
-}
-</code></pre><h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><img src="https://i.imgur.com/88L2IoG.png" alt=""></p>
+</code></pre><p>​    }</p>
+<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><img src="https://i.imgur.com/88L2IoG.png" alt=""></p>
 <h3 id="自己封装jQuery-ajax代码"><a href="#自己封装jQuery-ajax代码" class="headerlink" title="自己封装jQuery.ajax代码"></a>自己封装jQuery.ajax代码</h3><h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p><img src="https://i.imgur.com/ZQLmQsA.png" alt=""></p>
 <h2 id="callback回调就是满足某个条件的函数function"><a href="#callback回调就是满足某个条件的函数function" class="headerlink" title="callback回调就是满足某个条件的函数function"></a>callback回调就是满足某个条件的函数function</h2><pre><code>call a function
 call a function back
 </code></pre><h2 id="回调的问题"><a href="#回调的问题" class="headerlink" title="回调的问题"></a>回调的问题</h2><p>问题是每个程序员的回调名不一样</p>
-<h2 id="Promise-解决了回调名不一样这个问题"><a href="#Promise-解决了回调名不一样这个问题" class="headerlink" title="Promise 解决了回调名不一样这个问题"></a>Promise 解决了回调名不一样这个问题</h2><p>promise本质上是为了规定一种形式，统一。<br><br><strong>请背</strong></p>
+<h2 id="Promise-解决了回调名不一样这个问题"><a href="#Promise-解决了回调名不一样这个问题" class="headerlink" title="Promise 解决了回调名不一样这个问题"></a>Promise 解决了回调名不一样这个问题</h2><p>promise本质上是为了规定一种形式统一。<br><br><strong>请背</strong></p>
 <pre><code>function xxx(){
 return new Promise((f1, f2) =&gt; {
     doSomething()
@@ -460,7 +460,7 @@ xxx().then(success, fail).then(success, fail)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
