@@ -242,6 +242,408 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/项目：键盘导航/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/19/项目：键盘导航/" itemprop="url">项目：键盘导航</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T11:54:02+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>存储在 <code>localStorage</code> 的数据可以长期保留,<code>localStorage</code> 中的键值对总是以字符串的形式存储.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hash变更后要立刻存档到randomN</span></span><br><span class="line">localStorage.setItem(<span class="string">'randomN'</span>,<span class="built_in">JSON</span>.stringify(hash)) <span class="comment">//JSON.stringify(hash)是把hash变成json字符串的 </span></span><br><span class="line"><span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">'randomN'</span>) || <span class="string">'null'</span>) <span class="comment">//JSON.parse()方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hashT = &#123;<span class="string">'keys'</span>: keys,<span class="string">'hash'</span>: hash&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*hashT是一个对象*/</span></span><br><span class="line"><span class="keyword">var</span> hash = hashT[<span class="string">'hash'</span>]  <span class="comment">//hashT.hash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> keys = hashT[<span class="string">'keys'</span>]  <span class="comment">//hashT.keys</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var x = prompt(&apos;请输入要变更的网址域名,不用输入协议。如：iqiyi.com或www.taobao.com&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location.href = &apos;http://&apos;+website     //模拟用户在地址栏输入地址，修改当前网址为按键地址</span><br><span class="line">        </span><br><span class="line">window.open(&apos;http://&apos;+website,&apos;_blank&apos;) //新开窗口打开用户按键的网站</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/* 易错 [id类用#号][class类用 .] */</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*display: inline-block; //当时为了设置kbd的宽高</span></span><br><span class="line"><span class="comment">  vertical-align: top;  /*与display:inline-block配套使用*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*变成弹性盒，垂直居中，左右居中，布局三句话*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">kbd</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-class">.text</span>&#123;<span class="attribute">transform</span>: <span class="built_in">scale</span>(1.6);&#125; <span class="comment">/*hover的时候字体变大，但是不会把盒子撑大，也就是页面并不会动*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*background有六个值，最后一个是默认值*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*父包裹器[div,id=main] 为不定宽块状元素,要实现内容居中，法一定宽，法二变为内联，父元素加text-align:center;*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/*.wrapper&gt;div&#123;            //改用flex布局</span><br><span class="line">  line-height:50px;    /*父元素 .wrapper&gt;div高度固定，子元素为单行内联文本，垂直居中设置：height=line-height*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>: 100<span class="selector-tag">vh</span>; <span class="comment">/*viewport height 可视高度和屏幕一样高*/</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/项目实战：小程序开发/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/项目实战：小程序开发/" itemprop="url">项目实战：小程序开发</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T09:18:25+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>app.json</code> 是当前小程序的全局配置</p>
+<p>app是全局的</p>
+<p>page是局部的</p>
+<p>你可以写一个 <code>app.wxss</code> 作为全局样式，会作用于当前小程序的所有页面，局部页面样式 <code>page.wxss</code> 仅对当前页面生效。</p>
+<p><code>&lt;navigator&gt;</code>相当于html里面的a链接。但是只能链接到小程序内部的页面，不能链接到外部的页面。保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 <a href="https://developers.weixin.qq.com/miniprogram/dev/api/wx.navigateBack.html" target="_blank" rel="noopener">wx.navigateBack</a> 可以返回到原页面。</p>
+<p>小程序的组件 是<strong>具有一定功能的HTML元素</strong>。</p>
+<p><strong>建议：</strong>图片资源不要直接放到小程序文件下，这样会导致小程序包太大，打开就会很慢。能用图片外链就用图片外链。像用<code>&lt;img&gt;</code>组件也不是很方便。</p>
+<p>尝试使用字体图标iconfont。</p>
+<p>bug: 小程序的wxml不能写入汉字。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/Cookie与登录注册/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/Cookie与登录注册/" itemprop="url">Cookie与登录注册</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T08:58:59+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>请预习 Cookie、Session、Cache-Control 等 HTTP 知识</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/Cookie" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Cookie</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22396872?refer=study-fe" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22396872?refer=study-fe</a></li>
+<li>Session 维基百科：<code>https://zh.wikipedia.org/wiki/%E4%BC%9A%E8%AF%9D_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)</code></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">Cache-Control</a></li>
+</ul>
+<p>课上的代码：<a href="https://github.com/FrankFang/sign-in-demo" target="_blank" rel="noopener">https://github.com/FrankFang/sign-in-demo</a></p>
+<p>要点：</p>
+<p><strong>Cookie 的特点</strong></p>
+<ol>
+<li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
+<li>浏览器得到 Cookie 之后，每次请求都要带上 Cookie</li>
+<li>服务器读取 Cookie 就知道登录用户的信息（email）</li>
+</ol>
+<p><strong>问题</strong></p>
+<ol>
+<li>我在 Chrome 登录了得到 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗<br>no</li>
+<li>Cookie 存在哪<br>Windows 存在 C 盘的一个文件里</li>
+<li>Cookie会被用户篡改吗？<br>可以，下节课会讲 Session 来解决这个问题，防止用户篡改</li>
+<li>Cookie 有效期吗？<br>默认有效期20分钟左右，不同浏览器策略不同<br>后端可以强制设置有效期，具体语法看 MDN</li>
+<li>Cookie 遵守同源策略吗？<br>也有，不过跟 AJAX 的同源策略稍微有些不同。<br>当请求 qq.com 下的资源时，浏览器会默认带上 qq.com 对应的 Cookie，不会带上 baidu.com 对应的 Cookie<br>当请求 v.qq.com 下的资源时，浏览器不仅会带上 v.qq.com 的Cookie，还会带上 qq.com 的 Cookie<br>另外 Cookie 还可以根据路径做限制，请自行了解，这个功能用得比较少。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/22/画一只皮卡丘/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -313,7 +715,16 @@
       
         
           
-            
+            <h3 id="主要使用的API"><a href="#主要使用的API" class="headerlink" title="主要使用的API"></a>主要使用的API</h3><p><code>document.querySelector(&#39;#id&#39;)</code></p>
+<p><code>setTimeout(fn,time)</code></p>
+<p><code>string.substring(0,n)</code></p>
+<p><code>element.innerHTML</code></p>
+<p><code>element.scrollTop</code></p>
+<p><code>element.scrollHeight</code></p>
+<p>立即执行函数</p>
+<p>pre标签</p>
+<p>jQuery</p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3>
           
         
       
@@ -1254,552 +1665,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/把MVC的VC加到简历里/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/12/把MVC的VC加到简历里/" itemprop="url">把MVC的VC加到简历里</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T08:46:54+08:00">
-                2019-01-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="把MVC的VC加到简历里"><a href="#把MVC的VC加到简历里" class="headerlink" title="把MVC的VC加到简历里"></a>把MVC的VC加到简历里</h2><p>完整代码：<a href="https://github.com/FrankFang/resume-15-6" target="_blank" rel="noopener">https://github.com/FrankFang/resume-15-6</a></p>
-<ol>
-<li><p>在简历里使用 Swiper</p>
-<ol>
-<li>进入 Swiper <a href="http://idangero.us/swiper/get-started/" target="_blank" rel="noopener">官网 </a>,仔细读已经写得很详细了。</li>
-<li>安装 Swiper  命令行：<code>npm install swiper</code></li>
-<li>在页面引入 Swiper（引入Swiper的CSS和JS)                                                                                                                                                                                                                                                                                                                                 </li>
-<li>抄袭 HTML（CRM 中的 Copy）</li>
-<li>抄袭 CSS</li>
-<li>抄袭 JS</li>
-<li>运行（CRM 中的 Run）</li>
-<li>修改 HTML（CRM 中的 Modify）</li>
-<li>修改 CSS</li>
-<li>修改 JS</li>
-</ol>
-</li>
-<li><p>在简历里使用Swiper我们学到了一种思想，CRM思想，即<strong>Copy-Run-Modify</strong></p>
-<p>Copy别人的代码，Run别人的代码，Modify别人的代码。这就是CRM思想，使用别人的东西，如：<code>Swiper/jQuery</code></p>
-</li>
-<li><p>MVC 是什么</p>
-<p><strong>Model-View-Controller</strong></p>
-</li>
-<li><p>如何弄出一个 View</p>
-</li>
-<li><p>如何弄出一个 Controller</p>
-</li>
-<li><p>如何弄出一个 Model</p>
-</li>
-</ol>
-<h2 id="如何使用Swiper"><a href="#如何使用Swiper" class="headerlink" title="如何使用Swiper"></a>如何使用Swiper</h2><p>点击Swiper <a href="http://idangero.us/swiper/get-started/" target="_blank" rel="noopener">官网 </a>。<strong>Copy-Run-Modify</strong></p>
-<h2 id="立即执行函数的产生过程"><a href="#立即执行函数的产生过程" class="headerlink" title="立即执行函数的产生过程"></a>立即执行函数的产生过程</h2><ol>
-<li><p>我们不想要全局变量</p>
-</li>
-<li><p>我们要使用局部变量</p>
-</li>
-<li><p>ES 5 里面，只有函数有局部变量</p>
-</li>
-<li><p>于是我们声明一个 function xxx，然后 xxx.call()</p>
-</li>
-<li><p>这个时候 xxx 是全局变量（全局函数）</p>
-</li>
-<li><p>所以我们不能给这个函数名字</p>
-</li>
-<li><p>function(){}.call()</p>
-</li>
-<li><p>但是 Chrome 报错，语法错误</p>
-</li>
-<li><p>试出来一种方法可以不报错:</p>
-<ol>
-<li><p>!function(){}.call() (我们不在乎这个匿名函数的返回值，所以加个 ! 取反没关系)</p>
-</li>
-<li><p>(function(){}).call() 方方不推荐</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx    </span><br><span class="line">(function()&#123;&#125;).call() 报错</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>frank192837192463981273912873098127912378.call() 不推荐</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="使用立即执行函数"><a href="#使用立即执行函数" class="headerlink" title="使用立即执行函数"></a>使用立即执行函数</h2><p><code>!function(){ 把你模块化代码放在这里}.call()</code></p>
-<h2 id="立即执行函数的作用"><a href="#立即执行函数的作用" class="headerlink" title="立即执行函数的作用"></a>立即执行函数的作用</h2><p>立即执行函数的作用就是隔离作用域的。</p>
-<h2 id="两个独立模块的变量想交流怎么办？"><a href="#两个独立模块的变量想交流怎么办？" class="headerlink" title="两个独立模块的变量想交流怎么办？"></a>两个独立模块的变量想交流怎么办？</h2><p>方法1：把变量放到window下</p>
-<p><img src="https://i.loli.net/2019/01/12/5c39dc8674ea4.png" alt="_J4PVND.png"></p>
-<p>方法2：<strong>使用闭包</strong></p>
-<p><img src="https://i.loli.net/2019/01/12/5c39e030e6742.png" alt="XD.png"></p>
-<ol>
-<li><strong>立即执行函数</strong>使得 person 无法被外部访问</li>
-<li><strong>闭包</strong>使得<strong>匿名函数</strong>可以操作 person，然后将这个匿名函数赋值给全局属性window.linyanGrowUp</li>
-<li><strong>全局属性</strong>window.linyanGrowUp 保存了匿名函数的地址</li>
-<li>任何地方都可以使用 window.linyanGrowUp  <strong>=&gt;</strong>  任何地方都可以使用 window.linyanGrowUp 操作 person，但是不能直接访问 person</li>
-<li>总结：<strong>立即执行函数肯定是和闭包结合起来用的。</strong></li>
-</ol>
-<h2 id="MVC-及注意事项"><a href="#MVC-及注意事项" class="headerlink" title="MVC 及注意事项"></a>MVC 及注意事项</h2><p>MVC就是<code>Model-View-Controller</code>。MVC 是一个抽象的知识，你很有可能短时间无法理解。但是没有关系，多写类似的代码形成肌肉记忆就可以了。<strong>MVC的前提是你的代码经过模块化</strong>。</p>
-<ol>
-<li>View 用户看得见的视图</li>
-</ol>
-<p>只要你操作了页面，<strong>一个模块的js就对应一个View</strong>。<strong>添加了View以后，HTML代码也分块了</strong>，实际上用户看到的是<code>HTML + CSS</code>,因为CSS的样式是加在HTML内容上的。View的作用就是告诉js你这个模块对应着页面中哪些内容。</p>
-<p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt="图片"></p>
-<p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt=")8Y7XJKCN8N8E)W)BV28H{Y.png"></p>
-<ol start="2">
-<li>controller操纵view。从整个代码结构上来看，html构成view,js代码构成controller，controller操纵view。整个代码就变得很有结构。</li>
-</ol>
-<p>例如：</p>
-<p><img src="https://i.loli.net/2019/01/28/5c4ecab62dd71.png" alt="WY.png"></p>
-<p>这里的controller控制功能还是简单的，再看下图：</p>
-<p><img src="https://i.loli.net/2019/02/03/5c56c922b4edb.png" alt="LD9Y.png"></p>
-<ol start="3">
-<li><p>Model 就是一个操作数据的对象</p>
-<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
-</li>
-</ol>
-<h2 id="MVC思想"><a href="#MVC思想" class="headerlink" title="MVC思想"></a>MVC思想</h2><p>Model 操作数据<br>View 表示视图<br>Controller 是控制器</p>
-<p>Model 和服务器交互，Model 将得到的数据交给 Controller，Controller 把数据填入 View，并监听 View；<br>用户操作 View，如点击按钮，Controller 就会接受到点击事件，Controller 这时会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据就去更新 View</p>
-<p><img src="https://i.loli.net/2019/02/07/5c5c06de7cfce.png" alt="CC@HCMA.png"></p>
-<p> MVC就是一种代码的组织形式，model和view传给controller，controller负责对model初始化，然后对view进行操作。view只负责看得见的东西（HTML元素），model负责请求和保存数据。controller负责操作，controller代码会相对复杂一些。</p>
-<p>有了MVC思想以后，代码就不至于写成一坨。以前还用注释来分隔代码，现在不需要用注释分隔代码，直接用MVC思想来组织代码。</p>
-<p>当引入了MVC的思想以后，你就发现所有的代码结构都一样。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/11/前端学习工具安装与使用合集/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/11/前端学习工具安装与使用合集/" itemprop="url">前端学习工具安装与使用合集</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T22:36:36+08:00">
-                2019-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前端学习工具安装与使用合集"><a href="#前端学习工具安装与使用合集" class="headerlink" title="前端学习工具安装与使用合集"></a>前端学习工具安装与使用合集</h2><p>前言：此时的我刚刚开始前端学习之路，很多东西学了不久就忘了，写下这篇博客方便自己以后复习回顾。有些内容还只有标题，文章会一直更新的。如果帮到了你，我也很开心哦~</p>
-<h3 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h3><h3 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h3><ul>
-<li><p>Webstorm </p>
-</li>
-<li><p>VScode</p>
-</li>
-<li><p>sublime </p>
-<h5 id="Webstorm"><a href="#Webstorm" class="headerlink" title="Webstorm"></a>Webstorm</h5><p>不怎么需要配置，跟<code>VScode</code>操作有点像，更改进一点就是会自动帮你把文件的模板给建好。还没使用过。</p>
-<h5 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h5><p><strong>安装 </strong>：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">官网下载安装包</a> 。</p>
-<p><strong>使用感受</strong>：我喜欢用<code>VScode</code>写<code>html</code> <code>css</code> <code>js</code>。可以将<code>VScode</code>上的代码上传到<code>GitHub</code>管理,<code>VScode</code>这个软件有<code>Git</code>的功能。但是我只是用<code>VScode</code>写代码，用<code>Git Bash</code>上传代码到<code>GitHub</code>。[</p>
-<p><strong>使用</strong>：<a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener">VScode教程</a>。</p>
-<h5 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h5><p>还没使用过。</p>
-</li>
-</ul>
-<h3 id="markdown编辑器"><a href="#markdown编辑器" class="headerlink" title="markdown编辑器"></a>markdown编辑器</h3><ul>
-<li><p>Typora</p>
-<p><strong>安装</strong> ：Typora从官网下载，安装简单，一直next即可。</p>
-<p><strong>使用</strong> ：打开<code>Typora</code>，新建<code>xxx.md</code>文件，使用<a href="https://coding.net/help/doc/project/markdown.html" target="_blank" rel="noopener">markdown语法</a>写<code>xxx.md</code>文件，每写完一句按下<kbd>Tab<kbd>键 或者 敲一个空格 就能即时渲染。在windows下使用<code>Typora</code>写<code>md</code>文件时插入图像，必须先把本地图像上传到图床<a href="https://sm.ms/" target="_blank" rel="noopener">图床推荐</a> ，生成图片链接后，再使用<code>markdown</code>语法将图片插入到文章中，即：<code>![](图床生成的图片链接粘到这里)</code>。</kbd></kbd></p>
-<p><strong>md语法</strong> ：<a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener">md基础语法</a> <a href="https://coding.net/help/doc/project/markdown.html" target="_blank" rel="noopener">markdown语法</a> </p>
-</li>
-</ul>
-<h3 id="图床推荐"><a href="#图床推荐" class="headerlink" title="图床推荐"></a>图床推荐</h3><p><a href="https://sm.ms/" target="_blank" rel="noopener">sm.ms</a></p>
-<h3 id="Git-Bash-命令行"><a href="#Git-Bash-命令行" class="headerlink" title="Git Bash 命令行"></a>Git Bash 命令行</h3><p><strong>Git Bash安装包</strong>：<a href="https://pan.baidu.com/s/1vPwHzAb9f0vmEjFDXJC-kw" target="_blank" rel="noopener">百度网盘</a>  提取码：6p64 </p>
-<p><strong>在windows下安装Git Bash教程</strong>: <a href="https://blog.csdn.net/weixin_41714277/article/details/79399270" target="_blank" rel="noopener">链接</a></p>
-<p><strong>我的使用感受</strong>：<code>Git Bash</code>是一个功能强大的软件，我们在windows上的操作在<code>Git Bash</code>上都能做，<code>Git Bash</code>是模拟<code>Linux</code>操作系统，<code>Git Bash</code>是一个<code>Bash</code>,不是<code>Git</code>。<code>Git Bash</code>里面内置了几十个指令，如：<code>ls</code> <code>mkdir</code> <code>rm</code> <code>touch</code> ,而<code>Git</code>指令只是它其中的一个。<code>Git Bash</code>可以在本地建一个<code>.git</code>仓库，通过<code>git</code>指令既可以操作这个本地的仓库，也可以将这个仓库上传到<code>Git Hub</code>，同样，可以在<code>Git Hub</code>上建一个不空的仓库然后通过<code>git clone</code>克隆到本地。相当于通过<code>git</code>指令 可以把本地电脑里的仓库和<code>Git Hub</code>远程仓库进行一个关联。</p>
-<p><strong>命令行使用方法总结</strong> ：<a href="#">命令行基础</a></p>
-<h3 id="Git指令的安装与配置"><a href="#Git指令的安装与配置" class="headerlink" title="Git指令的安装与配置"></a>Git指令的安装与配置</h3><h5 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h5><p>不需要安装Git，Git Bash 内置了 Git 命令。</p>
-<h5 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h5><p>请在命令行运行这五句话！！！一定要运行这五句话，不然 <code>git</code> 就不能用了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxxxxx   //把xxxxxx替换成你的英文名字随便什么都行)                                      </span><br><span class="line">git config --global user.email xxxxxx   //把xxxxxx替换成你的邮箱跟github一致或者不一致也行)                                  </span><br><span class="line">git config --global push.default simple      //本来我写的是 matching，不过想了想可能 simple 更好</span><br><span class="line">git config --global core.quotepath false     //防止文件名变成数字</span><br><span class="line">git config --global core.editor &quot;vim&quot;        //使用vim编辑提交信息</span><br></pre></td></tr></table></figure>
-<p>另外很重要的一点！自己运行 <code>git</code>的时候注意一下：<code>git remote add origin</code> 后面的地址，不允许使用 <code>https</code> 开头的地址，见下图:</p>
-<p><img src="https://i.loli.net/2019/01/08/5c34a24d7c01c.jpg" alt="ssh.jpg"></p>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p><strong>官网下载</strong>：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>    </p>
-<h5 id="安装：-1"><a href="#安装：-1" class="headerlink" title="安装："></a>安装：</h5><p>一直next，可以改路径。安装后，不要点击 Node.js 的图标这样使用。</p>
-<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>打开 <code>Git Bash</code>，依次输入以下命令，按回车：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br><span class="line">npm config set loglevel http</span><br><span class="line">npm config set progress false</span><br></pre></td></tr></table></figure>
-<p>npm 的配置被存储在 <code>~/.npmrc</code>，我们可以随时改。</p>
-<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p>装了 <code>Node.js</code> 之后我们就可以在 <code>Git Bash</code> 里面使用 <code>node</code> 和 <code>npm</code> 这两个命令了。进入<code>node</code>环境后，按<code>ctrl+D</code>是 退出。 试着在<code>Git Bash</code>输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">which node</span><br><span class="line">which npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p>依次看看可以输出什么内容，不报错说明安装成功了。</p>
-<h5 id="npm-安装命令行小工具"><a href="#npm-安装命令行小工具" class="headerlink" title="npm 安装命令行小工具"></a>npm 安装命令行小工具</h5><p>我们可以用 <code>npm</code> 的翻译工具做一个随时可用的小字典，这个小工具的名字叫做 <code>fanyi</code>。</p>
-<p>打开<code>Git Bash</code>运行 <code>npm i -g fanyi</code> 即可安装 <code>fanyi</code>，安装完成之后，接着在<code>Git Bash</code>输入 <code>fanyi frontend</code> 就可以看到对应的中文释义了！超级酷对不对！</p>
-<h5 id="node使用"><a href="#node使用" class="headerlink" title="node使用"></a>node使用</h5><p>使用方式1：</p>
-<ol>
-<li>进入Git Bash</li>
-<li>输入<code>node</code>,回车，就进入<code>node</code>环境下，这时我们就可以写JS了。</li>
-<li>如简单的JS语句，<code>1+2</code>,回车</li>
-<li>结果得3</li>
-</ol>
-<p>使用方式2：</p>
-<p>​    打开Git Bash，进入一个有<code>xxx.js</code>文件的文件夹下，运行<code>node xxx.js</code>,node就会执行这个<code>xxx.js</code>文件，你将在Git Bash看到执行结果。</p>
-<h3 id="GitHub源代码管理神器"><a href="#GitHub源代码管理神器" class="headerlink" title="GitHub源代码管理神器"></a>GitHub源代码管理神器</h3><p><strong>我的账号</strong>：<code>liaolinyan2018.github.io</code>。</p>
-<p><strong>我的感受</strong>：我喜欢使用<code>github</code>来管理我的源代码，<code>github</code>可以将我的每一次代码提交都记录下来，这样我可以打开我代码的1.0版本、2.0版本、3.0版本、4.0版本，而不用每次更改代码都要编辑好名字然后存在电脑硬盘里，不仅费电脑内存而且危险，一旦电脑出事，东西就没了。<code>github</code>这个功能简直太棒了，虽然使用时间不长，但是我几乎每天都在使用它提交代码。</p>
-<p><strong>使用方法</strong>：值得写一篇博客。<a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener">GitHub源代码管理博客</a></p>
-<h3 id="QQ截图测量颜色和尺寸"><a href="#QQ截图测量颜色和尺寸" class="headerlink" title="QQ截图测量颜色和尺寸"></a>QQ截图测量颜色和尺寸</h3><h3 id="代码分享"><a href="#代码分享" class="headerlink" title="代码分享"></a>代码分享</h3><p>当我们的代码遇到问题时，需要求助别人，直接把代码分享过去是比较方便的。使用<a href="http://js.jirengu.com/" target="_blank" rel="noopener">jirengu-bin</a> 是比较方便的，或者使用<a href="http://jsbin.com/?html,output" target="_blank" rel="noopener">jsbin</a> 分享源代码，这两个bin都可以存储多个版本的代码，非常方便，适用于小项目demo，一边调试一边写代码。不适用于大项目。</p>
-<h3 id="Linux虚拟机安装教程"><a href="#Linux虚拟机安装教程" class="headerlink" title="Linux虚拟机安装教程"></a>Linux虚拟机安装教程</h3><p><a href="https://xiedaimala.com/tasks/11ad5683-7e18-4883-879d-8425e6a6ceb7" target="_blank" rel="noopener">此处应有一篇博客</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/30/37实现AJAX/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/30/37实现AJAX/" itemprop="url">实现AJAX</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-30T11:19:36+08:00">
-                2018-12-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="AJAX-的所有功能"><a href="#AJAX-的所有功能" class="headerlink" title="AJAX 的所有功能"></a>AJAX 的所有功能</h2><ul>
-<li>客户端的JS发起请求（浏览器上的）</li>
-<li>服务端的JS发送响应（Node.js上的）</li>
-</ul>
-<p><br></p>
-<ol>
-<li>JS 可以设置任意请求<code>header</code>吗？<br><br>第一部分 <code>request.open(&#39;get&#39;, &#39;/xxx&#39;)</code>,设置请求的方式，路径。<br><br>第二部分 <code>request.setRequestHeader(&#39;content-type&#39;,&#39;x-www-form-urlencoded&#39;)</code>设置请求头,<code>request.setRequestHeader</code>必须写在open和send之间<br><br>第三部分 是回车，不设置也不显示<br><br>第四部分<code>request.send(&#39;我非要设置请求体&#39;)</code><br><br><img src="https://i.imgur.com/ZJvmRVl.png" alt=""><br></li>
-<li>JS 可以获取任意响应 header 吗？<br><br> 第一部分    <code>request.status</code>(200)/<code>request.statusText</code>(OK)<br><br>第二部分响应头<code>request.getResponseHeader()</code>/<code>request.getResponseHeader(&#39;Content-Type&#39;)</code> <code>request.getAllResponseHeaders()</code><br><br>第四部分响应体<code>request.responseText</code><br><br><img src="https://i.imgur.com/d0zfdFz.png" alt=""><br><br><img src="https://i.imgur.com/MB1m6hp.png" alt=""></li>
-</ol>
-<h2 id="今天写-window-jQuery-ajax"><a href="#今天写-window-jQuery-ajax" class="headerlink" title="今天写 window.jQuery.ajax"></a>今天写 window.jQuery.ajax</h2><p>封装AJAX是为了将AJAX的功能封装在一个函数里，以后要使用AJAX就调用这个函数就可以了。<br></p>
-<pre><code>window.jQuery.ajax = function(options){
-  // 代码
-</code></pre><p>​    }</p>
-<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><img src="https://i.imgur.com/88L2IoG.png" alt=""></p>
-<h3 id="自己封装jQuery-ajax代码"><a href="#自己封装jQuery-ajax代码" class="headerlink" title="自己封装jQuery.ajax代码"></a>自己封装jQuery.ajax代码</h3><h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p><img src="https://i.imgur.com/ZQLmQsA.png" alt=""></p>
-<h2 id="callback回调就是满足某个条件的函数function"><a href="#callback回调就是满足某个条件的函数function" class="headerlink" title="callback回调就是满足某个条件的函数function"></a>callback回调就是满足某个条件的函数function</h2><pre><code>call a function
-call a function back
-</code></pre><h2 id="回调的问题"><a href="#回调的问题" class="headerlink" title="回调的问题"></a>回调的问题</h2><p>问题是每个程序员的回调名不一样</p>
-<h2 id="Promise-解决了回调名不一样这个问题"><a href="#Promise-解决了回调名不一样这个问题" class="headerlink" title="Promise 解决了回调名不一样这个问题"></a>Promise 解决了回调名不一样这个问题</h2><p>promise本质上是为了规定一种形式统一。<br><br><strong>请背</strong></p>
-<pre><code>function xxx(){
-return new Promise((f1, f2) =&gt; {
-    doSomething()
-    setTimeout(()=&gt;{
-        // 成功就调用 f1，失败就调用 f2
-    },3000)
-})
-}
-
-xxx().then(success, fail)
-
-// 链式操作
-xxx().then(success, fail).then(success, fail)
-</code></pre><h2 id="升级你的-jQuery-ajax-满足-Promise-规则"><a href="#升级你的-jQuery-ajax-满足-Promise-规则" class="headerlink" title="升级你的 jQuery.ajax 满足 Promise 规则"></a>升级你的 jQuery.ajax 满足 Promise 规则</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1845,7 +1715,7 @@ xxx().then(success, fail).then(success, fail)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -242,6 +242,545 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/JS-DOM的API/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/JS-DOM的API/" itemprop="url">JS:DOM的API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T15:49:57+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>&lt;html&gt;&lt;head&gt;&lt;body&gt;//三个标签都可以省略
+</code></pre><h2 id="DOM-是一棵树（tree）"><a href="#DOM-是一棵树（tree）" class="headerlink" title="DOM 是一棵树（tree）"></a>DOM 是一棵树（tree）</h2><p><code>DOM--Document Object Model</code>是<code>XML</code>文档的。<strong>DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型</strong>。即在内存中Document的<strong>结点node</strong>是用一个个<strong>对象</strong>进行<strong>存储</strong>的，而我们程序员操作内存，就是操作这些对象。对象里面存储的内容又得看DOM规范来确定。<br></p>
+<p><img src="https://i.imgur.com/GdD3Py5.png" alt=""><br><br><img src="https://i.imgur.com/WJYX9Zx.png" alt=""><br></p>
+<h2 id="树上有-Node"><a href="#树上有-Node" class="headerlink" title="树上有 Node"></a>树上有 Node</h2><p>Node 分为 Document（是html的爸爸）、Element（元素/标签）和 Text（文本），以及其他不重要的(注释结点等)。注意回车算文本结点。通过构造函数把结点变成对象。<br><br><img src="https://i.imgur.com/SkJFGOj.png" alt=""><br><br>Node的原型链关系<br><br><img src="https://i.imgur.com/Gw1mPYG.png" alt=""></p>
+<h2 id="Node-的接口"><a href="#Node-的接口" class="headerlink" title="Node 的接口"></a>Node 的接口</h2><ul>
+<li><p>属性</p>
+<ul>
+<li>childNodes 获取子结点（包括文本结点），children获取子标签结点</li>
+<li>firstChild </li>
+<li>lastChild</li>
+<li>nextSibling</li>
+<li>previousSibling</li>
+<li>nodeName 一般都为大写</li>
+<li>nodeType  记 1为标签结点，3为文本结点。</li>
+<li>nodeValue</li>
+<li>innerText   注意：面试问：innerText的textContext的区别,同都是获取页面内容</li>
+<li>textContent </li>
+<li>outerText</li>
+<li>ownerDocument 属于哪个文档</li>
+<li>parentElement</li>
+<li><p>parentNode</p>
+</li>
+<li><p>涉及单词有：</p>
+</li>
+<li>child / children / parent</li>
+<li>node</li>
+<li>first / last</li>
+<li>next / previous</li>
+<li>sibling / siblings</li>
+<li>type</li>
+<li>value / text / content</li>
+<li>inner / outer</li>
+<li>element</li>
+<li>然后互相组合<br><br></li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li>如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性<br></li>
+<li>appendChild()</li>
+<li>cloneNode() true深拷贝 false浅拷贝 面试：深拷贝与浅拷贝的区别</li>
+<li>contains()</li>
+<li>hasChildNodes()</li>
+<li>insertBefore()</li>
+<li>isEqualNode() 两个独立标签相等，但是不是相同的，相等和相同的概念不一样</li>
+<li>isSameNode() 相同，同一个（标签），<code>===</code></li>
+<li>removeChild() 只是从页面中移除了这个标签，但是它还存在内存中</li>
+<li>replaceChild() 替换</li>
+<li>normalize() // 常规化，合并文本结点 看MDN例子</li>
+<li>搞清楚英文单词的意思就知道用法</li>
+<li>如果发现知道英文后依然不明白用法，看 <code>MDN</code> 的例子即可</li>
+<li>DOM APi 无外乎「<strong>增删改查</strong>」</li>
+</ul>
+</li>
+</ul>
+<h2 id="Document-接口"><a href="#Document-接口" class="headerlink" title="Document 接口"></a>Document 接口</h2><ul>
+<li>属性<ul>
+<li>anchors 弃用</li>
+<li>body</li>
+<li>characterSet</li>
+<li>childElementCount</li>
+<li>children</li>
+<li>doctype</li>
+<li>documentElement</li>
+<li>domain</li>
+<li>fullscreen</li>
+<li>head</li>
+<li>hidden</li>
+<li>images</li>
+<li>links 获取页面中所有的a标签</li>
+<li>location</li>
+<li>onxxxxxxxxx</li>
+<li>origin</li>
+<li>plugins</li>
+<li>readyState</li>
+<li>referrer</li>
+<li>scripts</li>
+<li>scrollingElement</li>
+<li>styleSheets</li>
+<li>title</li>
+<li>visibilityState</li>
+</ul>
+</li>
+<li>方法：<ul>
+<li>close()</li>
+<li>open()</li>
+<li>createDocumentFragment()</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+<li>execCommand() 当你想设计一个父文本编辑器时才用到。</li>
+<li>exitFullscreen()</li>
+<li>getElementById() 基本没人用</li>
+<li>getElementsByClassName() 基本没人用</li>
+<li>getElementsByName() 基本没人用</li>
+<li>getElementsByTagName() 基本没人用</li>
+<li>getSelection()</li>
+<li>hasFocus()</li>
+<li>querySelector()  主要使用 只返回一个元素</li>
+<li>querySelectorAll() 主要使用 返回所有元素，返回的是个伪数组</li>
+<li>registerElement()</li>
+<li>write()</li>
+<li>writeln() 写一行<h2 id="Element-的接口"><a href="#Element-的接口" class="headerlink" title="Element 的接口"></a>Element 的接口</h2>看MDN<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>当我们在控制台输入API的时候，控制台会告诉我们使用的API是哪个类型的结点提供的,如此你就能知道你将得到什么类型的Node。<br><br>DOM面试唯一考点，<strong>google: DocumentFragment优化</strong>，面试前看一篇。<br></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/JS函数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/JS函数/" itemprop="url">JS函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T11:06:34+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这是面试知识点最密集的一课。<br><br>函数可以没有参数，但一定要有<code>return</code>，不然会自动给你加<code>return undefined</code>；<br></p>
+<h2 id="函数的-5-种声明"><a href="#函数的-5-种声明" class="headerlink" title="函数的 5 种声明"></a>函数的 5 种声明</h2><p>函数只有两种声明方法Function和function。<br><br><img src="https://i.imgur.com/v6208LZ.png" alt=""></p>
+<ul>
+<li><code>function f(){}</code>直接用关键字<code>function</code>声明<strong>具名函数</strong></li>
+<li><code>function (){}</code>用关键字<code>function</code>声明<strong>匿名函数</strong>,但是<strong>不能单独声明一个匿名函数</strong>，必须先声明一个变量，然后把匿名函数赋值给它。即 <code>var f = function(){};</code><br></li>
+<li><p><code>var f = function yy(){}</code><br><img src="https://i.imgur.com/hYMDw0m.png" alt=""><br><img src="https://i.imgur.com/vw65lpX.png" alt=""><br></p>
+</li>
+<li><p><code>var f =new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+b&#39;)</code>用全局对象<code>Function</code>在声明一个函数，<strong>基本没人用</strong>。可采用拼接法。<code>var n =1 ;var f =new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+&#39; + n + &#39;+b&#39;);f(1,2)//4</code><br></p>
+</li>
+<li><p>箭头函数。 <code>f = (x,y)=&gt;{return x+y}</code><br><br>箭头函数是匿名函数。<br><br><img src="https://i.imgur.com/UPTwAiP.png" alt=""><br><br>数组和对象的区别：原型不同。数组和对象不同，其中之一就是两者的公有属性不同。数组之所以是数组，是因为它有数组的特点，而对象没有数组的特点。它们二者的原型是不一样的。<br><br><img src="https://i.imgur.com/b5pk7E6.jpg" alt=""><br></p>
+</li>
+</ul>
+<h2 id="函数的name属性"><a href="#函数的name属性" class="headerlink" title="函数的name属性"></a>函数的name属性</h2><p><img src="https://i.imgur.com/LRhdzd0.png" alt=""></p>
+<h2 id="函数的本质"><a href="#函数的本质" class="headerlink" title="函数的本质"></a>函数的本质</h2><p>函数就是一段可以反复调用的代码块。作为一个程序员要更深地去理解函数，就要理解函数在内存是如何放的。函数是可以执行一段代码的对象。<br><br><img src="https://i.imgur.com/Jvy7QHs.png" alt=""><br></p>
+<h2 id="如何调用函数-f-call"><a href="#如何调用函数-f-call" class="headerlink" title="如何调用函数 f.call"></a>如何调用函数 f.call</h2><p>小白执行<code>f(1,2)</code><br><br><strong>正式的应该这样</strong> <code>f.call(undefined,1,2)</code>。只有这样写才能正确理解<code>this</code>。用call方法时，第二个才是我们要传的参数。<br></p>
+<h2 id="this-和-arguments"><a href="#this-和-arguments" class="headerlink" title="this 和 arguments"></a>this 和 arguments</h2><ul>
+<li>this就是f.call()里面的第一个参数，在JAVA里面比较有用，在JS里没什么用。当初是为了像JAVA而设计的，在JS里面没什么用，this就是一个参数。<br></li>
+</ul>
+<p><img src="https://i.imgur.com/zwCCASq.png" alt=""><br><br><img src="https://i.imgur.com/mOfZWAX.png" alt=""><br></p>
+<ul>
+<li>arguments就是f.call()里除了第一个参数以外的其他参数。<br><br>arguments是一个伪数组，伪数组的意思就是长得像数组，但是它的<code>__proto__</code>指向的不是<code>Array.prototype</code>，并且伪数组的整个原型链中都没有<code>Array.prototype</code>，即也使用不了a.push（）之类数组特有的函数API(没有数组的公有属性)。arguments就是一个长得像数组的普通对象。<br><br><img src="https://i.imgur.com/lEnaGUb.png" alt=""><br><br><img src="https://i.imgur.com/LZj7FyN.png" alt=""><br></li>
+</ul>
+<h2 id="什么是-call-stack"><a href="#什么是-call-stack" class="headerlink" title="什么是 call stack"></a>什么是 call stack</h2><p>f.call()的过程就是先进后出的过程，类似栈。看到call就进入到函数里面,同时记下返回的地方，看到return就返回原来标记的地方，继续执行接下来的代码。<br><br>栈空间有限，调用次数太多就会发生<code>stack overflow</code>.<br></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>有函数就有作用域。<br>一定要变量提升，一开始看见题目就要变量提升。<br><br>浏览器在画作用域树的时候都是先找到所有变量声明，然后把这些声明都放到最前面。<br><br><img src="https://i.imgur.com/DJatZzf.png" alt=""><br><br><img src="https://i.imgur.com/k6rEjwD.png" alt=""><br></p>
+<ul>
+<li>变量提升(我错了两次)<br><img src="https://i.imgur.com/K5kPAuw.png" alt=""><br><br><img src="https://i.imgur.com/A8ibmze.png" alt=""><br></li>
+<li>作用域混淆<br><img src="https://i.imgur.com/Q4HGfBl.png" alt=""><br></li>
+<li>变量是这个变量，但是值会变，不一定相等。<br><br><img src="https://i.imgur.com/Xov4bDR.png" alt=""><br><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2>闭包就是如果一个函数使用了它范围外（作用域）的变量，那么 【这个函数+这个变量】组合的整体 就叫做闭包。<br></li>
+</ul>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>这节课的习题真是不走寻常路。<br></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/JS数组/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/JS数组/" itemprop="url">JS数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T19:50:18+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://i.imgur.com/On5SxXQ.jpg" alt=""><br>回忆：简单类型<code>number</code>,<code>string</code>,<code>boolean</code>加<code>new</code>生成对象，不加<code>new</code>就是生成简单类型。而对象<code>array</code>,<code>function</code>,狭义<code>object</code>加不加<code>new</code>都是生成<code>object</code>。<br></p>
+<h2 id="Array声明"><a href="#Array声明" class="headerlink" title="Array声明"></a>Array声明</h2><ul>
+<li><p><code>var a = Array(3);</code><br><img src="https://i.imgur.com/Wxn2PfC.jpg" alt=""><br><img src="https://i.imgur.com/GHc7XGv.jpg" alt=""></p>
+</li>
+<li><p><code>var a = Array(3,3);</code></p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/vQRrMlp.jpg" alt=""></p>
+<ul>
+<li><code>var a = [];</code></li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><pre><code>var a = [1,2,3]
+a.xxx = &apos;xxx&apos; //&quot;xxx&quot;
+a.yyy = &apos;yyy&apos; //&quot;yyy&quot;
+a             //(3) [1, 2, 3, xxx: &quot;xxx&quot;, yyy: &quot;yyy&quot;]
+                    0：1
+                    1：2
+                    2：3
+                    xxx:&quot;xxx&quot;
+                    yyy:&quot;yyy&quot;
+                    length:3
+                    __proto__:Array(0)
+//遍历数组1
+for(let i =0 ;i &lt; a.length; i++){console.log(a[i])} //1 2 3
+//遍历数组2
+for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
+</code></pre><h2 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h2><p>伪数组就是你的原型链中没有Array.prototype.<br><br>说实话，我也没听懂这个是啥，先记着。<br><br><img src="https://i.imgur.com/6PCtvZ2.jpg" alt=""><br></p>
+<h2 id="数组的API"><a href="#数组的API" class="headerlink" title="数组的API"></a>数组的API</h2><p>这些数组的API貌似都有遍历数组的功能。<br></p>
+<ol>
+<li><code>a.forEach( function(x,y){function-body} )</code>遍历。传函数参数。且函数必须有两个参数,第一个参数对应数组的value,第二个参数对应数组的key。函数参数可以有第三个参数，第三个参数就是数组a本身。实际上通过 <code>.</code>已经把数组a传入到forEach当中。<br><br><img src="https://i.imgur.com/ZJE17n3.jpg" alt=""><br><br><img src="https://i.imgur.com/cNghW38.jpg" alt=""><br><br>以下分布分解：<br><br><img src="https://i.imgur.com/TmN7zgL.png" alt=""><br><br><img src="https://i.imgur.com/bxXq2SA.png" alt=""><br><br><img src="https://i.imgur.com/vnMMF3X.png" alt=""><br><br>下面来看<code>a.forEach</code>的实质：<br><br><img src="https://i.imgur.com/6AZ73qY.jpg" alt=""><br></li>
+</ol>
+<p>API都是函数,函数的参数还可以是函数。<br><br>控制台里: <code>shift+回车</code> 可以换行。<br><br>JS内置排序为快速排序<br><br><br></p>
+<ol start="2">
+<li><p><code>a.sort(function(firstNumber,secondNumber){return firstNumber-secondNumber})</code>,传函数参数，函数参数必须有两个参数，分别对应数组a的第一、第二个数。函数体return回的值决定排序顺序，默认采用快排。return回的值是正值表示从大到小排，负值表示从小到大排，0表示fn和sn相等，<code>fn-sn</code>表示从小到大排，<code>sn-fn</code>表示从大到小排。排完序后是覆盖原来的a数组，即存回原来a的内存处。<br><br><img src="https://i.imgur.com/GZqqlF5.jpg" alt=""><br><br><img src="https://i.imgur.com/SEW9uiF.jpg" alt=""><br></p>
+</li>
+<li><p><code>a.join(&#39;连接符&#39;)</code>,用间隔符间隔连接。<br></p>
+</li>
+</ol>
+<p><img src="https://i.imgur.com/VKXCX4J.jpg" alt=""><br></p>
+<ol start="4">
+<li><code>a.contact</code><br>两个数组合并成一个数组，常用于数组复制。<br><br><img src="https://i.imgur.com/55fc4YF.jpg" alt=""><br></li>
+</ol>
+<ol start="5">
+<li><code>a.map</code>类似<code>a.forEach</code>，映射。<br><br><img src="https://i.imgur.com/3cm39nX.jpg" alt=""><br><br><img src="https://i.imgur.com/jQ81Oeq.jpg" alt=""><br><br>区别是<code>a.forEach</code>没有返回值(<code>undefined</code>),而<code>a.map</code>要有返回值，要<code>return</code>返回一个值。<br></li>
+<li><code>a.filter</code>过滤<br><br><img src="https://i.imgur.com/U9usixe.jpg" alt=""><br><br><img src="https://i.imgur.com/YeveT2I.jpg" alt=""><br><br><img src="https://i.imgur.com/BCt1sbN.jpg" alt=""><br><br>两个API链起来使用。<br></li>
+<li><code>a.reduce(function(){},0)</code>,这个<strong>求和API</strong>有两个参数，前一个是函数，要返回的，后一个是初始值。<br><br><img src="https://i.imgur.com/e5dnypt.jpg" alt=""><br><br><img src="https://i.imgur.com/cXkJIMl.png" alt=""><br><br><img src="https://i.imgur.com/rOXrL4e.jpg" alt=""><br></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/给简历加JS-1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1328,548 +1867,11 @@ var obj = {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/21/JS与画板/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/21/JS与画板/" itemprop="url">JS与画板</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T20:50:07+08:00">
-                2018-11-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>画板分析：按下去鼠标-动鼠标-松开鼠标<br><br> <strong>按在哪里？事件：</strong><code>document.onmousedown = function(x){console(x)}</code><br><br> <strong>监听动作？ 事件：</strong><code>document.onmousemove = function(y){console(y)}</code><br><br> <strong>松鼠标？事件：</strong><code>document.onmouseup = function(z){console(z)}</code><br><br> 通过上次键盘网站我们知道，function(x)中的x/y/z都是存放对应事件所有信息的hash表。<br><br><img src="https://i.imgur.com/VRwvwvy.jpg" alt=""><br><img src="https://i.imgur.com/7zMgrjW.jpg" alt=""></li>
-<li>API-别人提供的可供程序员调用的<br><br><img src="https://i.imgur.com/SQ2UoZY.jpg" alt=""></li>
-<li>变量作用域<br></li>
-<li>用元素做画板，画得太快导致线条不连续，有缺陷<br></li>
-<li>专门有个标签做画板 <code>&lt;canvas&gt;&lt;/canvas&gt;</code><br><br> <code>canvas</code> 默认<code>inline-block</code>,不能设置为 <code>block</code>,可设置宽高<br></li>
-<li>不建议用CSS样式控制canvas的初始宽高，这样做你只能得到canvas等比例缩放的，会出现滚动条，要用其它办法<br></li>
-<li>查canvas mdn，熟悉各种JS 的 API，从在canvas画一个长方形开始<br> </li>
-<li>stroke描边 fill填充 clear挖空<br><br>var canvas = document.getElementById(‘canvas’);<br>var context = canvas.getContext(“2d”);<br>context.strokeStyle = “bule”;<br>context.strokeRect(1, 1, 100, 100);<br>context.fillStyle = “white”;<br>context.fillRect(1, 1, 100, 100);<br>context.clearRect(45, 50, 40, 10);</li>
-<li>注意 <code>aaa.clientX`</code>aaa.clientY<code>是相对于视口的高度，也就是浏览器窗口(html)的高度，并不是对</code>canvas<code>的高度。canvas画图，点击时画的位置就是相对的，要解决这个bug，使相对于浏览器的位置 就是 相对于canvas的位置，即设置</code>html,body{margin:0px;}`<br></li>
-<li>bug2只要用了<code>xxx.onmousemove</code>就会出现不连续的bug。<br></li>
-<li>画rectangle 长方形 画三角形 画圈 画线<br></li>
-<li>context是上下文<br></li>
-<li>用canvas实现画连续的线思路：两个函数（画圈、画线），三个事件（按下鼠标、移动鼠标、松开鼠标)。参考视频：canvas画圈。关键点：lastPoint=newPoint<br></li>
-<li>bug3 用CSS样式给canvas加 <code>width=100vh height=100vw</code>导致画图会变形。不建议加CSS样式设置宽高，而是直接在canvas上面加宽高。<br></li>
-<li>改进，多做几个画笔颜色，就像女孩用的眼影一样，做成一个小盒子，用户可点击可选择不同的画笔；加画笔盒子；加橡皮擦；<br></li>
-<li>优化代码：给一坨东西取一个名字。<br></li>
-<li>作用域的问题，放在最外面最前面的就是全局变量了。<br></li>
-<li>用js给代码加className,添加状态实现控制，代替if()else()<br><br><img src="https://i.imgur.com/M6V8QDD.jpg" alt=""><br></li>
-<li>变量提升：JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部<br></li>
-<li>下面第二部分-添加功能<br></li>
-<li>手机上可看、可用，多种颜色的画笔，保存，眼影盘把画笔包裹起来,美工，背景图<br></li>
-<li>img 和 script用src，link用href<br></li>
-<li><code>git commit -v</code> 能看到你对仓库的所有改动,这个时候可以对仓库的改动做一个总结。下次代替’<code>git commit -m &quot;改动信息提交&quot;</code>‘</li>
-<li>google搜索的时候不想看到某个广告或内容可以用 <code>-广告</code>，如：<br><code>阻止 980 - 索爱</code><br></li>
-<li><code>meta:vp</code>，添加<code>viewport</code>可以让页面不能缩放，这样PC端内容就以<code>1：1的比例</code>展示在手机端。<strong>实现canvas可以在手机上可看</strong><br></li>
-<li><code>解决手机可用问题</code>,形如在PC端的<code>xxx.onmousedown</code>的<code>mouse</code>事件， 对应在手机上有<code>xxx.ontouchstart</code>的<code>touch</code>事件。手机没有<code>mouse</code>事件。所以当从PC端切换到手机端，只要更换监听事件就可以了。而不能简单通过手机和电脑来区分监听<code>mouse</code>和<code>touch</code>事件，有些手机不支持触屏，有些电脑可以触屏;而是<strong>根据设备是否支持touch 和mouse来区分监听哪个事件。</strong><br><br>区分设备是否支持touch触发：在PC端上：<code>id.ontouchstart === defined</code>,即touch未定义，就是说PC这个设备不支持touch事件；在手机端：<code>id.ontouchstart === null</code>,即touch被初始化了，现在为空，支持touch触发。故我们可以判断 <code>id.ontouchstart</code>的值来判断设备是否支持touch触发，测试时可直接在console命令台输入<code>&#39;ontouchstart&#39; in document.body</code> <br><br><img src="https://i.imgur.com/C67OK65.jpg" alt=""></li>
-<li>特性检测：不是检测设备，而是检测设备是否具有这个功能特性。<br></li>
-<li><code>mouse</code>对应<code>MouseEvent</code>,<code>touch</code>对应<code>TouchEvent</code>,两个事件不一样,触屏一般都是支持<strong>多点触屏（同时用几个鼠标点基本不会出现）</strong>的。获取坐标的方法也不一样。TouchEvent的x,y坐标为<code>xxx.touches[0].clientX</code>和<code>xxx.touches[0].clientY</code>,其中<code>trouches[0]</code>是数组。<br></li>
-<li>手机端的代码和PC端的代码一样，就是mouse换touch，取坐标的方法略微不一样，直接copy小改一下。<br></li>
-<li>一般改进一个功能后就上传到github进行代码备份并添加备注信息。<br></li>
-<li>给画笔加图标，给橡皮擦加图标<a href="http://iconfont.cn" title="矢量图标" target="_blank" rel="noopener">http://iconfont.cn</a><br></li>
-<li><code>id.onclick</code>某某某被点击后要执行什么，支持手机端和PC端的<br><br> <code>id.onclick = function(){ 要执行的功能操作；}</code></li>
-<li>加戏：添加默认状态示意，默认使用画笔，画笔一开始就高亮。如果<code>eraser</code>和<code>brush</code>被点击了，就变红且变大，让用户明确的知道选择了什么。<br></li>
-<li>用CSS样式先做个颜色盘（各种形状），点哪个颜色给哪个颜色高亮一下，变大: <code>transform:scale(2)；transition:all 0.3s</code><br></li>
-<li><code>context.strokeStyle = &#39;blue&#39;</code> 意思是上下文的描边样式是蓝色。<br></li>
-<li>一般标签是<code>className</code>,svg标签是<code>classList</code>。<code>id.classList.add(&#39;class&#39;)</code> <code>id.classList.remove(&#39;class&#39;)</code><br></li>
-<li>禁用滚动条，<code>body{overflow:hidden;}</code><br></li>
-<li>去掉ol,ul的样式。<code>ol,ul{list-style:none;}</code><br></li>
-<li>颜色盘的各种颜色用<code>ul&gt;li</code>结构和画笔的各种颜色也用<code>ul&gt;li</code>结构。位置都用绝对定位：<code>position:fixed;left:10px;top:10px;</code><br></li>
-<li>养成个习惯,js用id名，css用class名。<br></li>
-<li>上下文颜色 和 线条宽度 由开始的写死 变成点击对应颜色或线条后改变<br><br>如： red.onclick = function(){点击红颜色，给画笔换成红色*(context.strokeStyle = ‘red’)，其他颜色不选择}<br><br>thin.onclick = function(){点击细线，给画笔设置宽度（context.lineWidth = 3）小一点的},或者在外面定义全局变量<code>lineWidth</code>,对应点击赋值，初始设置<code>context.lineWidth = lineWidth</code><br></li>
-<li>bug是一定有的，这是线条还是不完美。需要改bug<br></li>
-<li>需求是无限加的，加 <code>清屏</code> <code>撤销</code> <code>保存下载</code>按钮,加<code>icon</code>,每次加完icon都要更新我们的js代码，重新添加js代码到我们的<code>&lt;script&gt;&lt;/script&gt;</code><br><br>清屏：google: <code>js canvas clear</code>建一个大的清空长方形<br><br>保存下载：google:<code>js canvas save as image</code><br><img src="https://i.imgur.com/6B4NAA0.jpg" alt=""></li>
-<li>学会google很重要<br></li>
-<li>修bug改bug<br></li>
-<li>上传到github更新很慢，启用局域网调试。google查windows的局域网地址，用手机访问 局域网地址:8080<br><br><img src="https://i.imgur.com/ar6nGw1.jpg" alt=""><br></li>
-<li>添加CSS样式，让canvas绝对定位 <code>position:fixed</code><br></li>
-<li>可以给画出的东西加CSS滤镜，不需要服务器，只用浏览器就可以。<br></li>
-<li>继续完善创新吧~</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/JS与导航栏/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/18/JS与导航栏/" itemprop="url">JS初</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T09:38:46+08:00">
-                2018-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>document.onkeypress = function(randomName){
-console.log(&apos;你按下的这个键所有信息是：&apos;)
-console.log(randomName)   //猜想randomName是存所有信息的hash表名
-  }
-</code></pre><p><img src="https://i.imgur.com/iXZwoO8.jpg" alt=""></p>
-<ol>
-<li>新建 二维数组和hash表。</li>
-<li>用js代码写html。</li>
-<li>添加CSS样式<br></li>
-</ol>
-<p><img src="https://i.imgur.com/ICiWxeS.png" alt=""><br><br></p>
-<ol start="4">
-<li>监听用户事件-即用户输入q打开qq.com<br>获取用户输入的键值–取出对应hash表的网站域名–修改当前网站地址/新开窗口打开<br><br></li>
-<li>加功能-用户自己设定按键对应的网站<br>用js给kbd里加儿子button标签，加css样式。当鼠标滑过kbd时，显示button的值。<br><br></li>
-<li><p>使用localStorage，将用户修改的网站地址保存到本地，避免出现用户刷新网页后，网页内容还是原来程序员自定义的网址。<br><br>方法是把存修改后地址的变量保存到这个js之外的地方去。首先获取用户编辑button对应的键值，用prompt获取用户要变更的网址，变更哈希，在这步结束以后，用户若是刷新网页，以上更改内容无效，于是用localStorage 把 变更过的hash表 保存到random的桶里，还必须在前面加上每次刷新网页时优先读取localStorage 的random 桶里的hash表。这样一来，要是上次用户修改了网页，当下次用户再次打开网页时，优先读取的是 修改过后的网站hash表。这就做到了实现用户自定义网站的要求。<br><br></p>
-</li>
-<li><p>键盘导航的功能基本够了，现在给键盘加CSS样式，立体，阴影，hover之类的。<br></p>
-</li>
-<li><p>加网站图标。 /favicon.icon <br><br>这个还挺麻烦的，加img标签及CSS样式，JS实现功能。有点容易错<br></p>
-<blockquote>
-<p>if(hash[row[index2]]){img.src = ‘http://‘ + hash[row[index2]] + ‘/favicon.ico’}<br><br>else{img.src = ‘//i.loli.net/2017/11/10/5a05afbc5e183.png’}<br><br><code>/*监听失败事件*//*console.log(&#39;获取icon失败了&#39;)*/</code><br><br>img.onerror = function(shijianName){shijianName.target.src = ‘./failphoto.jpg’}<br></p>
-</blockquote>
-</li>
-</ol>
-<p>在用户修改网站后，不仅要立即更新hash表存档，还要马上更改icon,用js实现<br></p>
-<pre><code>button.onclick = function(randomName){  //button被点击了
-//console.log(randomName) 这里的randomName就是事件click 哈希表的名称，randomName这个hash表存着这个事件的所有信息,打印出事件的所有信息
-button2 = randomName[&apos;target&apos;] //randomName[&apos;target&apos;]是用户点击的元素
-img2 = button2.nextSibling  //button2.nextSibling 可以取到当前被点击的button2的下一个兄弟
-var key = button2[&apos;id&apos;]   //q w e r t y 取出用户要编辑哪一个kbd的键值
-//console.log(randomName[&apos;target&apos;][&apos;id&apos;]  /*这里用key是错误的，这里没有按下kbd没有[&apos;key&apos;]，不能像下面一样用*/)
-var x = prompt(&apos;请输入要变更的网址&apos;)         //获取用户要更改的网址
-hash[key] = x                              //hash变更
-//console.log(hash)                  //每次都打出hash
-//hash变更后要立刻存档到randomN
-localStorage.setItem(&apos;randomN&apos;,JSON.stringify(hash)) //JSON.stringify(hash)是把hash变成字符串的                              //hash变更
-if(hash[key]){img2.src = &apos;http://&apos;+hash[key]+&apos;/favicon.ico&apos;}  //对应网站icon也要变更
-else{img2.src = &apos;//i.loli.net/2017/11/10/5a05afbc5e183.png&apos;}
-/*监听失败事件*//*console.log(&apos;获取icon失败了&apos;)*/
-img2.onerror = function(shijianName){shijianName.target.src = &apos;./failphoto.jpg&apos;}
- }
-</code></pre><p><br></p>
-<ol start="9">
-<li><p>解决bug。onerror <br><br>各种bug，测试。一般一个事件发生以后，我们可以知道这个事件所包含的所有信息，<code>button.onclick = function(randomName){}</code>，如这个事件的所有信息都存在randomName这个桶里（也是一个hash表），我们可以打出这个桶里的信息，可以通过randomName.target获得事件每次发生的对象，而不是用button,button往往存的是最后一个值。<br></p>
-</li>
-<li><p>优化代码-组装函数。可选做很酷，先完成前面。<br><br>封装函数就是把能实现一个功能的代码包起来，命个名字。代码结构由 数组型 变成 树形，逻辑清晰，易读性高，纠错快！ 只看一个子树就好了，每个子树的代码也不会很长，这样也不会疲倦。原来我在学C语言的时候，<strong>封装成函数</strong>是这个原因啊！确实很有道理<br> </p>
-</li>
-</ol>
-<ul>
-<li>知识</li>
-<li>在写页面之前，先画一下这个页面的功能有哪些。</li>
-<li>用数据结构分析页面</li>
-<li>数组的样子，和 hash表的样子</li>
-<li>js声明变量</li>
-<li>js的if结构</li>
-<li>js的while结构</li>
-<li>js的API函数</li>
-<li>用js写html</li>
-<li>用开发者工具调试-console &amp; application</li>
-<li>开发者工具模拟3g慢速网</li>
-<li>背景图片不能太大，裁剪图片，太久加载不出来用户就不会打开了</li>
-<li>获取网站的icon，例如：点击获取微博的icon  <a href="http://weibo.com/favicon.ico" title="获取微博的icon" target="_blank" rel="noopener">http://weibo.com/favicon.ico</a> <br></li>
-<li>上传一个图片</li>
-<li>标签就是一个哈希表</li>
-<li>18的习题要做一个错题收集。还没学过基础知识，还是有点模糊。</li>
-<li>以上内容供自己回顾使用。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/数据结构/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/15/数据结构/" itemprop="url">数据结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T08:28:28+08:00">
-                2018-11-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>前言：只有先搞清楚数据结构，才能去想算法。</strong><br></p>
-<h3 id="哈希表（Hash-Table）"><a href="#哈希表（Hash-Table）" class="headerlink" title="哈希表（Hash Table）"></a>哈希表（Hash Table）</h3><p>在计算中，哈希表（哈希映射）是实现关联数组抽象数据类型的数据结构，该数据结构可以<strong>将键映射到值</strong>。哈希表使用哈希函数来计算桶或槽阵列的<strong>索引</strong>，从中可以找到所需的<strong>值</strong>。<strong>简单说，哈希表(数组)的结构就是</strong></p>
-<blockquote>
-<p>{<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>key:value;<br><br>}<br><br><img src="https://i.imgur.com/K32QmYD.png" alt=""><br><br><img src="https://i.imgur.com/Utvt3VP.jpg" alt=""></p>
-</blockquote>
-<ul>
-<li><p><strong>计数排序</strong>中的桶（复杂度 O(n+max)，比快排还快<br><br>n是数的总数，max是hash表的长度（桶的个数）。计数排序算法看上次笔记《算法》<br></p>
-</li>
-<li><p><strong>桶排序思想</strong><br><br>很多排序里面都有桶，桶排序每个桶里不止放一个数，<strong>桶排序每一个桶里放一个范围内的数</strong>，然后每个桶里的数是乱序，还要采用其他排序。<br></p>
-</li>
-<li><p><strong>基数排序思想</strong><br><br>定下0-9十个基数（<strong>基数排序10个桶固定</strong>），将一组数 先按个位数相同进桶，按照<strong>先进先出</strong>的原则出桶，此时得到的一组数个位是按从小到大排好的；将上步得到的这组数 按十位数相同进桶，按照<strong>先进先出</strong>的原则出桶，此时得到的数十位是按从小到大排好的，同时<strong>十位相同的一组数的个位</strong>也是排好从小到大顺序的；再将上步得到的这组数按百位数相同依次进桶，依此类推，第三次进桶出桶以后，这组数百位从小到大排列的，同时百位数相同的几个数，其低位是排好序的（也就是个位和十位是排好的）,这就是基数排序的算法思想。这里特地说一下，进桶的原则是<strong>基数相同进同一个桶</strong>，出桶的原则是<strong> 同一个基数桶里，按先进先出的原则 出桶</strong>。<br><br><img src="https://i.imgur.com/LNPj9hg.jpg" alt=""><br></p>
-</li>
-<li><p>计数排序、桶排序、基数排序三者的区别<br><br><strong>排序就是要么浪费空间，要么浪费时间。这三种排序都是出桶和入桶</strong>桶排序就是<strong>先分范围再排序</strong>，桶数量不固定，浪费空间； 计数排序一个桶内放一个数，排序简单，桶数量不固定，浪费桶； 基数排序适合1-10万这种差距大的数，桶数量固定。<br></p>
-</li>
-</ul>
-<h3 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h3><p><img src="https://i.imgur.com/nMEtbIM.jpg" alt=""></p>
-<ul>
-<li><strong>先进先出</strong><br></li>
-<li>可以用<strong>数组</strong>实现<br></li>
-<li>举例：排队，线上购买火车票,前面基数排序 同一个桶出桶就是按照先进先出原则，也就是说同一个桶中所有的数就构成一个队列。<br></li>
-</ul>
-<h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><p><img src="https://i.imgur.com/soP3a3u.jpg" alt=""></p>
-<ul>
-<li><strong>先进后出</strong></li>
-<li>可以用<strong>数组</strong>实现</li>
-<li>举例：上楼下楼</li>
-</ul>
-<p><strong>故数组既可以是队列quene，也可以是栈stack。数组不是数据结构，数组是哈希表,一个索引标记的空间装着一个数</strong><br></p>
-<h3 id="链表（Linked-List）"><a href="#链表（Linked-List）" class="headerlink" title="链表（Linked List）"></a>链表（Linked List）</h3><p><img src="https://i.imgur.com/3kMKXcb.png" alt=""><br><br><img src="https://i.imgur.com/KzbzfXB.png" alt=""></p>
-<ul>
-<li>数组无法直接删除中间的一项，链表可以<br><br>数组删除一个数，非常复杂，先清空该位置，再将后面的数依次前移。<br></li>
-<li><p>用哈希（<strong>JS里面用对象表示哈希（对象的结构就是哈希表结构）</strong>）实现链表。只要看到一个哈希指向另一个哈希，另一个哈希又指向另一个哈希的结构就是链表。j不常用链表<br><br>在链表中，删除一个数，只需要把这个数上一个节点的指针指向这个数下一个节点，再释放掉这个数所在的节点空间。<br></p>
-</li>
-<li><p>head表头、<strong>node节点</strong> 概念<br></p>
-</li>
-</ul>
-<p><strong>故发现数组查询一项很快，而 链表（尤其中间删除）删除很快。前端常用 数组 而 不是链表</strong><br></p>
-<h3 id="树（tree）"><a href="#树（tree）" class="headerlink" title="树（tree）"></a>树（tree）</h3><p>如果哈希表之间满足如下关系，就是树。<br><br><img src="https://i.imgur.com/OwqMEDs.png" alt=""><br><img src="https://i.imgur.com/LUSUBxS.png" alt=""><br></p>
-<ul>
-<li>举例：层级结构、DOM<br><br>只要用到 <strong>层级结构</strong> 就用到 <strong>树</strong>。<br></li>
-<li>概念：层数、深度、节点个数</li>
-<li><a href="https://en.wikipedia.org/wiki/Binary_tree" target="_blank" rel="noopener">二叉树binary tree</a>—一个节点只能开两个叉</li>
-<li>满二叉树—-叶子节点是长满的</li>
-<li>完全二叉树—除最后一层外其他层都是满的/最后一层某些节点差右子树</li>
-<li><strong>完全二叉树和满二叉树可以用数组实现，普通树只能用链表表示</strong>,<strong>因为从节点从左到右，不存在跳跃</strong>，利用<code>节点层数</code>和<code>树的节点规律</code>可以算出<code>数组的索引</code>，从而树结构用数组实现后，取数很方便。<br> </li>
-</ul>
-<p><img src="https://i.imgur.com/ktGXmEx.png" alt=""><br><img src="https://i.imgur.com/RB4iaDw.png" alt=""></p>
-<ul>
-<li>其他树可以用哈希（对象）实现,类似链表。<br></li>
-<li>操作：增删改查</li>
-<li><strong>堆排序用到了 tree</strong><h3 id="其他树：B树、红黑树、AVL树"><a href="#其他树：B树、红黑树、AVL树" class="headerlink" title="其他树：B树、红黑树、AVL树"></a>其他树：B树、红黑树、AVL树</h3></li>
-</ul>
-<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><ul>
-<li>堆排序可视为一棵完全二叉树<br><br>即除最底层外，每一层都是满的，最底层可以缺少右边的叶子节点（相当于数组后面元素没有了）。故 <strong>堆</strong>可以用数组表示，每一个节点 对应 数组中的一个元素。</li>
-<li>堆的特征：上面的数大下面的数小</li>
-<li>最大堆：最大数在上面、最小堆：最小的数在上面</li>
-<li>最大堆调整</li>
-<li>堆排序概念最多、算法复杂</li>
-<li>从右到左遍历数组（因为数组最右边是树的最右叶子结点），先做一次<strong>最大堆调整</strong>，得到最大数，再把最大数放在一遍，将剩下的数做最大堆调整，依次类推，最后我们就得到了一个堆。从最外层开始调，俩儿子做对比，挑出厉害的再跟爸爸对比， 爸爸辈再和爷爷做对比，如果爸爸有调整，那么儿子们需要和新来的爸爸再打架。不断这样做，做到没法打架。<br></li>
-</ul>
-<p><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html
-" target="_blank" rel="noopener">堆排序可视化</a><br><br><a href="http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/" target="_blank" rel="noopener">堆排序JS代码完整讲解（看到最后）</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1915,7 +1917,7 @@ img2.onerror = function(shijianName){shijianName.target.src = &apos;./failphoto.
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
