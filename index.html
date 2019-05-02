@@ -242,6 +242,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/02/清除浮动/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/02/清除浮动/" itemprop="url">清除浮动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-02T19:56:25+08:00">
+                2019-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="清除浮动方法（代码亲测）"><a href="#清除浮动方法（代码亲测）" class="headerlink" title="清除浮动方法（代码亲测）"></a>清除浮动方法（代码亲测）</h1><p>为什么要清除浮动？</p>
+<p>1 先看有浮动会是什么样子：</p>
+<p>当一个内层元素是浮动的时候，如果没有关闭浮动时，其父元素也就不会再包含这个浮动的内层元素，因为此时浮动元素已经脱离了文档流。也就是为什么外层不能被撑开了！</p>
+<p>没有给最外层的DIV.outer 设置高度，但是我们知道如果它里面的元素不浮动的话，那么这个外层的高是会自动被撑开的。但是当内层元素浮动后，就出现了以下影响：</p>
+<p>（1）：背景不能显示 （2）：边框不能撑开 （3）：margin 设置值不能正确显示</p>
+<p>参考：<a href="https://segmentfault.com/a/1190000004237437" target="_blank" rel="noopener">来自</a></p>
+<p>2 <strong>浮动的定义</strong>：使元素脱离文档流，按照指定方向发生移动，遇到<strong>父级边界</strong>或者<strong>相邻的浮动元素</strong>停了下来。</p>
+<p><strong>高度塌陷</strong>：浮动元素父元素高度自适应（父元素不写高度时，子元素写了浮动后，父元素会发生高度塌陷）</p>
+<p>知道浮动和为什么要清除浮动之后我们可以开始学习如何清除浮动了，这时候我们就需要用到清除浮动的属性<strong>clear</strong>, </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 元素的某个方向上不能有浮动元素 */</span></span><br><span class="line">clear:left | right | both | none | inherit；</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">clear</span><span class="selector-pseudo">:both</span>;  <span class="comment">/* 元素的左右两侧均不允许浮动元素 */</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：用于清除浮动的元素一定要放在父元素的最后一个子元素，也就是所有浮动元素的右边，否则父元素还是没有包裹住浮动元素</strong></p>
+<p>1 万能清除浮动方法（添加after伪元素）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">    border: 1px solid red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.item</span> &#123;</span></span><br><span class="line"><span class="undefined">    float: right;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="undefined">    content: '';</span></span><br><span class="line"><span class="undefined">    display: block;</span></span><br><span class="line"><span class="undefined">    clear: both;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.clearfix</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">zoom</span>: 1;	 <span class="comment">/* IE 兼容 */</span></span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container clearfix"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">        我是浮动元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">        我是浮动元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2 还是clear清除浮动，<strong>将用于清除浮动的元素放在最后一个子元素位置上</strong>，设置<code>clear:both</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">        border: 1px solid red;</span></span><br><span class="line"><span class="undefined">        background: chocolate;</span></span><br><span class="line"><span class="undefined">        padding: 10px;</span></span><br><span class="line"><span class="undefined">        margin: 20px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemLeft</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemRight</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfix</span> &#123;</span></span><br><span class="line"><span class="undefined">        clear: both/left;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> // 放在最后</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3 在父元素上设置<code>overflow: hidden/auto;</code>也能清除浮动，这是创建了BFC，父元素包裹住了浮动元素。但hidden对搜索引擎优化seo不友好。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">        border: 1px solid red;</span></span><br><span class="line"><span class="undefined">        background: chocolate;</span></span><br><span class="line"><span class="undefined">        padding: 10px;</span></span><br><span class="line"><span class="undefined">        margin: 20px;</span></span><br><span class="line"><span class="undefined">        overflow: auto/hidden;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemLeft</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemRight</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其他有副作用，就不一一列举了</p>
+<p><a href="https://blog.csdn.net/promiseCao/article/details/52771856" target="_blank" rel="noopener">部分参考来自</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/项目：键盘导航/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1493,178 +1635,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/给简历加数据库/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/26/给简历加数据库/" itemprop="url">给简历加数据库</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T14:09:13+08:00">
-                2019-01-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="事出有因"><a href="#事出有因" class="headerlink" title="事出有因"></a>事出有因</h3><p>数据是存在服务器端才能实现跨设备使用数据。我们没有学服务器，但是要存数据就要有一个服务器，但是上阿里云看了买一个服务器又太贵了。所以我们使用免费的。<a href="https://leancloud.cn" target="_blank" rel="noopener">https://leancloud.cn</a> 。</p>
-<h3 id="LeanCloud-介绍"><a href="#LeanCloud-介绍" class="headerlink" title="LeanCloud 介绍"></a>LeanCloud 介绍</h3><p>一个自带数据库和增删改查（CRUD）功能的后台系统。</p>
-<p>拥有：</p>
-<ol>
-<li>登录注册、手机验证码功能（收费）</li>
-<li>存储任意信息</li>
-<li>读取任意信息</li>
-<li>搜索任意信息</li>
-<li>删除任意信息</li>
-<li>更新任意信息</li>
-</ol>
-<p>等功能。</p>
-<h3 id="把LeanCloud集成到我们的简历"><a href="#把LeanCloud集成到我们的简历" class="headerlink" title="把LeanCloud集成到我们的简历"></a>把LeanCloud集成到我们的简历</h3><p>   给简历添加留言思路：将用户提交的留言保存到数据库，将数据库中的留言展示出来。</p>
-<p>   留言板功能：</p>
-<ol>
-<li>用户可以新增留言</li>
-<li>没有其他功能</li>
-</ol>
-<h3 id="使用LeanCloud"><a href="#使用LeanCloud" class="headerlink" title="使用LeanCloud"></a>使用LeanCloud</h3><p><strong>遇到没有见过的知识时，使用 Copy-Run-Modify 套路即可。</strong></p>
-<ol>
-<li><p>注册leancloud账号</p>
-</li>
-<li><p>创建一个应用resume-2019-1</p>
-</li>
-<li><p>点击你刚创建的<strong>应用</strong>-点击右边的<strong>帮助</strong>-点击<strong>入门指导</strong></p>
-</li>
-<li><p>引入 av-min.js，得到 window.AV</p>
-</li>
-<li><p>初始化 AV 对象（代码直接拷）</p>
-</li>
-<li><p>新建一条数据（代码直接拷）</p>
-<p><img src="https://i.loli.net/2019/01/26/5c4bfcaf3fba1.jpg" alt="cloud.jpg"></p>
-<p><img src="https://i.loli.net/2019/01/26/5c4bfd9bf27f1.png" alt="H1.png"></p>
-<p>这样我们就有了一个免费的数据库，还不需要服务器。</p>
-<p>使用这个数据库需要我们懂：<code>JS</code>,<code>promise</code>,<code>Http</code></p>
-<h3 id="封装成一个-Model"><a href="#封装成一个-Model" class="headerlink" title="封装成一个 Model"></a>封装成一个 Model</h3><p><strong>Model 就是一个操作数据的对象而已</strong></p>
-</li>
-</ol>
-<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
-<h3 id="注意，不允许上传-node-modules-到-github-！"><a href="#注意，不允许上传-node-modules-到-github-！" class="headerlink" title="注意，不允许上传 node_modules 到 github ！"></a>注意，不允许上传 node_modules 到 github ！</h3><ol>
-<li>如果你把 node_modules 目录上传到 github，那么你的项目将变得非常大</li>
-<li>请在每个项目里创建 .gitignore 文件，在文件里写上一行 <code>/node_modules/</code> ，即可防止 node_modules 目录被提交</li>
-<li>如果你已经手贱把 node_modules 提交到了 github，那么请这样来撤销：<ol>
-<li><code>touch .gitignore</code></li>
-<li><code>echo /node_modules/ &gt;&gt; .gitignore</code></li>
-<li><code>git rm -r --cached node_modules</code></li>
-<li><code>git add . -A</code></li>
-<li><code>git commit -m &quot;remove node_modules&quot;</code></li>
-<li><code>git push</code></li>
-<li><code>npm install 或者 yarn install</code></li>
-</ol>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1715,7 +1685,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

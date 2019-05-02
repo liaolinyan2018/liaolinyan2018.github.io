@@ -242,6 +242,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/jQuery/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/jQuery/" itemprop="url">jQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T15:33:42+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*HTML代码*/</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"images"</span> <span class="attr">id</span>=<span class="string">images</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/1.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片1"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/2.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片2"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/3.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片3"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/4.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片4"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS代码*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">`.images &gt; img:nth-child(<span class="subst">$&#123;n&#125;</span>)`</span>)) <span class="comment">//这句代码才是打出指定的img</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.images &gt; img:nth-child(n)'</span>))<span class="comment">//这句话会打出所有img</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/JS-DOM的API/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1036,183 +1157,6 @@ for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/CSS系列1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/01/CSS系列1/" itemprop="url">CSS系列1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:22:39+08:00">
-                2018-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>开始系统学习CSS，做了几个小demo后，我发现调试CSS需要花很长时间，而且大多数时间都是去试，效果都是我们想出来，用CSS样式实现时要不停的试，花的时间越多，做出来的页面越美。<br></p>
-<h2 id="CSS不正交及表现"><a href="#CSS不正交及表现" class="headerlink" title="CSS不正交及表现"></a>CSS不正交及表现</h2><p>CSS不正交的意思就是，CSS的各个属性之间存在相互影响，也就是会自相矛盾。所以很可能你现在实现了效果，再加入一个属性以后效果就完全打乱了。<br></p>
-<h2 id="CSS的学习方法"><a href="#CSS的学习方法" class="headerlink" title="CSS的学习方法"></a>CSS的学习方法</h2><p>CSS是艺术，不是科学。不要尝试去理解CSS的复杂原理，满足需要就行了。<br></p>
-<ul>
-<li>自己试（会累死的）</li>
-<li>让别人研究，我用现成的，现在有很多这样的网站。</li>
-<li>多实践，多总结</li>
-<li>先学会套路：布局&amp;居中&amp;自适应&amp;媒体查询&amp;响应式&amp;能做页面就可以了。</li>
-<li>熟练常用的，其他效果用到再google。</li>
-<li>平时有时间就写博客总结以下CSS的用法。</li>
-<li>记住几个常见的写法即可：<strong>居中</strong>{两种水平居中，三种垂直居中}、<strong>布局</strong>{两种左右结构，两种左中右结构}、一行省略、多行省略</li>
-</ul>
-<h2 id="CSS难学（不正交-属性多-性价比低）"><a href="#CSS难学（不正交-属性多-性价比低）" class="headerlink" title="CSS难学（不正交 + 属性多 + 性价比低）"></a>CSS难学（不正交 + 属性多 + 性价比低）</h2><p>CSS 不正交，因而有些反直觉。不正交主要表现在两点：</p>
-<ol>
-<li>同一元素的各属性之间互相影响<ul>
-<li><code>margin</code>合并 VS <code>border</code></li>
-<li><code>ul&gt;li</code> VS <code>display</code></li>
-<li><code>position: absolute</code> VS <code>display: inline</code></li>
-</ul>
-</li>
-<li>各元素之间互相影响<ul>
-<li><code>position: fixed</code> VS <code>transform</code></li>
-<li><code>float</code> 影响 <code>inline</code> 元素<h2 id="CSS容易学？"><a href="#CSS容易学？" class="headerlink" title="CSS容易学？"></a>CSS容易学？</h2><strong>背套路即可应付日常工作</strong><br></li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>水平居中</li>
-<li>垂直居中<br><br><strong>巧用工具</strong><br><br><a href="http://css3generator.com" target="_blank" rel="noopener">CSS3 Generator</a><br><br><strong>张鑫旭博客</strong><br><br><a href="https://www.zhangxinxu.com/wordpress/category/css/" target="_blank" rel="noopener">goole: 张鑫旭 CSS</a><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3></li>
-<li><p>PC端</p>
-<ul>
-<li>IE8 :只用float布局。float布局依赖盒子模型的特点<br><br>父元素加 <code>.clearfix</code>类名，加 <code>.clearfix{CSS样式}</code>。子元素为两个/三个宽度固定的div，加CSS样式 <code>.child{float:left；width：xx px}</code> 。<ul>
-<li>Chrome:flex布局。待补充。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>mobile<br>flex布局。待补充。<h3 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h3></li>
-<li><p>水平居中。</p>
-<ul>
-<li>child是块级元素<br><br>  child宽度不确定 <code>.child{margin:0 20px;}</code> ;child 宽度固定 <code>.child{margin:0 auto;}</code></li>
-<li>child是inline元素<br><br>给父元素加 <code>.parent{text-align:center;}</code></li>
-</ul>
-</li>
-<li><p>垂直居中(7种方法)<br><br>垂直居中的要点就是<strong>一定不要给父元素加 固定死高度</strong>，加了固定高度又要想实现里面内容就是给自己找麻烦。不给父元素加固定高度，实现里面内容垂直居中很容易。Good idea是先把里面child元素的内容和样式加好，再<strong>用padding撑起你要想要的父元素的高度</strong>，这样一来就实现了<strong>自然的垂直居中</strong>。因为不管child元素的高度是否固定，通过给父元素加上下相等的padding，就能实现child元素垂直居中。如：<code>.parent{padding-top:20px;padding:20px;}</code><br></p>
-<ul>
-<li>child高度固定 或 child高度不确定（里面有几行文本不确定）,要实现垂直居中，给父元素加：<code>.parent{padding:20px 0px;}</code></li>
-<li>parent高度固定<br><br>  工作中一定要避免这种情况发生。先固定外容器，再实现内居中，这不是好的idea，通常要用更多的代码解决这个麻烦。<br><br>解决办法有： IE浏览器 用 table/div(table)，代码兼容性强；Chrome浏览器 和 手机 使用flex布局实现垂直居中，代码简单。</li>
-</ul>
-</li>
-</ul>
-<h2 id="要学好CSS"><a href="#要学好CSS" class="headerlink" title="要学好CSS"></a>要学好CSS</h2><ul>
-<li>通读CSS规范文档-17章。<a href="http://cndevdocs.com" target="_blank" rel="noopener">CSS2中文文档</a>CSS3没有中文，英语要求高，人类根本都不读不完<br></li>
-<li>让张鑫旭（国内CSS研究前端最深的）研究，我用。</li>
-<li>CSS研究再厉害，不能变成商业价值也没有用。</li>
-<li>所以一切够用就行。</li>
-<li>JS才是前端核心</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/搜索引擎大法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1917,7 +1861,7 @@ var obj = {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

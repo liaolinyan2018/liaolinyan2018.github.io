@@ -242,6 +242,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/给简历加数据库/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/给简历加数据库/" itemprop="url">给简历加数据库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T14:09:13+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="事出有因"><a href="#事出有因" class="headerlink" title="事出有因"></a>事出有因</h3><p>数据是存在服务器端才能实现跨设备使用数据。我们没有学服务器，但是要存数据就要有一个服务器，但是上阿里云看了买一个服务器又太贵了。所以我们使用免费的。<a href="https://leancloud.cn" target="_blank" rel="noopener">https://leancloud.cn</a> 。</p>
+<h3 id="LeanCloud-介绍"><a href="#LeanCloud-介绍" class="headerlink" title="LeanCloud 介绍"></a>LeanCloud 介绍</h3><p>一个自带数据库和增删改查（CRUD）功能的后台系统。</p>
+<p>拥有：</p>
+<ol>
+<li>登录注册、手机验证码功能（收费）</li>
+<li>存储任意信息</li>
+<li>读取任意信息</li>
+<li>搜索任意信息</li>
+<li>删除任意信息</li>
+<li>更新任意信息</li>
+</ol>
+<p>等功能。</p>
+<h3 id="把LeanCloud集成到我们的简历"><a href="#把LeanCloud集成到我们的简历" class="headerlink" title="把LeanCloud集成到我们的简历"></a>把LeanCloud集成到我们的简历</h3><p>   给简历添加留言思路：将用户提交的留言保存到数据库，将数据库中的留言展示出来。</p>
+<p>   留言板功能：</p>
+<ol>
+<li>用户可以新增留言</li>
+<li>没有其他功能</li>
+</ol>
+<h3 id="使用LeanCloud"><a href="#使用LeanCloud" class="headerlink" title="使用LeanCloud"></a>使用LeanCloud</h3><p><strong>遇到没有见过的知识时，使用 Copy-Run-Modify 套路即可。</strong></p>
+<ol>
+<li><p>注册leancloud账号</p>
+</li>
+<li><p>创建一个应用resume-2019-1</p>
+</li>
+<li><p>点击你刚创建的<strong>应用</strong>-点击右边的<strong>帮助</strong>-点击<strong>入门指导</strong></p>
+</li>
+<li><p>引入 av-min.js，得到 window.AV</p>
+</li>
+<li><p>初始化 AV 对象（代码直接拷）</p>
+</li>
+<li><p>新建一条数据（代码直接拷）</p>
+<p><img src="https://i.loli.net/2019/01/26/5c4bfcaf3fba1.jpg" alt="cloud.jpg"></p>
+<p><img src="https://i.loli.net/2019/01/26/5c4bfd9bf27f1.png" alt="H1.png"></p>
+<p>这样我们就有了一个免费的数据库，还不需要服务器。</p>
+<p>使用这个数据库需要我们懂：<code>JS</code>,<code>promise</code>,<code>Http</code></p>
+<h3 id="封装成一个-Model"><a href="#封装成一个-Model" class="headerlink" title="封装成一个 Model"></a>封装成一个 Model</h3><p><strong>Model 就是一个操作数据的对象而已</strong></p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
+<h3 id="注意，不允许上传-node-modules-到-github-！"><a href="#注意，不允许上传-node-modules-到-github-！" class="headerlink" title="注意，不允许上传 node_modules 到 github ！"></a>注意，不允许上传 node_modules 到 github ！</h3><ol>
+<li>如果你把 node_modules 目录上传到 github，那么你的项目将变得非常大</li>
+<li>请在每个项目里创建 .gitignore 文件，在文件里写上一行 <code>/node_modules/</code> ，即可防止 node_modules 目录被提交</li>
+<li>如果你已经手贱把 node_modules 提交到了 github，那么请这样来撤销：<ol>
+<li><code>touch .gitignore</code></li>
+<li><code>echo /node_modules/ &gt;&gt; .gitignore</code></li>
+<li><code>git rm -r --cached node_modules</code></li>
+<li><code>git add . -A</code></li>
+<li><code>git commit -m &quot;remove node_modules&quot;</code></li>
+<li><code>git push</code></li>
+<li><code>npm install 或者 yarn install</code></li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/把MVC的VC加到简历里/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1762,127 +1934,6 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/jQuery/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/11/jQuery/" itemprop="url">jQuery</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T15:33:42+08:00">
-                2018-12-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*HTML代码*/</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"images"</span> <span class="attr">id</span>=<span class="string">images</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/1.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片1"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/2.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片2"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/3.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片3"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/4.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片4"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS代码*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">`.images &gt; img:nth-child(<span class="subst">$&#123;n&#125;</span>)`</span>)) <span class="comment">//这句代码才是打出指定的img</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.images &gt; img:nth-child(n)'</span>))<span class="comment">//这句话会打出所有img</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1933,7 +1984,7 @@ $div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
