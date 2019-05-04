@@ -242,6 +242,304 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/水平居中和垂直居中/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/水平居中和垂直居中/" itemprop="url">水平居中和垂直居中</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T22:19:34+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="father"&gt;  </span><br><span class="line">  &lt;div class="child"&gt;</span><br><span class="line">    实现子元素水平和垂直居中</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>水平居中在布局中经常使用。要考虑：子元素为<strong>行内元素</strong>还是<strong>块状元素</strong>，<strong>宽度一定</strong>还是<strong>宽度未定</strong>，采取的布局方案不同。下面进行分析：</p>
+<p><strong>子元素为内联元素 要实现 居中</strong>:   对父元素设置<code>text-align:center;</code><br><strong>子元素为定宽块状元素 要实现 居中</strong>：设置左右margin值为auto,即<code>margin:**px auto;</code><br><strong>子元素为不定宽块级元素 要实现 居中</strong>：方法一变成 内联元素，设置子元素为<code>display:inline</code>,然后在父元素上设置<code>text-align:center</code>。方法二，定宽。<br><strong>通用方案</strong>：<code>flex</code>布局，对父元素设置<code>display:flex;justify-content:center;</code>，则子元素 水平居中 </p>
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>垂直居中对于 子元素 是<strong>单行内联文本</strong>、<strong>多行内联文本</strong>以及<strong>块状元素</strong>采用的方案是不同的。</p>
+<p>父元素高度确定，子元素为<strong>单行内联文本</strong>：设置父元素的<code>height</code>等于行高<code>line-height</code></p>
+<p>父元素高度确定，子元素为<strong>多行内联文本</strong>：设置父元素的<code>display:table-cell或inline-block</code>，再设置<code>vertical-align:middle;</code></p>
+<p><strong>块状元素</strong>:设置子元素<code>position:fixed（absolute）</code>，然后设置<code>margin:auto;</code></p>
+<p><strong>通用方案</strong>: <code>flex</code>布局，给父元素设置<code>display:flex; align-items:center;</code> ，子元素就垂直居中了。</p>
+<h3 id="其他小技巧"><a href="#其他小技巧" class="headerlink" title="其他小技巧"></a>其他小技巧</h3><ul>
+<li>加阴影，看起来更立体<code>box-shadow</code>，google:<code>css shadow generator</code>,调样式，复制现成的样式代码。</li>
+<li>加动画<code>transition: all 0.3s;</code>给所有变化加入过渡动画和过渡时间。</li>
+<li>加鼠标悬停手指点击形状。<code>cursor: pointer;</code></li>
+<li>border大法好。加border进行调试，不然看不来标签在哪里。<code>border: 1px solid red;</code> </li>
+<li>配套使用。当设置<code>display: inline-block;</code>需要加上<code>vertical-align: top;</code>来去除底层多出的空间。</li>
+<li>设置背景图片：<code>background-image: url(../img/girl.jpg);</code> </li>
+<li>设置背景图片水平垂直居中：<code>background-position: center center;</code> </li>
+<li>设置背景图片按比例缩放：<code>background-size: cover;</code></li>
+<li>渐变色，调元素的线性渐变色，google:<code>css linear-gradient generator</code>,调样式，复制现成的样式代码。<br><a href="https://segmentfault.com/a/1190000004648754" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004648754</a><br><a href="https://segmentfault.com/a/1190000008789039" target="_blank" rel="noopener">参考来源</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰的博客——flex语法</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">阮一峰的博客——flex布局案例</a></li>
+</ul>
+<ol start="2">
+<li><p>伪元素 不是元素，可以看做一个<code>span</code></p>
+<p>伪元素的用法-<strong>给所有的div元素之前或之后 加 内容。</strong><img src="https://i.imgur.com/aNr6oTO.jpg" alt="">给伪元素加<code>display:block;</code>后，独占一行，我们都可以加border测试。<img src="https://i.imgur.com/WOBjCLI.jpg" alt=""></p>
+<ol>
+<li>伪元素用法-before 和after都可以代替div，但是局限是before里不能再有before。例如用before画阴阳<img src="https://i.imgur.com/N7gNzeJ.jpg" alt=""><br>使用伪元素以后就可以用<code>:before</code>和<code>:after</code>代替div。<strong>然后我们只使用一个div就画出了阴阳图<code>:before</code>和                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <code>:after</code>是写在CSS样式里面的。</strong><img src="https://i.imgur.com/HoSyi2u.jpg" alt="">  </li>
+</ol>
+</li>
+<li><p>伪元素很装逼  </p>
+</li>
+<li><p>工具 <a href="http://www.colorzilla.com/gradient-editor/" target="_blank" rel="noopener">线性渐变代码生成器</a> ,写CSS就是会很多工具，不然有时候=代码都自己写就很麻烦。<br><img src="https://i.imgur.com/SopWeJE.jpg" alt="">  </p>
+</li>
+<li><p>给阴阳图加上CSS动画,阴阳转起来：查MDN。<br>创建动画序列，需要使用<code>animation</code>属性或其子属性，该属性允许配置动画时间、时长以及其他动画细节，但该属性不能配置动画的实际表现，动画的实际表现是由 <code>@keyframes</code>规则实现。<br><img src="https://i.imgur.com/uD0hsRz.jpg" alt="">  </p>
+</li>
+<li><p>CSS有很多杂碎的东西，要多去试就能学到更多的东西。  </p>
+</li>
+<li><p>对页面某一块，先实现功能内容，再加CSS样式，即先html，后CSS。  </p>
+</li>
+<li><p>a 是内联元素。<strong>内联元素的水平居中要写在父元素上面，子元素会继承父元素内容居中属性</strong>如<code>&lt;p style=&quot;text-align&quot;&gt;&lt;a&gt;内联元素实现居中方法&lt;/a&gt;&lt;/p&gt;</code>。<br><img src="https://i.imgur.com/lT0ctg0.jpg" alt="">  </p>
+</li>
+<li><p>从里往外写CSS样式，最后加padding,margin撑起来。  </p>
+</li>
+<li><p>伪类是一个分号，如<code>:hover</code> <code>:nth-child</code>,它是不存在的，表示标签的某种状态。伪元素是两个分号，如： <code>::before</code> <code>::after</code>,伪元素是真实存在的，但是不是一个元素，它一个替代一个元素的作用。  </p>
+</li>
+<li><p>CSS样式复用 <code>选择器,选择器{CSS样式}</code></p>
+</li>
+<li><p>id是唯一标识一个标签的，class是一个大类。  </p>
+</li>
+<li><p>状态机，js切换左中右三种状态,新学知识。<br><img src="https://i.imgur.com/7nrm0iV.jpg" alt=""><br><img src="https://i.imgur.com/VuX8YBp.jpg" alt=""></p>
+</li>
+<li><p><code>display:inline-block;</code><br> <code>vertical-align: top;</code>是配套使用的，设置了inline-block，就要同时设置后者。inlne-block可以让标签宽度等于文档流元素，另起一行。  </p>
+</li>
+<li><p>inlne-block既可以另起一行，又可以让标签宽度等于文档流元素，是收缩的。块级元素会继承父亲的属性。故可以利用文档流使大家的宽度都合适。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/02/link & visited & hover & active/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liaolinyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/02/link & visited & hover & active/" itemprop="url">link & visited & hover & active</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-02T21:32:40+08:00">
+                2019-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>:active</code> CSS<a href="https://developer.mozilla.org/en-US/docs/CSS/Pseudo-classes" target="_blank" rel="noopener">伪类</a>匹配被用户激活的元素。它让<strong>页面能在浏览器监测到激活时给出反馈</strong>。当用鼠标交互时，它代表的是用户按下按键和松开按键之间的时间。 <code>:active</code> 伪类通常用来匹配tab键交互。通常用于但并不限于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a" target="_blank" rel="noopener"><code>&lt;a&gt;</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button" target="_blank" rel="noopener"><code>&lt;button&gt;</code></a> HTML元素。</p>
+<p><strong>这个样式可能会被后声明的其他链接相关的伪类覆盖</strong>，这些伪类包括 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:link" target="_blank" rel="noopener"><code>:link</code></a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:hover" target="_blank" rel="noopener"><code>:hover</code></a>和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:visited" target="_blank" rel="noopener"><code>:visited</code></a>。</p>
+<p>为了正常加上样式，需要把 <code>:active的样式放在所有链接相关的样式后，这种链接伪类先后顺序被称为</code><em>LVHA顺序</em>: <code>:link</code> — <code>:visited</code> — <code>:hover</code> — <code>:active。</code></p>
+<p><strong>注意:</strong> 在有多键鼠标的系统中，CSS 3 规定 <code>:active</code> 伪类必须只匹配主按键；对于右手操作鼠标来说就是左键。</p>
+<p>像我这种普通用户，左键按下和右键按下都是激活元素，或者说给元素加上<code>:active</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">background-color</span>: <span class="number">#ffffc9</span> &#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123; <span class="attribute">color</span>: blue &#125; <span class="comment">/* 未访问链接 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123; <span class="attribute">color</span>: red &#125; <span class="comment">/* 已访问链接 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">font-weight</span>: bold &#125; <span class="comment">/* 用户鼠标悬停 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123; <span class="attribute">color</span>: lime &#125; <span class="comment">/* 激活链接 */</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>:active CSS选择器示例<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>这个链接在鼠标按下和松开的这段时间内会变成绿色,访问过后(点击)变红色，悬停加粗，未访问是蓝色: <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Mozilla Developer Network<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/02/清除浮动/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1288,353 +1586,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/07/40面向对象编程/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/07/40面向对象编程/" itemprop="url">40面向对象编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-07T18:40:55+08:00">
-                2019-02-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>预习：</p>
-<ol>
-<li><a href="https://www.zhihu.com/question/19854505" target="_blank" rel="noopener">程序员也不知道什么是面向对象</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="noopener">MDN 给了我们一堆术语</a></li>
-</ol>
-<p>请尝试理解面向对象，并背诵 MDN 里的以下内容</p>
-<blockquote>
-</blockquote>
-<p><strong>Class 类</strong>，定义对象的特征。它是对象的属性和方法的模板定义.<br><strong>Object 对象</strong>，类的一个实例。<br><strong>Property 属性</strong>，对象的特征，比如颜色。<br><strong>Method 方法</strong>，对象的能力，比如行走。<br><strong>Constructor 构造函数</strong>，对象初始化的瞬间, 被调用的方法. 通常它的名字与包含它的类一致.例如：Object() String() Number(</p>
-<p>)<br><strong>Inheritance 继承</strong>，一个类可以继承另一个类的特征。<br><strong>Encapsulation 封装</strong>，一种把数据和相关的方法绑定在一起使用的方法.<br><strong>Abstraction 抽象</strong>，结合复杂的继承，方法，属性的对象能够模拟现实的模型。<br><strong>Polymorphism 多态</strong>，多意为‘许多’，态意为‘形态’。不同类可以定义相同的方法或属性。</p>
-<p>namespace 命名空间，包含了很多名字的空间。</p>
-<h2 id="封装-Model-View-Controller"><a href="#封装-Model-View-Controller" class="headerlink" title="封装 Model View Controller"></a>封装 Model View Controller</h2><p>完整代码：<a href="https://github.com/FrankFang/resume-15-8" target="_blank" rel="noopener">https://github.com/FrankFang/resume-15-8</a></p>
-<ol>
-<li>controller === object</li>
-<li><code>controller.init(view, model)</code> === <code>controller.init.call(controller, view, model)</code><br>那么 controller.init 里面的 this 当然 TM 是 controller<br>也就是这个1里面的object<br>controller.init 里面的 this 就是 object<br>object.init 里面的 this 就是 object</li>
-<li>initB.call(this)<br>initB 里面的 this === call 后面的this<br>call 后面 this === 第二条里的 this<br>第二条里面的 this === object<br>=&gt; initB 里面的 this 就是 object</li>
-</ol>
-<h2 id="复习-this"><a href="#复习-this" class="headerlink" title="复习 this"></a>复习 this</h2><p>对this的理解是细节，牢记this就是<strong>call后面的第一个参数</strong>，当对象的属性是函数，又称方法，当函数作为对象里的方法被调用时，函数里的 this 是调用该函数的对象，例如 controller是一个对象，controller.init(view) 等价于controller.init.call(controller,view),而函数init()里的this就是controller,view才是调用函数init时传进去的参数。</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5daa9987477.png" alt="KT3.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">button.onclick = function f1()&#123;</span><br><span class="line">    console.log(this) // this值是，触发事件的元素button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button.onclick.call(&#123;name: &apos;frank&apos;&#125;) //则this就是call后的第一个参数&#123;name: &apos;frank&apos;&#125;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">button.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">    console.log(this) // this值是，该元素的引用button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3.</span><br><span class="line">$(&apos;ul&apos;).on(&apos;click&apos;, &apos;li&apos; /*selector*/, function()&#123;</span><br><span class="line">    console.log(this) //this 则代表了与 selector 相匹配的元素，即li 元素</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">以上的解决办法：</span><br><span class="line">去看 on 的源码呀 -&gt; 做不到</span><br><span class="line">jQuery 的开发者知道 onclick 的源码，f1.call(???)</span><br><span class="line">jQuery 的开发者写了文档</span><br><span class="line">看文档呀</span><br></pre></td></tr></table></figure>
-<p>例题：</p>
-<p>1</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da7c32aa34.png" alt=")M.png"></p>
-<p>2</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da7f016aa5.png" alt="36.png"></p>
-<p>3</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da78d637f9.png" alt="W.png"></p>
-<p><strong>箭头函数内是没有this的，所以箭头函数内外this值是一样的。</strong></p>
-<p><img src="https://i.loli.net/2019/02/09/5c5daa26bc147.png" alt="L5.png"></p>
-<p><img src="https://i.loli.net/2019/02/09/5c5daa26d2072.png" alt="H.png"></p>
-<h2 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a>new 的作用</h2><p><a href="https://zhuanlan.zhihu.com/p/23987456" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/23987456</a></p>
-<p>总结：回顾进阶时我们记住的关于原型链</p>
-<p><code>var object = new Object()</code></p>
-<p>自有属性 空(0)</p>
-<p><code>object.__proto__ === Object.prototype</code></p>
-<p><code>var array = new Array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)</code></p>
-<p>自有属性 0:’a’ 1:’b’ 2:’c’,length:3<br><code>array.__proto__ === Array.prototype</code><br><code>Array.prototype.**proto** === Object.prototype</code></p>
-<p><code>var fn = new Function(&#39;x&#39;, &#39;y&#39;, &#39;return x+y&#39;)</code><br>自有属性 length:2, 不可见的函数体: ‘return x+y’<br><code>fn.**proto** === Function.prototype</code></p>
-<p><code>Array is a function</code></p>
-<p><code>Array = function(){...}</code><br> Array.<strong>proto</strong> === Function.prototype</p>
-<h2 id="和-amp-amp"><a href="#和-amp-amp" class="headerlink" title="|| 和&amp;&amp;"></a>|| 和&amp;&amp;</h2><p><code>或</code> 和 <code>且</code> 的值一般都不是false/true, 而是falsy/truthy。回忆一下五个falsy值，<code>0</code> <code>NaN</code> <code>&#39;&#39;</code> <code>null</code> <code>undefined</code></p>
-<p>例如：a||b c&amp;&amp;d 的值一般都是从a b c d中选取一个值，它的值永远都是现取的，而不是重新生成一个值。</p>
-<ol>
-<li><code>a&amp;&amp;b</code> 与运算从左到右依次找第一个falsy值，若找到第一个falsy值，则返回第一个falsy值，后面不再执行;若没有falsy值(<strong>全为truthy值</strong>)，则返回最后一个表达式的truthy值。</li>
-</ol>
-<p>例如：</p>
-<p><img src="https://i.loli.net/2019/02/08/5c5cf1010e32c.png" alt="$50.png"></p>
-<ol start="2">
-<li><p><code>c||d</code>或运算符从左到右依次找到第一个truthy值，若找到第一个truthy值，则返回第一个truthy值，后面不再执行；若没有truthy值(<strong>全为falsy值</strong>)，则返回最后一个表达式的falsy值。</p>
-<p>例如：</p>
-<p><img src="https://i.loli.net/2019/02/08/5c5cf62967dc1.png" alt="RH.png"></p>
-</li>
-</ol>
-<h2 id="var-app-与-var-app-app"><a href="#var-app-与-var-app-app" class="headerlink" title="var app = {} 与 var app = app || {}"></a>var app = {} 与 var app = app || {}</h2><ol>
-<li><p><code>var app = {}</code> 是危险代码,可能会覆盖之前声明的app变量</p>
-</li>
-<li><p><code>var app = app || {}</code> 是安全代码，它就是 <code>if(app){ app = app；} else{ app={}； }</code></p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da850beed4.png" alt="N.png"></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/27/Anaconda安装和tensorflow安装/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liaolinyan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="linyan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/27/Anaconda安装和tensorflow安装/" itemprop="url">Anaconda安装和tensorflow安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-27T14:39:33+08:00">
-                2019-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>补充：这是我第二次在Anaconda下安装tensorflow，第一次安装tansorflow安装了一天，从早到晚吧，参考了好几篇教程，最后还是直接在Anaconda Navigator的tensorflow环境下直接安装tensorflow，也没报错。第二次安装只记得今天这篇教程了，因为之前电脑系统崩了，又得重头来一遍，用的这篇教程，但是里面有些指令不管用了，自己摸索了一下，大概花了两三个小时就安装上了Anaconda和tensorflow，花时间把修改后的内容写了一篇博客，留给自己复习用。这次是为了春运抢票需要用python，干脆就给装了。不敢居功，<a href="http://blog.51cto.com/acevi/2103437" target="_blank" rel="noopener">原文链接</a>奉上。</p>
-<h3 id="一、什么是Anaconda？"><a href="#一、什么是Anaconda？" class="headerlink" title="一、什么是Anaconda？"></a>一、什么是Anaconda？</h3><p>​       简单来说，Anaconda是一个包管理器和环境管理器。当安装好Anaconda并开始运行时，就会发现我们电脑里面安装好的环境和依赖包都可以在Anaconda里面找到，管理（安装、更新、卸载等）起来简直不能再方便。而且Anaconda附带一大批常用的数据科学包，这样在使用Python等处理数据的时候就不用安装完这个包再装那个包了。还有一个Anaconda非常强的方面就是环境管理，一台电脑多种环境可以造成很多混乱和错误，但是用Anaconda可以创建并管理多个不同的环境，需要哪个用哪个，Mom再也不用担心我的项目在不同环境下疯狂报错的问题啦。</p>
-<h3 id="二、安装Anaconda"><a href="#二、安装Anaconda" class="headerlink" title="二、安装Anaconda"></a>二、安装Anaconda</h3><h4 id="1下载Anaconda"><a href="#1下载Anaconda" class="headerlink" title="1下载Anaconda"></a>1下载Anaconda</h4><p>我是在Windows 10环境下安装Anaconda，我从<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">官网</a>下载Anaconda安装包，我是连着家里的网，下载速度感觉和使用镜像下载差不多。或者选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学镜像网站</a>，最下面找到最新版的，选择要安装的操作系统，下载就OK。</p>
-<h4 id="2安装Anaconda"><a href="#2安装Anaconda" class="headerlink" title="2安装Anaconda"></a>2安装Anaconda</h4><p>下载好之后就跟安装一般的软件没啥区别，选择自己安装的文件夹路径，下一步就ok，需要注意下图中的两项都需要勾选。</p>
-<p><img src="http://blog.51cto.com/static/js/ueditor1.4.3/themes/default/images/spacer.gif" alt="img"><img src="http://s1.51cto.com/images/20180414/1523693376832648.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=" alt="图片.png"></p>
-<p><strong>补充</strong>：勾选了，等安装结束以后还是检查一下电脑的环境变量-系统变量里面有没有Anaconda的安装路径，如果没有的话，你就要手动添加了，反正我的是勾选了还是没有路径，自己手动添加的。</p>
-<p>接下来就是一小段时间的等待，可以去喝杯茶。时间真的挺长的。</p>
-<h4 id="3测试Anaconda是否完成"><a href="#3测试Anaconda是否完成" class="headerlink" title="3测试Anaconda是否完成"></a>3测试Anaconda是否完成</h4><p>它安装完成后，在开始菜单找到并打开Anaconda控制台:Anaconda Prompt ，也叫<strong>终端</strong>。</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6774de93e.jpg" alt="zzz.jpg"></p>
-<p>执行命令：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
-<p>可以看到自己电脑上安装的一些包，至此Anaconda安装完成。</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d66cf6aead.png" alt="9T.png"></p>
-<h4 id="4更新Anaconda"><a href="#4更新Anaconda" class="headerlink" title="4更新Anaconda"></a>4更新Anaconda</h4><p>如果发现自己安装的Anaconda不是最新版本的,更新命令：<code>conda update --prefix 安装路径 anaconda</code></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d650dbc7bf.png" alt="B.png"></p>
-<h3 id="三、在Anaconda下安装Tensorflow"><a href="#三、在Anaconda下安装Tensorflow" class="headerlink" title="三、在Anaconda下安装Tensorflow"></a>三、在Anaconda下安装Tensorflow</h3><ol>
-<li>因为要下载Tensorflow，所以我先在Anaconda的配置文件中添加清华镜像库，这样下载和更新的速度会快很多，命令：</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6480a4e50.png" alt="M7.png"></p>
-<ol start="2">
-<li>Tensorflow目前只支持Python3.5/3.6环境，而且在Python3.5环境下的表现更好一些。所以利用Anaconda创建Python3.5的环境，用来安装Tensorflow，执行命令：</li>
-</ol>
-<p><code>conda create -n tensoeflow python=3.5</code></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6336145c9.png" alt="V.png"></p>
-<p>然后打开Anaconda Navigator，点击环境（Environment），可以看到我已经创建了一个名为tensorflow的环境。</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6844087c4.png" alt="7.png"></p>
-<ol start="3">
-<li><p>在Anaconda Prompt启动刚刚配置好的Tensorflow环境，命令：</p>
-<p> <code>conda activate Tensorflow</code></p>
-</li>
-</ol>
-<p><img src="https://i.loli.net/2019/01/27/5c4d66043f7f6.png" alt="F8.png"></p>
-<p>如果不使用Tensorflow了，需要将环境关掉，命令：<code>conda deactivate</code></p>
-<ol start="4">
-<li><p>接下来就在这个环境中安装Tensorflow（之前的工作是给安装Tensorflow准备环境），执行命令：</p>
-<p><code>pip install tensorflow</code></p>
-</li>
-</ol>
-<p><strong>安装tensorfdlow的时间也是很长很长，耐心等吧。</strong></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d62b6e2d0f.png" alt="0.png"></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d61dbecb48.png" alt="RZQ.png"></p>
-<p>使用这个命令我成功安装了tensorflow，然后终端提醒我<strong>更新pip版本</strong>，告诉我使用命令：</p>
-<p><code>python -m pip install --upgrade pip</code></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d625393ad1.png" alt="F.png"></p>
-<p>5.等安装过程完成后，我们来测试一下：打开Python编辑器，输入import tensorflow，没有报错信息，则安装完成</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d602a1feff.png" alt="92K.png"></p>
-<p>这应该算是时间比较新的一个教程了，全为亲身实践，可用，在安装的过程中就遇见了一个错误。</p>
-<p>pip3指令不可用，估计是pip没有更新导致的，我换成<code>pip install tansorflow</code>就安装成功了，之后终端也提示我更新pip了，上文有提到。好了，我要抢车票去了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1685,7 +1636,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
