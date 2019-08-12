@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="app.json 是当前小程序的全局配置 app是全局的 page是局部的 你可以写一个 app.wxss 作为全局样式，会作用于当前小程序的所有页面，局部页面样式 page.wxss 仅对当前页面生效。 &amp;lt;navigator&amp;gt;相当于html里面的a链接。但是只能链接到小程序内部的页面，不能链接到外部的页面。保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用">
+<meta name="keywords" content="Ajax JSON DOM Promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目实战：小程序开发">
 <meta property="og:url" content="http://yoursite.com/2019/02/24/项目实战：小程序开发/index.html">
@@ -190,22 +191,32 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br>
+            
+            关于
           </a>
         </li>
       
@@ -480,6 +491,12 @@ var jiathis_config={
                     <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
                   </span>
                 
             </div>
