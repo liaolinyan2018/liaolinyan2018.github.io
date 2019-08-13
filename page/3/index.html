@@ -412,7 +412,13 @@
           清除浮动方法（代码亲测）为什么要清除浮动？
 1 先看有浮动会是什么样子：
 当一个内层元素是浮动的时候，如果没有关闭浮动时，其父元素也就不会再包含这个浮动的内层元素，因为此时浮动元素已经脱离了文档流。也就是为什么外层不能被撑开了！
-没有给最外层的DIV.outer 设置高度，但是我们知道如果它里面的元
+没有给最外层的DIV.outer 设置高度，但是我们知道如果它里面的元素不浮动的话，那么这个外层的高是会自动被撑开的。但是当内层元素浮动后，就出现了以下影响：
+（1）：背景不能显示 （2）：边框不能撑开 （3）：margin 设置值不能正确显示
+参考：来自
+2 浮动的定义：使元素脱离文档流，按照指定方向发生移动，遇到父级边界或者相邻的浮动元素停了下来。
+高度塌陷：浮动元素父元素高度自适应（父元素不写高度时，子元素写了浮动后，父元素会发生高度塌陷）
+知道浮动和为什么要清除浮动之后我们可以开始学习如何清除浮动了，这时候我们就需要用到清除浮动的属性clear, 
+12/
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -592,7 +598,8 @@
         
           
           存储在 localStorage 的数据可以长期保留,localStorage 中的键值对总是以字符串的形式存储.
-123//hash变更后要立刻存档到randomNlocalStorage.setItem('randomN',JSON.stringify(hash)) //JSON.stringi
+123//hash变更后要立刻存档到randomNlocalStorage.setItem('randomN',JSON.stringify(hash)) //JSON.stringify(hash)是把hash变成json字符串的 JSON.parse(localStorage.getItem('randomN') || 'null') //JSON.parse()方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象
+1234567var hashT = &#123;'keys': keys,'hash': hash&#125;/*hashT是一个对象*/var hash = hashT['hash']  //hashT.hashvar keys = 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -775,8 +782,13 @@
 app是全局的
 page是局部的
 你可以写一个 app.wxss 作为全局样式，会作用于当前小程序的所有页面，局部页面样式 page.wxss 仅对当前页面生效。
-&lt;navigator&gt;相当于html里面的a链接。但是只能链接到小程序内部的页面，
-          ...
+&lt;navigator&gt;相当于html里面的a链接。但是只能链接到小程序内部的页面，不能链接到外部的页面。保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。
+小程序的组件 是具有一定功能的HTML元素。
+建议：图片资源不要直接放到小程序文件下，这样会导致小程序包太大，打开就会很慢。能用图片外链就用图片外链。像用&lt;img&gt;组件也不是很方便。
+尝试使用字体图标iconfont。
+bug: 小程序的wxml不能写入汉字。
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/24/项目实战：小程序开发/#more" rel="contents">
@@ -958,7 +970,16 @@ page是局部的
 
 https://zh.wikipedia.org/wiki/Cookie
 https://zhuanlan.zhihu.com/p/22396872?refer=study-fe
-Session 维基百科：htt
+Session 维基百科：https://zh.wikipedia.org/wiki/%E4%BC%9A%E8%AF%9D_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)
+Cache-Control
+
+课上的代码：https://github.com/FrankFang/sign-in-demo
+要点：
+Cookie 的特点
+
+服务器通过 Set-Cookie 响应头设置 Cookie
+浏览器得到 Cookie 之后，每次请求都要带上 Cookie
+服务器读取 Cookie 就知
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1143,8 +1164,11 @@ string.substring(0,n)
 element.innerHTML
 element.scrollTop
 element.scrollHeight
-立即执行函
-          ...
+立即执行函数
+pre标签
+jQuery
+代码分析
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/22/画一只皮卡丘/#more" rel="contents">
@@ -1322,7 +1346,8 @@ element.scrollHeight
       
         
           
-          页面会动的原理首先分析一下我们的需求，页面内容（html）和CSS样式效果（CSS）同步自动显示。关键词有html页面内容，CSS样式，自动显示，同步显示。自动显示意味着不是人为操作 写页面和样式，那只能是JS写页面和样式，那如何显示内容和样式呢？JS写完内容一定得加入到页面中（&lt;body&g
+          页面会动的原理首先分析一下我们的需求，页面内容（html）和CSS样式效果（CSS）同步自动显示。关键词有html页面内容，CSS样式，自动显示，同步显示。自动显示意味着不是人为操作 写页面和样式，那只能是JS写页面和样式，那如何显示内容和样式呢？JS写完内容一定得加入到页面中（&lt;body&gt;标签中，加入到&lt;pre&gt;标签中更好，保留代码格式呈现）才能显示页面内容，JS写完样式得加入到&lt;style&gt;标签中才能显示CSS样式，这都是JS操作页面的体现。同步显示就是JS将写好的样式和内容同时分别加入&lt;style&gt; 和&lt;pre&gt;标签中。
+综上，页面会动的原理就是JS同时往&lt;style&gt; 和&lt;pre&gt;中写内容，只是两者的解析方式不一样。为了效果逼真，使用setInterval( () =&gt; {},间隔时间)一点点
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1501,7 +1526,7 @@ element.scrollHeight
       
         
           
-          12345678910111213141516171819202122232425262728293031321str.substring(indexStart[, indexEnd]) //字符串切片，含头不含尾str.slice(beginSlice[, endSlice]) //slice()
+          12345678910111213141516171819202122232425262728293031321str.substring(indexStart[, indexEnd]) //字符串切片，含头不含尾str.slice(beginSlice[, endSlice]) //slice() 返回一个从原字符串中提取出来的新字符串包括beginSlice但不包括 endSlice。2var id = setInterval( function()&#123;&#125; , 间隔时间) //缺点，间隔时间只会读一次clearInterval(id)//改进，使用setTimeout,所有的setInterval都可以改成setTimeoutsetTimeout(function fn()&#123; setTimeout(fn,间隔时间) &#125;,间隔时间)//两个的不同是s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1680,7 +1705,7 @@ element.scrollHeight
       
         
           
-          虚拟 DOM是什么虚拟 DOM有什么用虚拟 DOM如何实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465
+          虚拟 DOM是什么虚拟 DOM有什么用虚拟 DOM如何实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125/** * @author ruoyu * @description 虚拟 DOM Demo * @todo 暂时不考虑复杂情况 */class VNode &#123;  constructor(tag, 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1867,7 +1892,9 @@ MDN 给了我们一堆术语
 请尝试理解面向对象，并背诵 MDN 里的以下内容
 
 
-Class 类，定义对象的特征。它是对象的属性和方法的模板定义.Object 对象，类的一个实例。Property 属性，对象的特征，比如颜色。Method 方法，对象的
+Class 类，定义对象的特征。它是对象的属性和方法的模板定义.Object 对象，类的一个实例。Property 属性，对象的特征，比如颜色。Method 方法，对象的能力，比如行走。Constructor 构造函数，对象初始化的瞬间, 被调用的方法. 通常它的名字与包含它的类一致.例如：Object() String() Number(
+)Inheritance 继承，一个类可以继承另一个类的特征。Encapsulation 封装，一种把数据和相关的方法绑定在一起使用的方法.Abstraction 抽象，结合复杂的继承，方法，属性的对象能够模拟现实的模型。Polymorphism 多态，多意为‘许多’，态意为‘形态’。不同类可以定义相同的方法或属性。
+nam
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2046,7 +2073,8 @@ Class 类，定义对象的特征。它是对象的属性和方法的模板定�
       
         
           
-          补充：这是我第二次在Anaconda下安装tensorflow，第一次安装tansorflow安装了一天，从早到晚吧，参考了好几篇教程，最后还是直接在Anaconda Navigator的tensorflow环境下直接安装tensorflow，也没报错。第二次安装只记得今天这篇教程了，因为之前电脑系
+          补充：这是我第二次在Anaconda下安装tensorflow，第一次安装tansorflow安装了一天，从早到晚吧，参考了好几篇教程，最后还是直接在Anaconda Navigator的tensorflow环境下直接安装tensorflow，也没报错。第二次安装只记得今天这篇教程了，因为之前电脑系统崩了，又得重头来一遍，用的这篇教程，但是里面有些指令不管用了，自己摸索了一下，大概花了两三个小时就安装上了Anaconda和tensorflow，花时间把修改后的内容写了一篇博客，留给自己复习用。这次是为了春运抢票需要用python，干脆就给装了。不敢居功，原文链接奉上。
+一、什么是Anaconda？​       简单来说，Anaconda是一个包管理器和环境管理器。当安装好Anaconda并开始运行时，就会发现我们电脑里面安装好的环境和依赖包都可以在Anaconda里面找到，管理（安装、更
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2755,7 +2783,5 @@ Class 类，定义对象的特征。它是对象的属性和方法的模板定�
 
   
 
-  
-  
 </body>
 </html>

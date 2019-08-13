@@ -413,7 +413,19 @@
 画板分析：按下去鼠标-动鼠标-松开鼠标按在哪里？事件：document.onmousedown = function(x){console(x)}
 
 监听动作？ 事件：document.onmousemove = function(y){console(y)}
-松鼠标？事件：**document.
+松鼠标？事件：**document.onmouseup = function(z){console(z)}
+
+通过上次键盘网站我们知道，function(x)中的x/y/z都是存放对应事件所有信息的hash表。
+
+API-别人提供的可供程序员调用的
+
+变量作用域
+全局变量可以传进任何一个函数内部,且可以在任何地方对它赋值
+设置在函数内部的变量只能在函数内使用
+
+用元素做画板，画得太快导致线条不连续，有缺陷
+
+专门有个标签做画板 &lt;canvas&gt;&lt;/canvas&gt;canvas 默认inline-block,不
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -598,7 +610,15 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
   }
 
 
-新建 二维数组
+新建 二维数组和hash表。
+用js代码写html。
+添加CSS样式
+
+
+
+监听用户事件-即用户输入q打开qq.com获取用户输入的键值–取出对应hash表的网站域名–修改当前网站地址/新开窗口打开
+加功能-用户自己设定按键对应的网站用js给kbd里加儿子button标签，加css样式。当鼠标滑过kbd时，显示button的值。
+使用localStorage，将用户修改的网站地址保存到本地，避免出现用户刷新网页后，网页内容还是原来程序员自定义的网址。方法是把存修改后地址的变量保存到这个js之外的地方去。首先获
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -780,7 +800,14 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
           前言：只有先搞清楚数据结构，才能去想算法。
 哈希表（Hash Table）在计算中，哈希表（哈希映射）是实现关联数组抽象数据类型的数据结构，该数据结构可以将键映射到值。哈希表使用哈希函数来计算桶或槽阵列的索引，从中可以找到所需的值。简单说，哈希表(数组)的结构就是
 
-{key:value;key:v
+{key:value;key:value;key:value;key:value;key:value;key:value;}
+
+
+计数排序中的桶（复杂度 O(n+max)，比快排还快n是数的总数，max是hash表的长度（桶的个数）。计数排序算法看上次笔记《算法》
+
+桶排序思想很多排序里面都有桶，桶排序每个桶里不止放一个数，桶排序每一个桶里放一个范围内的数，然后每个桶里的数是乱序，还要采用其他排序。
+
+基数排序思想定下0-9十个基数（基数排序10个桶固定），将一组数 先按个位数相同进桶，按照先进先出的原则出桶，此时得到的一组数
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -962,7 +989,7 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
           结构化编程
 顺序结构
 条件结构
-循环结构变量&amp;常量js 不能使用数字,会自动把数字转成 字符串string，如&#39;字符串&#39;。不加引号的则是变量，变量是一个容器，可以装东西，而字符串是常量，不能变。排序算法思想，局部的结果就是最终的结果。画流程图程序是 赋值+运算，画流程图 普通
+循环结构变量&amp;常量js 不能使用数字,会自动把数字转成 字符串string，如&#39;字符串&#39;。不加引号的则是变量，变量是一个容器，可以装东西，而字符串是常量，不能变。排序算法思想，局部的结果就是最终的结果。画流程图程序是 赋值+运算，画流程图 普通赋值/运算 是 方形，比较判断是 菱形。数据结构和算法的相互依存性解决一个和数据有关的问题，分析问题，建立这个问题的数据结构，最后才去写算法，解决这个问题。在前端中，js使用的数据结构是 数组 和 对象，js没有指针，不用链表。5种算法大分类会第一种-分而治之算法，熟悉前三种，贪婪算法就是 把眼前最优解 当作整体最优解，动态规划算法 是把局部最优解当作 整体最优解。分而治之是最好用的。排序冒泡排序（大的往后排）选择排序（每次都找出一个极端排最前或最后）插入排序（扑克牌起牌算法）计数排序（强迫症收
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1143,7 +1170,7 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
           
           回顾目前所学的知识点计算机是如何存储数据的0和1的存储
 软件安装主要是gitbash
-命令行基础多记单词pwd   print working dir 打印出当前正在使用的目录名cd    change dir        进入这个目录,常用的如 返回上一级目录cd ..，进入hexo目录 cd 
+命令行基础多记单词pwd   print working dir 打印出当前正在使用的目录名cd    change dir        进入这个目录,常用的如 返回上一级目录cd ..，进入hexo目录 cd /e/hexomkdir make directories 创建一个新的目录，如mkdir test mkdir /e/hexo/testtouch  新建一个文件，不可给文件添加内容，如touch 1.txtecho &quot;hi&quot; &gt; 1.txt ，echo一个新文件1.txt，并将内容”hi”添加到1.txtecho &quot;hi&quot; &gt;&gt; 1.txt ，追加内容”hi”到文件1.txt，若1.txt不存在，则新建1.txt再追加。echo &q
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1326,7 +1353,14 @@ console.log(randomName)   //猜想randomName是存所有信息的hash表名
 不需要兼容IE8 就用 flex布局，弹性宽度，例如 移动端就用flex布局
 原则
 不到万不得已，不要写死 width 和 height。
-PC端最外面div设置mix-height，里面再设置一层写w
+PC端最外面div设置mix-height，里面再设置一层写width=mix-height。移动端宽度一定不要写死，设置width: auto。PC端要兼容IE的话可以写死高度宽度，然后就一直float float，不要用高级语法了。左浮左浮，均匀布局。
+flex 布局 尽量用高级语法,能用的都用上，如 calc()
+如果是 IE，IE能把页面写出来就不错了，就宽度高度全部写死
+
+float布局float布局是目前应用最广的，兼容IE5。核心方法就是：
+0 把宽度算好
+1 儿子全加 float: left （right）
+2 父亲 加添加类 class=
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1512,8 +1546,19 @@ PC端最外面div设置mix-height，里面再设置一层写w
  content: &quot;*&quot;;
 position: absolute;
 top: 5px;
-right: 35p
-          ...
+right: 35px;
+font-size: 85px;
+color: #fff;
+}
+.div {
+position: relative;
+}
+
+好文
+第一次第二次，细节改进,.yinyang:before和.yinyang:before应为阴阳本体的一半。
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/11/09/CSS画太极/#more" rel="contents">
@@ -1699,7 +1744,23 @@ right: 35p
 
 LESS CSS一种简化、功能更多的 CSS 语言 中文官网 英文官网
 SASS一种简化、功能更多的 CSS 语言（请自行搜索中英文官网）
-PostCSS一种 CSS
+PostCSS一种 CSS 处理程序
+
+【建议】先不要看周边工具，学好最朴素的 CSS，然后升级就很容易了。
+
+CSS学习资源
+
+
+Google: 关键词 MDN 
+CSS Tricks
+Google: 阮一峰 css
+张鑫旭的 240 多篇 CSS 博客
+Codrops 炫酷 CSS 效果
+CSS揭秘
+CSS 2.1 中文 spec
+Magic of CSS 免费在线书
+
+【建议】：中文学习资源只看大 V 的（毕竟他们要维护形象不能瞎写），英文资源看 CSS Tricks、MDN 和 Codrops。书的话作用不大，最
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2062,7 +2123,9 @@ Dribbble.com相当于是设计师的facebook，就像github是程序员的facebo
         
           
           今天学几个比较难的标签学习标签就是重点学标签的语义和属性。标签单词懂了，语义一般就懂了。而标签有什么属性则是需要查文档，然后练习和记忆的，标签常见的属性是必须熟悉熟悉熟悉的。
-1. iframe 标签iframe 标签是在当前页面嵌入一个窗口，这个窗口的内容可以直接显示一个网站内容，或者用a标签间接
+1. iframe 标签iframe 标签是在当前页面嵌入一个窗口，这个窗口的内容可以直接显示一个网站内容，或者用a标签间接指向iframe嵌入的窗口，在这个嵌入的窗口内打开a标签跳转的页面。iframe在现在的前端开发中很少用，在五年前一些遗留的项目中还能看到iframe标签的使用。iframe的name属性和a标签结合使用，不结合则name属性没什么用;iframeborder属性是用来消除iframe自带的很丑的边框的，一般都要写；src属性一般是填网址，也支持相对路径。下面举例说明。用法示例1：
+
+效果用法示例2：a标签和iframe的name属性一起使用，a标签要在name=xxx的窗口中打开效果：发现用a
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2771,7 +2834,5 @@ Dribbble.com相当于是设计师的facebook，就像github是程序员的facebo
 
   
 
-  
-  
 </body>
 </html>

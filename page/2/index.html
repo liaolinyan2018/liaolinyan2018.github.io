@@ -420,7 +420,20 @@ Object.keys()，Object.getOwnPropertyNames()
 
 Object 的实例方法
 Object.prototype.valueOf()
-Object
+Object.prototype.toString()
+toString() 的应用：判断数据类型
+Object.prototype.toLocaleString()
+Object.prototype.hasOwnProperty()
+
+
+参考链接
+
+概述
+JavaScript 原生提供Object对象（注意起首的O是大写），本章介绍Object对象各种原生方法。
+
+JavaScript 的所有其他对象都继承自Object对象，即那些对象都是Object的实例。
+
+Object对象的原生方法分成两类：Obj
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -610,7 +623,10 @@ then() 用法辨析
 微任务
 参考链接
 
-概述   -&gt;  理解思想Promise 对象是 JavaScript  的异步操
+概述   -&gt;  理解思想Promise 对象是 JavaScript  的异步操作解决方案，为异步操作提供统一接口。它起到代理作用（proxy），充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口。Promise  可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数。嵌套回调函数也是为了让异步操作写起来 像 写同步操作 一样。
+注意，本章只是 Promise 对象的简单介绍。为了避免与后续教程的重复，更完整的介绍请看《ES6 标准入门》的《Promise 对象》一章。
+
+首先，Promise 是一个对象，也是一个构造函数。Promise 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -802,7 +818,14 @@ Class
 ESLint 的使用
 
 本章探讨如何将 ES6 的新语法，运用到编码实践之中，与传统的 JavaScript 语法结合在一起，写出合理的、易于阅读和维护的代码。
-多家公司和组织已经公开了它们的风格规范，下面的内
+多家公司和组织已经公开了它们的风格规范，下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。
+1 块级作用域（1）let 取代 var
+ES6 提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，因为两者语义相同，而且let没有副作用。建议不再使用var命令，而是使用let命令取代.
+（2）全局常量和线程安全
+在let和const之间，建议优先使用const，尤其是在全局环境，不应该设置变量，只应设置常量。所有的函数都应该设置为常量。
+const优于let有几个原因。
+
+一个是const可
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -992,7 +1015,17 @@ JSON.stringify() 的改造 的改造)
 模板字符串的限制
 
 本章介绍 ES6 对字符串的改造和增强，下一章介绍字符串对象的新增方法。
-字符的 
+字符的 Unicode 表示法
+ES6 加强了对 Unicode 的支持，允许采用\uxxxx形式表示一个字符，其中xxxx表示字符的 Unicode 码点。
+\uxxxx 表示法只限于码点在\u0000~\uFFFF之间的字符（2字节 UTF-8）
+
+
+
+12"\u0061"// "a"
+
+超出\u0000~\uFFFF这个范围的字符，必须用两个双字节的形式表示。（四字节的 UTF-16 编码）
+
+1234567// 四字节 UTF-16 编码"\uD842\uDFB7"// "𠮷"// 下面表示法
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1181,7 +1214,13 @@ JSON.stringify() 的改造 的改造)
 用途
 
 解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错。
-解构赋值虽然有点绕，
+解构赋值虽然有点绕，用熟了以后会让代码很漂亮。
+数组的解构赋值基本用法ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
+以前，为变量赋值，只能直接指定值。现在ES6 允许写成下面这样。
+1234567//ES5let a = 1;let b = 2;let c = 3;//ES6let [a, b, c] = [1, 2, 3];
+上面代码表示，可以从数组中提取值，按照对应位置，对变量赋值。
+
+本质上，这种写法属于“模式匹配”，只要等号两边的模式相同，左边
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1374,7 +1413,16 @@ let 命令
 不允许重复声明同名变量
 
 基本用法
-ES6 新增了let命令，用来声明变量。它的用法类似于var，但是let命令所声明的变量，只
+ES6 新增了let命令，用来声明变量。它的用法类似于var，但是let命令所声明的变量，只在let命令所在的代码块内有效。
+
+1234567&#123;  let a = 10;  var b = 1;&#125;a // ReferenceError: a is not defined.b // 1
+上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错，var声明的变量返回了正确的值。这表明，let声明的变量只在它所在的代码块有效。
+
+for循环的计数器，就很合适使用let命令声明。
+例1 基本示例
+
+
+123456fo
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1553,7 +1601,7 @@ ES6 新增了let命令，用来声明变量。它的用法类似于var，但是l
       
         
           
-          12345678910111213141516171819202122232425262728293031323334setLyrics(lyrics) &#123;  // 把时间和歌词两部分摘出来，再放进去        this.lyricIndex = 0        let fragme
+          12345678910111213141516171819202122232425262728293031323334setLyrics(lyrics) &#123;  // 把时间和歌词两部分摘出来，再放进去        this.lyricIndex = 0        let fragment = document.createDocumentFragment()        let lyricsArr  = []        this.lyricsArr = lyricsArr  // this.lyricsArr 类的属性不用声明        lyrics.split(/\n/)          .filter(str =&gt; str.match(/\[.+?\]/))  //所有带[05:45]的          .forEach(line =&gt; &#1
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1733,7 +1781,7 @@ ES6 新增了let命令，用来声明变量。它的用法类似于var，但是l
         
           
           方式一直接在html里使用
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;  &lt;meta charset="UTF-8"&gt;  &lt;title&gt;SVG使用&lt;/title&gt;&lt
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1913,7 +1961,8 @@ ES6 新增了let命令，用来声明变量。它的用法类似于var，但是l
         
           
           水平居中12345&lt;div class="father"&gt;    &lt;div class="child"&gt;    实现子元素水平和垂直居中  &lt;/div&gt;&lt;/div&gt;
-水平居中在布局中经常使用。要考虑：子元素为行内元素还是块状元素，宽度一定还是宽度未定，
+水平居中在布局中经常使用。要考虑：子元素为行内元素还是块状元素，宽度一定还是宽度未定，采取的布局方案不同。下面进行分析：
+子元素为内联元素 要实现 居中:   对父元素设置text-align:center;子元素为定宽块状元素 要实现 居中：设置左右margin值为auto,即margin:**px auto;子元素为不定宽块级元素 要实现 居中：方法一变成 内联元素，设置子元素为display:inline,然后在父元素上设置text-align:center。方法二，定宽。通用方案：flex布局，对父元素设置display:flex;justify-content:cent
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2093,7 +2142,11 @@ ES6 新增了let命令，用来声明变量。它的用法类似于var，但是l
         
           
           :active CSS伪类匹配被用户激活的元素。它让页面能在浏览器监测到激活时给出反馈。当用鼠标交互时，它代表的是用户按下按键和松开按键之间的时间。 :active 伪类通常用来匹配tab键交互。通常用于但并不限于 &lt;a&gt; 和 &lt;button&gt; HTML元素。
-这个样式可能会
+这个样式可能会被后声明的其他链接相关的伪类覆盖，这些伪类包括 :link，:hover和 :visited。
+为了正常加上样式，需要把 :active的样式放在所有链接相关的样式后，这种链接伪类先后顺序被称为LVHA顺序: :link — :visited — :hover — :active。
+注意: 在有多键鼠标的系统中，CSS 3 规定 :active 伪类必须只匹配主按键；对于右手操作鼠标来说就是左键。
+像我这种普通用户，左键按下和右键按下都是激活元素，或者说给元素加上:active
+12345bod
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2802,7 +2855,5 @@ ES6 新增了let命令，用来声明变量。它的用法类似于var，但是l
 
   
 
-  
-  
 </body>
 </html>

@@ -409,7 +409,8 @@
       
         
           
-          例1：1234567/*HTML代码*/&lt;div class="images" id=images&gt;        &lt;img src="./images/1.jpg" alt="图片1" width="100" height="100"&gt;        &lt;img src
+          例1：1234567/*HTML代码*/&lt;div class="images" id=images&gt;        &lt;img src="./images/1.jpg" alt="图片1" width="100" height="100"&gt;        &lt;img src="./images/2.jpg" alt="图片2" width="100" height="100"&gt;        &lt;img src="./images/3.jpg" alt="图片3" width="100" height="100"&gt;        &lt;img src="./images/4.jpg" alt="图片4" width="100" height="100"&gt;&lt;/div&gt;
+12345/*JS代码*/console.log($(`.im
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -589,7 +590,15 @@
         
           
           &lt;html&gt;&lt;head&gt;&lt;body&gt;//三个标签都可以省略
-DOM 是一棵树（tree）DOM--Document Object Model是XML文档的。DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型。即在内存中Documen
+DOM 是一棵树（tree）DOM--Document Object Model是XML文档的。DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型。即在内存中Document的结点node是用一个个对象进行存储的，而我们程序员操作内存，就是操作这些对象。对象里面存储的内容又得看DOM规范来确定。
+
+树上有 NodeNode 分为 Document（是html的爸爸）、Element（元素/标签）和 Text（文本），以及其他不重要的(注释结点等)。注意回车算文本结点。通过构造函数把结点变成对象。Node的原型链关系
+Node 的接口
+属性
+
+childNodes 获取子结点（包括文本结点），children获取子标签结点
+firstChild 
+lastChild
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -772,7 +781,10 @@ DOM 是一棵树（tree）DOM--Document Object Model是XML文档的。DOM是把�
 函数的 5 种声明函数只有两种声明方法Function和function。
 
 function f(){}直接用关键字function声明具名函数
-function (){}用关
+function (){}用关键字function声明匿名函数,但是不能单独声明一个匿名函数，必须先声明一个变量，然后把匿名函数赋值给它。即 var f = function(){};
+var f = function yy(){}
+
+var f =new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+b&#39;)用全局对象Function在声明一个函数，基本没人用。可采用拼接法。var n =1 ;var f =new Function(&#39;a&#39;,&#39;b
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -960,7 +972,16 @@ var a = Array(3,3);
 
 
 
-var 
+var a = [];
+
+数组var a = [1,2,3]
+a.xxx = &apos;xxx&apos; //&quot;xxx&quot;
+a.yyy = &apos;yyy&apos; //&quot;yyy&quot;
+a             
+//(3) [1, 2, 3, xxx: &quot;xxx&quot;, yyy: &quot;yyy&quot;]
+                    0：1
+                    1：2
+                
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1322,7 +1343,16 @@ var
 
 setInterval（code，delay）;
 JS调试： console.log()调试大法。
-tween.js 在github上。当我们用一个代码时，先看示例，然后在jsbin上做成功后，再加入到我们
+tween.js 在github上。当我们用一个代码时，先看示例，然后在jsbin上做成功后，再加入到我们的代码里。
+https://cdnjs.com/ 去这个网站找js代码引入。
+解决一个问题的关键是先着手解决这个问题
+学会在不懂的情况下搞定这个问题
+找到能用的代码，试着改一改，每次先小改，再大改。
+写代码的时候，在关键的地方打log，能确保你的代码按你想的去做。
+不要将两个动作用一个状态表示，容易出Bug.
+动画能用CSS做，也能用JS做。JS更多是用来加删active,来切换用CSS写的动画（静态）状态。
+初级JS永远都在找元素、给元素加class
+JS animatian transiti
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1685,7 +1715,19 @@ size:zhihu.com css不正交
         
           
           JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。
-全局对象 window我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做global，但是浏览器把window作为全局对象。window是一个h
+全局对象 window我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做global，但是浏览器把window作为全局对象。window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种私有。公有就是ECMAscript规定的，私有就是某些浏览器自己加的windows属性，且各浏览器表现出来的形式不一样。
+ECMAScript规定的：
+
+global.parseInt
+global.parseFloat
+global.Number
+global.String
+global.Boolean
+global.Object
+
+各浏览器自己加的属性:
+
+window.alert(弹框提示)
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1874,7 +1916,11 @@ size:zhihu.com css不正交
 各类型的API待补充
 
 
-垃圾回收如果一个对象
+垃圾回收如果一个对象没有被引用，它就是垃圾，将被回收。但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。
+
+内存图内存速度快，断电不保存；外存相对内存速度慢，断电内容保存。SSD外存速度接近内存，贵，易坏；机械硬盘，不易坏；固态硬盘；开机将硬盘的内容读到内存，给操作系统、浏览器等分配空间。浏览器先进行所有的变量提升（变量声明）;按顺序在stack先存好对象，后期再加属性值会很麻烦,所以在stack栈内存 存 对象在heap堆内存的地址，对象的内容实际上存在堆内存里。
+
+深复制&amp;浅复制对于简单
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2053,7 +2099,11 @@ size:zhihu.com css不正交
       
         
           
-          前言笔记记录一些特殊的、易错内容。JS是集大家之所长的语言，容易上手。CoffeeScript 是JS的改良版，在这之后才出现的ES6,ES7,ES8。目前掌握ECMAScript6（ECMAScript2015）标准就差不多了,从2015年以后，每年更新一次规范，更新的内容并不多。JS的语法特性通
+          前言笔记记录一些特殊的、易错内容。JS是集大家之所长的语言，容易上手。CoffeeScript 是JS的改良版，在这之后才出现的ES6,ES7,ES8。目前掌握ECMAScript6（ECMAScript2015）标准就差不多了,从2015年以后，每年更新一次规范，更新的内容并不多。JS的语法特性通常是先投入使用，再写入规范。
+简单类型numberJavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。JavaScript 语言的底层根本没有整数，所有数字都是小数（64位浮点数）。由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心。
+0.1 + 0.2 ===0.3              //false
+0.3/0.1                       //2.9999999999999996
+(0.3-0.2) === (0.2 - 0.1
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2762,7 +2812,5 @@ size:zhihu.com css不正交
 
   
 
-  
-  
 </body>
 </html>
