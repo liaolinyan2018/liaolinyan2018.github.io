@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="编程风格 块级作用域 字符串 解构赋值 对象 数组 函数 Map 结构 Class 模块 ESLint 的使用  本章探讨如何将 ES6 的新语法，运用到编码实践之中，与传统的 JavaScript 语法结合在一起，写出合理的、易于阅读和维护的代码。 多家公司和组织已经公开了它们的风格规范，下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。 1 块级作用域（1）let 取">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6编程风格">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/ES6编程风格/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="编程风格 块级作用域 字符串 解构赋值 对象 数组 函数 Map 结构 Class 模块 ESLint 的使用  本章探讨如何将 ES6 的新语法，运用到编码实践之中，与传统的 JavaScript 语法结合在一起，写出合理的、易于阅读和维护的代码。 多家公司和组织已经公开了它们的风格规范，下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。 1 块级作用域（1）let 取">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-09T13:30:38.482Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6编程风格">
+<meta name="twitter:description" content="编程风格 块级作用域 字符串 解构赋值 对象 数组 函数 Map 结构 Class 模块 ESLint 的使用  本章探讨如何将 ES6 的新语法，运用到编码实践之中，与传统的 JavaScript 语法结合在一起，写出合理的、易于阅读和维护的代码。 多家公司和组织已经公开了它们的风格规范，下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。 1 块级作用域（1）let 取">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/09/ES6编程风格/">
+
+
+
+
+
+  <title>ES6编程风格 | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/ES6编程风格/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ES6编程风格</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-09T18:56:09+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-09T21:30:38+08:00">
+                2019-08-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/09/ES6编程风格/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/09/ES6编程风格/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="编程风格"><a href="#编程风格" class="headerlink" title="编程风格"></a>编程风格</h1><ol>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#块级作用域" target="_blank" rel="noopener">块级作用域</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#字符串" target="_blank" rel="noopener">字符串</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#解构赋值" target="_blank" rel="noopener">解构赋值</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#对象" target="_blank" rel="noopener">对象</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#数组" target="_blank" rel="noopener">数组</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#函数" target="_blank" rel="noopener">函数</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#Map 结构" target="_blank" rel="noopener">Map 结构</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#Class" target="_blank" rel="noopener">Class</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#模块" target="_blank" rel="noopener">模块</a></li>
+<li><a href="http://es6.ruanyifeng.com/?search=Iterator&amp;x=0&amp;y=0#docs/style#ESLint 的使用" target="_blank" rel="noopener">ESLint 的使用</a></li>
+</ol>
+<p>本章探讨如何将 <strong>ES6 的新语法</strong>，运用到编码实践之中，与传统的 JavaScript 语法结合在一起，写出合理的、易于阅读和维护的代码。</p>
+<p>多家公司和组织已经公开了它们的风格规范，下面的内容主要参考了 <a href="https://github.com/airbnb/javascript" target="_blank" rel="noopener">Airbnb</a> 公司的 JavaScript 风格规范。</p>
+<h2 id="1-块级作用域"><a href="#1-块级作用域" class="headerlink" title="1 块级作用域"></a>1 块级作用域</h2><p><strong>（1）let 取代 var</strong></p>
+<p>ES6 提出了两个新的声明变量的命令：<code>let</code>和<code>const</code>。其中，<code>let</code>完全可以取代<code>var</code>，因为两者语义相同，而且<code>let</code>没有副作用。建议不再使用<code>var</code>命令，而是使用<code>let</code>命令取代.</p>
+<p><strong>（2）全局常量和线程安全</strong></p>
+<p>在<code>let</code>和<code>const</code>之间，建议优先使用<code>const</code>，尤其是<strong>在全局环境，不应该设置变量，只应设置常量</strong>。<strong>所有的函数都应该设置为常量。</strong></p>
+<p><code>const</code>优于<code>let</code>有几个原因。</p>
+<ol>
+<li>一个是<strong><code>const</code>可以提醒阅读程序的人，这个变量不应该改变</strong>；</li>
+<li>另一个是<code>const</code>比较符合函数式编程思想，运算不改变值，只是新建值，而且这样也有利于将来的分布式运算；</li>
+<li>最后一个原因是 JavaScript 编译器会对<code>const</code>进行优化，所以<strong>多使用<code>const</code>，有利于提高程序的运行效率</strong>，也就是说<code>**let</code>和<code>const</code>的本质区别，其实是编译器内部的处理不同**。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">2</span>, c = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> c = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// best</span></span><br><span class="line"><span class="keyword">const</span> [a, b, c] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">// 使用const + 数组的解构赋值</span></span><br></pre></td></tr></table></figure>
+<p><code>const</code>声明常量还有两个好处，一是阅读代码的人立刻会意识到不应该修改这个变量的值，二是防止了无意间修改变量值所导致的错误。</p>
+<p>长远来看，JavaScript 可能会有多线程的实现（比如 Intel 公司的 River Trail 那一类的项目），这时<code>let</code>表示的变量，只应出现在单线程运行的代码中，不能是多线程共享的，这样有利于保证线程安全。</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ol>
+<li>静态字符串一律使用单引号或反引号，不使用双引号。</li>
+<li>动态字符串使用反引号。模板字符串</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="string">"foobar"</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="string">'foo'</span> + a + <span class="string">'bar'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// acceptable</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="string">`foobar`</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="string">'foobar'</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="string">`foo<span class="subst">$&#123;a&#125;</span>bar`</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><ol>
+<li>使用数组成员对变量赋值时，优先使用数组的解构赋值。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> first = arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">const</span> second = arr[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// good 推荐</span></span><br><span class="line"><span class="keyword">const</span> [first, second] = arr;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>函数的参数如果是对象的成员，优先使用对象的解构赋值。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFullName</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> firstName = user.firstName;</span><br><span class="line">  <span class="keyword">const</span> lastName = user.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFullName</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; firstName, lastName &#125; = obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// best</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFullName</span>(<span class="params">&#123; firstName, lastName &#125;</span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数调用</span></span><br><span class="line">getFullName (obj)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>如果函数返回多个值，优先使用对象的解构赋值，而不是数组的解构赋值。这样便于以后添加返回值，以及更改返回值的顺序。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">processInput</span>(<span class="params">input</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [left, right, top, bottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">processInput</span>(<span class="params">input</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; left, right, top, bottom &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; left, right &#125; = processInput(input);</span><br></pre></td></tr></table></figure>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ol>
+<li>单行定义的对象，最后一个成员不以逗号结尾。</li>
+<li>多行定义的对象，最后一个成员以逗号结尾。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">k1</span>: v1, <span class="attr">k2</span>: v2, &#125;;</span><br><span class="line"><span class="keyword">const</span> b = &#123;</span><br><span class="line">  k1: v1,</span><br><span class="line">  k2: v2</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">k1</span>: v1, <span class="attr">k2</span>: v2 &#125;;</span><br><span class="line"><span class="keyword">const</span> b = &#123;</span><br><span class="line">  k1: v1,</span><br><span class="line">  k2: v2,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>对象尽量静态化，一旦定义，就不得随意添加新的属性。如果添加属性不可避免，要使用<code>Object.assign</code>方法。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> a = &#123;&#125;;</span><br><span class="line">a.x = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if reshape unavoidable</span></span><br><span class="line"><span class="keyword">const</span> a = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.assign(a, &#123; <span class="attr">x</span>: <span class="number">3</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">x</span>: <span class="literal">null</span> &#125;;</span><br><span class="line">a.x = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>如果对象的属性名是动态的，可以在创造对象的时候，使用<strong>属性表达式</strong>定义。对象的属性名是动态的意思是对象的属性名需要计算得出。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  id: <span class="number">5</span>,</span><br><span class="line">  name: <span class="string">'San Francisco'</span>,</span><br><span class="line">&#125;;</span><br><span class="line">obj[getKey(<span class="string">'enabled'</span>)] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  id: <span class="number">5</span>,</span><br><span class="line">  name: <span class="string">'San Francisco'</span>,</span><br><span class="line">  [getKey(<span class="string">'enabled'</span>)]: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>obj</code>的最后一个<strong>属性名，需要计算得到</strong>。这时最好采用属性表达式，在新建<code>obj</code>的时候，将该属性与其他属性定义在一起。这样一来，所有属性就在一个地方定义了。</p>
+<ol start="5">
+<li>另外，<strong>对象的属性和方法，尽量采用简洁表达法</strong>，这样易于描述和书写。  <strong>！！！！</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ref = <span class="string">'some value'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> atom = &#123;</span><br><span class="line">  ref: ref,</span><br><span class="line"></span><br><span class="line">  value: <span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">  addValue: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> atom.value + value;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> atom = &#123;</span><br><span class="line">  ref,</span><br><span class="line"></span><br><span class="line">  value: <span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">  addValue(value) &#123;</span><br><span class="line">    <span class="keyword">return</span> atom.value + value;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面<code>atom</code>对象的<code>ref</code>属性的属性名和属性值相同，可简写。注意上面对象的方法简写，省略了<code>function</code>关键字。</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ol>
+<li>使用<strong>扩展运算符</strong>（…）拷贝数组。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> len = items.length;</span><br><span class="line"><span class="keyword">const</span> itemsCopy = [];</span><br><span class="line"><span class="keyword">let</span> i;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">  itemsCopy[i] = items[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> itemsCopy = [...items];</span><br></pre></td></tr></table></figure>
+<p>上面代码中<code>items</code> 和 <code>itemsCopy</code> 都是对象。</p>
+<ol start="2">
+<li>使用 Array.from 方法，将类似数组的对象转为数组。 <strong>推荐</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.foo'</span>);</span><br><span class="line"><span class="keyword">const</span> nodes = <span class="built_in">Array</span>.from(foo);</span><br></pre></td></tr></table></figure>
+<p>补充：Array.prototype.slice.call(类数组对象)  和 [].slice.call(类数组对象)  都能将类数组对象 转为 数组。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ol>
+<li>立即执行函数可以写成箭头函数的形式。立即执行函数一般是匿名函数。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Welcome to the Internet.'</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用 箭头函数 代替 匿名函数作参数。因为这样更简洁，而且绑定了 this。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// best</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="params">x</span> =&gt;</span> x * x);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>箭头函数取代<code>Function.prototype.bind</code>，不应再用 self/_this/that 绑定 this。   <strong>？？？？</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> self = <span class="keyword">this</span>;</span><br><span class="line"><span class="keyword">const</span> boundMethod = <span class="function"><span class="keyword">function</span>(<span class="params">...params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> method.apply(self, params);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// acceptable</span></span><br><span class="line"><span class="keyword">const</span> boundMethod = method.bind(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// best</span></span><br><span class="line"><span class="keyword">const</span> boundMethod = <span class="function">(<span class="params">...params</span>) =&gt;</span> method.apply(<span class="keyword">this</span>, params);</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>简单的、单行的、不会复用的函数，建议采用箭头函数。如果函数体较为复杂，行数较多，还是应该采用传统的函数写法。</p>
+</li>
+<li><p>所有配置项都应该集中在一个对象，放在最后一个参数，<strong>布尔值不可以直接作为参数</strong>。</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">divide</span>(<span class="params">a, b, option = false </span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">divide</span>(<span class="params">a, b, &#123; option = false &#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>divide</code>函数的解构赋值</p>
+<ol start="6">
+<li>不要在函数体内使用 arguments 对象，<strong>使用 rest 运算符（…）代替</strong>。因为 <strong>rest 运算符显式表明你想要获取参数</strong>，而且 arguments 是一个类似数组的对象，而 <strong>rest 运算符可以提供一个真正的数组。</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);  <span class="comment">//args 为 数组</span></span><br><span class="line">  <span class="keyword">return</span> args.join(<span class="string">''</span>);   <span class="comment">//string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params">...args</span>) </span>&#123;   </span><br><span class="line">  <span class="keyword">return</span> args.join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码第一个方法是使用了 <code>Array.prototype.slice.call(arguments)</code>先将 类数组对象 转为 <code>args</code>数组。数组里则是传入函数的所有参数。而是第二种方法则是 使用 rest 运算符（…），使得<code>args</code>变量 直接获取所有传入参数，就是参数数组。</p>
+<ol start="7">
+<li>使用<strong>默认值语法</strong>设置<strong>函数参数的默认值</strong>。 注意区分，这不是函数参数解构赋值。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts</span>) </span>&#123;</span><br><span class="line">  opts = opts || &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Map-结构"><a href="#Map-结构" class="headerlink" title="Map 结构"></a>Map 结构</h2><p>注意区分 Object 和 Map，<strong>只有模拟现实世界的实体对象时，才使用 Object</strong>。如果只是需要<code>key: value</code>的数据结构，使用 Map 结构。因为 Map 有内建的遍历机制。也就是说，<strong>对象有实体意义，而 Map 只是一种常用的结构。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(arr);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> map.keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> map.values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item[<span class="number">0</span>], item[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码有 Map 结构很多方法</p>
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ol>
+<li>总是用 Class，取代需要 prototype 的操作。因为 <strong>Class 的写法更简洁，更易于理解。</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params">contents = []</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._queue = [...contents];</span><br><span class="line">&#125;</span><br><span class="line">Queue.prototype.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> value = <span class="keyword">this</span>._queue[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">this</span>._queue.splice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(contents = []) &#123;</span><br><span class="line">    <span class="keyword">this</span>._queue = [...contents];  <span class="comment">// contents 必是一个数组</span></span><br><span class="line">  &#125;</span><br><span class="line">  pop() &#123;</span><br><span class="line">    <span class="keyword">const</span> value = <span class="keyword">this</span>._queue[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">this</span>._queue.splice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用<code>extends</code>实现继承，因为这样更简单，不会有破坏<code>instanceof</code>运算的危险。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> inherits = <span class="built_in">require</span>(<span class="string">'inherits'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PeekableQueue</span>(<span class="params">contents</span>) </span>&#123;</span><br><span class="line">  Queue.apply(<span class="keyword">this</span>, contents);</span><br><span class="line">&#125;</span><br><span class="line">inherits(PeekableQueue, Queue);</span><br><span class="line">PeekableQueue.prototype.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._queue[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PeekableQueue</span> <span class="keyword">extends</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">  peek() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._queue[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><ol>
+<li>首先，Module 语法是 JavaScript 模块的标准写法，坚持使用这种写法。<strong>使用<code>import</code>取代<code>require</code>。</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> moduleA = <span class="built_in">require</span>(<span class="string">'moduleA'</span>);</span><br><span class="line"><span class="keyword">const</span> func1 = moduleA.func1;</span><br><span class="line"><span class="keyword">const</span> func2 = moduleA.func2;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">import</span> &#123; func1, func2 &#125; <span class="keyword">from</span> <span class="string">'moduleA'</span>;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>使用<code>export</code>取代`module.exports</strong>`。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonJS的写法</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Breadcrumbs = React.createClass(&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">nav</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;);</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">module.exports = Breadcrumbs;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">// ES6的写法</span></span><br><span class="line"><span class="xml">import React from 'react';</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">class Breadcrumbs extends React.Component &#123;</span></span><br><span class="line"><span class="xml">  render() &#123;</span></span><br><span class="line"><span class="xml">    return <span class="tag">&lt;<span class="name">nav</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">export default Breadcrumbs;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果模块只有一个输出值，就使用<code>export default</code>，</li>
+<li>如果模块有多个输出值，就不使用<code>export default</code>，<code>export default</code>与普通的<code>export</code>不要同时使用。</li>
+<li>不要在模块输入中使用通配符。因为这样可以确保你的模块之中，有一个默认输出（export default）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> myObject <span class="keyword">from</span> <span class="string">'./importModule'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">import</span> myObject <span class="keyword">from</span> <span class="string">'./importModule'</span>;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>如果模块默认输出一个函数，<strong>函数名的首字母应该小写</strong>。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeStyleGuide</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> makeStyleGuide;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>如果模块默认输出一个对象，<strong>对象名的首字母应该大写</strong>。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> StyleGuide = &#123;</span><br><span class="line">  es6: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> StyleGuide;</span><br></pre></td></tr></table></figure>
+<h2 id="ESLint-的使用"><a href="#ESLint-的使用" class="headerlink" title="ESLint 的使用"></a>ESLint 的使用</h2><p>ESLint 是一个<strong>语法规则</strong>和<strong>代码风格</strong>的检查工具，可以用来保证写出语法正确、风格统一的代码。</p>
+<p>首先，安装 ESLint。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g eslint</span><br></pre></td></tr></table></figure>
+<p>然后，安装 Airbnb 语法规则，以及 import、a11y、react 插件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g eslint-config-airbnb</span><br><span class="line">$ npm i -g eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react</span><br></pre></td></tr></table></figure>
+<p>最后，在项目的根目录下新建一个<code>.eslintrc</code>文件，配置 ESLint。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"extends"</span>: <span class="string">"eslint-config-airbnb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在就可以检查，当前项目的代码是否符合预设的规则。</p>
+<p><code>index.js</code>文件的代码如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> unusued = <span class="string">'I have no purpose!'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> message = <span class="string">'Hello, World!'</span>;</span><br><span class="line">    alert(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
+<p>使用 ESLint 检查这个文件，就会报出错误。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ eslint index.js</span><br><span class="line">index.js</span><br><span class="line">  1:1  error  Unexpected var, use <span class="built_in">let</span> or const instead          no-var</span><br><span class="line">  1:5  error  unusued is defined but never used                 no-unused-vars</span><br><span class="line">  4:5  error  Expected indentation of 2 characters but found 4  indent</span><br><span class="line">  4:5  error  Unexpected var, use <span class="built_in">let</span> or const instead          no-var</span><br><span class="line">  5:5  error  Expected indentation of 2 characters but found 4  indent</span><br><span class="line"></span><br><span class="line">✖ 5 problems (5 errors, 0 warnings)</span><br></pre></td></tr></table></figure>
+<p>上面代码说明，原文件有五个错误，其中两个是不应该使用<code>var</code>命令，而要使用<code>let</code>或<code>const</code>；一个是定义了变量，却没有使用；另外两个是行首缩进为 4 个空格，而不是规定的 2 个空格。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/09/字符串的扩展/" rel="next" title="字符串的扩展">
+                <i class="fa fa-chevron-left"></i> 字符串的扩展
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/09/异步操作-Promise对象/" rel="prev" title="异步操作-Promise对象">
+                异步操作-Promise对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编程风格"><span class="nav-number">1.</span> <span class="nav-text">编程风格</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-块级作用域"><span class="nav-number">1.1.</span> <span class="nav-text">1 块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.2.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构赋值"><span class="nav-number">1.3.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.4.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">1.5.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.6.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-结构"><span class="nav-number">1.7.</span> <span class="nav-text">Map 结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class"><span class="nav-number">1.8.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">1.9.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ESLint-的使用"><span class="nav-number">1.10.</span> <span class="nav-text">ESLint 的使用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://linyan.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/08/09/ES6编程风格/';
+          this.page.identifier = '2019/08/09/ES6编程风格/';
+          this.page.title = 'ES6编程风格';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://linyan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

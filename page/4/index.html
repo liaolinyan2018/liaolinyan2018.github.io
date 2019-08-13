@@ -1,0 +1,2936 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前端开发 美食 旅行">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linyan&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="前端开发 美食 旅行">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linyan&#39;s blog">
+<meta name="twitter:description" content="前端开发 美食 旅行">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/4/">
+
+
+
+
+
+  <title>Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/给简历加数据库/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/给简历加数据库/" itemprop="url">给简历加数据库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T14:09:13+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-07T18:37:56+08:00">
+                2019-02-07
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/26/给简历加数据库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/26/给简历加数据库/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="事出有因"><a href="#事出有因" class="headerlink" title="事出有因"></a>事出有因</h3><p>数据是存在服务器端才能实现跨设备使用数据。我们没有学服务器，但是要存数据就要有一个服务器，但是上阿里云看了买一个服务器又太贵了。所以我们使用免费的。<a href="https://leancloud.cn" target="_blank" rel="noopener">https://leancloud.cn</a> 。</p>
+<h3 id="LeanCloud-介绍"><a href="#LeanCloud-介绍" class="headerlink" title="LeanCloud 介绍"></a>LeanCloud 介绍</h3><p>一个自带数据库和增删改查（CRUD）功能的后台系统。</p>
+<p>拥有：</p>
+<ol>
+<li>登录注册、手机验证码功能（收费）</li>
+<li>存储任意信息</li>
+<li>读取任意信息</li>
+<li>搜索任意信息</li>
+<li>删除任意信息</li>
+<li>更新任意信息</li>
+</ol>
+<p>等功能。</p>
+<h3 id="把LeanCloud集成到我们的简历"><a href="#把LeanCloud集成到我们的简历" class="headerlink" title="把LeanCloud集成到我们的简历"></a>把LeanCloud集成到我们的简历</h3><p>   给简历添加留言思路：将用户提交的留言保存到数据库，将数据库中的留言展示出来。</p>
+<p>   留言板功能：</p>
+<ol>
+<li>用户可以新增留言</li>
+<li>没有其他功能</li>
+</ol>
+<h3 id="使用LeanCloud"><a href="#使用LeanCloud" class="headerlink" title="使用LeanCloud"></a>使用LeanCloud</h3><p><strong>遇到没有见过的知识时，使用 Copy-Run-Modify 套路即可。</strong></p>
+<ol>
+<li><p>注册leancloud账号</p>
+</li>
+<li><p>创建一个应用resume-2019-1</p>
+</li>
+<li><p>点击你刚创建的<strong>应用</strong>-点击右边的<strong>帮助</strong>-点击<strong>入门指导</strong></p>
+</li>
+<li><p>引入 av-min.js，得到 window.AV</p>
+</li>
+<li><p>初始化 AV 对象（代码直接拷）</p>
+</li>
+<li><p>新建一条数据（代码直接拷）</p>
+<p><img src="https://i.loli.net/2019/01/26/5c4bfcaf3fba1.jpg" alt="cloud.jpg"></p>
+<p><img src="https://i.loli.net/2019/01/26/5c4bfd9bf27f1.png" alt="H1.png"></p>
+<p>这样我们就有了一个免费的数据库，还不需要服务器。</p>
+<p>使用这个数据库需要我们懂：<code>JS</code>,<code>promise</code>,<code>Http</code></p>
+<h3 id="封装成一个-Model"><a href="#封装成一个-Model" class="headerlink" title="封装成一个 Model"></a>封装成一个 Model</h3><p><strong>Model 就是一个操作数据的对象而已</strong></p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
+<h3 id="注意，不允许上传-node-modules-到-github-！"><a href="#注意，不允许上传-node-modules-到-github-！" class="headerlink" title="注意，不允许上传 node_modules 到 github ！"></a>注意，不允许上传 node_modules 到 github ！</h3><ol>
+<li>如果你把 node_modules 目录上传到 github，那么你的项目将变得非常大</li>
+<li>请在每个项目里创建 .gitignore 文件，在文件里写上一行 <code>/node_modules/</code> ，即可防止 node_modules 目录被提交</li>
+<li>如果你已经手贱把 node_modules 提交到了 github，那么请这样来撤销：<ol>
+<li><code>touch .gitignore</code></li>
+<li><code>echo /node_modules/ &gt;&gt; .gitignore</code></li>
+<li><code>git rm -r --cached node_modules</code></li>
+<li><code>git add . -A</code></li>
+<li><code>git commit -m &quot;remove node_modules&quot;</code></li>
+<li><code>git push</code></li>
+<li><code>npm install 或者 yarn install</code></li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/把MVC的VC加到简历里/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/12/把MVC的VC加到简历里/" itemprop="url">把MVC的VC加到简历里</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T08:46:54+08:00">
+                2019-01-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-18T19:44:26+08:00">
+                2019-02-18
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/12/把MVC的VC加到简历里/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/12/把MVC的VC加到简历里/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="把MVC的VC加到简历里"><a href="#把MVC的VC加到简历里" class="headerlink" title="把MVC的VC加到简历里"></a>把MVC的VC加到简历里</h2><p>完整代码：<a href="https://github.com/FrankFang/resume-15-6" target="_blank" rel="noopener">https://github.com/FrankFang/resume-15-6</a></p>
+<ol>
+<li><p>在简历里使用 Swiper</p>
+<ol>
+<li>进入 Swiper <a href="http://idangero.us/swiper/get-started/" target="_blank" rel="noopener">官网 </a>,仔细读已经写得很详细了。</li>
+<li>安装 Swiper  命令行：<code>npm install swiper</code></li>
+<li>在页面引入 Swiper（引入Swiper的CSS和JS)                                                                                                                                                                                                                                                                                                                                 </li>
+<li>抄袭 HTML（CRM 中的 Copy）</li>
+<li>抄袭 CSS</li>
+<li>抄袭 JS</li>
+<li>运行（CRM 中的 Run）</li>
+<li>修改 HTML（CRM 中的 Modify）</li>
+<li>修改 CSS</li>
+<li>修改 JS</li>
+</ol>
+</li>
+<li><p>在简历里使用Swiper我们学到了一种思想，CRM思想，即<strong>Copy-Run-Modify</strong></p>
+<p>Copy别人的代码，Run别人的代码，Modify别人的代码。这就是CRM思想，使用别人的东西，如：<code>Swiper/jQuery</code></p>
+</li>
+<li><p>MVC 是什么</p>
+<p><strong>Model-View-Controller</strong></p>
+</li>
+<li><p>如何弄出一个 View</p>
+</li>
+<li><p>如何弄出一个 Controller</p>
+</li>
+<li><p>如何弄出一个 Model</p>
+</li>
+</ol>
+<h2 id="如何使用Swiper"><a href="#如何使用Swiper" class="headerlink" title="如何使用Swiper"></a>如何使用Swiper</h2><p>点击Swiper <a href="http://idangero.us/swiper/get-started/" target="_blank" rel="noopener">官网 </a>。<strong>Copy-Run-Modify</strong></p>
+<h2 id="立即执行函数的产生过程"><a href="#立即执行函数的产生过程" class="headerlink" title="立即执行函数的产生过程"></a>立即执行函数的产生过程</h2><ol>
+<li><p>我们不想要全局变量</p>
+</li>
+<li><p>我们要使用局部变量</p>
+</li>
+<li><p>ES 5 里面，只有函数有局部变量</p>
+</li>
+<li><p>于是我们声明一个 function xxx，然后 xxx.call()</p>
+</li>
+<li><p>这个时候 xxx 是全局变量（全局函数）</p>
+</li>
+<li><p>所以我们不能给这个函数名字</p>
+</li>
+<li><p>function(){}.call()</p>
+</li>
+<li><p>但是 Chrome 报错，语法错误</p>
+</li>
+<li><p>试出来一种方法可以不报错:</p>
+<ol>
+<li><p>!function(){}.call() (我们不在乎这个匿名函数的返回值，所以加个 ! 取反没关系)</p>
+</li>
+<li><p>(function(){}).call() 方方不推荐</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx    </span><br><span class="line">(function()&#123;&#125;).call() 报错</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>frank192837192463981273912873098127912378.call() 不推荐</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="使用立即执行函数"><a href="#使用立即执行函数" class="headerlink" title="使用立即执行函数"></a>使用立即执行函数</h2><p><code>!function(){ 把你模块化代码放在这里}.call()</code></p>
+<h2 id="立即执行函数的作用"><a href="#立即执行函数的作用" class="headerlink" title="立即执行函数的作用"></a>立即执行函数的作用</h2><p>立即执行函数的作用就是隔离作用域的。</p>
+<h2 id="两个独立模块的变量想交流怎么办？"><a href="#两个独立模块的变量想交流怎么办？" class="headerlink" title="两个独立模块的变量想交流怎么办？"></a>两个独立模块的变量想交流怎么办？</h2><p>方法1：把变量放到window下</p>
+<p><img src="https://i.loli.net/2019/01/12/5c39dc8674ea4.png" alt="_J4PVND.png"></p>
+<p>方法2：<strong>使用闭包</strong></p>
+<p><img src="https://i.loli.net/2019/01/12/5c39e030e6742.png" alt="XD.png"></p>
+<ol>
+<li><strong>立即执行函数</strong>使得 person 无法被外部访问</li>
+<li><strong>闭包</strong>使得<strong>匿名函数</strong>可以操作 person，然后将这个匿名函数赋值给全局属性window.linyanGrowUp</li>
+<li><strong>全局属性</strong>window.linyanGrowUp 保存了匿名函数的地址</li>
+<li>任何地方都可以使用 window.linyanGrowUp  <strong>=&gt;</strong>  任何地方都可以使用 window.linyanGrowUp 操作 person，但是不能直接访问 person</li>
+<li>总结：<strong>立即执行函数肯定是和闭包结合起来用的。</strong></li>
+</ol>
+<h2 id="MVC-及注意事项"><a href="#MVC-及注意事项" class="headerlink" title="MVC 及注意事项"></a>MVC 及注意事项</h2><p>MVC就是<code>Model-View-Controller</code>。MVC 是一个抽象的知识，你很有可能短时间无法理解。但是没有关系，多写类似的代码形成肌肉记忆就可以了。<strong>MVC的前提是你的代码经过模块化</strong>。</p>
+<ol>
+<li>View 用户看得见的视图</li>
+</ol>
+<p>只要你操作了页面，<strong>一个模块的js就对应一个View</strong>。<strong>添加了View以后，HTML代码也分块了</strong>，实际上用户看到的是<code>HTML + CSS</code>,因为CSS的样式是加在HTML内容上的。View的作用就是告诉js你这个模块对应着页面中哪些内容。</p>
+<p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt="图片"></p>
+<p><img src="https://i.loli.net/2019/01/12/5c39eca298b38.png" alt=")8Y7XJKCN8N8E)W)BV28H{Y.png"></p>
+<ol start="2">
+<li>controller操纵view。从整个代码结构上来看，html构成view,js代码构成controller，controller操纵view。整个代码就变得很有结构。</li>
+</ol>
+<p>例如：</p>
+<p><img src="https://i.loli.net/2019/01/28/5c4ecab62dd71.png" alt="WY.png"></p>
+<p>这里的controller控制功能还是简单的，再看下图：</p>
+<p><img src="https://i.loli.net/2019/02/03/5c56c922b4edb.png" alt="LD9Y.png"></p>
+<ol start="3">
+<li><p>Model 就是一个操作数据的对象</p>
+<p><img src="https://i.loli.net/2019/02/07/5c5c09cd1191f.png" alt="XMW7.png"></p>
+</li>
+</ol>
+<h2 id="MVC思想"><a href="#MVC思想" class="headerlink" title="MVC思想"></a>MVC思想</h2><p>Model 操作数据<br>View 表示视图<br>Controller 是控制器</p>
+<p>Model 和服务器交互，Model 将得到的数据交给 Controller，Controller 把数据填入 View，并监听 View；<br>用户操作 View，如点击按钮，Controller 就会接受到点击事件，Controller 这时会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据就去更新 View</p>
+<p><img src="https://i.loli.net/2019/02/07/5c5c06de7cfce.png" alt="CC@HCMA.png"></p>
+<p> MVC就是一种代码的组织形式，model和view传给controller，controller负责对model初始化，然后对view进行操作。view只负责看得见的东西（HTML元素），model负责请求和保存数据。controller负责操作，controller代码会相对复杂一些。</p>
+<p>有了MVC思想以后，代码就不至于写成一坨。以前还用注释来分隔代码，现在不需要用注释分隔代码，直接用MVC思想来组织代码。</p>
+<p>当引入了MVC的思想以后，你就发现所有的代码结构都一样。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/11/前端学习工具安装与使用合集/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/11/前端学习工具安装与使用合集/" itemprop="url">前端学习工具安装与使用合集</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T22:36:36+08:00">
+                2019-01-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-11T22:37:46+08:00">
+                2019-01-11
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/11/前端学习工具安装与使用合集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/11/前端学习工具安装与使用合集/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端学习工具安装与使用合集"><a href="#前端学习工具安装与使用合集" class="headerlink" title="前端学习工具安装与使用合集"></a>前端学习工具安装与使用合集</h2><p>前言：此时的我刚刚开始前端学习之路，很多东西学了不久就忘了，写下这篇博客方便自己以后复习回顾。有些内容还只有标题，文章会一直更新的。如果帮到了你，我也很开心哦~</p>
+<h3 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h3><h3 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h3><ul>
+<li><p>Webstorm </p>
+</li>
+<li><p>VScode</p>
+</li>
+<li><p>sublime </p>
+<h5 id="Webstorm"><a href="#Webstorm" class="headerlink" title="Webstorm"></a>Webstorm</h5><p>不怎么需要配置，跟<code>VScode</code>操作有点像，更改进一点就是会自动帮你把文件的模板给建好。还没使用过。</p>
+<h5 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h5><p><strong>安装 </strong>：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">官网下载安装包</a> 。</p>
+<p><strong>使用感受</strong>：我喜欢用<code>VScode</code>写<code>html</code> <code>css</code> <code>js</code>。可以将<code>VScode</code>上的代码上传到<code>GitHub</code>管理,<code>VScode</code>这个软件有<code>Git</code>的功能。但是我只是用<code>VScode</code>写代码，用<code>Git Bash</code>上传代码到<code>GitHub</code>。[</p>
+<p><strong>使用</strong>：<a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener">VScode教程</a>。</p>
+<h5 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h5><p>还没使用过。</p>
+</li>
+</ul>
+<h3 id="markdown编辑器"><a href="#markdown编辑器" class="headerlink" title="markdown编辑器"></a>markdown编辑器</h3><ul>
+<li><p>Typora</p>
+<p><strong>安装</strong> ：Typora从官网下载，安装简单，一直next即可。</p>
+<p><strong>使用</strong> ：打开<code>Typora</code>，新建<code>xxx.md</code>文件，使用<a href="https://coding.net/help/doc/project/markdown.html" target="_blank" rel="noopener">markdown语法</a>写<code>xxx.md</code>文件，每写完一句按下<kbd>Tab<kbd>键 或者 敲一个空格 就能即时渲染。在windows下使用<code>Typora</code>写<code>md</code>文件时插入图像，必须先把本地图像上传到图床<a href="https://sm.ms/" target="_blank" rel="noopener">图床推荐</a> ，生成图片链接后，再使用<code>markdown</code>语法将图片插入到文章中，即：<code>![](图床生成的图片链接粘到这里)</code>。</kbd></kbd></p>
+<p><strong>md语法</strong> ：<a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener">md基础语法</a> <a href="https://coding.net/help/doc/project/markdown.html" target="_blank" rel="noopener">markdown语法</a> </p>
+</li>
+</ul>
+<h3 id="图床推荐"><a href="#图床推荐" class="headerlink" title="图床推荐"></a>图床推荐</h3><p><a href="https://sm.ms/" target="_blank" rel="noopener">sm.ms</a></p>
+<h3 id="Git-Bash-命令行"><a href="#Git-Bash-命令行" class="headerlink" title="Git Bash 命令行"></a>Git Bash 命令行</h3><p><strong>Git Bash安装包</strong>：<a href="https://pan.baidu.com/s/1vPwHzAb9f0vmEjFDXJC-kw" target="_blank" rel="noopener">百度网盘</a>  提取码：6p64 </p>
+<p><strong>在windows下安装Git Bash教程</strong>: <a href="https://blog.csdn.net/weixin_41714277/article/details/79399270" target="_blank" rel="noopener">链接</a></p>
+<p><strong>我的使用感受</strong>：<code>Git Bash</code>是一个功能强大的软件，我们在windows上的操作在<code>Git Bash</code>上都能做，<code>Git Bash</code>是模拟<code>Linux</code>操作系统，<code>Git Bash</code>是一个<code>Bash</code>,不是<code>Git</code>。<code>Git Bash</code>里面内置了几十个指令，如：<code>ls</code> <code>mkdir</code> <code>rm</code> <code>touch</code> ,而<code>Git</code>指令只是它其中的一个。<code>Git Bash</code>可以在本地建一个<code>.git</code>仓库，通过<code>git</code>指令既可以操作这个本地的仓库，也可以将这个仓库上传到<code>Git Hub</code>，同样，可以在<code>Git Hub</code>上建一个不空的仓库然后通过<code>git clone</code>克隆到本地。相当于通过<code>git</code>指令 可以把本地电脑里的仓库和<code>Git Hub</code>远程仓库进行一个关联。</p>
+<p><strong>命令行使用方法总结</strong> ：<a href="#">命令行基础</a></p>
+<h3 id="Git指令的安装与配置"><a href="#Git指令的安装与配置" class="headerlink" title="Git指令的安装与配置"></a>Git指令的安装与配置</h3><h5 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h5><p>不需要安装Git，Git Bash 内置了 Git 命令。</p>
+<h5 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h5><p>请在命令行运行这五句话！！！一定要运行这五句话，不然 <code>git</code> 就不能用了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxxxxx   //把xxxxxx替换成你的英文名字随便什么都行)                                      </span><br><span class="line">git config --global user.email xxxxxx   //把xxxxxx替换成你的邮箱跟github一致或者不一致也行)                                  </span><br><span class="line">git config --global push.default simple      //本来我写的是 matching，不过想了想可能 simple 更好</span><br><span class="line">git config --global core.quotepath false     //防止文件名变成数字</span><br><span class="line">git config --global core.editor &quot;vim&quot;        //使用vim编辑提交信息</span><br></pre></td></tr></table></figure>
+<p>另外很重要的一点！自己运行 <code>git</code>的时候注意一下：<code>git remote add origin</code> 后面的地址，不允许使用 <code>https</code> 开头的地址，见下图:</p>
+<p><img src="https://i.loli.net/2019/01/08/5c34a24d7c01c.jpg" alt="ssh.jpg"></p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p><strong>官网下载</strong>：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>    </p>
+<h5 id="安装：-1"><a href="#安装：-1" class="headerlink" title="安装："></a>安装：</h5><p>一直next，可以改路径。安装后，不要点击 Node.js 的图标这样使用。</p>
+<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>打开 <code>Git Bash</code>，依次输入以下命令，按回车：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br><span class="line">npm config set loglevel http</span><br><span class="line">npm config set progress false</span><br></pre></td></tr></table></figure>
+<p>npm 的配置被存储在 <code>~/.npmrc</code>，我们可以随时改。</p>
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p>装了 <code>Node.js</code> 之后我们就可以在 <code>Git Bash</code> 里面使用 <code>node</code> 和 <code>npm</code> 这两个命令了。进入<code>node</code>环境后，按<code>ctrl+D</code>是 退出。 试着在<code>Git Bash</code>输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">which node</span><br><span class="line">which npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>依次看看可以输出什么内容，不报错说明安装成功了。</p>
+<h5 id="npm-安装命令行小工具"><a href="#npm-安装命令行小工具" class="headerlink" title="npm 安装命令行小工具"></a>npm 安装命令行小工具</h5><p>我们可以用 <code>npm</code> 的翻译工具做一个随时可用的小字典，这个小工具的名字叫做 <code>fanyi</code>。</p>
+<p>打开<code>Git Bash</code>运行 <code>npm i -g fanyi</code> 即可安装 <code>fanyi</code>，安装完成之后，接着在<code>Git Bash</code>输入 <code>fanyi frontend</code> 就可以看到对应的中文释义了！超级酷对不对！</p>
+<h5 id="node使用"><a href="#node使用" class="headerlink" title="node使用"></a>node使用</h5><p>使用方式1：</p>
+<ol>
+<li>进入Git Bash</li>
+<li>输入<code>node</code>,回车，就进入<code>node</code>环境下，这时我们就可以写JS了。</li>
+<li>如简单的JS语句，<code>1+2</code>,回车</li>
+<li>结果得3</li>
+</ol>
+<p>使用方式2：</p>
+<p>​    打开Git Bash，进入一个有<code>xxx.js</code>文件的文件夹下，运行<code>node xxx.js</code>,node就会执行这个<code>xxx.js</code>文件，你将在Git Bash看到执行结果。</p>
+<h3 id="GitHub源代码管理神器"><a href="#GitHub源代码管理神器" class="headerlink" title="GitHub源代码管理神器"></a>GitHub源代码管理神器</h3><p><strong>我的账号</strong>：<code>liaolinyan2018.github.io</code>。</p>
+<p><strong>我的感受</strong>：我喜欢使用<code>github</code>来管理我的源代码，<code>github</code>可以将我的每一次代码提交都记录下来，这样我可以打开我代码的1.0版本、2.0版本、3.0版本、4.0版本，而不用每次更改代码都要编辑好名字然后存在电脑硬盘里，不仅费电脑内存而且危险，一旦电脑出事，东西就没了。<code>github</code>这个功能简直太棒了，虽然使用时间不长，但是我几乎每天都在使用它提交代码。</p>
+<p><strong>使用方法</strong>：值得写一篇博客。<a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener">GitHub源代码管理博客</a></p>
+<h3 id="QQ截图测量颜色和尺寸"><a href="#QQ截图测量颜色和尺寸" class="headerlink" title="QQ截图测量颜色和尺寸"></a>QQ截图测量颜色和尺寸</h3><h3 id="代码分享"><a href="#代码分享" class="headerlink" title="代码分享"></a>代码分享</h3><p>当我们的代码遇到问题时，需要求助别人，直接把代码分享过去是比较方便的。使用<a href="http://js.jirengu.com/" target="_blank" rel="noopener">jirengu-bin</a> 是比较方便的，或者使用<a href="http://jsbin.com/?html,output" target="_blank" rel="noopener">jsbin</a> 分享源代码，这两个bin都可以存储多个版本的代码，非常方便，适用于小项目demo，一边调试一边写代码。不适用于大项目。</p>
+<h3 id="Linux虚拟机安装教程"><a href="#Linux虚拟机安装教程" class="headerlink" title="Linux虚拟机安装教程"></a>Linux虚拟机安装教程</h3><p><a href="https://xiedaimala.com/tasks/11ad5683-7e18-4883-879d-8425e6a6ceb7" target="_blank" rel="noopener">此处应有一篇博客</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/30/37实现AJAX/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/37实现AJAX/" itemprop="url">实现AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-30T11:19:36+08:00">
+                2018-12-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-05T18:22:24+08:00">
+                2019-08-05
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/30/37实现AJAX/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/30/37实现AJAX/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="AJAX-的所有功能"><a href="#AJAX-的所有功能" class="headerlink" title="AJAX 的所有功能"></a>AJAX 的所有功能</h2><ul>
+<li><p>客户端的JS发起请求（浏览器上的）</p>
+</li>
+<li><p>服务端的JS发送响应（Node.js上的）</p>
+</li>
+</ul>
+<ol>
+<li><p>JS 可以设置任意请求<code>header</code>吗？<br> 第一部分 <code>request.open(&#39;get&#39;, &#39;/xxx&#39;)</code>,设置请求的方式，路径。<br> 第二部分 <code>request.setRequestHeader(&#39;content-type&#39;,&#39;x-www-form-urlencoded&#39;)</code>设置请求头,<code>request.setRequestHeader</code>必须写在open和send之间<br> 第三部分 是回车，不设置也不显示<br> 第四部分<code>request.send(&#39;我非要设置请求体&#39;)</code></p>
+</li>
+<li><p>JS 可以获取任意响应 header 吗？<br> 第一部分    <code>request.status</code>(200)/<code>request.statusText</code>(OK)<br> 第二部分响应头<code>request.getResponseHeader()</code>/<code>request.getResponseHeader(&#39;Content-Type&#39;)</code> <code>request.getAllResponseHeaders()</code><br> 第四部分响应体<code>request.responseText</code></p>
+</li>
+</ol>
+<h2 id="今天写-window-jQuery-ajax"><a href="#今天写-window-jQuery-ajax" class="headerlink" title="今天写 window.jQuery.ajax"></a>今天写 window.jQuery.ajax</h2><p>封装AJAX是为了将AJAX的功能封装在一个函数里，以后要使用AJAX就调用这个函数就可以了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.jQuery.ajax = <span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// 代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><img src="https://i.imgur.com/88L2IoG.png" alt=""></p>
+<h3 id="自己封装jQuery-ajax代码"><a href="#自己封装jQuery-ajax代码" class="headerlink" title="自己封装jQuery.ajax代码"></a>自己封装jQuery.ajax代码</h3><h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p><img src="https://i.imgur.com/ZQLmQsA.png" alt=""></p>
+<h2 id="callback回调就是满足某个条件的函数"><a href="#callback回调就是满足某个条件的函数" class="headerlink" title="callback回调就是满足某个条件的函数"></a>callback回调就是满足某个条件的函数</h2><pre><code>call a function
+call a function back
+</code></pre><h2 id="回调的问题"><a href="#回调的问题" class="headerlink" title="回调的问题"></a>回调的问题</h2><p>问题是每个程序员的<strong>回调名</strong>不一样</p>
+<h2 id="Promise-解决了回调名不一样这个问题"><a href="#Promise-解决了回调名不一样这个问题" class="headerlink" title="Promise 解决了回调名不一样这个问题"></a>Promise 解决了回调名不一样这个问题</h2><p>promise本质上是为了规定 统一 一种形式。</p>
+<p><strong>请背</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xxx</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">f1, f2</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// doSomething()</span></span><br><span class="line">    	setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="comment">// 成功就调用 f1，失败就调用 f2</span></span><br><span class="line">    	&#125;,<span class="number">3000</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xxx().then(success, fail)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 链式操作</span></span><br><span class="line">xxx().then(success, fail).then(success, fail)</span><br></pre></td></tr></table></figure>
+<h2 id="升级你的-jQuery-ajax-满足-Promise-规则"><a href="#升级你的-jQuery-ajax-满足-Promise-规则" class="headerlink" title="升级你的 jQuery.ajax 满足 Promise 规则"></a>升级你的 jQuery.ajax 满足 Promise 规则</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/29/37AJAX/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/29/37AJAX/" itemprop="url">AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T09:59:34+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-06T00:15:31+08:00">
+                2019-08-06
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/29/37AJAX/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/29/37AJAX/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端如何向后端发请求？"><a href="#前端如何向后端发请求？" class="headerlink" title="前端如何向后端发请求？"></a>前端如何向后端发请求？</h2><ul>
+<li><p>用<code>form</code>可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好</p>
+</li>
+<li><p>用<code>a</code>可以发 get 请求，但是也会刷新页面或新开页面</p>
+</li>
+<li><p>用<code>img</code>可以发 get 请求，但是只能以图片的形式展示- </p>
+</li>
+<li><p>用<code>link</code>可以发 get 请求，但是只能以 CSS、favicon 的形式展示</p>
+</li>
+<li><p>用<code>script</code>可以发 get 请求，但是只能以脚本的形式运行</p>
+</li>
+<li><p>有没有什么方式可以实现发get、post、put、delete请求都行，想以什么形式展示就以什么形式展示？？？</p>
+<p><img src="https://i.imgur.com/quQJU55.png" alt=""><br><img src="https://i.imgur.com/2aIct9J.png" alt=""><br><img src="https://i.imgur.com/sj7jda5.png" alt="">  </p>
+<p><img src="https://i.imgur.com/fn6AevS.png" alt=""><br><img src="https://i.imgur.com/fwykQQa.png" alt=""></p>
+</li>
+</ul>
+<h2 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h2><p><code>IE5</code> 率先在<code>JS</code>中引入 <code>ActiveX</code> 对象（API），使得 <strong>JS 可以直接发起 HTTP 请求</strong>。随后 Firefox浏览器、 Safari浏览器、 Opera浏览器 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 W3C 规范。实际上，<strong>AJAX这个术语就是用JS发HTTP请求</strong>这个技术的代名词。从此以后，<strong>AJAX奠定了前端的基础</strong>。很神奇地说。</p>
+<p>AJAX的作用是 应用了AJAX的网页应用能够快速地将增量更新呈现在用户界面上，而不需要重载（刷新）整个页面。这使得程序能够更快地回应用户的操作。简单点说，AJAX就是<strong>使用 <code>XMLHttpRequest</code> 对象与服务器通信**</strong>。 它可以使用JSON，XML，HTML和text文本等格式发送和接收数据。AJAX最吸引人的就是它的“异步”特性，也就是说他可以在不重新刷新页面的情况下与服务器通信，交换数据，然后更新页面。</p>
+<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>预习阮一峰写得很详细：<a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/bom/ajax.html</a></p>
+<p>Jesse James Garrett 给 AJAX取名叫做：<strong>异步的 JavaScript 和 XML</strong>（<code>Asynchronous JavaScript and XML</code>）</p>
+<p>后来，<strong>AJAX就成为</strong> <strong>JavaScript 脚本发起 HTTP 请求</strong>的代名词，只要用脚本发起请求，就可以叫做 AJAX 请求,AJAX这个词已经成为了一个代名词，<strong>字面含义已经消失了</strong>。其实<strong>AJAX现在应该是AJAJ</strong>，异步的JavaScript和JSON。</p>
+<p>尽管X在Ajax中代表XML, 但由于<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/JSON" target="_blank" rel="noopener">JSON</a>的许多优势，比如更加轻量以及作为Javascript的一部分，目前<strong>JSON的使用比XML更加普遍</strong>。JSON和XML都被用于在Ajax模型中打包信息。</p>
+<p>具体一点，<strong>AJAX包括以下几个步骤</strong>：</p>
+<ol>
+<li>客服端使用<code>XMLHttpRequest</code>发HTTP请求</li>
+<li>服务器返回 <code>XML</code> 格式的字符串(现在JSON,XML过时)</li>
+<li>JS 解析<code>XML</code>(现在JSON,XML过时)，从中提取数据，并更新局部页面</li>
+</ol>
+<h2 id="如何使用-XMLHttpRequest"><a href="#如何使用-XMLHttpRequest" class="headerlink" title="如何使用 XMLHttpRequest"></a>如何使用 XMLHttpRequest</h2><p>整个过程是请求（<strong>request</strong>），响应(<strong>response</strong>)，浏览器解析(<strong>JSON.parse</strong>)</p>
+<p><strong>下面是一个用原生JS发HTTP请求的例子。</strong></p>
+<p>前端程序员写在main.js里的代码</p>
+<p>/<em>frank.com网站的浏览器访问jack.com网站的服务器,属于<strong>跨域访问</strong></em>/</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">myButton.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> request = <span class="keyword">new</span> XMLHttpRequest() <span class="comment">//1</span></span><br><span class="line">  </span><br><span class="line">  request.open(<span class="string">'GET'</span>, <span class="string">'/xxx?note'</span>) <span class="comment">// 2</span></span><br><span class="line">  request.send()                  <span class="comment">// 3</span></span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="comment">//4</span></span><br><span class="line">    <span class="keyword">if</span>(request.readyState === XMLHttpRequest.DONE)&#123;</span><br><span class="line">        <span class="keyword">if</span>(request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">300</span>)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'说明请求成功'</span>)</span><br><span class="line">          <span class="keyword">let</span> obj = <span class="built_in">JSON</span>.parse(request.responseText) </span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(request.status &gt;= <span class="number">400</span>)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'说明请求失败'</span>) </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>仔细分析上面的代码，</p>
+<p>1生成一个XMLHttpRequest 实例对象request , 2初始化request,  3 发送request请求 发送数据，2和3发送一个实际的请求，通过调用HTTP请求对象的 <code>open()</code> 和 <code>send()</code> 方法。<code>open()</code> 的第一个参数是<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank" rel="noopener">HTTP请求方法</a>（<strong>大写字母</strong>)，第二个参数是你要发送的<strong>URL</strong>。由于安全原因，默认不能调用第三方URL域名,否则会跨域访问。第三个参数是可选的，用于设置请求是否是<strong>异步</strong>的，默认为true，是异步的。 false是同步。<code>send()</code> 方法的参数可以是任何你想发送给服务器的内容</p>
+<p>4 告诉request对象，我们提供了一个函数负责处理响应。在<strong>处理响应的函数</strong>中，首先检查请求状态readyState，再检查HTTP响应码， 最后就可以拿到服务器返回的数据<code>responseText</code>了。如果<code>request.readyState === XMLHttpRequest.DONE</code>（对应的值是4），表示客户端收到了(下载完成)服务器响应并且是没问题的，可以继续执行。</p>
+<p><strong>request.readyState</strong> 属性返回一个 request<strong>代理当前所处的状态</strong>。一个 request代理总是处于下列状态中的一个：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td><code>XMLHttpRequest.UNSENT</code></td>
+<td>代理被创建，但尚未调用 open() 方法。</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td><code>XMLHttpRequest.OPENED</code></td>
+<td><code>open()</code> 方法已经被调用。</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><code>XMLHttpRequest.HEADERS_RECEIVED</code></td>
+<td><code>send()</code> 方法已经被调用，并且头部和状态已经可获得。</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td><code>XMLHttpRequest.LOADING</code></td>
+<td>下载中； <code>responseText</code> 属性已经包含部分数据。</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td><code>XMLHttpRequest.DONE</code></td>
+<td>下载操作已完成。客户端收到了响应</td>
+</tr>
+</tbody>
+</table>
+<p>注意上面这一步只在你发起异步请求时有效（既 <code>open()</code> 的第三个参数未特别指定或设为 <code>true</code>）。如果你你发起的是<strong>同步</strong>请求则不必使用函数处理响应，但是非常不推荐这样子做，它的用户体验很糟糕。</p>
+<p><strong>下面是后端程序员写在server.js里的代码。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(path===<span class="string">'/xxx'</span>)&#123;</span><br><span class="line">	response.statusCode = <span class="number">200</span> <span class="comment">//1</span></span><br><span class="line">	response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/json;charset=utf-8'</span>)  <span class="comment">//2</span></span><br><span class="line">	response.setHeader(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'http://frank.com:8001'</span>)</span><br><span class="line">    <span class="comment">//3</span></span><br><span class="line">	response.write(<span class="string">`</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">      "note":&#123;</span></span><br><span class="line"><span class="string">        "to": "小谷",</span></span><br><span class="line"><span class="string">        "from": "方方",</span></span><br><span class="line"><span class="string">        "heading": "打招呼",</span></span><br><span class="line"><span class="string">        "content": "hi"</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  `</span>)</span><br><span class="line">    <span class="comment">//4</span></span><br><span class="line">  response.end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//封装的ajax函数，只适合GET方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">myButton.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;ajaxRequest(<span class="string">'GET'</span>, <span class="string">'/xxx?note'</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajaxRequest</span> (<span class="params">methodString, urlString</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> request = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">  request.open(methodString, urlString) </span><br><span class="line">  request.send()                  </span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="params">()</span>=&gt;</span>&#123; </span><br><span class="line">    <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">300</span>)&#123;</span><br><span class="line">          <span class="keyword">let</span> object = <span class="built_in">JSON</span>.parse(request.responseText) </span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(request.status &gt;= <span class="number">400</span>)&#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用XMLHttpRequest 对象与服务器通信分为四步:</p>
+<ol>
+<li><p><strong>生成一个XMLHttpRequest实例对象request</strong></p>
+</li>
+<li><p><strong>配置request对象</strong></p>
+</li>
+<li><p><strong>发送request对象</strong></p>
+</li>
+<li><p><strong>监听request对象的readystate变化</strong></p>
+<p>细节分析：</p>
+</li>
+</ol>
+<ul>
+<li><code>window.XMLHttpRequest</code> 既是构造函数 也是一个对象。</li>
+<li><code>var request = new XMLHttpRequest()</code>，request是XMLHttpRequest的一个实例对象，有很多属性。</li>
+<li>当<code>request.readyState</code>值为4时，整个请求过程已经完成（响应体已经下好了）。</li>
+<li><code>request.onreadystatechange</code>监听<code>request.readyState</code></li>
+<li><strong>后台只能返回一个字符串给前端，不能返回对象</strong>，只不过这个字符串可以可以是XML格式、JSON格式、CSS格式、HTML格式、Text格式，例如上面后端代码就是返回JSON格式的字符串给浏览器，<code>response.setHeader(&#39;Content-Type&#39;, &#39;text/json;charset=utf-8&#39;)</code></li>
+<li><strong>响应的第四部分是字符串</strong>。可以用 JSON 语法表示一个对象，也可以用 JSON 语法表示一个数组，还可以用 XML 语法，还可以用 HTML 语法，还可以用 CSS 语法，还可以用 JS 语法，还可以用我自创的语法</li>
+</ul>
+<h2 id="JSON-——-一门新语言，但不是一门编程语言"><a href="#JSON-——-一门新语言，但不是一门编程语言" class="headerlink" title="JSON —— 一门新语言，但不是一门编程语言"></a>JSON —— 一门新语言，但不是一门编程语言</h2><p><a href="http://json.org" target="_blank" rel="noopener">http://json.org</a>查看JSON的铁轨图。<br>JSON和JS是两门语言。JSON是抄袭JS，但JSON没有抄袭JS的<code>function</code>,<code>undefined</code>,<code>symbol</code>。JSON的作者还写了《语言精粹》来说JS的不好。</p>
+<h4 id="一、-JSON-值的数据类型：null-true-false-JSONstring-JSONnumber-JSONobject-JSONarray"><a href="#一、-JSON-值的数据类型：null-true-false-JSONstring-JSONnumber-JSONobject-JSONarray" class="headerlink" title="一、 JSON 值的数据类型：null  true/false  JSONstring  JSONnumber  JSONobject  JSONarray"></a><strong>一、 JSON 值的数据类型：null  true/false  JSONstring  JSONnumber  JSONobject  JSONarray</strong></h4><p>JSON是一种轻量级的用于数据交互的文本格式。人类很容易读写。机器很容易解析和生成。JSON是一种完全独立于语言的<strong>文本格式。</strong>所以非常通用。JSON就是为了<strong>表示文本数据</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>JavaScript数据类型</th>
+<th>与 JSON 数据类型  的区别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对象和数组</td>
+<td><strong>属性名称必须是双引号括起来的字符串</strong>；最后一个属性后不能有逗号。</td>
+</tr>
+<tr>
+<td>数值</td>
+<td>禁止出现前导零（ JSON.stringify 方法自动忽略前导零，而在 JSON.parse 方法中将会抛出 SyntaxError）；如果有小数点, 则后面至少跟着一位数字。</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>只有有限的一些字符可能会被转义；禁止某些控制字符； Unicode 行分隔符 （<a href="http://unicode-table.com/cn/2028/" target="_blank" rel="noopener">U+2028</a>）和段分隔符 （<a href="http://unicode-table.com/cn/2029/" target="_blank" rel="noopener">U+2029</a>）被允许 ; <strong>字符串必须用双引号括起来</strong>。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*`JS`      与      `JSON`*/   值的一一对应</span><br><span class="line"></span><br><span class="line">undefined       	没有</span><br><span class="line">null		    	null</span><br><span class="line">true,false			true,false</span><br><span class="line">'frank'				"frank"	  </span><br><span class="line">['a','b']			[<span class="string">"a"</span>,<span class="string">"b"</span>]  </span><br><span class="line">&#123;name:'frank'&#125;		&#123;"name":"frank"&#125;</span><br><span class="line">function fn()&#123;&#125;		JSON没有函数</span><br><span class="line">var a=&#123;&#125;;a.self=a	办不到（JSON没有变量）</span><br><span class="line">&#123;__proto__&#125;			JSON没有原型链</span><br></pre></td></tr></table></figure>
+<h4 id="二、-JSON-对象"><a href="#二、-JSON-对象" class="headerlink" title="二、 JSON 对象"></a>二、 JSON 对象</h4><p>JSON对象是JavaScript 的原生对象，用来处理 JSON 格式数据，注意不是函数也不是构造函数。<strong>JSON对象</strong>包含两个方法:  <code>JSON.parse()</code> 方法， <code>JSON.stringify()</code> 方法。除了这两个方法, JSON这个对象本身并没有其他作用。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener"><code>JSON.parse()</code></a></p>
+<p>用于<strong>解析JSON字符串</strong>并返回对应的值，可以额外传入一个转换函数，用来将生成的值和其属性, 在返回之前进行某些修改。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse("null")		  //null</span><br><span class="line">JSON.parse('null')		  //null</span><br><span class="line">JSON.parse("true")		  //true</span><br><span class="line">JSON.parse("123")		  //123</span><br><span class="line">JSON.parse('"foo"')       // "foo"</span><br><span class="line">JSON.parse("\"abc\"")    // "abc" 字符串尤其要注意，双引号里面的是转义字符，这样JS引擎才能识别</span><br><span class="line">JSON.parse("[]")		//[]</span><br><span class="line">JSON.parse("&#123;&#125;")		//&#123;&#125;</span><br><span class="line">JSON.parse("[\"a\", \"b\", \"c\"]")		//["a", "b", "c"]</span><br><span class="line">JSON.parse("&#123;\"1\": \"a\", \"2\": \"b\", \"3\": \"c\"&#125;")	//&#123;1: "a", 2: "b", 3: "c"&#125;</span><br><span class="line">JSON.parse("&#123;\"a\": \"a\", \"b\": \"b\", \"c\": \"c\"&#125;")	//&#123;a: "a", b: "b", c: "c"&#125;</span><br></pre></td></tr></table></figure>
+<p>注意</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse("undefined")   //Uncaught SyntaxError: Unexpected token u in JSON at position 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果<strong>传入的字符串不是有效的 JSON 格式</strong>，<code>JSON.parse</code>方法将报错。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">"'String'"</span>) <span class="comment">//Uncaught SyntaxError: Unexpected token ' in JSON at position 0</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码中，双引号字符串中是一个单引号字符串，因为单引号字符串不符合 JSON 格式，所以报错。</strong></p>
+<p>也就是说，双引号字符串中 的内容必须符合JSON格式。</p>
+<ul>
+<li><strong>为了处理解析错误，可以将<code>JSON.parse</code>方法放在<code>try...catch</code>代码块中。</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">JSON</span>.parse(<span class="string">"'String'"</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'parsing error'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>JSON.parse</code>方法可以接受一个处理函数，作为第二个参数，用法与<code>JSON.stringify</code>方法类似。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (key === <span class="string">'a'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> value + <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'&#123;"a": 1, "b": 2&#125;'</span>, f)</span><br><span class="line"><span class="comment">// &#123;a: 11, b: 2&#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>JSON.parse</code>的第二个参数是一个函数，如果键名是<code>a</code>，该函数会将键值加上10。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener"><code>JSON.stringify()</code></a></p>
+<p>该方法将对象/值<strong>转换为 符合JSON格式的字符串</strong>，并且可以被<code>JSON.parse</code>方法还原。可以通过额外的参数, 控制仅包含某些属性, 或者以自定义方法来替换某些key对应的属性值。</p>
+<p><strong>1 JSON.stringify()方法的第一个参数 是 被转换的值</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify(null)   //"null"</span><br><span class="line">JSON.stringify(true)   //"true"</span><br><span class="line">JSON.stringify(123)   //"123"</span><br><span class="line">JSON.stringify('abc')   //"\"abc\""    尤其要注意，双引号里面的是转义字符，这样JS引擎才能识别</span><br><span class="line">JSON.stringify([])   //"[]"</span><br><span class="line">JSON.stringify(&#123;&#125;)   //"&#123;&#125;"</span><br><span class="line"></span><br><span class="line">JSON.stringify(['a','b','c'])  // "[\"a\", \"b\", \"c\"]"</span><br><span class="line">JSON.stringify(&#123;1: 'a', 2: 'b', 3: 'c'&#125;)  // "&#123;\"1\": \"a\", \"2\": \"b\", \"3\": \"c\"&#125;"</span><br></pre></td></tr></table></figure>
+<p>上面代码表明JSON格式字符串一定是被双引号包裹起来的。所以当JSON格式字符串里面还有字符串时，必须要加转义字符。分单的双的太麻烦了，以后<strong>JSON格式</strong>需要用引号的地方<strong>只用双引号</strong>。</p>
+<p>注意：</p>
+<p>如果对象的属性是<code>undefined</code>、函数或 XML 对象，该属性会被<code>JSON.stringify</code>过滤。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  a: undefined,</span><br><span class="line">  b: function () &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">JSON.stringify(obj) // "&#123;&#125;"</span><br></pre></td></tr></table></figure>
+<p>如果数组的成员是<code>undefined</code>、函数或 XML 对象，则这些数组元素被<code>JSON.stringify</code>转成<code>null</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="literal">undefined</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;];</span><br><span class="line"><span class="built_in">JSON</span>.stringify(arr) <span class="comment">// "[null,null]"</span></span><br></pre></td></tr></table></figure>
+<p>正则对象会被<code>JSON.stringify</code>转成空对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// "&#123;&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>函数和undefined 会返回undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="literal">undefined</span>) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p><code>JSON.stringify</code>方法会忽略对象的不可遍历的属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  <span class="string">'foo'</span>: &#123;</span><br><span class="line">    value: <span class="number">1</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'bar'</span>: &#123;</span><br><span class="line">    value: <span class="number">2</span>,</span><br><span class="line">    enumerable: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj); <span class="comment">// "&#123;\"foo\":1&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>2 JSON.stringify()方法 还可以接受一个数组，数组的元素值是对象的部分属性名，作为<strong>第二个参数</strong>。这个数组指定了 对象的哪些属性需要转成字符串。这个数组只对对象的属性有效，对数组无效。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="string">'prop1'</span>: <span class="string">'value1'</span>,</span><br><span class="line">  <span class="string">'prop2'</span>: <span class="string">'value2'</span>,</span><br><span class="line">  <span class="string">'prop3'</span>: <span class="string">'value3'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> selectedProperties = [<span class="string">'prop1'</span>, <span class="string">'prop2'</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj, selectedProperties)  <span class="comment">// "&#123;\"prop1\": \"value1\", \"prop2\": \"value2\"&#125;"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify([<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'0'</span>])</span><br><span class="line"><span class="comment">// "[\"a\",\"b\"]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123;<span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>&#125;, [<span class="string">'0'</span>])</span><br><span class="line"><span class="comment">// "&#123;\"0": \"a\"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，第二个参数指定 JSON 格式只转<code>0</code>号属性，实际上对数组是无效的，只对对象有效。</p>
+<p><strong>第二个参数还可以是一个函数</strong>，用来更改<code>JSON.stringify</code>的返回值。这个函数会对 对象的<strong>每对键值对</strong> 操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">"number"</span>) &#123;</span><br><span class="line">    value = <span class="number">2</span> * value;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;, f)</span><br><span class="line"><span class="comment">// '&#123;\"a\": 2, \"b\": 4&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中的<code>f</code>函数，接受两个参数，分别是被转换的对象的键名和键值。如果键值是数值，就将它乘以<code>2</code>，否则就原样返回。</p>
+<p><strong>注意，这个处理函数f是递归处理所有的键。</strong>递归的意思是若f函数的返回值还是一个对象，就会用f函数继续处理这个对象，<strong>直到f函数返回一个值为止</strong>，f函数返回的是一个值（不是undefined），JSON.stringify方法才会处理这个值对应的属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"["</span>+ key +<span class="string">"]:"</span> + value);</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br><span class="line"><span class="comment">// []:[object Object]</span></span><br><span class="line"><span class="comment">// [a]:[object Object]</span></span><br><span class="line"><span class="comment">// [b]:1</span></span><br><span class="line"><span class="comment">// '&#123;\"a\":&#123;\"b\": 1&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>o</code>一共会被<code>f</code>函数处理<strong>三次</strong>，最后那行是<code>JSON.stringify</code>的输出。第一次键名为空，键值是整个对象<code>o</code>；第二次键名为<code>a</code>，键值是<code>{b: 1}</code>；第三次键名为<code>b</code>，键值为1。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;, <span class="attr">c</span>: &#123;<span class="attr">d</span>: <span class="number">2</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"["</span>+ key +<span class="string">"]:"</span> + value);</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br><span class="line"><span class="comment">//[]:[object Object]</span></span><br><span class="line"><span class="comment">//[a]:[object Object]</span></span><br><span class="line"><span class="comment">//[b]:1</span></span><br><span class="line"><span class="comment">//[c]:[object Object]</span></span><br><span class="line"><span class="comment">//[d]:2</span></span><br><span class="line"><span class="comment">//"&#123;/"a/":&#123;/"b/":1&#125;,/"c/":&#123;/"d/":2&#125;&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码同上。</p>
+<p><strong>在递归处理中，每一次处理的对象，都是前一次返回的值。</strong> 一定是在递归处理中 ？？？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="attr">b</span>: <span class="number">2</span>&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br><span class="line"><span class="comment">// "&#123;\"b\": 4&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>f</code>函数第一次处理对象o，键名为空，键值为整个对象{a: 1}, <code>f</code>函数内部判断发现键值为对象类型 就 返回{b: 2}，然后f函数处理{b:2}，键值为2，f直接返回2倍键值。最后<code>JSON.stringify</code>方法就处理修改后的对象<code>o</code>。</p>
+<p><strong>如果处理函数返回<code>undefined</code>或没有返回值，则该属性会被忽略，即不会被JSON.stringify方法处理转换成JSON格式字符串。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span>(value) === <span class="string">"string"</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">a</span>: <span class="string">"abc"</span>, <span class="attr">b</span>: <span class="number">123</span> &#125;, f)</span><br><span class="line"><span class="comment">// '&#123;"b": 123&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>a</code>属性经过处理后，返回<code>undefined</code>，于是该属性被忽略了。</p>
+<p>3 <code>JSON.stringify</code>还可以接受第三个参数，用于增加返回的 JSON 字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个,也就是10和20一个效果）；如果是字符串（不超过10个字符，多出的字符会被忽略掉），则该字符串会添加在每行属性前面。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">p1</span>: <span class="number">1</span>, <span class="attr">p2</span>: <span class="number">2</span> &#125;, <span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">"&#123;</span></span><br><span class="line"><span class="comment">  /"p1/": 1,</span></span><br><span class="line"><span class="comment">  /"p2/": 2</span></span><br><span class="line"><span class="comment">&#125;"</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">p1</span>:<span class="number">1</span>, <span class="attr">p2</span>:<span class="number">2</span> &#125;, <span class="literal">null</span>, <span class="string">'|-'</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">"&#123;</span></span><br><span class="line"><span class="comment">|-/"p1/": 1,</span></span><br><span class="line"><span class="comment">|-/"p2/": 2</span></span><br><span class="line"><span class="comment">&#125;"</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>4 若参数对象有toJSON 方法</p>
+<p>如果参数对象有自定义的<code>toJSON</code>方法，那么<code>JSON.stringify(obj)</code>会相当于<code>JSON.stringify(obj.toJSON())</code>，而忽略原对象的其他属性。</p>
+<p>下面是一个普通对象的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">'三'</span>,</span><br><span class="line">  lastName: <span class="string">'张'</span>,</span><br><span class="line">  <span class="comment">// 以下会生成一个user对象的属性，属性名为函数名fullname，数值值为函数返回值</span></span><br><span class="line">  get fullName()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">user.fullname 	<span class="comment">//"张三"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user)	<span class="comment">// "&#123;"firstName":"三","lastName":"张","fullName":"张三"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>现在，为这个对象加上<code>toJSON</code>方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">'三'</span>,</span><br><span class="line">  lastName: <span class="string">'张'</span>,</span><br><span class="line">  get fullName()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;,</span><br><span class="line">  toJSON: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      name: <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user)</span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user.toJSON())</span><br><span class="line"><span class="comment">// "&#123;/"name/": /"张三/"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>JSON.stringify</code>发现参数对象有<code>toJSON</code>方法，就直接使用这个方法的返回值作为参数，而忽略原对象的其他参数。</p>
+<p><code>Date</code>对象就有一个自己的<code>toJSON</code>方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2015-01-01'</span>);</span><br><span class="line">date.toJSON() <span class="comment">// "2015-01-01T00:00:00.000Z"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(date) <span class="comment">// ""2015-01-01T00:00:00.000Z""</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>JSON.stringify</code>发现处理的是<code>Date</code>对象实例，就会调用这个实例对象的<code>toJSON</code>方法，将该方法的返回值作为参数。</p>
+<p><code>toJSON</code>方法的一个应用是，将正则对象自动转为字符串。因为<code>JSON.stringify</code>默认不能转换正则对象，但是设置了<code>toJSON</code>方法以后，就可以转换正则对象了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  reg: <span class="regexp">/foo/</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj) <span class="comment">// "&#123;"reg":&#123;&#125;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">RegExp</span>.prototype.toJSON = <span class="built_in">RegExp</span>.prototype.toString;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// ""/foo/""</span></span><br></pre></td></tr></table></figure>
+<p>上面代码在正则对象的原型上面部署了<code>toJSON()</code>方法，将其指向<code>toString()</code>方法，因此转换成 JSON 格式时，正则对象就先调用<code>toJSON()</code>方法转为字符串，然后再被<code>JSON.stringify()</code>方法处理。</p>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>只有 <strong>协议+域名+端口一模一样</strong>才允许发 AJAX 请求,所以AJAX相当安全<br>例如<br>你只要不是baidu.com里面的JS,你就不能向baidu.com这个网站发起AJAX请求。其实实际上AJAX请求已经发出去了，但<code>request.readyState</code>值始终为0，浏览器根本看不到响应的内容。<br><a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a>可以向<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a>发 AJAX 请求吗?   <strong>NO!</strong><br><a href="http://baidu.com:80" target="_blank" rel="noopener">http://baidu.com:80</a>可以向 <a href="http://baidu.com:81" target="_blank" rel="noopener">http://baidu.com:81</a>发 AJAX 请求吗? <strong>NO!</strong></p>
+<p><strong>浏览器必须保证 只有 协议+端口+域名 一模一样才允许发 AJAX 请求。</strong><br><strong>CORS 可以告诉浏览器，我俩一家的，我们一摸一样，别阻止他。</strong><br>例如：当<code>frank.com:8001</code>想要访问<code>jack.com:8002</code>时,你要打电话给<code>jack.com:8002</code>的后端程序员，当<code>jack.com:8002</code>的后端程序员给sever.js要加上如下响应头后，<code>frank.com:8001</code>才能访问<code>jack.com:8002</code>。</p>
+<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+</code></pre><h2 id="CORS-跨域"><a href="#CORS-跨域" class="headerlink" title="CORS 跨域"></a>CORS 跨域</h2><p><strong>突破同源策略 === 跨域</strong><br>CORS是一个W3C标准，全称是”跨域资源共享”（<code>Cross-origin resource sharing</code>）。它允许浏览器向跨源服务器，发出<code>XMLHttpRequest</code>请求，从而克服了AJAX只能同源使用的限制。<br>例如上面代码：</p>
+<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
+</code></pre><p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
+<h2 id="使用CORS跨域-和-使用JSONP"><a href="#使用CORS跨域-和-使用JSONP" class="headerlink" title="使用CORS跨域 和 使用JSONP"></a>使用CORS跨域 和 使用JSONP</h2><p>使用CORS跨域可以发送的请求种类不受限制，如：<code>GET</code>,<code>POST</code>,<code>DELETE</code>，<code>PUT</code>而JSONP只能发起GET请求。<br>主要还是看后台的水平。</p>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><p>windows下修改hosts文件，添加两个域名<code>frank.com</code>，<code>jack.com</code>，开两个服务器server，一个作浏览器，一个作服务器，模拟访问。</p>
+<h2 id="使用原生JS来发送AJAX请求"><a href="#使用原生JS来发送AJAX请求" class="headerlink" title="使用原生JS来发送AJAX请求"></a>使用原生JS来发送AJAX请求</h2><p><strong>请背</strong> <strong>请背</strong> <strong>请背</strong></p>
+<pre><code>  let request = new XMLHttpRequest() //1.生成一个XMLHttpRequest实例对象request
+  request.open(&apos;get&apos;, &apos;/xxx&apos;) // 2.配置request对象
+  request.send() //3.发送request对象
+  request.onreadystatechange = ()=&gt;{ //4.监听request对象的readystate变化
+      if(request.readyState === 4){
+          if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300){
+            console.log(&apos;说明请求成功&apos;)
+          }else if(request.status &gt;= 400){
+            console.log(&apos;说明请求失败&apos;) 
+          }
+      }
+}
+</code></pre><h2 id="自己的心得"><a href="#自己的心得" class="headerlink" title="自己的心得"></a>自己的心得</h2><p>标签有 <strong>添加路径的属性</strong> 就能向后台发送请求，比如form的action属性，img的src，link的href。<br>AJAX貌似是前端的一个新的开始，此后开始百家争鸣。<br>慢慢接触一些简单的后端代码，知道<strong>当浏览器遇到路径时，就会发起http请求，会进到路径里面去。</strong>这应该就是浏览器遇到路径，就会给这个路径的后端服务器发送请求，后端可以在这个路径里写好会执行什么代码，而浏览器会获取服务器端数据。    </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/初识JSONP/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/28/初识JSONP/" itemprop="url">初识JSONP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T17:17:39+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T18:38:44+08:00">
+                2018-12-28
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/28/初识JSONP/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/28/初识JSONP/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="为什么需要有JSONP？"><a href="#为什么需要有JSONP？" class="headerlink" title="为什么需要有JSONP？"></a>为什么需要有JSONP？</h2><p>JSONP是在改进用户体验中产生的。<br><br>form表单提交数据会刷新页面，刷新就要重新渲染页面，用户体验就会下降；用img只能知道成功和失败，不能知道更多的数据，那用script怎么让后端知道我要执行什么代码呢，那就加callback参数，[script+callback参数]就是【JSONP】,然后后端就根据callback构造一个函数调用，把数据塞到函数的第一个参数，然后call一下，这样浏览器就得到了它想到的数据。这就是跨域获取数据。</p>
+<h2 id="什么是-JSONP？"><a href="#什么是-JSONP？" class="headerlink" title="什么是 JSONP？"></a>什么是 JSONP？</h2><p>答：<br><strong>JSONP 是指在浏览器中通过动态创建 script 标签来发送GET请求，来得到服务端的数据的这么一种技术</strong><br><br>例如：<br><br>请求方：frank.com 的前端程序员（浏览器）<br><br>响应方：jack.com 的后端程序员（服务器）<br></p>
+<ol>
+<li>请求方创建 script，src 指向响应方，同时传一个查询参数 <code>?callbackName=yyy</code></li>
+<li>响应方根据查询参数<code>callbackName</code>，构造形如 <code>yyy.call(undefined, &#39;你要的数据&#39;)</code> 或 <code>yyy(&#39;你要的数据&#39;)</code> 这样的响应<br></li>
+<li>浏览器接收到响应，就会执行<code>yyy.call(undefined, &#39;你要的数据&#39;)</code><br></li>
+<li>那么请求方就知道了他要的数据<br><br>这就是 JSONP<br></li>
+</ol>
+<p>约定：<br></p>
+<pre><code>1. `callbackName -&gt; callback` &lt;br&gt;
+2. yyy -&gt; 随机数 frank12312312312321325()&lt;br&gt;
+ 3. jQuery 用法
+
+$.ajax({
+ url: &quot;http://jack.com:8002/pay&quot;,
+ dataType: &quot;jsonp&quot;,
+ success: function( response ) {
+     if(response === &apos;success&apos;){
+     amount.innerText = amount.innerText - 1
+     }
+ }
+ })
+</code></pre><h2 id="请问JSONP为什么不支持POST请求？"><a href="#请问JSONP为什么不支持POST请求？" class="headerlink" title="请问JSONP为什么不支持POST请求？"></a>请问JSONP为什么不支持POST请求？</h2><p>答：因为JSONP是通过动态创建script实现的，动态创建script时只能用get，不能用post。</p>
+<h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库本质上就是一个文件。<br><br>数据库其实就是硬盘上的一个文件<br><br>数据库再厉害也不能不用文件存。<br></p>
+<h3 id="进入高级以后就是跟后端（服务器）打交道了。"><a href="#进入高级以后就是跟后端（服务器）打交道了。" class="headerlink" title="进入高级以后就是跟后端（服务器）打交道了。"></a>进入高级以后就是跟后端（服务器）打交道了。</h3><h3 id="可以向后端发请求的标签"><a href="#可以向后端发请求的标签" class="headerlink" title="可以向后端发请求的标签"></a>可以向后端发请求的标签</h3><p><code>form</code>表单,<code>script</code>,<code>a</code>,<code>link</code>都可以向后台服务器发请求。但是form表单提交一定会刷新页面。script,a,link只能发起get请求，没有办法选择get，post。</p>
+<h3 id="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"><a href="#Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。" class="headerlink" title="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"></a>Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。</h3><h3 id="JSON也是一门语言，其特点就是一定要加双引号。"><a href="#JSON也是一门语言，其特点就是一定要加双引号。" class="headerlink" title="JSON也是一门语言，其特点就是一定要加双引号。"></a>JSON也是一门语言，其特点就是一定要加双引号。</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/15/DOM事件/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/15/DOM事件/" itemprop="url">DOM事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T09:17:53+08:00">
+                2018-12-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-17T11:02:38+08:00">
+                2018-12-17
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/15/DOM事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/15/DOM事件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DOM事件简介"><a href="#DOM事件简介" class="headerlink" title="DOM事件简介"></a>DOM事件简介</h1><p>我们主要学DOM Level2 ,因为DOM level 1介绍得很简单，而现在通行的DOM Level3并没有对事件进行大的修改和补充，所以我们主要学DOM Level2。<br><br><img src="https://i.imgur.com/D4OtACk.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/Brf8clx.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/vcU4H6s.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/4RnFU0r.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/oHw7IwT.png" alt=""><br></p>
+<p><hr><br><img src="https://i.imgur.com/AGFfzG5.png" alt=""><br></p>
+<p><hr></p>
+<h1 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h1><h2 id="零散知识"><a href="#零散知识" class="headerlink" title="零散知识"></a>零散知识</h2><p><img src="https://i.imgur.com/wxX0GpH.png" alt=""></p>
+<h2 id="举例：addEventListener"><a href="#举例：addEventListener" class="headerlink" title="举例：addEventListener()"></a>举例：addEventListener()</h2><p>监听事件两类：<br></p>
+<ul>
+<li>在同一个元素上设置多个监听事件。则监听事件按队列排序存储，一次点击同时触发，按照队列先进先出的原则触发。</li>
+<li>在不同元素上设置监听事件，但这些元素存在爷爷爸爸儿子这样的关系。当点击子元素时，子父爷及祖先的监听事件都会被触发，即监听事件会传播。这样的监听事件触发分为<strong>捕获阶段</strong>和<strong>冒泡阶段</strong>，可通过设置参数<code>true</code>只执行捕获阶段，或者默认<code>false</code>冒泡阶段。设置<code>stopPropagation</code>可以阻断监听事件的传播。建议阻止传播，不然点击元素，容易同时触发父元素，爷爷元素的监听事件。bug就来了。<br><br><br>从上到下：捕获阶段，从下到上，冒泡阶段。<br><br><br><img src="https://i.imgur.com/04MeUma.png" alt=""><br><br></li>
+</ul>
+<h3 id="实例：点击别处关闭浮层"><a href="#实例：点击别处关闭浮层" class="headerlink" title="实例：点击别处关闭浮层"></a>实例：点击别处关闭浮层</h3><ul>
+<li>解决法<br>用DOM事件<code>addEventListener（）</code>。<br><br><br><br>用<code>jQuery</code>写。这样写节省内存。<br><br><img src="https://i.imgur.com/xMGozV1.png" alt=""><br><br><br></li>
+<li><p>易错1 不知不觉一次触发多个事件，事件冲突<br><img src="https://i.imgur.com/viGlaWt.png" alt=""><br><img src="https://i.imgur.com/a57ZsSx.png" alt=""></p>
+</li>
+<li><p>易错2 false会阻止<code>prevent</code>事件发生和传播<code>propagation</code>,建议单独设置<br><br>设置<code>false</code>后，这个浮层里面<code>checkbox</code>点击不了<br><img src="https://i.imgur.com/MEOETwj.png" alt=""></p>
+</li>
+<li><p>易错3 不加阻止传播<br><img src="https://i.imgur.com/olctP56.png" alt=""><br><img src="https://i.imgur.com/V1yoa7U.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="冒泡的演示"><a href="#冒泡的演示" class="headerlink" title="冒泡的演示"></a>冒泡的演示</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/用jQuery实现我们的简历吧/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/13/用jQuery实现我们的简历吧/" itemprop="url">用jQuery实现我们的简历吧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T18:24:26+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-13T18:24:28+08:00">
+                2018-12-13
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/13/用jQuery实现我们的简历吧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/13/用jQuery实现我们的简历吧/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/用jQuery做一个轮播/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/12/用jQuery做一个轮播/" itemprop="url">用jQuery做一个轮播</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T19:22:32+08:00">
+                2018-12-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-14T10:37:06+08:00">
+                2018-12-14
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/12/用jQuery做一个轮播/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/12/用jQuery做一个轮播/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="内容样式行为分离"><a href="#内容样式行为分离" class="headerlink" title="内容样式行为分离"></a>内容样式行为分离</h2><p>内容（html负责） 样式（css负责）行为（JavaScript负责）分离。如果不这样做，用html做样式，代码混乱，主次不分；如果用css写内容，用户选择不了这个内容且js也选择不了；如果用css控制逻辑行为，那么css加载将会很慢；如果用JS控制css，比如$div.show(),  $div.hide() 这两个API建议建议<strong>不使用</strong>,因为$div.hide()返回的display不确定，可能会影响我们原来的布局。其实这个解决办法很简单，我们只要用JS去切换状态就好了，如$div.addClass(‘active’),我们只用JS切换状态，至于这个状态下的样式该是什么样子，就由你CSS控制就好了。<br></p>
+<h2 id="轮播需求分析"><a href="#轮播需求分析" class="headerlink" title="轮播需求分析"></a>轮播需求分析</h2><p>用户点击按钮，可以切换图片到可视窗口。<br><br><img src="https://i.imgur.com/LLzUm86.png" alt=""></p>
+<h2 id="轮播分析"><a href="#轮播分析" class="headerlink" title="轮播分析"></a>轮播分析</h2><h3 id="轮播的思路"><a href="#轮播的思路" class="headerlink" title="轮播的思路"></a>轮播的思路</h3><p>思路1:用户看到的只是局部画面<br><br>让4张图片横排后就像一张大图片images，而我们的让用户看到的窗口只有一张图片大小。<br><br>思路2：滚来滚去<br><br>用户点击按钮，将组合成的这一大张图片整体左移或者右移。<br></p>
+<h3 id="轮播功能优化"><a href="#轮播功能优化" class="headerlink" title="轮播功能优化"></a>轮播功能优化</h3><ol>
+<li>支持图片数量不限</li>
+<li>实现自动播放(播放图片数量===图片应有数量)<br><img src="https://i.imgur.com/EqSDeRN.png" alt=""><br><br><img src="https://i.imgur.com/YjN9HIA.png" alt=""><br><br><img src="https://i.imgur.com/wnL2yLA.png" alt=""><br><br><img src="https://i.imgur.com/fhpF988.png" alt=""><br></li>
+<li>自动切换到某图片对应按钮高亮<br><br><br>使用jQuery的链式操作，可以一直<code>..</code> ，注意下一次的操作对象是上一次链式操作的结果。<br><br><img src="https://i.imgur.com/O59VVj6.png" alt=""><br></li>
+<li>鼠标滑过图片自动轮播停止，滑出图片自动轮播继续。<br><br><img src="https://i.imgur.com/dXFSk93.png" alt=""><br></li>
+<li>自动轮播同时可点击按钮实现图片切换，同时按钮高亮<br><img src="https://i.imgur.com/R7yMVih.png" alt=""><br></li>
+<li>优化代码<br><br>优化代码原则：看哪里有重复代码，哪里就能优化。<br></li>
+</ol>
+<h3 id="轮播技术细节"><a href="#轮播技术细节" class="headerlink" title="轮播技术细节"></a>轮播技术细节</h3><ol>
+<li>CSS布局就使用两种 <code>display:flex;align-items:flex-start;</code> <code>display:float</code></li>
+<li><code>$(p1).on(&#39;click&#39;,function(xxx){function-body})</code>,这是jQuery的写法，第一个参数是要触发事件的名称，第二个是触发的事件执行的函数。</li>
+<li>img是可替换标签，要提前写好宽高，这样当浏览器图片还没有下载下来的时候，就会有个占位符占据这个位置，当浏览器把图片下载下来以后就用图片把占位符替换掉。<strong>提前写好img的宽高可避免重排问题，重排问题特别浪费cup。</strong></li>
+<li>注意<code>allButtons[i]</code>是DOM对象，log打出来就知道了</li>
+<li>注意给用户看到的窗口只有一张图片大小，每次移动的宽度也是图片的宽度。即 窗口宽度 === 移动宽度/次 === 图片宽度<br> </li>
+<li>移动过程记得加动画过渡。<br></li>
+<li>用括号把立即执行函数包起来就能避免使用全局变量。</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/仿jQuery构造的两个函数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/12/仿jQuery构造的两个函数/" itemprop="url">仿jQuery构造的两个函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T10:39:27+08:00">
+                2018-12-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-14T10:42:00+08:00">
+                2018-12-14
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/12/仿jQuery构造的两个函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/12/仿jQuery构造的两个函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在我的理解，jQuery就是一个个封装好的函数，这些函数里面就是调用了DOM的API,可以理解为DOM的API难用，然后我们进行了API升级改造。jQuery对象是对dom对象的封装，在获取dom对象的基础上增加了很多对象的方法，所以它们是很类似但又不同的两种对象。<br></p>
+<h2 id="通过仿写jQuery来理解jQuery"><a href="#通过仿写jQuery来理解jQuery" class="headerlink" title="通过仿写jQuery来理解jQuery"></a>通过仿写jQuery来理解jQuery</h2><p>这是我在jsbin上写的两个封装函数的例子,供学复习使用。<br><br><a href="http://js.jirengu.com/hibeh/4/edit?html,css,js,console,output" target="_blank" rel="noopener">http://js.jirengu.com/hibeh/4/edit?html,css,js,console,output</a><br><br></p>
+<p>HTML代码<br><br></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;utf-8&quot;&gt;
+      &lt;title&gt;JS Bin&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;div1&lt;/div&gt;
+        &lt;div&gt;div2&lt;/div&gt;
+        &lt;div&gt;div3&lt;/div&gt;
+        &lt;div&gt;div4&lt;/div&gt;
+        &lt;div&gt;div5&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><br><br>JavaScript代码</p>
+<pre><code>/*一、jQuery的API封装*/
+
+window.jQuery = function(nodeOrselector){
+  /*1. 获取并重构nodes对象*/
+  let nodes = {};
+  if(typeof nodeOrselector === &apos;string&apos;){
+    let temp = document.querySelectorAll(nodeOrselector);//伪数组
+
+    for(let i = 0;i&lt;temp.length;i++){
+      nodes[i] = temp[i];
+    }
+    nodes.length = temp.length;
+  }else if(nodeOrselector instanceof Node){
+    nodes = {0: nodeOrselector,length: 1};
+  }
+
+
+  /*2.1 给对象nodes添加方法addClass（函数属性）*/
+  nodes.addClass = function(classes){
+     //把classes值通过forEach函数传进去
+    classes.forEach( (value) =&gt; {
+      for(let i=0;i&lt;nodes.length;i++){
+        nodes[i].classList.add(value);
+      }
+    });         
+  }
+
+
+  /*2.2 给对象nodes添加方法setText（函数属性）*/
+  nodes.setText = function(text){
+    if(text){
+      for(let i=0 ;i&lt;nodes.length;i++){
+        nodes[i].textContent = text;
+      }
+    }
+  }
+  /*3. 返回nodes对象*/
+  return nodes
+}
+
+
+/*二、jQuery的API使用*/
+window.$ = jQuery
+var $div = $(&apos;div&apos;)
+$div.addClass([&apos;red&apos;]) // 可将所有 div 的 class 添加一个 red
+$div.setText(&apos;hi&apos;)    // 可将所有 div 的 textContent 变为 hi
+</code></pre><h2 id="代码细节问题"><a href="#代码细节问题" class="headerlink" title="代码细节问题"></a>代码细节问题</h2><ol>
+<li>html 就是加了几个div，没什么好说的。</li>
+<li>js代码分为两部分，第一部分是封装jQuery的API过程。第二部分是使用jQuery的API<br></li>
+<li>简单说，封装jQuery的API就是个把一堆代码封装成函数的过程，这个跟普通封装函数没有什么区别。这部分分为3步：<br>1获取并重构nodes对象，也是个伪数组，有length。注意先要初始化nodes，即 <code>let nodes = {};</code>,然后我们在获取nodes对象的成员时，使用了<strong>DOM的API</strong> - <code>querySelectorAll</code>。<br>2.1给对象nodes添加方法addClass（函数属性）,说白了就是nodes本来就是个对象，给对象加个（key）属性addClass，属性值(value)是个函数，这样我们在使用属性就能调用这个函数。在编写addClass这个函数我们用到了数组属性forEach，<strong>一定要记得传数组参数</strong>。还用到了箭头函数以及<strong>DOM的API</strong> - <code>ndoe.classList.add</code>。<br>2.2 同理，给对象nodes添加方法setText（函数属性），这个函数也用了<strong>DOM的API</strong> - <code>node.textContent</code>。<br>3 <code>return nodes</code>,一定要记得返回值，函数一定要有返回值，不然就给你 <code>return undefined</code>。<br></li>
+<li>第二部分，jQuery的API使用。<br><ul>
+<li><code>window.$ = jQuery</code>,那么<code>$</code>就是<code>jQuery</code>这个函数，可以少写单词。<br></li>
+<li><code>var $div = $(&#39;div&#39;)</code>,此时<code>$div</code>就是<code>nodes</code>对象,这样我们就通过标签名获得了一组同名标签对象。建议在声明jQuery对象时在变量名前加<code>$</code>，这样就能清楚地知道这是jQuery的对象，要使用jQuery的API,而不是使用DOM的API。<br></li>
+<li><code>$div.addClass([&#39;red&#39;])</code>，这句话就是<code>$div</code>这个对象调用了它的属性函数<code>addClass</code>，同时传了一个数组参数<code>[&#39;red&#39;]</code>，注意必须是数组，因为我们用了forEach。这里还要注意一点是<code>$div</code>实际上也被传入到这个属性函数<code>addClass</code>里面了，这是不同于以前我学C语言。因为<code>$div.addClass([&#39;red&#39;])</code>实际上是<code>$div.addClass.call($div,[&#39;red&#39;])</code>的简写，后者是js函数调用的规范版。<code>.</code>前面的东西也是作为参数传入到函数里面的。</li>
+<li><code>$div.setText(&#39;hi&#39;)</code>，也是同上的原理，<code>$div</code>调用了它的属性函数<code>setText</code>，实际传入了两个参数<code>$div</code>和<code>&#39;hi&#39;</code>。<hr>
+
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>以下内容是我随堂记的笔记，比较零散，你可不看。</strong><br></p>
+<ol>
+<li>在编程里，变量名大写默认是常量。</li>
+<li>有一个易错的点，不要用全局变量当作id，比如alert,parent之类的，你用了要么就是你覆盖别人，要么就是别人覆盖你。所以要么你不用全局变量，要么你造一个函数，把这个变量变成局部的。</li>
+<li>DOM作业某题引发的关于全局变量、局部变量、立即执行函数的问题:用var声明一个变量，var会先找作用域，如果发现没有函数，那么var就会声明一个全局变量，那么就有可能将window的全局变量覆盖掉。然后JS就想了一个办法升级，用let在块{}里面声明变量，let是跑不出去{}外面的，如<code>{let parent}</code>,这个parent就是局部变量，跑不出{}。而var由于可以变量提升，块{}是包不住var的，只有函数才能包住var，让var声明一个局部变量，如<code>（ function(){var parent}.call() ）</code>,这是立即调用函数的例子，必须用括号将函数括起来，不然会报错。立即调用函数可以写为<code>(   function(){var parent}()  )</code></li>
+<li><div id="parent"></div> 易错题</li>
+<li>调试大法，出bug时，一行行删能找到bug，但是注意你删的过程中不要造成新的bug。排bug大法。</li>
+<li>jQuery的设计思想：给我一个node，给你返回对象；你给我一个id，我就能给你找到这个选择器。</li>
+<li></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>简单说，jQuery就是封装了一些DOM的API的函数集合，也叫jQuery的API。jQuery的对象使用jQuery的API，DOM的对象使用DOM的API。</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://linyan.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

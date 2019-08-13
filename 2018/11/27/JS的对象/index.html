@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。 全局对象 window我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做global，但是浏览器把window作为全局对象。window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS的对象">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/JS的对象/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。 全局对象 window我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做global，但是浏览器把window作为全局对象。window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/fx1VU88.png">
+<meta property="og:image" content="https://i.imgur.com/ZN9cDuE.png">
+<meta property="og:image" content="https://i.imgur.com/d54A67s.png">
+<meta property="og:image" content="https://i.imgur.com/RMpNcrF.png">
+<meta property="og:image" content="https://i.imgur.com/SgadUcG.png">
+<meta property="og:image" content="https://i.imgur.com/oqryDG3.png">
+<meta property="og:image" content="https://i.imgur.com/0hdTr6x.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/Fmroex.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/Fms9Tf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/Fm6XpF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/Fmf9J0.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/Fm5j10.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/FmIiN9.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/Fmhh4I.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/Fm5nFs.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/30/FmIcuT.png">
+<meta property="og:updated_time" content="2018-11-30T14:15:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS的对象">
+<meta name="twitter:description" content="JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。 全局对象 window我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做global，但是浏览器把window作为全局对象。window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种">
+<meta name="twitter:image" content="https://i.imgur.com/fx1VU88.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/27/JS的对象/">
+
+
+
+
+
+  <title>JS的对象 | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JS的对象/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS的对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T14:18:03+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T22:15:02+08:00">
+                2018-11-30
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/27/JS的对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/27/JS的对象/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。<br></p>
+<h2 id="全局对象-window"><a href="#全局对象-window" class="headerlink" title="全局对象 window"></a>全局对象 window</h2><p>我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做<code>global</code>，但是浏览器把<code>window</code>作为全局对象。<br><br><strong>window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种私有。公有就是ECMAscript规定的，私有就是某些浏览器自己加的windows属性，且各浏览器表现出来的形式不一样。</strong><br></p>
+<p><strong>ECMAScript规定的</strong>：<br></p>
+<ul>
+<li>global.parseInt</li>
+<li>global.parseFloat</li>
+<li>global.Number</li>
+<li>global.String</li>
+<li>global.Boolean</li>
+<li>global.Object</li>
+</ul>
+<p><strong>各浏览器自己加的属性:</strong><br></p>
+<ul>
+<li>window.alert(弹框提示)</li>
+<li>window.prompt（用户填写）</li>
+<li>window.comfirm（用户确认）</li>
+<li>window.console.log（开发者）</li>
+<li>window.console.dir</li>
+<li>window.document（文档，其标准DOM由W3C组织制定）</li>
+<li>window.document.createElement</li>
+<li>window.document.getElementById</li>
+<li>window.history(浏览器，其标准为BOM)</li>
+<li>window.history.back</li>
+<li>全局属性，window可省略<br><img src="https://i.imgur.com/fx1VU88.png" alt=""><br><br>下面我们学习四个全局属性，<code>Number()</code> <code>String</code> <code>Boolean</code> <code>Object</code>.<br></li>
+</ul>
+<ol>
+<li><strong><code>var n1 = Number(&#39;1&#39;)</code> 和 <code>var n2 = 1;</code> 与 <code>var n3 = new Number(1)</code>三者的区别：前二者声明数字number类型，后者为对象object类型</strong><br><br><br><img src="https://i.imgur.com/ZN9cDuE.png" alt=""><br><br><img src="https://i.imgur.com/d54A67s.png" alt=""><br></li>
+</ol>
+<p><strong>有一个重要的问题需要弄清楚</strong>，我们知道，简单类型（number/string/boolean）是没有属性的，但是上面为什么<code>n2.toString</code>又是成立的呢，其实是<code>n2.toString</code>返回的是一个<strong>临时对象<code>temp</code></strong>的<code>temp.toString()</code>值，这是JS设计者想的一个办法，既能语法像JAVA满足boss的要求，又能方便程序员的使用。下面我们来看看<code>var n2 = 1; n2.toString();</code> 这两句代码发生了什么：<br></p>
+<pre><code>var n2 = 2;      //1.声明了一个简单的number类型，值为2
+n2.toString();   //2.执行这句时，发现n2不是一个对象，这时会在内存里新建一个临时对象temp,这个临时对象temp等价于用new Number(1)创建的对象（复杂数字，由属性和值组成）。
+                //3.调用temp的toString属性，将temp.toString的值返回 作为 n2.toString的值（实际上n2是没有属性的）。
+                //3.在返回值后temp这个对象会被立刻释放掉，立刻释放掉，下次又使用的时候又重新建temp临时对象。
+                //4.说明：temp这个临时对象随浏览器解析n2.String()这句代码而建立，随代码执行结束而释放。
+                //4.说明：可以往temp里面加属性，只不过temp用完就被释放，所以添加属性没有意义，下次找不见。
+</code></pre><p><br><br>内存图<br><br><img src="https://i.imgur.com/RMpNcrF.png" alt=""><br></p>
+<p><hr><br><strong>还有一个易错的问题：</strong><br><br>1<br><br><img src="https://i.imgur.com/SgadUcG.png" alt=""><br><br>2<br><br><img src="https://i.imgur.com/oqryDG3.png" alt=""><br><br>3<br><br><img src="https://i.imgur.com/0hdTr6x.png" alt=""><br><br><br></p>
+<ol start="2">
+<li><strong><code>var s1 = String(1)</code> 和 <code>var s2 = &#39;this is a string.&#39;;</code> 与 <code>var n3 = new Number(&#39;this is a string.&#39;)</code>三者的区别：前二者声明数字string类型，后者为对象object类型。</strong>代码在内存的原理同number，不再画图复述。看下图：<br><br><br><a href="https://imgchr.com/i/Fmroex" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmroex.png" alt="Fmroex.png"></a><br></li>
+<li><strong><code>var b1 = Boolean(4)</code> 和 <code>var b2 = false;</code> 与 <code>var b3 = new Boolean(false);</code>三者的区别：前二者声明数字boolean类型，后者为对象object类型。</strong>第一为强制类型转换为boolean,第二是程序员方便使用，第三是给老板看，把 <code>false</code>包装成 对象。代码在内存的原理同number,string，不再画图复述<br><br><a href="https://imgchr.com/i/Fms9Tf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fms9Tf.png" alt="Fms9Tf.png"></a><br></li>
+<li><p><strong><code>var o1 = Object(2)</code> 和 <code>var o2 = {};</code> 与 <code>var o3 = new Object();</code>三者的区别：第一是强制类型转换成对象类型，第二程序员常用声明一个对象类型，第三应付boss，仿JAVA。但是注意o2!==o3，两个不同的对象</strong><br><br><br><a href="https://imgchr.com/i/Fm6XpF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm6XpF.png" alt="Fm6XpF.png"></a><br><br><hr></p>
+<h2 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h2><p><hr></p>
+<h2 id="公用的属性藏在哪"><a href="#公用的属性藏在哪" class="headerlink" title="公用的属性藏在哪"></a>公用的属性藏在哪</h2><p><strong>proto</strong>:object  //<strong>proto</strong>这个属性不用写就有，每一个对象的 <strong>proto</strong> 存储「公用属性组成的对象」的地址。<br><br><br><a href="https://imgchr.com/i/Fmf9J0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmf9J0.md.png" alt="Fmf9J0.md.png"></a><br><br>当解析一句代码时，如果这个不是对象，就包装成一个对象，自动生成<code>__proto__</code>。<br><br>所有对象的公有属性（也叫原型）： <code>Object.prototype</code>;<br><br>所有number的公有属性（也叫原型）： <code>Number.prototype</code><br><br>所有string的公有属性（也叫原型）： <code>String.prototype</code><br><br>所有boolean的公有属性（也叫原型）： <code>Boolean.prototype</code><br><br><a href="https://imgchr.com/i/Fm5j10" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5j10.md.png" alt="Fm5j10.md.png"></a><br><br><a href="https://imgchr.com/i/FmIiN9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIiN9.md.png" alt="FmIiN9.md.png"></a><br></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p><strong>多用开发者工具的控制台去验证，尝试理解。</strong><br><br><a href="https://imgchr.com/i/Fmhh4I" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmhh4I.md.png" alt="Fmhh4I.md.png"></a><br><br><code>prototype</code>和<code>__proto__</code>的区别：前者的函数的属性，后者是对象的属性。<br><br><a href="https://imgchr.com/i/Fm5nFs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5nFs.md.png" alt="Fm5nFs.md.png"></a><br><br><hr></p>
+<h2 id="重要公式-原型与原型链"><a href="#重要公式-原型与原型链" class="headerlink" title="重要公式-原型与原型链"></a>重要公式-原型与原型链</h2><p>var 对象 = new 函数（）<br>对象.<strong>proto</strong> === 函数.prototype  //都指向同一个公有属性对象地址，调用API<br>// 推论<br>var number = new Number()<br>number.<strong>proto</strong> = Number.prototype<br>Number.<strong>proto</strong> = Function.prototype // ?因为 Number 是 Function 的实例</p>
+<p>var object = new Object()<br>object.<strong>proto</strong> = Object.prototype<br>Object.<strong>proto</strong> = Function.prototype //? 因为 Object 是 Function 的实例,Function 是 Object 的构造函数。</p>
+<p>var function = new Function()<br>function.<strong>proto</strong> = Function.prototype<br>Function.<strong>proto</strong> == Function.prototye // ?因为 Function 是 Function 的实例！</p>
+</li>
+</ol>
+<p><a href="https://imgchr.com/i/FmIcuT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIcuT.png" alt="FmIcuT.png"></a><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/27/JS的类型/" rel="next" title="JS的类型">
+                <i class="fa fa-chevron-left"></i> JS的类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/01/搜索引擎大法/" rel="prev" title="搜索引擎大法">
+                搜索引擎大法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局对象-window"><span class="nav-number">1.</span> <span class="nav-text">全局对象 window</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局函数"><span class="nav-number">2.</span> <span class="nav-text">全局函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公用的属性藏在哪"><span class="nav-number">3.</span> <span class="nav-text">公用的属性藏在哪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">4.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要公式-原型与原型链"><span class="nav-number">5.</span> <span class="nav-text">重要公式-原型与原型链</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://linyan.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/11/27/JS的对象/';
+          this.page.identifier = '2018/11/27/JS的对象/';
+          this.page.title = 'JS的对象';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://linyan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

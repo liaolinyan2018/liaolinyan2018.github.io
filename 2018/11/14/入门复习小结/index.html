@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="回顾目前所学的知识点计算机是如何存储数据的0和1的存储 软件安装主要是gitbash 命令行基础多记单词pwd   print working dir 打印出当前正在使用的目录名cd    change dir        进入这个目录,常用的如 返回上一级目录cd ..，进入hexo目录 cd /e/hexomkdir make directories 创建一个新的目录，如mkdir test">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="入门复习小结">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/入门复习小结/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="回顾目前所学的知识点计算机是如何存储数据的0和1的存储 软件安装主要是gitbash 命令行基础多记单词pwd   print working dir 打印出当前正在使用的目录名cd    change dir        进入这个目录,常用的如 返回上一级目录cd ..，进入hexo目录 cd /e/hexomkdir make directories 创建一个新的目录，如mkdir test">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/Yre7GGW.jpg">
+<meta property="og:image" content="https://i.imgur.com/HnMyrXm.jpg">
+<meta property="og:image" content="https://i.imgur.com/xszkOw7.jpg">
+<meta property="og:image" content="https://i.imgur.com/sHKJpl8.jpg">
+<meta property="og:updated_time" content="2018-11-14T08:06:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="入门复习小结">
+<meta name="twitter:description" content="回顾目前所学的知识点计算机是如何存储数据的0和1的存储 软件安装主要是gitbash 命令行基础多记单词pwd   print working dir 打印出当前正在使用的目录名cd    change dir        进入这个目录,常用的如 返回上一级目录cd ..，进入hexo目录 cd /e/hexomkdir make directories 创建一个新的目录，如mkdir test">
+<meta name="twitter:image" content="https://i.imgur.com/Yre7GGW.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/入门复习小结/">
+
+
+
+
+
+  <title>入门复习小结 | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/入门复习小结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">入门复习小结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T08:13:44+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-14T16:06:44+08:00">
+                2018-11-14
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/14/入门复习小结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/14/入门复习小结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="回顾目前所学的知识点"><a href="#回顾目前所学的知识点" class="headerlink" title="回顾目前所学的知识点"></a>回顾目前所学的知识点</h1><h2 id="计算机是如何存储数据的"><a href="#计算机是如何存储数据的" class="headerlink" title="计算机是如何存储数据的"></a>计算机是如何存储数据的</h2><p>0和1的存储<br></p>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p>主要是gitbash<br></p>
+<h2 id="命令行基础"><a href="#命令行基础" class="headerlink" title="命令行基础"></a>命令行基础</h2><p>多记单词<br><br><code>pwd</code>   print working dir 打印出当前正在使用的目录名<br><br><code>cd</code>    change dir        进入这个目录,常用的如 返回上一级目录<code>cd ..</code>，进入hexo目录 <code>cd /e/hexo</code><br><br><code>mkdir</code> make directories 创建一个新的目录，如<code>mkdir test</code> <code>mkdir /e/hexo/test</code><br><br><code>touch</code>  新建一个文件，不可给文件添加内容，如<code>touch 1.txt</code><br><br><code>echo &quot;hi&quot; &gt; 1.txt</code> ，echo一个新文件1.txt，并将内容”hi”添加到1.txt<br><br><code>echo &quot;hi&quot; &gt;&gt; 1.txt</code> ，追加内容”hi”到文件1.txt，若1.txt不存在，则新建1.txt再追加。<br><br><code>echo &quot;hi&quot; &gt;! 1.txt</code> 没使用过。强制覆盖内容 <br><br><code>cp -r</code>  copy files and directories /copy directories recursively 拷贝文件/递归的拷贝目录 ，如 <code>cp test(必须已存在) cptest</code> <br><br><code>rm -rf</code> remove files or directories/ remove directories and their contents recursively/f-force  强制的移除文件/目录里的所有内容，如<code>rm -rf test</code><br><br> <code>mv</code> move (rename) files/Rename source to dest/move source(s) to directory. 重命名文件，如 <code>mv 1.txt(必须已存在) 2.txt</code><br><br><code>tree</code>  list contents of directories in a tree-like format 以树结构的形式列出目录里的内容。<br> </p>
+<blockquote>
+<p>git init<br><br>git add . /<em>常用</em>/<br><br>git commit . -m “hi” /<em>常用</em>/<code>git commit=Record changes to the repository`</code>-m=-message` <br><br>git pull   <br><br>git push    /<em>常用</em>/<br><br>git clone <br></p>
+</blockquote>
+<p><code>curl -L http://baidu.com</code> <br><br> <code>curl -s -v -- http://baidu.com</code></p>
+<pre><code>ping qq.com
+
+/*hexo与github快速搭建博客*/
+hexo init
+hexo g
+hexo server //不常用
+hexo deploy
+</code></pre><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>由单个命令行到写个小脚本，计算机按照你写的脚本执行脚本，就完成一些列工作。<strong>程序复用</strong>可以省很多工作。<br></p>
+<h2 id="HTTP-入门"><a href="#HTTP-入门" class="headerlink" title="HTTP 入门"></a>HTTP 入门</h2><p>前面四节课的知识都是为了HTTP入门储备知识，HTTP是前端的第一个核心知识。方方说以后也是围绕HTTP来学。前面我们用命令行curl和直接查开发者工具 学习请求和响应的四部分。<br></p>
+<p>命令行查看：</p>
+<blockquote>
+<p>curl -L <a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a><br><br>curl -s -v – <a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a><br><br>开发者工具查看：<br><br><img src="https://i.imgur.com/Yre7GGW.jpg" alt=""><br><strong>面试考默写请求和响应四部分、状态码：</strong><br>请求四部分<br><br>响应四部分<br></p>
+</blockquote>
+<blockquote>
+<p><strong>GET 请求</strong><br><br>GET /?w=1 HTTP/1.1 <br><br>Host: baidu.com    <br><br>Accept: text/html  <br><br><strong>对应响应</strong> <br><br>HTTP/1.1 200 OK <br><br>Content-Type: text/html; charset=utf-8 <br><br>Content-Length: 10000 <br><br>&lt;!DOCTYPE&gt; <br><br><code>&lt;html&gt;......&lt;/html&gt;</code> <br></p>
+</blockquote>
+<blockquote>
+<p><strong>POST 请求</strong> <br><br>POST /login?w=1 HTTP/1.1 <br><br>Host: baidu.com   <br><br>Accept: application/ms-word <br><br>Content-Type: application/x-www-form-urlencoded  <br><br>Content-Length: 10 <br><br>username=fangfang&amp;password=mima   <br></p>
+</blockquote>
+<blockquote>
+<p><strong>响应</strong> <br><br>HTTP/1.1 403 Forbidden   <br><br>Content-Type: application/md-word  <br><br>Content-Length: 200  <br><br>word格式</p>
+</blockquote>
+<p><img src="https://i.imgur.com/HnMyrXm.jpg" alt=""><br><img src="https://i.imgur.com/xszkOw7.jpg" alt=""></p>
+<h2 id="Node-js-Server"><a href="#Node-js-Server" class="headerlink" title="Node.js Server"></a>Node.js Server</h2><p>Node.js Server，是为了学server，不是学Node.js，也是为了学HTTP怎么运作起来的。自己用脚本写了一个小server,平时使用别人开发出来的<code>http-server . -c-1</code>,可在本地浏览调试html<br></p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
+<li>几个经常使用的标签 和 几个难的标签。有很多细碎的知识点。无难点，多动手。</li>
+<li>可加meta<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code></li>
+<li>要想浏览器浏览量高，可加<code>&lt;meta name=&quot;keyword&quot; content=&quot;前端开发&quot;&gt;</code> <code>&lt;meta name=&quot;description&quot; content=&quot;前端开发&quot;&gt;</code></li>
+<li><p>a标签是发起get请求，form标签是发起post请求。<br><br><img src="https://i.imgur.com/sHKJpl8.jpg" alt=""></p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>有很多细碎的知识点。CSS布局,从上到下。从内到外，注意细节。无难点，多动手。<br></p>
+<h2 id="最后说的话"><a href="#最后说的话" class="headerlink" title="最后说的话"></a>最后说的话</h2></li>
+<li><p>前12次课，学了前端的<strong>简单HTTP,简单HTML，简单CSS应用</strong>，第二个练手项目-一个在线静态简历。前四节课练手项目-hexo+github搭建个人博客。</p>
+</li>
+<li>要多练手CSS写静态页面，上<a href="https://dribbble.com/" target="_blank" rel="noopener">设计师网站</a>去临摹作品，google:<code>web page free psd</code>,上<a href="web page free psd">切图网站</a>可以下载很多PSD文件<br></li>
+<li>看阮一峰的CSS理论+小demo</li>
+<li>CSS页面只有 好看 好看 好看 的说法，没有人关心CSS代码写得好不好</li>
+<li>src和href的搭配。a和link标签用href，img和script和iframe用href</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/09/CSS布局/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/14/算法/" rel="prev" title="算法">
+                算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#回顾目前所学的知识点"><span class="nav-number">1.</span> <span class="nav-text">回顾目前所学的知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机是如何存储数据的"><span class="nav-number">1.1.</span> <span class="nav-text">计算机是如何存储数据的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件安装"><span class="nav-number">1.2.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行基础"><span class="nav-number">1.3.</span> <span class="nav-text">命令行基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本"><span class="nav-number">1.4.</span> <span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-入门"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP 入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-Server"><span class="nav-number">1.6.</span> <span class="nav-text">Node.js Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.7.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.8.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后说的话"><span class="nav-number">1.9.</span> <span class="nav-text">最后说的话</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://linyan.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/11/14/入门复习小结/';
+          this.page.identifier = '2018/11/14/入门复习小结/';
+          this.page.title = '入门复习小结';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://linyan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

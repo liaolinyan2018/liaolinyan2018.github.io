@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前端开发 美食 旅行">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linyan&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="前端开发 美食 旅行">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linyan&#39;s blog">
+<meta name="twitter:description" content="前端开发 美食 旅行">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/5/">
+
+
+
+
+
+  <title>Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/jQuery/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/jQuery/" itemprop="url">jQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T15:33:42+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T11:52:27+08:00">
+                2019-03-19
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/11/jQuery/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/11/jQuery/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*HTML代码*/</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"images"</span> <span class="attr">id</span>=<span class="string">images</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/1.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片1"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/2.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片2"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/3.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片3"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/4.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片4"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS代码*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">`.images &gt; img:nth-child(<span class="subst">$&#123;n&#125;</span>)`</span>)) <span class="comment">//这句代码才是打出指定的img</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.images &gt; img:nth-child(n)'</span>))<span class="comment">//这句话会打出所有img</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/JS-DOM的API/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/JS-DOM的API/" itemprop="url">JS:DOM的API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T15:49:57+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-11T11:52:56+08:00">
+                2018-12-11
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/10/JS-DOM的API/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/10/JS-DOM的API/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>&lt;html&gt;&lt;head&gt;&lt;body&gt;//三个标签都可以省略
+</code></pre><h2 id="DOM-是一棵树（tree）"><a href="#DOM-是一棵树（tree）" class="headerlink" title="DOM 是一棵树（tree）"></a>DOM 是一棵树（tree）</h2><p><code>DOM--Document Object Model</code>是<code>XML</code>文档的。<strong>DOM是把我们大脑里的Document树 映射成一个对象Object的这么一种模型</strong>。即在内存中Document的<strong>结点node</strong>是用一个个<strong>对象</strong>进行<strong>存储</strong>的，而我们程序员操作内存，就是操作这些对象。对象里面存储的内容又得看DOM规范来确定。<br></p>
+<p><img src="https://i.imgur.com/GdD3Py5.png" alt=""><br><br><img src="https://i.imgur.com/WJYX9Zx.png" alt=""><br></p>
+<h2 id="树上有-Node"><a href="#树上有-Node" class="headerlink" title="树上有 Node"></a>树上有 Node</h2><p>Node 分为 Document（是html的爸爸）、Element（元素/标签）和 Text（文本），以及其他不重要的(注释结点等)。注意回车算文本结点。通过构造函数把结点变成对象。<br><br><img src="https://i.imgur.com/SkJFGOj.png" alt=""><br><br>Node的原型链关系<br><br><img src="https://i.imgur.com/Gw1mPYG.png" alt=""></p>
+<h2 id="Node-的接口"><a href="#Node-的接口" class="headerlink" title="Node 的接口"></a>Node 的接口</h2><ul>
+<li><p>属性</p>
+<ul>
+<li>childNodes 获取子结点（包括文本结点），children获取子标签结点</li>
+<li>firstChild </li>
+<li>lastChild</li>
+<li>nextSibling</li>
+<li>previousSibling</li>
+<li>nodeName 一般都为大写</li>
+<li>nodeType  记 1为标签结点，3为文本结点。</li>
+<li>nodeValue</li>
+<li>innerText   注意：面试问：innerText的textContext的区别,同都是获取页面内容</li>
+<li>textContent </li>
+<li>outerText</li>
+<li>ownerDocument 属于哪个文档</li>
+<li>parentElement</li>
+<li><p>parentNode</p>
+</li>
+<li><p>涉及单词有：</p>
+</li>
+<li>child / children / parent</li>
+<li>node</li>
+<li>first / last</li>
+<li>next / previous</li>
+<li>sibling / siblings</li>
+<li>type</li>
+<li>value / text / content</li>
+<li>inner / outer</li>
+<li>element</li>
+<li>然后互相组合<br><br></li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li>如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性<br></li>
+<li>appendChild()</li>
+<li>cloneNode() true深拷贝 false浅拷贝 面试：深拷贝与浅拷贝的区别</li>
+<li>contains()</li>
+<li>hasChildNodes()</li>
+<li>insertBefore()</li>
+<li>isEqualNode() 两个独立标签相等，但是不是相同的，相等和相同的概念不一样</li>
+<li>isSameNode() 相同，同一个（标签），<code>===</code></li>
+<li>removeChild() 只是从页面中移除了这个标签，但是它还存在内存中</li>
+<li>replaceChild() 替换</li>
+<li>normalize() // 常规化，合并文本结点 看MDN例子</li>
+<li>搞清楚英文单词的意思就知道用法</li>
+<li>如果发现知道英文后依然不明白用法，看 <code>MDN</code> 的例子即可</li>
+<li>DOM APi 无外乎「<strong>增删改查</strong>」</li>
+</ul>
+</li>
+</ul>
+<h2 id="Document-接口"><a href="#Document-接口" class="headerlink" title="Document 接口"></a>Document 接口</h2><ul>
+<li>属性<ul>
+<li>anchors 弃用</li>
+<li>body</li>
+<li>characterSet</li>
+<li>childElementCount</li>
+<li>children</li>
+<li>doctype</li>
+<li>documentElement</li>
+<li>domain</li>
+<li>fullscreen</li>
+<li>head</li>
+<li>hidden</li>
+<li>images</li>
+<li>links 获取页面中所有的a标签</li>
+<li>location</li>
+<li>onxxxxxxxxx</li>
+<li>origin</li>
+<li>plugins</li>
+<li>readyState</li>
+<li>referrer</li>
+<li>scripts</li>
+<li>scrollingElement</li>
+<li>styleSheets</li>
+<li>title</li>
+<li>visibilityState</li>
+</ul>
+</li>
+<li>方法：<ul>
+<li>close()</li>
+<li>open()</li>
+<li>createDocumentFragment()</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+<li>execCommand() 当你想设计一个父文本编辑器时才用到。</li>
+<li>exitFullscreen()</li>
+<li>getElementById() 基本没人用</li>
+<li>getElementsByClassName() 基本没人用</li>
+<li>getElementsByName() 基本没人用</li>
+<li>getElementsByTagName() 基本没人用</li>
+<li>getSelection()</li>
+<li>hasFocus()</li>
+<li>querySelector()  主要使用 只返回一个元素</li>
+<li>querySelectorAll() 主要使用 返回所有元素，返回的是个伪数组</li>
+<li>registerElement()</li>
+<li>write()</li>
+<li>writeln() 写一行<h2 id="Element-的接口"><a href="#Element-的接口" class="headerlink" title="Element 的接口"></a>Element 的接口</h2>看MDN<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>当我们在控制台输入API的时候，控制台会告诉我们使用的API是哪个类型的结点提供的,如此你就能知道你将得到什么类型的Node。<br><br>DOM面试唯一考点，<strong>google: DocumentFragment优化</strong>，面试前看一篇。<br></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/JS函数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/JS函数/" itemprop="url">JS函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T11:06:34+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-10T15:28:48+08:00">
+                2018-12-10
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/10/JS函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/10/JS函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这是面试知识点最密集的一课。<br><br>函数可以没有参数，但一定要有<code>return</code>，不然会自动给你加<code>return undefined</code>；<br></p>
+<h2 id="函数的-5-种声明"><a href="#函数的-5-种声明" class="headerlink" title="函数的 5 种声明"></a>函数的 5 种声明</h2><p>函数只有两种声明方法Function和function。<br><br><img src="https://i.imgur.com/v6208LZ.png" alt=""></p>
+<ul>
+<li><code>function f(){}</code>直接用关键字<code>function</code>声明<strong>具名函数</strong></li>
+<li><code>function (){}</code>用关键字<code>function</code>声明<strong>匿名函数</strong>,但是<strong>不能单独声明一个匿名函数</strong>，必须先声明一个变量，然后把匿名函数赋值给它。即 <code>var f = function(){};</code><br></li>
+<li><p><code>var f = function yy(){}</code><br><img src="https://i.imgur.com/hYMDw0m.png" alt=""><br><img src="https://i.imgur.com/vw65lpX.png" alt=""><br></p>
+</li>
+<li><p><code>var f =new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+b&#39;)</code>用全局对象<code>Function</code>在声明一个函数，<strong>基本没人用</strong>。可采用拼接法。<code>var n =1 ;var f =new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+&#39; + n + &#39;+b&#39;);f(1,2)//4</code><br></p>
+</li>
+<li><p>箭头函数。 <code>f = (x,y)=&gt;{return x+y}</code><br><br>箭头函数是匿名函数。<br><br><img src="https://i.imgur.com/UPTwAiP.png" alt=""><br><br>数组和对象的区别：原型不同。数组和对象不同，其中之一就是两者的公有属性不同。数组之所以是数组，是因为它有数组的特点，而对象没有数组的特点。它们二者的原型是不一样的。<br><br><img src="https://i.imgur.com/b5pk7E6.jpg" alt=""><br></p>
+</li>
+</ul>
+<h2 id="函数的name属性"><a href="#函数的name属性" class="headerlink" title="函数的name属性"></a>函数的name属性</h2><p><img src="https://i.imgur.com/LRhdzd0.png" alt=""></p>
+<h2 id="函数的本质"><a href="#函数的本质" class="headerlink" title="函数的本质"></a>函数的本质</h2><p>函数就是一段可以反复调用的代码块。作为一个程序员要更深地去理解函数，就要理解函数在内存是如何放的。函数是可以执行一段代码的对象。<br><br><img src="https://i.imgur.com/Jvy7QHs.png" alt=""><br></p>
+<h2 id="如何调用函数-f-call"><a href="#如何调用函数-f-call" class="headerlink" title="如何调用函数 f.call"></a>如何调用函数 f.call</h2><p>小白执行<code>f(1,2)</code><br><br><strong>正式的应该这样</strong> <code>f.call(undefined,1,2)</code>。只有这样写才能正确理解<code>this</code>。用call方法时，第二个才是我们要传的参数。<br></p>
+<h2 id="this-和-arguments"><a href="#this-和-arguments" class="headerlink" title="this 和 arguments"></a>this 和 arguments</h2><ul>
+<li>this就是f.call()里面的第一个参数，在JAVA里面比较有用，在JS里没什么用。当初是为了像JAVA而设计的，在JS里面没什么用，this就是一个参数。<br></li>
+</ul>
+<p><img src="https://i.imgur.com/zwCCASq.png" alt=""><br><br><img src="https://i.imgur.com/mOfZWAX.png" alt=""><br></p>
+<ul>
+<li>arguments就是f.call()里除了第一个参数以外的其他参数。<br><br>arguments是一个伪数组，伪数组的意思就是长得像数组，但是它的<code>__proto__</code>指向的不是<code>Array.prototype</code>，并且伪数组的整个原型链中都没有<code>Array.prototype</code>，即也使用不了a.push（）之类数组特有的函数API(没有数组的公有属性)。arguments就是一个长得像数组的普通对象。<br><br><img src="https://i.imgur.com/lEnaGUb.png" alt=""><br><br><img src="https://i.imgur.com/LZj7FyN.png" alt=""><br></li>
+</ul>
+<h2 id="什么是-call-stack"><a href="#什么是-call-stack" class="headerlink" title="什么是 call stack"></a>什么是 call stack</h2><p>f.call()的过程就是先进后出的过程，类似栈。看到call就进入到函数里面,同时记下返回的地方，看到return就返回原来标记的地方，继续执行接下来的代码。<br><br>栈空间有限，调用次数太多就会发生<code>stack overflow</code>.<br></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>有函数就有作用域。<br>一定要变量提升，一开始看见题目就要变量提升。<br><br>浏览器在画作用域树的时候都是先找到所有变量声明，然后把这些声明都放到最前面。<br><br><img src="https://i.imgur.com/DJatZzf.png" alt=""><br><br><img src="https://i.imgur.com/k6rEjwD.png" alt=""><br></p>
+<ul>
+<li>变量提升(我错了两次)<br><img src="https://i.imgur.com/K5kPAuw.png" alt=""><br><br><img src="https://i.imgur.com/A8ibmze.png" alt=""><br></li>
+<li>作用域混淆<br><img src="https://i.imgur.com/Q4HGfBl.png" alt=""><br></li>
+<li>变量是这个变量，但是值会变，不一定相等。<br><br><img src="https://i.imgur.com/Xov4bDR.png" alt=""><br><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2>闭包就是如果一个函数使用了它范围外（作用域）的变量，那么 【这个函数+这个变量】组合的整体 就叫做闭包。<br></li>
+</ul>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>这节课的习题真是不走寻常路。<br></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/JS数组/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/JS数组/" itemprop="url">JS数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T19:50:18+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-11T23:55:41+08:00">
+                2019-08-11
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/05/JS数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/05/JS数组/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://i.imgur.com/On5SxXQ.jpg" alt=""><br>回忆：简单类型<code>number</code>,<code>string</code>,<code>boolean</code>加<code>new</code>生成对象，不加<code>new</code>就是生成简单类型。而对象<code>array</code>,<code>function</code>,狭义<code>object</code>加不加<code>new</code>都是生成<code>object</code>。<br></p>
+<h2 id="Array声明"><a href="#Array声明" class="headerlink" title="Array声明"></a>Array声明</h2><ul>
+<li><p><code>var a = Array(3);</code><br><img src="https://i.imgur.com/Wxn2PfC.jpg" alt=""><br><img src="https://i.imgur.com/GHc7XGv.jpg" alt=""></p>
+</li>
+<li><p><code>var a = Array(3,3);</code></p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/vQRrMlp.jpg" alt=""></p>
+<ul>
+<li><code>var a = [];</code></li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><pre><code>var a = [1,2,3]
+a.xxx = &apos;xxx&apos; //&quot;xxx&quot;
+a.yyy = &apos;yyy&apos; //&quot;yyy&quot;
+a             
+//(3) [1, 2, 3, xxx: &quot;xxx&quot;, yyy: &quot;yyy&quot;]
+                    0：1
+                    1：2
+                    2：3
+                    xxx:&quot;xxx&quot;
+                    yyy:&quot;yyy&quot;
+                    length:3
+                    __proto__:Array(0)
+//遍历数组1
+for(let i =0 ;i &lt; a.length; i++){console.log(a[i])} //1 2 3
+//遍历数组2
+for(let key in a){console.log(key);console.log(a[key]);} //1 2 3 xxx yyy
+</code></pre><h2 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h2><p>伪数组就是你的原型链中没有Array.prototype.<br><br>说实话，我也没听懂这个是啥，先记着。<br><br><img src="https://i.imgur.com/6PCtvZ2.jpg" alt=""><br></p>
+<h2 id="数组的API"><a href="#数组的API" class="headerlink" title="数组的API"></a>数组的API</h2><p>这些数组的API貌似都有遍历数组的功能。<br></p>
+<ol>
+<li><code>a.forEach( function(x,y){function-body} )</code>遍历。传函数参数。且函数必须有两个参数,第一个参数对应数组的value,第二个参数对应数组的key。函数参数可以有第三个参数，第三个参数就是数组a本身。实际上通过 <code>.</code>已经把数组a传入到forEach当中。<br><br><img src="https://i.imgur.com/ZJE17n3.jpg" alt=""><br><br><img src="https://i.imgur.com/cNghW38.jpg" alt=""><br><br>以下分布分解：<br><br><img src="https://i.imgur.com/TmN7zgL.png" alt=""><br><br><img src="https://i.imgur.com/bxXq2SA.png" alt=""><br><br><img src="https://i.imgur.com/vnMMF3X.png" alt=""><br><br>下面来看<code>a.forEach</code>的实质：<br><br><img src="https://i.imgur.com/6AZ73qY.jpg" alt=""><br></li>
+</ol>
+<p>API都是函数,函数的参数还可以是函数。<br><br>控制台里: <code>shift+回车</code> 可以换行。<br><br>JS内置排序为快速排序<br><br><br></p>
+<ol start="2">
+<li><p><code>a.sort(function(firstNumber,secondNumber){return firstNumber-secondNumber})</code>,传函数参数，函数参数必须有两个参数，分别对应数组a的第一、第二个数。函数体return回的值决定排序顺序，默认采用快排。return回的值是正值表示从大到小排，负值表示从小到大排，0表示fn和sn相等，<code>fn-sn</code>表示从小到大排，<code>sn-fn</code>表示从大到小排。排完序后是覆盖原来的a数组，即存回原来a的内存处。<br><br><img src="https://i.imgur.com/GZqqlF5.jpg" alt=""><br><br><img src="https://i.imgur.com/SEW9uiF.jpg" alt=""><br></p>
+</li>
+<li><p><code>a.join(&#39;连接符&#39;)</code>,用间隔符间隔连接。<br></p>
+</li>
+</ol>
+<p><img src="https://i.imgur.com/VKXCX4J.jpg" alt=""><br></p>
+<ol start="4">
+<li><code>a.contact</code><br>两个数组合并成一个数组，常用于数组复制。<br><br><img src="https://i.imgur.com/55fc4YF.jpg" alt=""><br></li>
+</ol>
+<ol start="5">
+<li><code>a.map</code>类似<code>a.forEach</code>，映射。<br><br><img src="https://i.imgur.com/3cm39nX.jpg" alt=""><br><br><img src="https://i.imgur.com/jQ81Oeq.jpg" alt=""><br><br>区别是<code>a.forEach</code>没有返回值(<code>undefined</code>),而<code>a.map</code>要有返回值，要<code>return</code>返回一个值。<br></li>
+<li><code>a.filter</code>过滤<br><br><img src="https://i.imgur.com/U9usixe.jpg" alt=""><br><br><img src="https://i.imgur.com/YeveT2I.jpg" alt=""><br><br><img src="https://i.imgur.com/BCt1sbN.jpg" alt=""><br><br>两个API链起来使用。<br></li>
+<li><code>a.reduce(function(){},0)</code>,这个<strong>求和API</strong>有两个参数，前一个是函数，要返回的，后一个是初始值。<br><br><img src="https://i.imgur.com/e5dnypt.jpg" alt=""><br><br><img src="https://i.imgur.com/cXkJIMl.png" alt=""><br><br><img src="https://i.imgur.com/rOXrL4e.jpg" alt=""><br></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/给简历加JS-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/给简历加JS-1/" itemprop="url">给简历加JS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T08:10:21+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T08:10:22+08:00">
+                2018-12-05
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/05/给简历加JS-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/05/给简历加JS-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/给简历加JS/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/给简历加JS/" itemprop="url">给简历加JS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T18:42:28+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T19:48:32+08:00">
+                2018-12-05
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/01/给简历加JS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/01/给简历加JS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>没办法用CSS控制滚动条，只能用JS控制滚动条。<br><br>如果1s内有24帧,人眼睛看起来就像在动。<br></p>
+<ol>
+<li><code>setInterval（code，delay）</code>;</li>
+<li>JS调试： console.log()调试大法。<br></li>
+<li>tween.js 在github上。当我们用一个代码时，先看示例，然后在jsbin上做成功后，再加入到我们的代码里。<br></li>
+<li><a href="https://cdnjs.com/" target="_blank" rel="noopener">https://cdnjs.com/</a> 去这个网站找js代码引入。<br></li>
+<li>解决一个问题的关键是先着手解决这个问题<br></li>
+<li>学会在不懂的情况下搞定这个问题<br></li>
+<li>找到能用的代码，试着改一改，每次先小改，再大改。<br></li>
+<li>写代码的时候，在关键的地方打log，能确保你的代码按你想的去做。<br></li>
+<li>不要将两个动作用一个状态表示，容易出Bug.<br></li>
+<li>动画能用CSS做，也能用JS做。JS更多是用来加删active,来切换用CSS写的动画（静态）状态。<br></li>
+<li>初级JS永远都在找元素、给元素加class<br></li>
+<li>JS animatian transition<br></li>
+<li>浏览器给你提供的东西 就叫API.API看mdn的更好。MDN上的API最全面，学得更深入。阮一峰更多的是教你怎么用。<br></li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/搜索引擎大法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/搜索引擎大法/" itemprop="url">搜索引擎大法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:21:18+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-01T14:25:18+08:00">
+                2018-12-01
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/01/搜索引擎大法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/01/搜索引擎大法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>写这篇文章的原因是发现自己不太会用搜索引擎，为了不做一个古人，决定收录一些常用的例子。<br></p>
+<ul>
+<li>size:zhihu.com css不正交</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JS的对象/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/27/JS的对象/" itemprop="url">JS的对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T14:18:03+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T22:15:02+08:00">
+                2018-11-30
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/27/JS的对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/27/JS的对象/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JS语言内置了一些对象，我们需要知道这些对象。全局的概念就是在全文每个地方都能使用。<br></p>
+<h2 id="全局对象-window"><a href="#全局对象-window" class="headerlink" title="全局对象 window"></a>全局对象 window</h2><p>我们知道JS的出现就是为了能够控制浏览器行为，故浏览器先于ECMAscript存在。ECMAScript规定全局对象叫做<code>global</code>，但是浏览器把<code>window</code>作为全局对象。<br><br><strong>window是一个hash表，有很多属性。window 的属性就是全局变量。windows的属性分为两种，一种公有，一种私有。公有就是ECMAscript规定的，私有就是某些浏览器自己加的windows属性，且各浏览器表现出来的形式不一样。</strong><br></p>
+<p><strong>ECMAScript规定的</strong>：<br></p>
+<ul>
+<li>global.parseInt</li>
+<li>global.parseFloat</li>
+<li>global.Number</li>
+<li>global.String</li>
+<li>global.Boolean</li>
+<li>global.Object</li>
+</ul>
+<p><strong>各浏览器自己加的属性:</strong><br></p>
+<ul>
+<li>window.alert(弹框提示)</li>
+<li>window.prompt（用户填写）</li>
+<li>window.comfirm（用户确认）</li>
+<li>window.console.log（开发者）</li>
+<li>window.console.dir</li>
+<li>window.document（文档，其标准DOM由W3C组织制定）</li>
+<li>window.document.createElement</li>
+<li>window.document.getElementById</li>
+<li>window.history(浏览器，其标准为BOM)</li>
+<li>window.history.back</li>
+<li>全局属性，window可省略<br><img src="https://i.imgur.com/fx1VU88.png" alt=""><br><br>下面我们学习四个全局属性，<code>Number()</code> <code>String</code> <code>Boolean</code> <code>Object</code>.<br></li>
+</ul>
+<ol>
+<li><strong><code>var n1 = Number(&#39;1&#39;)</code> 和 <code>var n2 = 1;</code> 与 <code>var n3 = new Number(1)</code>三者的区别：前二者声明数字number类型，后者为对象object类型</strong><br><br><br><img src="https://i.imgur.com/ZN9cDuE.png" alt=""><br><br><img src="https://i.imgur.com/d54A67s.png" alt=""><br></li>
+</ol>
+<p><strong>有一个重要的问题需要弄清楚</strong>，我们知道，简单类型（number/string/boolean）是没有属性的，但是上面为什么<code>n2.toString</code>又是成立的呢，其实是<code>n2.toString</code>返回的是一个<strong>临时对象<code>temp</code></strong>的<code>temp.toString()</code>值，这是JS设计者想的一个办法，既能语法像JAVA满足boss的要求，又能方便程序员的使用。下面我们来看看<code>var n2 = 1; n2.toString();</code> 这两句代码发生了什么：<br></p>
+<pre><code>var n2 = 2;      //1.声明了一个简单的number类型，值为2
+n2.toString();   //2.执行这句时，发现n2不是一个对象，这时会在内存里新建一个临时对象temp,这个临时对象temp等价于用new Number(1)创建的对象（复杂数字，由属性和值组成）。
+                //3.调用temp的toString属性，将temp.toString的值返回 作为 n2.toString的值（实际上n2是没有属性的）。
+                //3.在返回值后temp这个对象会被立刻释放掉，立刻释放掉，下次又使用的时候又重新建temp临时对象。
+                //4.说明：temp这个临时对象随浏览器解析n2.String()这句代码而建立，随代码执行结束而释放。
+                //4.说明：可以往temp里面加属性，只不过temp用完就被释放，所以添加属性没有意义，下次找不见。
+</code></pre><p><br><br>内存图<br><br><img src="https://i.imgur.com/RMpNcrF.png" alt=""><br></p>
+<p><hr><br><strong>还有一个易错的问题：</strong><br><br>1<br><br><img src="https://i.imgur.com/SgadUcG.png" alt=""><br><br>2<br><br><img src="https://i.imgur.com/oqryDG3.png" alt=""><br><br>3<br><br><img src="https://i.imgur.com/0hdTr6x.png" alt=""><br><br><br></p>
+<ol start="2">
+<li><strong><code>var s1 = String(1)</code> 和 <code>var s2 = &#39;this is a string.&#39;;</code> 与 <code>var n3 = new Number(&#39;this is a string.&#39;)</code>三者的区别：前二者声明数字string类型，后者为对象object类型。</strong>代码在内存的原理同number，不再画图复述。看下图：<br><br><br><a href="https://imgchr.com/i/Fmroex" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmroex.png" alt="Fmroex.png"></a><br></li>
+<li><strong><code>var b1 = Boolean(4)</code> 和 <code>var b2 = false;</code> 与 <code>var b3 = new Boolean(false);</code>三者的区别：前二者声明数字boolean类型，后者为对象object类型。</strong>第一为强制类型转换为boolean,第二是程序员方便使用，第三是给老板看，把 <code>false</code>包装成 对象。代码在内存的原理同number,string，不再画图复述<br><br><a href="https://imgchr.com/i/Fms9Tf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fms9Tf.png" alt="Fms9Tf.png"></a><br></li>
+<li><p><strong><code>var o1 = Object(2)</code> 和 <code>var o2 = {};</code> 与 <code>var o3 = new Object();</code>三者的区别：第一是强制类型转换成对象类型，第二程序员常用声明一个对象类型，第三应付boss，仿JAVA。但是注意o2!==o3，两个不同的对象</strong><br><br><br><a href="https://imgchr.com/i/Fm6XpF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm6XpF.png" alt="Fm6XpF.png"></a><br><br><hr></p>
+<h2 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h2><p><hr></p>
+<h2 id="公用的属性藏在哪"><a href="#公用的属性藏在哪" class="headerlink" title="公用的属性藏在哪"></a>公用的属性藏在哪</h2><p><strong>proto</strong>:object  //<strong>proto</strong>这个属性不用写就有，每一个对象的 <strong>proto</strong> 存储「公用属性组成的对象」的地址。<br><br><br><a href="https://imgchr.com/i/Fmf9J0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmf9J0.md.png" alt="Fmf9J0.md.png"></a><br><br>当解析一句代码时，如果这个不是对象，就包装成一个对象，自动生成<code>__proto__</code>。<br><br>所有对象的公有属性（也叫原型）： <code>Object.prototype</code>;<br><br>所有number的公有属性（也叫原型）： <code>Number.prototype</code><br><br>所有string的公有属性（也叫原型）： <code>String.prototype</code><br><br>所有boolean的公有属性（也叫原型）： <code>Boolean.prototype</code><br><br><a href="https://imgchr.com/i/Fm5j10" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5j10.md.png" alt="Fm5j10.md.png"></a><br><br><a href="https://imgchr.com/i/FmIiN9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIiN9.md.png" alt="FmIiN9.md.png"></a><br></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p><strong>多用开发者工具的控制台去验证，尝试理解。</strong><br><br><a href="https://imgchr.com/i/Fmhh4I" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fmhh4I.md.png" alt="Fmhh4I.md.png"></a><br><br><code>prototype</code>和<code>__proto__</code>的区别：前者的函数的属性，后者是对象的属性。<br><br><a href="https://imgchr.com/i/Fm5nFs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/Fm5nFs.md.png" alt="Fm5nFs.md.png"></a><br><br><hr></p>
+<h2 id="重要公式-原型与原型链"><a href="#重要公式-原型与原型链" class="headerlink" title="重要公式-原型与原型链"></a>重要公式-原型与原型链</h2><p>var 对象 = new 函数（）<br>对象.<strong>proto</strong> === 函数.prototype  //都指向同一个公有属性对象地址，调用API<br>// 推论<br>var number = new Number()<br>number.<strong>proto</strong> = Number.prototype<br>Number.<strong>proto</strong> = Function.prototype // ?因为 Number 是 Function 的实例</p>
+<p>var object = new Object()<br>object.<strong>proto</strong> = Object.prototype<br>Object.<strong>proto</strong> = Function.prototype //? 因为 Object 是 Function 的实例,Function 是 Object 的构造函数。</p>
+<p>var function = new Function()<br>function.<strong>proto</strong> = Function.prototype<br>Function.<strong>proto</strong> == Function.prototye // ?因为 Function 是 Function 的实例！</p>
+</li>
+</ol>
+<p><a href="https://imgchr.com/i/FmIcuT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/30/FmIcuT.png" alt="FmIcuT.png"></a><br></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JS的类型/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/27/JS的类型/" itemprop="url">JS的类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T14:17:31+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T09:49:46+08:00">
+                2018-11-30
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/27/JS的类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/27/JS的类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="类型的转换"><a href="#类型的转换" class="headerlink" title="类型的转换"></a>类型的转换</h3><ul>
+<li>转化为<code>string</code><br><br><img src="https://i.imgur.com/4MxR1Li.png" alt=""><br><br><img src="https://i.imgur.com/FvVy9nS.png" alt=""><br><br><img src="https://i.imgur.com/egBJvqk.png" alt=""><br><br><img src="https://i.imgur.com/cYzQnUe.png" alt=""><br><br><br><hr></li>
+<li>转化为<code>number</code><br><br><img src="https://i.imgur.com/fmzWD84.png" alt=""><br><br><img src="https://i.imgur.com/RSxZigs.png" alt=""><br><br><img src="https://i.imgur.com/bgzHswA.png" alt=""><br><br><br><hr></li>
+<li>转化为<code>boolean</code><br><br><img src="https://i.imgur.com/utx9BKM.png" alt=""><br><br><img src="https://i.imgur.com/uLFYNp8.png" alt=""><br><br><br><br><code>falsy</code>(虚值)是在 Boolean 上下文中已认定可转换为’<strong>假</strong>‘的值，在使用强制类型转换转换成boolean时为 <code>false</code>。有以下五个为false,其他值都为true。<br><br><img src="https://i.imgur.com/tr29BA4.png" alt=""><br><br><br><hr>
+
+</li>
+</ul>
+<h3 id="各类型的API"><a href="#各类型的API" class="headerlink" title="各类型的API"></a>各类型的API</h3><p>待补充<br></p>
+<hr>
+
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>如果一个对象没有被引用，它就是垃圾，将被回收。<br><br><img src="https://i.imgur.com/OfRyeP1.png" alt=""><br><br>但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。<br><br><img src="https://i.imgur.com/qOVFLE9.png" alt=""><br></p>
+<p><hr></p>
+<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p>内存速度快，断电不保存；外存相对内存速度慢，断电内容保存。<br><br>SSD外存速度接近内存，贵，易坏；机械硬盘，不易坏；固态硬盘；开机将硬盘的内容读到内存，给操作系统、浏览器等分配空间。<br><br><img src="https://i.imgur.com/iGdRLrR.png" alt=""><br><br><img src="https://i.imgur.com/Ay3XdaH.png" alt=""><br><br>浏览器先进行所有的变量提升（变量声明）;按顺序在stack先存好对象，后期再加属性值会很麻烦,所以在<strong>stack栈内存</strong> <strong>存</strong> 对象在heap堆内存的<strong>地址</strong>，对象的内容实际上存在堆内存里。<br><br><img src="https://i.imgur.com/2fRI7bR.png" alt=""><br><br><img src="https://i.imgur.com/lm7PENg.png" alt=""><br><br><img src="https://i.imgur.com/kBLfmYV.png" alt=""><br></p>
+<p><hr></p>
+<h3 id="深复制-amp-浅复制"><a href="#深复制-amp-浅复制" class="headerlink" title="深复制&amp;浅复制"></a>深复制&amp;浅复制</h3><p>对于简单类型来说，赋值就是深复制,比较简单。<br><br><code>var a = 1;var b = a;b = 2 ;a = ?  //a===1</code>，即b变a不变就是深复制<br><br><strong>对复杂类型的数据（对象）来说才分浅复制和深复制。对于对象来说，对Stack内存的地址拷贝（一个变，全都变）就是浅复制；对Heap内存进行完全的拷贝才是深拷贝</strong><br><br><br><br>这是浅复制的例子：<br><br><img src="https://i.imgur.com/bS9LAHt.png" alt=""><br><br><img src="https://i.imgur.com/DOjtmGJ.png" alt=""><br><br>这是深复制的例子：<br><br><img src="https://i.imgur.com/sEQUrem.png" alt=""><br><br>注意 <code>b= a; b=null;</code>是不会改变隐藏对象里的内容的,只有x.key = ‘yyy’才能改变对象里的内容，画图好理解。<br></p>
+<h3 id="面试题举例（易混）"><a href="#面试题举例（易混）" class="headerlink" title="面试题举例（易混）"></a>面试题举例（易混）</h3><p>1<br><br><img src="https://i.imgur.com/6oFr3hE.png" alt=""><br></p>
+<p><hr><br>2<br><br>??????<br><br><img src="https://i.imgur.com/qMmxRJy.png" alt=""><br><br><img src="https://i.imgur.com/Mkv9kOx.png" alt=""><br><br>3<br><br><img src="https://i.imgur.com/qZ4Olzw.png" alt=""><br><br>模拟执行过程：(Heap堆内存里存着两个对象{n：1}和{n:2}，地址为随机分配的addr34 和addr54)<br></p>
+<pre><code>var a = {n:1}//var a,var {n:1}, a===addr34
+var b = a        //var b ,b===addr34 &apos;=&apos;是浅复制
+a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看，再从右往左计算。
+                //从左往右看的时候，`a.x`和`a`里的`a===addr34`，
+                //从右往左计算的时候，先执行a={n:2},执行后a===addr54；
+                //然后a(addr34).x=a(addr54)。故a.x = a = {n:2}执行结束后，addr34地址存的对象多了一个属性x,属性x的值为addr54,即对象{n:2}在Heap里的地址。
+               //而b还是指向Heap地址为addr34这个对象，即b===addr54
+</code></pre><p><br></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JS的数据/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/27/JS的数据/" itemprop="url">JS的数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T14:09:08+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-01T11:32:56+08:00">
+                2018-12-01
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/27/JS的数据/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/27/JS的数据/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>笔记记录一些特殊的、易错内容。<br><br>JS是集大家之所长的语言，容易上手。CoffeeScript 是JS的改良版，在这之后才出现的ES6,ES7,ES8。目前掌握ECMAScript6（ECMAScript2015）标准就差不多了,从2015年以后，每年更新一次规范，更新的内容并不多。JS的语法特性通常是先投入使用，再写入规范。<br></p>
+<h2 id="简单类型"><a href="#简单类型" class="headerlink" title="简单类型"></a>简单类型</h2><h3 id="number"><a href="#number" class="headerlink" title="number"></a>number</h3><p>JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。JavaScript 语言的底层根本没有整数，所有数字都是小数（64位浮点数）。由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心。<br></p>
+<pre><code>0.1 + 0.2 ===0.3              //false
+0.3/0.1                       //2.9999999999999996
+(0.3-0.2) === (0.2 - 0.1)  //false
+</code></pre><p>进制问题。JavaScript 对整数提供四种进制的表示方法：十进制、十六进制、八进制、二进制。由于数字的影响，0开头的是八进制，电话号码要存字符串<code>var string = &#39;01367122&#39;</code></p>
+<ul>
+<li>十进制：没有前导<code>0</code>的数值或有前导<code>0</code>，但后面有数字<code>8</code>和<code>9</code>，则该数值被视为十进制。</li>
+<li>八进制：有前缀<code>0o</code>或<code>00</code>的数值（鼓励使用），或者有前导<code>0</code>、且只用到<code>0-7</code>的八个阿拉伯数字的数值(废弃但支持)。</li>
+<li>十六进制：有前缀<code>0x</code>或<code>0X</code>的数值。</li>
+<li>二进制：有前缀<code>0b</code>或<code>0B</code>的数值。</li>
+</ul>
+<p>默认情况下，JavaScript 内部会自动将八进制、十六进制、二进制转为十进制。下面是一些例子。<br></p>
+<pre><code>0xff     // 255
+0o377     // 255
+0b11     // 3
+</code></pre><p>如果八进制、十六进制、二进制的数值里面，出现不属于该进制的数字，就会报错。<br></p>
+<pre><code>0xoo // 报错
+0o88 // 报错
+0b22 // 报错
+</code></pre><p><code>NaN</code>是 JavaScript 的特殊值，表示“<strong>非数字</strong>”（<code>Not a Number</code>），主要出现在将字符串解析成数字出错的场合。<br></p>
+<pre><code>5 - &apos;x&apos; // NaN
+0 / 0 // NaN
+</code></pre><p>需要注意的是，NaN不是独立的数据类型，而是一个特殊数值，它的数据类型依然属于Number，使用typeof运算符可以看得很清楚。<br></p>
+<pre><code>typeof NaN //&quot;number&quot;
+</code></pre><p>NaN的运算规则。<br></p>
+<pre><code>//1.NaN不等于任何值，包括它本身。
+NaN === NaN // false
+//2.数组的indexOf方法内部使用的是严格相等运算符，所以该方法对NaN不成立。
+[NaN].indexOf(NaN) // -1
+//3.NaN在布尔运算时被当作false。
+Boolean(NaN) // false
+//4.NaN与任何数（包括它自己）的运算，得到的都是NaN。
+NaN + 32 // NaN
+NaN - 32 // NaN
+NaN * 32 // NaN
+NaN / 32 // NaN
+</code></pre><p><code>Infinity</code>表示“<strong>无穷</strong>”，用来表示两种场景。一种是一个正的数值太大，或一个负的数值太小，无法表示；另一种是非0数值除以0，得到Infinity(0除以0会得到NaN)。都表示超出了正常的表示范围。Infinity有正负之分，Infinity表示正的无穷，-Infinity表示负的无穷。<br></p>
+<pre><code>1 / 0                     // Infinity
+Infinity === -Infinity // false
+1 / -0                 // -Infinity
+-1 / -0             // Infinity
+</code></pre><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>字符串就是零个或多个排在一起的字符，放在单引号或双引号之中。<br><br>习惯：CSS用双引号，JS用单引号。形如：<code>&#39;我是字符串&#39;</code><br></p>
+<pre><code>//1.转义符 `\`, 告诉浏览器我并不以我后面紧跟着那个字母结束，如`&apos; \&apos; &apos;` (表示单引号)。
+var a = &apos;\&apos;&apos;  //单引号
+var n = &apos;\n&apos;  //回车
+var t = &apos;\t&apos;  //Tab
+var b = &apos;\\&apos; // \ 符号
+
+
+//2.单引号字符串的内部，可以使用双引号。双引号字符串的内部，可以使用单引号。
+&apos;key = &quot;value&quot;&apos;
+&quot;It&apos;s a long journey&quot;
+
+//3.如果要在单引号字符串的内部，使用单引号，就必须在内部的单引号前面加上反斜杠，用来转义。双引号字符串内部使用双引号，也是如此。
+&apos;Did she say \&apos;Hello\&apos; ?&apos;     // &quot;Did she say &apos;Hello&apos; ?&quot;
+&quot;Did she say \&quot;Hello\&quot; ?&quot;     // &quot;Did she say &quot;Hello&quot; ?&quot;
+</code></pre><p><br><br>多行字符串输出问题<br></p>
+<pre><code>//1.输出为多行字符串
+var s = &apos;12    /*这里的按[tab]键对齐，不是加空格，加空格会报错,也不是按回车[enter]*/        
+         345&apos;    
+s  //&quot;123
+      345&quot;
+</code></pre><p><img src="https://i.imgur.com/o8tE9I7.png" alt=""><br><br><strong>ES6改进多行文本的BUG</strong><br><br><img src="https://i.imgur.com/T9JLHd7.png" alt=""><br></p>
+<h3 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h3><p>只有两个值：<code>true</code> 和 <code>false</code>。<br><br>下列运算符会返回布尔值：</p>
+<ul>
+<li>前置逻辑运算符： <code>!</code> (Not)</li>
+<li>相等运算符：<code>===</code>(严格相等)，<code>!==</code>（严格不相等），<code>==</code>（相等)，<code>!=</code>（不相等）</li>
+<li>比较运算符：<code>&gt;</code>，<code>&gt;=</code>，<code>&lt;</code>，<code>&lt;=</code></li>
+</ul>
+<p>如果 JavaScript 预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。转换规则是除了下面六个值被转为<code>false</code>，其他值都视为<code>true</code>。6个falsy值：<br></p>
+<ul>
+<li>null</li>
+<li>undefined</li>
+<li>0</li>
+<li>NaN</li>
+<li>‘’</li>
+<li>false</li>
+</ul>
+<h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h3><p>google: 方应杭 symbol。现在用不上。</p>
+<h3 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h3><p>两个特殊类型: <code>null</code> <code>undefined</code>,都表示没有赋值，什么也没有。这是JS之父设计之初的bug。习惯用undefined表示空的，非对象（简单类型变量）；用null表示空对象。区别是这样的：null是一个表示“空”的对象，转为数值时为<code>0</code>；undefined是一个表示”此处无定义”的原始值，转为数值时为<code>NaN</code>。<br></p>
+<pre><code>Number(null) // 0
+5 + null // 5
+
+Number(undefined) // NaN
+5 + undefined // NaN
+</code></pre><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>后来从对象里面分出来的一个数据类型，习惯还称为 空对象。对象暂不赋值为<code>null</code>。<br></p>
+<pre><code>var obj = null;  //声明一个空对象
+</code></pre><p><img src="https://i.imgur.com/SNvN1Sc.png" alt=""></p>
+<p><hr></p>
+<h2 id="复杂类型"><a href="#复杂类型" class="headerlink" title="复杂类型"></a>复杂类型</h2><h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3><p><strong>对象</strong>就是一组“<strong>键名-键值对</strong>”（key-value）的集合，是一种<strong>无序</strong>的<strong>复合数据(简单类型数据+复杂类型数据)集合</strong>。可分为以下三种：<br></p>
+<ul>
+<li>狭义的的object</li>
+<li>数组arrey<br>数组是特殊的对象（key键值为0 1 2 3 4 5…有序数，不用给键值）</li>
+<li>函数function<br><br></li>
+</ul>
+<p>大括号<code>{}</code>就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。<code>var obj = {foo: &#39;Hello&#39;,bar: &#39;World&#39;};</code><br><br>对象的所有<strong>键名</strong>都是<strong>字符串</strong>（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以。如果键名是数值，会被自动转为字符串。如果<strong>键名不符合标识名</strong>的条件（比如第一个字符为数字，或者含有空格或运算符），且也不是数字，则<strong>必须加上引号</strong>，否则会报错。key的命名加了单引号<code>&#39;&#39;</code>,key的命名几乎没有任何限制，不会报错。<br></p>
+<pre><code>// 报错
+var obj = {
+  1p: &apos;Hello World&apos;
+};
+
+// 不报错
+var obj = {
+  &apos;1p&apos;: &apos;Hello World&apos;,
+  &apos;h w&apos;: &apos;Hello World&apos;,
+  &apos;p+q&apos;: &apos;Hello World&apos;
+};
+</code></pre><p><img src="https://i.imgur.com/UihIOfl.png" alt=""><br></p>
+<h2 id="delete的用法"><a href="#delete的用法" class="headerlink" title="delete的用法"></a>delete的用法</h2><p><img src="https://i.imgur.com/p3kXvVp.png" alt=""><br></p>
+<h2 id="for-in-的用法"><a href="#for-in-的用法" class="headerlink" title="for in 的用法"></a>for in 的用法</h2><p><img src="https://i.imgur.com/MXOJBWa.png" alt=""><br><br><img src="https://i.imgur.com/3U8mxWa.png" alt=""></p>
+<h2 id="typeof-的用法"><a href="#typeof-的用法" class="headerlink" title="typeof 的用法"></a>typeof 的用法</h2><p><img src="https://i.imgur.com/Xh0DTXW.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://linyan.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
