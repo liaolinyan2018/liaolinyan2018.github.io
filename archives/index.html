@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="前端开发 美食 旅行">
+<meta name="description" content="前端开发 美食 旅行 照片">
 <meta name="keywords" content="Ajax JSON DOM Promise">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Linyan&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/archives/index.html">
 <meta property="og:site_name" content="Linyan&#39;s blog">
-<meta property="og:description" content="前端开发 美食 旅行">
+<meta property="og:description" content="前端开发 美食 旅行 照片">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linyan&#39;s blog">
-<meta name="twitter:description" content="前端开发 美食 旅行">
+<meta name="twitter:description" content="前端开发 美食 旅行 照片">
 
 
 
@@ -524,7 +524,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
             
               <p class="site-author-name" itemprop="name">Liao linyan</p>
-              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行 照片</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -761,11 +761,20 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://linyan.disqus.com/count.js" async></script>
-    
 
-    
+
+
+	
+
+
+
+
+
+  
+
+
+
+
 
   
 
@@ -778,10 +787,27 @@
 
 
 
-
-
-
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz',
+        appKey: 'Srt6LLMtTSBk7VSfSrq6cmUA',
+        placeholder: '欢迎畅所欲言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
