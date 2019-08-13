@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  817 字
                 </span>
               
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  3 分钟
                 </span>
               
             </div>
@@ -409,31 +409,18 @@
       
         
           
-            <h1 id="清除浮动方法（代码亲测）"><a href="#清除浮动方法（代码亲测）" class="headerlink" title="清除浮动方法（代码亲测）"></a>清除浮动方法（代码亲测）</h1><p>为什么要清除浮动？</p>
-<p>1 先看有浮动会是什么样子：</p>
-<p>当一个内层元素是浮动的时候，如果没有关闭浮动时，其父元素也就不会再包含这个浮动的内层元素，因为此时浮动元素已经脱离了文档流。也就是为什么外层不能被撑开了！</p>
-<p>没有给最外层的DIV.outer 设置高度，但是我们知道如果它里面的元素不浮动的话，那么这个外层的高是会自动被撑开的。但是当内层元素浮动后，就出现了以下影响：</p>
-<p>（1）：背景不能显示 （2）：边框不能撑开 （3）：margin 设置值不能正确显示</p>
-<p>参考：<a href="https://segmentfault.com/a/1190000004237437" target="_blank" rel="noopener">来自</a></p>
-<p>2 <strong>浮动的定义</strong>：使元素脱离文档流，按照指定方向发生移动，遇到<strong>父级边界</strong>或者<strong>相邻的浮动元素</strong>停了下来。</p>
-<p><strong>高度塌陷</strong>：浮动元素父元素高度自适应（父元素不写高度时，子元素写了浮动后，父元素会发生高度塌陷）</p>
-<p>知道浮动和为什么要清除浮动之后我们可以开始学习如何清除浮动了，这时候我们就需要用到清除浮动的属性<strong>clear</strong>, </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 元素的某个方向上不能有浮动元素 */</span></span><br><span class="line">clear:left | right | both | none | inherit；</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">clear</span><span class="selector-pseudo">:both</span>;  <span class="comment">/* 元素的左右两侧均不允许浮动元素 */</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意：用于清除浮动的元素一定要放在父元素的最后一个子元素，也就是所有浮动元素的右边，否则父元素还是没有包裹住浮动元素</strong></p>
-<p>1 万能清除浮动方法（添加after伪元素）</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">    border: 1px solid red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.item</span> &#123;</span></span><br><span class="line"><span class="undefined">    float: right;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="undefined">    content: '';</span></span><br><span class="line"><span class="undefined">    display: block;</span></span><br><span class="line"><span class="undefined">    clear: both;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.clearfix</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">zoom</span>: 1;	 <span class="comment">/* IE 兼容 */</span></span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container clearfix"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">        我是浮动元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">        我是浮动元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2 还是clear清除浮动，<strong>将用于清除浮动的元素放在最后一个子元素位置上</strong>，设置<code>clear:both</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">        border: 1px solid red;</span></span><br><span class="line"><span class="undefined">        background: chocolate;</span></span><br><span class="line"><span class="undefined">        padding: 10px;</span></span><br><span class="line"><span class="undefined">        margin: 20px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemLeft</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemRight</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfix</span> &#123;</span></span><br><span class="line"><span class="undefined">        clear: both/left;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> // 放在最后</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>3 在父元素上设置<code>overflow: hidden/auto;</code>也能清除浮动，这是创建了BFC，父元素包裹住了浮动元素。但hidden对搜索引擎优化seo不友好。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="undefined">        border: 1px solid red;</span></span><br><span class="line"><span class="undefined">        background: chocolate;</span></span><br><span class="line"><span class="undefined">        padding: 10px;</span></span><br><span class="line"><span class="undefined">        margin: 20px;</span></span><br><span class="line"><span class="undefined">        overflow: auto/hidden;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemLeft</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.itemRight</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemLeft"</span>&gt;</span></span><br><span class="line">        左浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemRight"</span>&gt;</span></span><br><span class="line">        右浮元素2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其他有副作用，就不一一列举了</p>
-<p><a href="https://blog.csdn.net/promiseCao/article/details/52771856" target="_blank" rel="noopener">部分参考来自</a></p>
-
-          
+          清除浮动方法（代码亲测）为什么要清除浮动？
+1 先看有浮动会是什么样子：
+当一个内层元素是浮动的时候，如果没有关闭浮动时，其父元素也就不会再包含这个浮动的内层元素，因为此时浮动元素已经脱离了文档流。也就是为什么外层不能被撑开了！
+没有给最外层的DIV.outer 设置高度，但是我们知道如果它里面的元
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/02/清除浮动/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -565,7 +552,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  394 字
                 </span>
               
 
@@ -581,7 +568,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  1 分钟
                 </span>
               
             </div>
@@ -604,21 +591,16 @@
       
         
           
-            <p>存储在 <code>localStorage</code> 的数据可以长期保留,<code>localStorage</code> 中的键值对总是以字符串的形式存储.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hash变更后要立刻存档到randomN</span></span><br><span class="line">localStorage.setItem(<span class="string">'randomN'</span>,<span class="built_in">JSON</span>.stringify(hash)) <span class="comment">//JSON.stringify(hash)是把hash变成json字符串的 </span></span><br><span class="line"><span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">'randomN'</span>) || <span class="string">'null'</span>) <span class="comment">//JSON.parse()方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hashT = &#123;<span class="string">'keys'</span>: keys,<span class="string">'hash'</span>: hash&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*hashT是一个对象*/</span></span><br><span class="line"><span class="keyword">var</span> hash = hashT[<span class="string">'hash'</span>]  <span class="comment">//hashT.hash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> keys = hashT[<span class="string">'keys'</span>]  <span class="comment">//hashT.keys</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var x = prompt(&apos;请输入要变更的网址域名,不用输入协议。如：iqiyi.com或www.taobao.com&apos;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location.href = &apos;http://&apos;+website     //模拟用户在地址栏输入地址，修改当前网址为按键地址</span><br><span class="line">        </span><br><span class="line">window.open(&apos;http://&apos;+website,&apos;_blank&apos;) //新开窗口打开用户按键的网站</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/* 易错 [id类用#号][class类用 .] */</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*display: inline-block; //当时为了设置kbd的宽高</span></span><br><span class="line"><span class="comment">  vertical-align: top;  /*与display:inline-block配套使用*/</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*变成弹性盒，垂直居中，左右居中，布局三句话*/</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">kbd</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-class">.text</span>&#123;<span class="attribute">transform</span>: <span class="built_in">scale</span>(1.6);&#125; <span class="comment">/*hover的时候字体变大，但是不会把盒子撑大，也就是页面并不会动*/</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*background有六个值，最后一个是默认值*/</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*父包裹器[div,id=main] 为不定宽块状元素,要实现内容居中，法一定宽，法二变为内联，父元素加text-align:center;*/</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/*.wrapper&gt;div&#123;            //改用flex布局</span><br><span class="line">  line-height:50px;    /*父元素 .wrapper&gt;div高度固定，子元素为单行内联文本，垂直居中设置：height=line-height*/</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>: 100<span class="selector-tag">vh</span>; <span class="comment">/*viewport height 可视高度和屏幕一样高*/</span></span><br></pre></td></tr></table></figure>
-
-          
+          存储在 localStorage 的数据可以长期保留,localStorage 中的键值对总是以字符串的形式存储.
+123//hash变更后要立刻存档到randomNlocalStorage.setItem('randomN',JSON.stringify(hash)) //JSON.stringi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/19/项目：键盘导航/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -750,7 +732,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  240 字
                 </span>
               
 
@@ -766,7 +748,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  1 分钟
                 </span>
               
             </div>
@@ -789,17 +771,19 @@
       
         
           
-            <p><code>app.json</code> 是当前小程序的全局配置</p>
-<p>app是全局的</p>
-<p>page是局部的</p>
-<p>你可以写一个 <code>app.wxss</code> 作为全局样式，会作用于当前小程序的所有页面，局部页面样式 <code>page.wxss</code> 仅对当前页面生效。</p>
-<p><code>&lt;navigator&gt;</code>相当于html里面的a链接。但是只能链接到小程序内部的页面，不能链接到外部的页面。保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 <a href="https://developers.weixin.qq.com/miniprogram/dev/api/wx.navigateBack.html" target="_blank" rel="noopener">wx.navigateBack</a> 可以返回到原页面。</p>
-<p>小程序的组件 是<strong>具有一定功能的HTML元素</strong>。</p>
-<p><strong>建议：</strong>图片资源不要直接放到小程序文件下，这样会导致小程序包太大，打开就会很慢。能用图片外链就用图片外链。像用<code>&lt;img&gt;</code>组件也不是很方便。</p>
-<p>尝试使用字体图标iconfont。</p>
-<p>bug: 小程序的wxml不能写入汉字。</p>
-
-          
+          app.json 是当前小程序的全局配置
+app是全局的
+page是局部的
+你可以写一个 app.wxss 作为全局样式，会作用于当前小程序的所有页面，局部页面样式 page.wxss 仅对当前页面生效。
+&lt;navigator&gt;相当于html里面的a链接。但是只能链接到小程序内部的页面，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/24/项目实战：小程序开发/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -931,7 +915,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  349 字
                 </span>
               
 
@@ -947,7 +931,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  1 分钟
                 </span>
               
             </div>
@@ -970,31 +954,19 @@
       
         
           
-            <p>请预习 Cookie、Session、Cache-Control 等 HTTP 知识</p>
-<ul>
-<li><a href="https://zh.wikipedia.org/wiki/Cookie" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Cookie</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/22396872?refer=study-fe" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22396872?refer=study-fe</a></li>
-<li>Session 维基百科：<code>https://zh.wikipedia.org/wiki/%E4%BC%9A%E8%AF%9D_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)</code></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">Cache-Control</a></li>
-</ul>
-<p>课上的代码：<a href="https://github.com/FrankFang/sign-in-demo" target="_blank" rel="noopener">https://github.com/FrankFang/sign-in-demo</a></p>
-<p>要点：</p>
-<p><strong>Cookie 的特点</strong></p>
-<ol>
-<li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
-<li>浏览器得到 Cookie 之后，每次请求都要带上 Cookie</li>
-<li>服务器读取 Cookie 就知道登录用户的信息（email）</li>
-</ol>
-<p><strong>问题</strong></p>
-<ol>
-<li>我在 Chrome 登录了得到 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗<br>no</li>
-<li>Cookie 存在哪<br>Windows 存在 C 盘的一个文件里</li>
-<li>Cookie会被用户篡改吗？<br>可以，下节课会讲 Session 来解决这个问题，防止用户篡改</li>
-<li>Cookie 有效期吗？<br>默认有效期20分钟左右，不同浏览器策略不同<br>后端可以强制设置有效期，具体语法看 MDN</li>
-<li>Cookie 遵守同源策略吗？<br>也有，不过跟 AJAX 的同源策略稍微有些不同。<br>当请求 qq.com 下的资源时，浏览器会默认带上 qq.com 对应的 Cookie，不会带上 baidu.com 对应的 Cookie<br>当请求 v.qq.com 下的资源时，浏览器不仅会带上 v.qq.com 的Cookie，还会带上 qq.com 的 Cookie<br>另外 Cookie 还可以根据路径做限制，请自行了解，这个功能用得比较少。</li>
-</ol>
+          请预习 Cookie、Session、Cache-Control 等 HTTP 知识
 
-          
+https://zh.wikipedia.org/wiki/Cookie
+https://zhuanlan.zhihu.com/p/22396872?refer=study-fe
+Session 维基百科：htt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/24/Cookie与登录注册/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1126,7 +1098,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  37 字
                 </span>
               
 
@@ -1142,7 +1114,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  1 分钟
                 </span>
               
             </div>
@@ -1165,17 +1137,21 @@
       
         
           
-            <h3 id="主要使用的API"><a href="#主要使用的API" class="headerlink" title="主要使用的API"></a>主要使用的API</h3><p><code>document.querySelector(&#39;#id&#39;)</code></p>
-<p><code>setTimeout(fn,time)</code></p>
-<p><code>string.substring(0,n)</code></p>
-<p><code>element.innerHTML</code></p>
-<p><code>element.scrollTop</code></p>
-<p><code>element.scrollHeight</code></p>
-<p>立即执行函数</p>
-<p>pre标签</p>
-<p>jQuery</p>
-<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3>
-          
+          主要使用的APIdocument.querySelector(&#39;#id&#39;)
+setTimeout(fn,time)
+string.substring(0,n)
+element.innerHTML
+element.scrollTop
+element.scrollHeight
+立即执行函
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/22/画一只皮卡丘/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1307,7 +1283,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  601 字
                 </span>
               
 
@@ -1323,7 +1299,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  2 分钟
                 </span>
               
             </div>
@@ -1346,30 +1322,15 @@
       
         
           
-            <h2 id="页面会动的原理"><a href="#页面会动的原理" class="headerlink" title="页面会动的原理"></a>页面会动的原理</h2><p>首先分析一下我们的需求，页面内容（html）和CSS样式效果（CSS）<strong>同步自动</strong>显示。关键词有html页面内容，CSS样式，自动显示，同步显示。自动显示意味着不是人为操作 写页面和样式，那只能是JS写页面和样式，那如何显示内容和样式呢？JS写完内容一定得加入到页面中（<code>&lt;body&gt;</code>标签中，加入到<code>&lt;pre&gt;</code>标签中更好，保留代码格式呈现）才能显示页面内容，JS写完样式得加入到<code>&lt;style&gt;</code>标签中才能显示CSS样式，这都是<strong>JS操作页面</strong>的体现。同步显示就是JS将写好的样式和内容同时分别加入<code>&lt;style&gt;</code> 和<code>&lt;pre&gt;</code>标签中。</p>
-<p>综上，页面会动的原理就是JS同时往<code>&lt;style&gt;</code> 和<code>&lt;pre&gt;</code>中写内容，只是两者的解析方式不一样。为了效果逼真，使用<code>setInterval( () =&gt; {},间隔时间)</code>一点点往页面中添加内容。<a href="http://js.jirengu.com/tudixaxaxe/1/edit?html,css,js,output" target="_blank" rel="noopener">预览</a></p>
-<p><img src="https://i.loli.net/2019/02/19/5c6b7cd2de0b9.png" alt="7P.png"></p>
-<h2 id="实战-页面会动的简历"><a href="#实战-页面会动的简历" class="headerlink" title="实战-页面会动的简历"></a>实战-页面会动的简历</h2><h3 id="文本加注释"><a href="#文本加注释" class="headerlink" title="文本加注释"></a>文本加注释</h3><p>加到<code></code><style>`标签的内容不能出现文本，故将文本都加上注释。</p>
-<p><img src="https://i.loli.net/2019/02/19/5c6b89cbdb711.png" alt="F.png"></p>
-<h3 id="代码高亮功能"><a href="#代码高亮功能" class="headerlink" title="代码高亮功能"></a>代码高亮功能</h3><p>原理：给页面的选择器加span标签</p>
-<p><img src="https://i.loli.net/2019/02/19/5c6b85e8619ac.png" alt="M.png"></p>
-<p>自己写肯定不划算，引用别人的代码高亮库，Copy-Run-Modify</p>
-<p>引入<code>Prism.css</code> <code>Prism.js</code>库，并查看官方文档如何使用</p>
-<p><img src="https://i.loli.net/2019/02/19/5c6bbb196459b.png" alt="XR.png"></p>
-<p><img src="https://i.loli.net/2019/02/19/5c6bbe89330de.png" alt="U5.png"></p>
-<p>代码高亮效果</p>
-<p><img src="https://i.loli.net/2019/02/19/5c6bbba308e86.png" alt="XY4.png"></p>
-<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>异步就是先写的代码后执行。也是 <strong>不等结果直接进行下一步</strong>。例如：</p>
-<p><img src="https://i.loli.net/2019/02/19/5c6beef20b84f.png" alt="IEX.png"></p>
-<p>更好理解的是明天六点起床这个例子，假如我们现在是晚上11点，你定好了明早六点起床的闹钟，然后你从今晚11点到明早6点之间的时间都可以玩游戏，显然玩游戏操作并不是等你起床这个操作以后再执行的。<strong>不等起床发生就能玩游戏</strong>，这就是异步事件。</p>
-<p>同理可知，<strong>同步就是先等结果才能执行下一步</strong>。</p>
-<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>回调是拿到异步结果的一种方式</p>
-<p>回调也可以拿同步结果。</p>
-<p>回调就是回电话通知。</p>
-<p>使用回调函数可以使异步事件 同步执行，即回调函数可以让异步事件按我们想到的顺序发生。</p>
-<p><img src="https://i.loli.net/2019/02/20/5c6cc59993038.png" alt="T01.png"></p>
-</style></p>
-          
+          页面会动的原理首先分析一下我们的需求，页面内容（html）和CSS样式效果（CSS）同步自动显示。关键词有html页面内容，CSS样式，自动显示，同步显示。自动显示意味着不是人为操作 写页面和样式，那只能是JS写页面和样式，那如何显示内容和样式呢？JS写完内容一定得加入到页面中（&lt;body&g
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/19/会动的简历/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1501,7 +1462,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  227 字
                 </span>
               
 
@@ -1517,7 +1478,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  1 分钟
                 </span>
               
             </div>
@@ -1540,9 +1501,15 @@
       
         
           
-            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line">str.substring(indexStart[, indexEnd]) <span class="comment">//字符串切片，含头不含尾</span></span><br><span class="line">str.slice(beginSlice[, endSlice]) <span class="comment">//slice() 返回一个从原字符串中提取出来的新字符串包括beginSlice但不包括 endSlice。</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="keyword">var</span> id = setInterval( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; , 间隔时间) <span class="comment">//缺点，间隔时间只会读一次</span></span><br><span class="line">clearInterval(id)</span><br><span class="line"></span><br><span class="line"><span class="comment">//改进，使用setTimeout,所有的setInterval都可以改成setTimeout</span></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123; setTimeout(fn,间隔时间) &#125;,间隔时间)</span><br><span class="line"><span class="comment">//两个的不同是setTimeout执行一次就结束了，连续执行需要递归调用fn即可，所以使用setTimeout，间隔时间是需要重复调用的。而setInterval是自动重复调用，间隔时间只读取一次，需要你帮它停下来。</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'#idName'</span>)</span><br><span class="line">body.querySelector(<span class="string">'#className'</span>)</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'divOrOtherSelector'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'#idName'</span>) <span class="comment">//得到NodeList</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'#className'</span>)</span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'divOrOtherSelector'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="keyword">const</span> content = idName.innerHTML <span class="comment">//获取HTML语法表示的元素的后代</span></span><br><span class="line">idName.innerHTML = htmlString   <span class="comment">//设置HTML语法表示的元素的后代</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(paper)</span><br><span class="line"></span><br><span class="line"><span class="number">7</span></span><br></pre></td></tr></table></figure>
-
-          
+          12345678910111213141516171819202122232425262728293031321str.substring(indexStart[, indexEnd]) //字符串切片，含头不含尾str.slice(beginSlice[, endSlice]) //slice()
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/19/JS常用DOM-API/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1674,7 +1641,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  410 字
                 </span>
               
 
@@ -1690,7 +1657,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  2 分钟
                 </span>
               
             </div>
@@ -1713,15 +1680,15 @@
       
         
           
-            <h2 id="虚拟-DOM是什么"><a href="#虚拟-DOM是什么" class="headerlink" title="虚拟 DOM是什么"></a>虚拟 DOM是什么</h2><h2 id="虚拟-DOM有什么用"><a href="#虚拟-DOM有什么用" class="headerlink" title="虚拟 DOM有什么用"></a>虚拟 DOM有什么用</h2><h2 id="虚拟-DOM如何实现"><a href="#虚拟-DOM如何实现" class="headerlink" title="虚拟 DOM如何实现"></a>虚拟 DOM如何实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author ruoyu</span><br><span class="line"> * @description 虚拟 DOM Demo</span><br><span class="line"> * @todo 暂时不考虑复杂情况</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">class VNode &#123;</span><br><span class="line">  constructor(tag, children, text) &#123;</span><br><span class="line">    this.tag = tag</span><br><span class="line">    this.text = text</span><br><span class="line">    this.children = children</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    if(this.tag === &apos;#text&apos;) &#123;</span><br><span class="line">      return document.createTextNode(this.text)</span><br><span class="line">    &#125;</span><br><span class="line">    let el = document.createElement(this.tag)</span><br><span class="line">    this.children.forEach(vChild =&gt; &#123;</span><br><span class="line">      el.appendChild(vChild.render())</span><br><span class="line">    &#125;)</span><br><span class="line">    return el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function v(tag, children, text) &#123;</span><br><span class="line">  if(typeof children === &apos;string&apos;) &#123;</span><br><span class="line">    text = children</span><br><span class="line">    children = []</span><br><span class="line">  &#125;</span><br><span class="line">  return new VNode(tag, children, text)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">let nodesData = &#123;</span><br><span class="line">  tag: &apos;div&apos;,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      tag: &apos;p&apos;,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          tag: &apos;span&apos;,</span><br><span class="line">          children: [</span><br><span class="line">            &#123;</span><br><span class="line">              tag: &apos;#text&apos;,</span><br><span class="line">              text: &apos;xiedaimala.com&apos;</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      tag: &apos;span&apos;,</span><br><span class="line">        children: [</span><br><span class="line">          &#123;</span><br><span class="line">            tag: &apos;#text&apos;,</span><br><span class="line">            text: &apos;jirengu.com&apos;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/*创建vNodes实例*/</span><br><span class="line">let vNodes = v(&apos;div&apos;, [</span><br><span class="line">      v(&apos;p&apos;, [</span><br><span class="line">        v(&apos;span&apos;, [ v(&apos;#text&apos;, &apos;xiedaimala.com&apos;) ] )</span><br><span class="line">        ]</span><br><span class="line">      ),</span><br><span class="line">      v(&apos;span&apos;, [</span><br><span class="line">        v(&apos;#text&apos;,  &apos;jirengu.com&apos;)</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">  )</span><br><span class="line">console.log(vNodes)</span><br><span class="line">console.log(vNodes.render())</span><br><span class="line"></span><br><span class="line">//虚拟DOM实现数据更新</span><br><span class="line">//增加、删除、修改一个元素</span><br><span class="line">function patchElement(parent, newVNode, oldVNode, index = 0) &#123;</span><br><span class="line">  if(!oldVNode) &#123;</span><br><span class="line">    parent.appendChild(newVNode.render())</span><br><span class="line">  &#125; else if(!newVNode) &#123;</span><br><span class="line">    parent.removeChild(parent.childNodes[index])</span><br><span class="line">  &#125; else if(newVNode.tag !== oldVNode.tag || newVNode.text !== oldVNode.text) &#123;</span><br><span class="line">    parent.replaceChild(newVNode.render(), parent.childNodes[index])</span><br><span class="line">  &#125;  else &#123;</span><br><span class="line">    for(let i = 0; i &lt; newVNode.children.length || i &lt; oldVNode.children.length; i++) &#123;</span><br><span class="line">      patchElement(parent.childNodes[index], newVNode.children[i], oldVNode.children[i], i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let vNodes1 = v(&apos;div&apos;, [</span><br><span class="line">      v(&apos;p&apos;, [</span><br><span class="line">        v(&apos;span&apos;, [ v(&apos;#text&apos;, &apos;xiedaimala.com&apos;) ] )</span><br><span class="line">        ]</span><br><span class="line">      ),</span><br><span class="line">      v(&apos;span&apos;, [</span><br><span class="line">        v(&apos;#text&apos;,  &apos;jirengu.com&apos;)</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">let vNodes2 = v(&apos;div&apos;, [</span><br><span class="line">      v(&apos;p&apos;, [</span><br><span class="line">        v(&apos;span&apos;, [ </span><br><span class="line">          v(&apos;#text&apos;, &apos;xiedaimala.com&apos;) </span><br><span class="line">          ] )</span><br><span class="line">        ]</span><br><span class="line">      ),</span><br><span class="line">      v(&apos;span&apos;, [</span><br><span class="line">        v(&apos;#text&apos;,  &apos;jirengu.coms&apos;),</span><br><span class="line">        v(&apos;#text&apos;,  &apos;ruoyu&apos;)</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">  )</span><br><span class="line">const root = document.querySelector(&apos;#root&apos;)</span><br><span class="line">patchElement(root, vNodes1)</span><br></pre></td></tr></table></figure>
-<h3 id="分析虚拟DOM实现（1）"><a href="#分析虚拟DOM实现（1）" class="headerlink" title="分析虚拟DOM实现（1）"></a>分析虚拟DOM实现（1）</h3><p>### </p>
-<p><img src="https://i.loli.net/2019/02/17/5c68c303a7e71.png" alt="4.png"></p>
-<p><img src="https://i.loli.net/2019/02/17/5c68c303cd8b4.png" alt="T.png"></p>
-<p><img src="https://i.loli.net/2019/02/17/5c68b8cf8073b.png" alt="L.png"></p>
-<p><img src="https://i.loli.net/2019/02/17/5c68b8cf92594.png" alt="PW.png"></p>
-<h3 id="分析虚拟DOM实现（2）"><a href="#分析虚拟DOM实现（2）" class="headerlink" title="分析虚拟DOM实现（2）"></a>分析虚拟DOM实现（2）</h3><p><img src="https://i.loli.net/2019/02/17/5c68d0a178b2f.png" alt="1.png"></p>
-
-          
+          虚拟 DOM是什么虚拟 DOM有什么用虚拟 DOM如何实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/16/虚拟DOM深入讲解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1853,7 +1820,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  1k 字
                 </span>
               
 
@@ -1869,7 +1836,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  4 分钟
                 </span>
               
             </div>
@@ -1892,68 +1859,23 @@
       
         
           
-            <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>预习：</p>
-<ol>
-<li><a href="https://www.zhihu.com/question/19854505" target="_blank" rel="noopener">程序员也不知道什么是面向对象</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="noopener">MDN 给了我们一堆术语</a></li>
-</ol>
-<p>请尝试理解面向对象，并背诵 MDN 里的以下内容</p>
-<blockquote>
-</blockquote>
-<p><strong>Class 类</strong>，定义对象的特征。它是对象的属性和方法的模板定义.<br><strong>Object 对象</strong>，类的一个实例。<br><strong>Property 属性</strong>，对象的特征，比如颜色。<br><strong>Method 方法</strong>，对象的能力，比如行走。<br><strong>Constructor 构造函数</strong>，对象初始化的瞬间, 被调用的方法. 通常它的名字与包含它的类一致.例如：Object() String() Number(</p>
-<p>)<br><strong>Inheritance 继承</strong>，一个类可以继承另一个类的特征。<br><strong>Encapsulation 封装</strong>，一种把数据和相关的方法绑定在一起使用的方法.<br><strong>Abstraction 抽象</strong>，结合复杂的继承，方法，属性的对象能够模拟现实的模型。<br><strong>Polymorphism 多态</strong>，多意为‘许多’，态意为‘形态’。不同类可以定义相同的方法或属性。</p>
-<p>namespace 命名空间，包含了很多名字的空间。</p>
-<h2 id="封装-Model-View-Controller"><a href="#封装-Model-View-Controller" class="headerlink" title="封装 Model View Controller"></a>封装 Model View Controller</h2><p>完整代码：<a href="https://github.com/FrankFang/resume-15-8" target="_blank" rel="noopener">https://github.com/FrankFang/resume-15-8</a></p>
-<ol>
-<li>controller === object</li>
-<li><code>controller.init(view, model)</code> === <code>controller.init.call(controller, view, model)</code><br>那么 controller.init 里面的 this 当然 TM 是 controller<br>也就是这个1里面的object<br>controller.init 里面的 this 就是 object<br>object.init 里面的 this 就是 object</li>
-<li>initB.call(this)<br>initB 里面的 this === call 后面的this<br>call 后面 this === 第二条里的 this<br>第二条里面的 this === object<br>=&gt; initB 里面的 this 就是 object</li>
-</ol>
-<h2 id="复习-this"><a href="#复习-this" class="headerlink" title="复习 this"></a>复习 this</h2><p>对this的理解是细节，牢记this就是<strong>call后面的第一个参数</strong>，当对象的属性是函数，又称方法，当函数作为对象里的方法被调用时，函数里的 this 是调用该函数的对象，例如 controller是一个对象，controller.init(view) 等价于controller.init.call(controller,view),而函数init()里的this就是controller,view才是调用函数init时传进去的参数。</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5daa9987477.png" alt="KT3.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">button.onclick = function f1()&#123;</span><br><span class="line">    console.log(this) // this值是，触发事件的元素button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button.onclick.call(&#123;name: &apos;frank&apos;&#125;) //则this就是call后的第一个参数&#123;name: &apos;frank&apos;&#125;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">button.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">    console.log(this) // this值是，该元素的引用button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3.</span><br><span class="line">$(&apos;ul&apos;).on(&apos;click&apos;, &apos;li&apos; /*selector*/, function()&#123;</span><br><span class="line">    console.log(this) //this 则代表了与 selector 相匹配的元素，即li 元素</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">以上的解决办法：</span><br><span class="line">去看 on 的源码呀 -&gt; 做不到</span><br><span class="line">jQuery 的开发者知道 onclick 的源码，f1.call(???)</span><br><span class="line">jQuery 的开发者写了文档</span><br><span class="line">看文档呀</span><br></pre></td></tr></table></figure>
-<p>例题：</p>
-<p>1</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da7c32aa34.png" alt=")M.png"></p>
-<p>2</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da7f016aa5.png" alt="36.png"></p>
-<p>3</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da78d637f9.png" alt="W.png"></p>
-<p><strong>箭头函数内是没有this的，所以箭头函数内外this值是一样的。</strong></p>
-<p><img src="https://i.loli.net/2019/02/09/5c5daa26bc147.png" alt="L5.png"></p>
-<p><img src="https://i.loli.net/2019/02/09/5c5daa26d2072.png" alt="H.png"></p>
-<h2 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a>new 的作用</h2><p><a href="https://zhuanlan.zhihu.com/p/23987456" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/23987456</a></p>
-<p>总结：回顾进阶时我们记住的关于原型链</p>
-<p><code>var object = new Object()</code></p>
-<p>自有属性 空(0)</p>
-<p><code>object.__proto__ === Object.prototype</code></p>
-<p><code>var array = new Array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)</code></p>
-<p>自有属性 0:’a’ 1:’b’ 2:’c’,length:3<br><code>array.__proto__ === Array.prototype</code><br><code>Array.prototype.**proto** === Object.prototype</code></p>
-<p><code>var fn = new Function(&#39;x&#39;, &#39;y&#39;, &#39;return x+y&#39;)</code><br>自有属性 length:2, 不可见的函数体: ‘return x+y’<br><code>fn.**proto** === Function.prototype</code></p>
-<p><code>Array is a function</code></p>
-<p><code>Array = function(){...}</code><br> Array.<strong>proto</strong> === Function.prototype</p>
-<h2 id="和-amp-amp"><a href="#和-amp-amp" class="headerlink" title="|| 和&amp;&amp;"></a>|| 和&amp;&amp;</h2><p><code>或</code> 和 <code>且</code> 的值一般都不是false/true, 而是falsy/truthy。回忆一下五个falsy值，<code>0</code> <code>NaN</code> <code>&#39;&#39;</code> <code>null</code> <code>undefined</code></p>
-<p>例如：a||b c&amp;&amp;d 的值一般都是从a b c d中选取一个值，它的值永远都是现取的，而不是重新生成一个值。</p>
-<ol>
-<li><code>a&amp;&amp;b</code> 与运算从左到右依次找第一个falsy值，若找到第一个falsy值，则返回第一个falsy值，后面不再执行;若没有falsy值(<strong>全为truthy值</strong>)，则返回最后一个表达式的truthy值。</li>
-</ol>
-<p>例如：</p>
-<p><img src="https://i.loli.net/2019/02/08/5c5cf1010e32c.png" alt="$50.png"></p>
-<ol start="2">
-<li><p><code>c||d</code>或运算符从左到右依次找到第一个truthy值，若找到第一个truthy值，则返回第一个truthy值，后面不再执行；若没有truthy值(<strong>全为falsy值</strong>)，则返回最后一个表达式的falsy值。</p>
-<p>例如：</p>
-<p><img src="https://i.loli.net/2019/02/08/5c5cf62967dc1.png" alt="RH.png"></p>
-</li>
-</ol>
-<h2 id="var-app-与-var-app-app"><a href="#var-app-与-var-app-app" class="headerlink" title="var app = {} 与 var app = app || {}"></a>var app = {} 与 var app = app || {}</h2><ol>
-<li><p><code>var app = {}</code> 是危险代码,可能会覆盖之前声明的app变量</p>
-</li>
-<li><p><code>var app = app || {}</code> 是安全代码，它就是 <code>if(app){ app = app；} else{ app={}； }</code></p>
-<p><img src="https://i.loli.net/2019/02/09/5c5da850beed4.png" alt="N.png"></p>
-</li>
-</ol>
+          面向对象预习：
 
-          
+程序员也不知道什么是面向对象
+MDN 给了我们一堆术语
+
+请尝试理解面向对象，并背诵 MDN 里的以下内容
+
+
+Class 类，定义对象的特征。它是对象的属性和方法的模板定义.Object 对象，类的一个实例。Property 属性，对象的特征，比如颜色。Method 方法，对象的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/07/40面向对象编程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2085,7 +2007,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  1.1k 字
                 </span>
               
 
@@ -2101,7 +2023,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  4 分钟
                 </span>
               
             </div>
@@ -2124,57 +2046,15 @@
       
         
           
-            <p>补充：这是我第二次在Anaconda下安装tensorflow，第一次安装tansorflow安装了一天，从早到晚吧，参考了好几篇教程，最后还是直接在Anaconda Navigator的tensorflow环境下直接安装tensorflow，也没报错。第二次安装只记得今天这篇教程了，因为之前电脑系统崩了，又得重头来一遍，用的这篇教程，但是里面有些指令不管用了，自己摸索了一下，大概花了两三个小时就安装上了Anaconda和tensorflow，花时间把修改后的内容写了一篇博客，留给自己复习用。这次是为了春运抢票需要用python，干脆就给装了。不敢居功，<a href="http://blog.51cto.com/acevi/2103437" target="_blank" rel="noopener">原文链接</a>奉上。</p>
-<h3 id="一、什么是Anaconda？"><a href="#一、什么是Anaconda？" class="headerlink" title="一、什么是Anaconda？"></a>一、什么是Anaconda？</h3><p>​       简单来说，Anaconda是一个包管理器和环境管理器。当安装好Anaconda并开始运行时，就会发现我们电脑里面安装好的环境和依赖包都可以在Anaconda里面找到，管理（安装、更新、卸载等）起来简直不能再方便。而且Anaconda附带一大批常用的数据科学包，这样在使用Python等处理数据的时候就不用安装完这个包再装那个包了。还有一个Anaconda非常强的方面就是环境管理，一台电脑多种环境可以造成很多混乱和错误，但是用Anaconda可以创建并管理多个不同的环境，需要哪个用哪个，Mom再也不用担心我的项目在不同环境下疯狂报错的问题啦。</p>
-<h3 id="二、安装Anaconda"><a href="#二、安装Anaconda" class="headerlink" title="二、安装Anaconda"></a>二、安装Anaconda</h3><h4 id="1下载Anaconda"><a href="#1下载Anaconda" class="headerlink" title="1下载Anaconda"></a>1下载Anaconda</h4><p>我是在Windows 10环境下安装Anaconda，我从<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">官网</a>下载Anaconda安装包，我是连着家里的网，下载速度感觉和使用镜像下载差不多。或者选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学镜像网站</a>，最下面找到最新版的，选择要安装的操作系统，下载就OK。</p>
-<h4 id="2安装Anaconda"><a href="#2安装Anaconda" class="headerlink" title="2安装Anaconda"></a>2安装Anaconda</h4><p>下载好之后就跟安装一般的软件没啥区别，选择自己安装的文件夹路径，下一步就ok，需要注意下图中的两项都需要勾选。</p>
-<p><img src="http://blog.51cto.com/static/js/ueditor1.4.3/themes/default/images/spacer.gif" alt="img"><img src="http://s1.51cto.com/images/20180414/1523693376832648.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=" alt="图片.png"></p>
-<p><strong>补充</strong>：勾选了，等安装结束以后还是检查一下电脑的环境变量-系统变量里面有没有Anaconda的安装路径，如果没有的话，你就要手动添加了，反正我的是勾选了还是没有路径，自己手动添加的。</p>
-<p>接下来就是一小段时间的等待，可以去喝杯茶。时间真的挺长的。</p>
-<h4 id="3测试Anaconda是否完成"><a href="#3测试Anaconda是否完成" class="headerlink" title="3测试Anaconda是否完成"></a>3测试Anaconda是否完成</h4><p>它安装完成后，在开始菜单找到并打开Anaconda控制台:Anaconda Prompt ，也叫<strong>终端</strong>。</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6774de93e.jpg" alt="zzz.jpg"></p>
-<p>执行命令：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
-<p>可以看到自己电脑上安装的一些包，至此Anaconda安装完成。</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d66cf6aead.png" alt="9T.png"></p>
-<h4 id="4更新Anaconda"><a href="#4更新Anaconda" class="headerlink" title="4更新Anaconda"></a>4更新Anaconda</h4><p>如果发现自己安装的Anaconda不是最新版本的,更新命令：<code>conda update --prefix 安装路径 anaconda</code></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d650dbc7bf.png" alt="B.png"></p>
-<h3 id="三、在Anaconda下安装Tensorflow"><a href="#三、在Anaconda下安装Tensorflow" class="headerlink" title="三、在Anaconda下安装Tensorflow"></a>三、在Anaconda下安装Tensorflow</h3><ol>
-<li>因为要下载Tensorflow，所以我先在Anaconda的配置文件中添加清华镜像库，这样下载和更新的速度会快很多，命令：</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6480a4e50.png" alt="M7.png"></p>
-<ol start="2">
-<li>Tensorflow目前只支持Python3.5/3.6环境，而且在Python3.5环境下的表现更好一些。所以利用Anaconda创建Python3.5的环境，用来安装Tensorflow，执行命令：</li>
-</ol>
-<p><code>conda create -n tensorflow python=3.5</code></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6336145c9.png" alt="V.png"></p>
-<p>然后打开Anaconda Navigator，点击环境（Environment），可以看到我已经创建了一个名为tensorflow的环境。</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d6844087c4.png" alt="7.png"></p>
-<ol start="3">
-<li><p>在Anaconda Prompt启动刚刚配置好的Tensorflow环境，命令：</p>
-<p> <code>conda activate Tensorflow</code></p>
-</li>
-</ol>
-<p><img src="https://i.loli.net/2019/01/27/5c4d66043f7f6.png" alt="F8.png"></p>
-<p>如果不使用Tensorflow了，需要将环境关掉，命令：<code>conda deactivate</code></p>
-<ol start="4">
-<li><p>接下来就在这个环境中安装Tensorflow（之前的工作是给安装Tensorflow准备环境），执行命令：</p>
-<p><code>pip install tensorflow</code></p>
-</li>
-</ol>
-<p><strong>安装tensorfdlow的时间也是很长很长，耐心等吧。</strong></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d62b6e2d0f.png" alt="0.png"></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d61dbecb48.png" alt="RZQ.png"></p>
-<p>使用这个命令我成功安装了tensorflow，然后终端提醒我<strong>更新pip版本</strong>，告诉我使用命令：</p>
-<p><code>python -m pip install --upgrade pip</code></p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d625393ad1.png" alt="F.png"></p>
-<p>5.等安装过程完成后，我们来测试一下：打开Python编辑器，输入import tensorflow，没有报错信息，则安装完成</p>
-<p><img src="https://i.loli.net/2019/01/27/5c4d602a1feff.png" alt="92K.png"></p>
-<p>这应该算是时间比较新的一个教程了，全为亲身实践，可用，在安装的过程中就遇见了一个错误。</p>
-<p>pip3指令不可用，估计是pip没有更新导致的，我换成<code>pip install tansorflow</code>就安装成功了，之后终端也提示<br>\我更新pip了，上文有提到。好了，我要抢车票去了。</p>
-
-          
+          补充：这是我第二次在Anaconda下安装tensorflow，第一次安装tansorflow安装了一天，从早到晚吧，参考了好几篇教程，最后还是直接在Anaconda Navigator的tensorflow环境下直接安装tensorflow，也没报错。第二次安装只记得今天这篇教程了，因为之前电脑系
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/27/Anaconda安装和tensorflow安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
