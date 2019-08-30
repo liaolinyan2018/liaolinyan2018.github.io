@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Linyan&#39;s blog">
 <meta property="og:description" content="HTTP是控制如何书写内容的协议,规定了请求和响应的格式（四个内容）。TCP是控制如何传输的协议。IP是控制如何联网的协议。TCP可靠,会面向连接。可靠是指我发一个请求，成功与否我是知道的，而UDP是不知道的。以上解决面试。          外网、内网、本地IP、0.0.0.0 必须提供IP和端口号。  服务器三个特点： 有网、CPU要好、内存要高。没有显卡和显示器。服务器简单说就是电脑，但是它">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-02T11:22:34.000Z">
+<meta property="og:updated_time" content="2019-08-29T15:05:38.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="server了解">
 <meta name="twitter:description" content="HTTP是控制如何书写内容的协议,规定了请求和响应的格式（四个内容）。TCP是控制如何传输的协议。IP是控制如何联网的协议。TCP可靠,会面向连接。可靠是指我发一个请求，成功与否我是知道的，而UDP是不知道的。以上解决面试。          外网、内网、本地IP、0.0.0.0 必须提供IP和端口号。  服务器三个特点： 有网、CPU要好、内存要高。没有显卡和显示器。服务器简单说就是电脑，但是它">
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-02T19:22:34+08:00">
-                2019-05-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-29T23:05:38+08:00">
+                2019-08-29
               </time>
             
           </span>
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  794 字
+                  688 字
                 </span>
               
 
@@ -419,15 +419,10 @@
         <p>HTTP是控制如何书写内容的协议,规定了请求和响应的格式（四个内容）。<br>TCP是控制如何传输的协议。<br>IP是控制如何联网的协议。<br>TCP可靠,会面向连接。可靠是指我发一个请求，成功与否我是知道的，而UDP是不知道的。<br>以上解决面试。         </p>
 <p>外网、内网、本地IP、0.0.0.0</p>
 <p>必须提供IP和端口号。 </p>
-<p>服务器三个特点： 有网、CPU要好、内存要高。没有显卡和显示器。服务器简单说就是电脑，但是它比电脑要更稳定。bash脚本和node.js脚本都提供HTTP服务</p>
+<p><strong>服务器三个特点： 有网、CPU要好、内存要高。没有显卡和显示器。</strong>服务器简单说就是电脑，但是它比电脑要更稳定。bash脚本和node.js脚本都提供HTTP服务</p>
 <p>node.js不是这节课的重点,理解服务器才是重点。理解好服务器才是一个好的前端，之前讲了六节课,就是为了讲服务器。装gitbash是为了学命令行，学命令行是为了知道什么是脚本(script)。学脚本就是为了让你学node.js，学node.js就是为了今天的服务器(server)。    </p>
-<p>一个安全的目录就是指 别人不会影响你的 你也不会影响别人的目录。</p>
-<blockquote>
-<p>是 [重定向] 的意思   </p>
-</blockquote>
-<p>版本一（server.js要更改代码处）：<br>console.log(‘方方说：得到 HTTP 路径\n’ + path)<br>console.log(‘方方说：查询字符串为\n’ + query)<br>console.log(‘方方说：不含查询字符串的路径为\n’ + pathNoQuery)<br>response.write(‘Hi’)<br>response.end()             </p>
-<p>版本二（server.js要更改代码处）：<br>console.log(‘方方说：得到 HTTP 路径\n’ + path)<br>if(path == ‘/‘){<br>response.write(‘Hi\n’)<br>response.end()<br>}else{<br>response.statusCode = 404<br>response.end()<br>}     </p>
-<p>视频里还有版本三和版本四的代码，版本三的代码是指定当path == ‘/index’，响应一个标准的html,但是只能看到网页的源代码，也就是实质上服务器给我们的响应是字符串文本。而当我们加了response.setHeader(‘Content-Type’,’text/html’)后，用浏览器再次访问<a href="http://localhost:8888/index" target="_blank" rel="noopener">http://localhost:8888/index</a> 时，就得到的响应是一个网页。内容就只有html主体的内容。另外，如果body里还有中文的话，可能会出先乱码，原因就是服务器和浏览器使用不同的字符集，所以我们的server.js里面还要加入字符集的设置，response.setHeader(‘Content-Type’,’text/html;charset=utf-8’) 。也就是你要告诉浏览器你使用的是什么字符集，然后浏览器会使用和你一样的字符集去解析。    </p>
+<h3 id="学习server-js"><a href="#学习server-js" class="headerlink" title="学习server.js"></a>学习server.js</h3><p>是课上的一个用 node.js 写的一个服务器</p>
+<p>视频里还有版本三和版本四的代码，版本三的代码是指定当path == ‘/index’，响应一个标准的html,但是只能看到网页的源代码，也就是实质上服务器给我们的响应是字符串文本。而当我们加了response.setHeader(‘Content-Type’,’text/html’)后，用浏览器再次访问<a href="http://localhost:8888/index" target="_blank" rel="noopener">http://localhost:8888/index</a> 时，就得到的响应是一个网页。内容就只有html主体的内容。另外，如果body里还有中文的话，可能会出先乱码，原因就是服务器和浏览器使用不同的字符集，所以我们的server.js里面还要加入字符集的设置，response.setHeader(‘Content-Type’,’text/html;charset=utf-8’) 。也就是要告诉浏览器 服务器使用的是什么字符集，然后浏览器会使用和服务器一样的字符集去解析响应。</p>
 <p>再次强调后缀名在命令行里面是没有用。      </p>
 <p>然后就进一步修改代码，访问/index  /style  /script。进一步设置当浏览器访问这些时服务器（server）分别响应什么内容给浏览器。就是今天任务的题目了。 通过这个过程我们应该学到浏览器是如何去解析服务器发回来的响应的，一步一步去满足你的请求。比如发现这个网页还需要图片就再次像服务器发起请求，依次类推。看方方任务7最后的总结视频，最后10分钟，好好听。2018.10.31暂时到这，第七课要整理笔记</p>
 
@@ -539,8 +534,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -624,6 +628,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习server-js"><span class="nav-number">1.</span> <span class="nav-text">学习server.js</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
