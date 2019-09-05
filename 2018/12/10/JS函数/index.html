@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://i.imgur.com/A8ibmze.png">
 <meta property="og:image" content="https://i.imgur.com/Q4HGfBl.png">
 <meta property="og:image" content="https://i.imgur.com/Xov4bDR.png">
-<meta property="og:updated_time" content="2018-12-10T07:28:48.000Z">
+<meta property="og:updated_time" content="2019-08-31T05:15:00.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS函数">
 <meta name="twitter:description" content="这是面试知识点最密集的一课。函数可以没有参数，但一定要有return，不然会自动给你加return undefined； 函数的 5 种声明函数只有两种声明方法Function和function。  function f(){}直接用关键字function声明具名函数 function (){}用关键字function声明匿名函数,但是不能单独声明一个匿名函数，必须先声明一个变量，然后把匿名函数赋">
@@ -348,8 +348,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-10T15:28:48+08:00">
-                2018-12-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-31T13:15:00+08:00">
+                2019-08-31
               </time>
             
           </span>
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  813 字
+                  2k 字
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -461,9 +461,22 @@
 <ul>
 <li>变量提升(我错了两次)<br><img src="https://i.imgur.com/K5kPAuw.png" alt=""><br><br><img src="https://i.imgur.com/A8ibmze.png" alt=""><br></li>
 <li>作用域混淆<br><img src="https://i.imgur.com/Q4HGfBl.png" alt=""><br></li>
-<li>变量是这个变量，但是值会变，不一定相等。<br><br><img src="https://i.imgur.com/Xov4bDR.png" alt=""><br><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2>闭包就是如果一个函数使用了它范围外（作用域）的变量，那么 【这个函数+这个变量】组合的整体 就叫做闭包。<br></li>
+<li>变量是这个变量，但是值会变，不一定相等。<br><br><img src="https://i.imgur.com/Xov4bDR.png" alt=""><br><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2>闭包就是如果一个函数使用了它范围外（作用域）的变量，那么 【这个函数+这个变量】组合的整体 就叫做闭包。</li>
 </ul>
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>这节课的习题真是不走寻常路。<br></p>
+<p>闭包经常用来获取并保存某个环境里的数据，等着回调函数回来 取值。</p>
+<p>例子1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">6</span>;i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(i), <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="comment">// 依次输出</span></span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后 是 setTimeout 回调函数输出</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中 只使用了 一层闭包，当同步操作执行完毕后，轮到 serTimeout 里的回调函数执行时，<code>setTimeout(()=&gt;console.log(i), 0)</code>，因为 回调函数里没有定义 i 变量，因此 log 函数里的 i  只能去寻找函数外的 i 变量，而 i 变量 经过 之前的同步操作(i++) 后，此时值为6，因此 寻找到的 i 变量 值为 6 ，6 次 循环 建立了6 个 异步操作setTimeout，因此输出 6 个 6。</p>
+<p>下面这个例子就是使用了闭包。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">6</span>;i++) &#123;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(i), <span class="number">0</span>)</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="comment">// 依次输出</span></span><br><span class="line"><span class="literal">undefined</span>    <span class="comment">// 第一行代码执行结果</span></span><br><span class="line"><span class="number">6</span>            <span class="comment">// 第7行代码执行结果</span></span><br><span class="line"><span class="comment">// 第 4 行 异步输出</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>上面哪里体现使用了闭包呢？ for 循环 初始化 循环变量 i = 0 ，会创建一个立即执行函数并同时向立即执行函数内传入i，此时 i 值为 0 ，因此该立即执行函数作用域内的 i 变量 值 也是 0，<strong>这是 第一处使用闭包</strong>。setTimeout  的 回调函数作用域里没有定义 i 变量，因此 setTimeout(()=&gt;console.log(i), 0) 回调函数 中的 i 访问的就只是 外部的i ，也就是 立即执行函数里的i，<strong>这是第二处使用闭包</strong>。 因着 setTimeout 是异步操作，就去事件队列排队去了，等同步操作执行完了就执行回调函数，所以暂时没有值输出，<strong>当 setTimeout 可以执行的时候，回调函数里的 i 就会去 函数 能访问的环境里找 i 变量 取值。，因为闭包的存在，是可以取到当时的值的</strong>接着执行 for循环的 i++，计数值加1 ，i为1 ，然后执行循环体，再创建一个立即执行函数，再使用两次闭包，将计数值 1 保留在环境中，setTimeout 还是去排队。一直等到 外部 i  加到 6 ，不满足循环条件，不再执行循环体，循环结束，然后执行 最后一个同步操作，console.log(i)，输出6。至此同步操作都结束了，就去事件队列里 看看 哪些 异步操作可以执行了 。此时 setTimeout 的回调函数才开始执行，而 回调函数作用域 i 的值因为使用了闭包，使得计数值还是当时的值，并没有被销毁，因此输出0 1 2 3 4 5。</p>
+<p>实际上，6次循环 我们创建了 6 个 立即执行函数，通过使用闭包，<strong>分别将 6 个 计数值 分别 保留在 6 个立即执行函数中</strong>，并没有在函数结束后就立即销毁变量，所以当异步操作的 回调函数回来找 时 依然可以访问到。</p>
+<p>这也是可以理解闭包的例子，首先函数在创建的时候就已经确定了该函数内部能够访问的环境作用域，就是这个函数所在的作用域。那么 <strong>函数 和 该函数能访问的环境 就叫做闭包。</strong></p>
+<p><strong>使用 let 命令 可以达到 和 闭包一样的效果</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;<span class="number">6</span>;i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(i), <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先报错 第4 行执行结果</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>使用 let 命名 声明 计数变量 i ，使得 for 循环 形成了一个独立的作用域，循环体内部可以访问 () 里定义的 循环计数变量，而 for 循环外部 又是 另一个作用域 ，可以看作这个代码的 根作用域，setTimeout 的回调函数里 是 函数作用域。也就是说 上面代码中，<strong>存在三个作用域</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">6</span>;i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(i), <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="comment">// 依次输出</span></span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后 是 setTimeout 回调函数输出 6 个 6</span></span><br><span class="line"><span class="number">6</span> (<span class="number">6</span>个)</span><br></pre></td></tr></table></figure>
+<p>使用 var 命名 声明 计数变量 i ， for 循环 并不是一个独立的作用域，() 里 定义的 循环计数变量 不仅循环体可以访问，循环体外也可以访问，实际上，() 里 定义的 循环计数变量 就是 for循环外部作用域的，也是这个代码的 根作用域，setTimeout 的回调函数里 是 函数作用域。也就是说 上面代码中，<strong>只存在两个作用域</strong>。</p>
 
       
     </div>
@@ -600,7 +613,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -677,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的-5-种声明"><span class="nav-number">1.</span> <span class="nav-text">函数的 5 种声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的name属性"><span class="nav-number">2.</span> <span class="nav-text">函数的name属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的本质"><span class="nav-number">3.</span> <span class="nav-text">函数的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何调用函数-f-call"><span class="nav-number">4.</span> <span class="nav-text">如何调用函数 f.call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-和-arguments"><span class="nav-number">5.</span> <span class="nav-text">this 和 arguments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-call-stack"><span class="nav-number">6.</span> <span class="nav-text">什么是 call stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">7.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">8.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#习题"><span class="nav-number">9.</span> <span class="nav-text">习题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的-5-种声明"><span class="nav-number">1.</span> <span class="nav-text">函数的 5 种声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的name属性"><span class="nav-number">2.</span> <span class="nav-text">函数的name属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的本质"><span class="nav-number">3.</span> <span class="nav-text">函数的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何调用函数-f-call"><span class="nav-number">4.</span> <span class="nav-text">如何调用函数 f.call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-和-arguments"><span class="nav-number">5.</span> <span class="nav-text">this 和 arguments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-call-stack"><span class="nav-number">6.</span> <span class="nav-text">什么是 call stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">7.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">8.</span> <span class="nav-text">闭包</span></a></li></ol></div>
             
 
           </div>

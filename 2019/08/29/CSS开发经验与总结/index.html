@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="开发中常用CSS总结 div, span 标签没有默认的样式，其他的标签都有默认的样式。我们可以用开发者工具来查看某标签的默认样式,在浏览器界面-右键-检查-Elements。  浏览器默认字体大小是16px。  用开发者工具调试.html文件，直接改直接就能看到结果！  当你不知道一个 [CSS属性]的取值时，就去查MDN, google [关键词 MDN]，上面还有很多例子供你学习，但是作">
+<meta name="description" content="开发中常用CSS总结 行内元素必须设置 display: inline-block,才能设置宽高，包括 高宽，最大高宽 和 最小高宽  html 标签 和 body 标签 默认高度为 0 ，因为是块级标签，因此 默认宽度是屏幕宽度。但是 给 html 标签 或者 body 标签 设置 背景色，背景色会填充 整个屏幕。demo  demo2 。若同时 给 html  和 body 设置背景色，则">
 <meta name="keywords" content="Ajax JSON DOM Promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS开发经验与总结">
 <meta property="og:url" content="http://yoursite.com/2019/08/29/CSS开发经验与总结/index.html">
 <meta property="og:site_name" content="Linyan&#39;s blog">
-<meta property="og:description" content="开发中常用CSS总结 div, span 标签没有默认的样式，其他的标签都有默认的样式。我们可以用开发者工具来查看某标签的默认样式,在浏览器界面-右键-检查-Elements。  浏览器默认字体大小是16px。  用开发者工具调试.html文件，直接改直接就能看到结果！  当你不知道一个 [CSS属性]的取值时，就去查MDN, google [关键词 MDN]，上面还有很多例子供你学习，但是作">
+<meta property="og:description" content="开发中常用CSS总结 行内元素必须设置 display: inline-block,才能设置宽高，包括 高宽，最大高宽 和 最小高宽  html 标签 和 body 标签 默认高度为 0 ，因为是块级标签，因此 默认宽度是屏幕宽度。但是 给 html 标签 或者 body 标签 设置 背景色，背景色会填充 整个屏幕。demo  demo2 。若同时 给 html  和 body 设置背景色，则">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-29T14:14:56.544Z">
+<meta property="og:updated_time" content="2019-09-04T01:11:07.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS开发经验与总结">
-<meta name="twitter:description" content="开发中常用CSS总结 div, span 标签没有默认的样式，其他的标签都有默认的样式。我们可以用开发者工具来查看某标签的默认样式,在浏览器界面-右键-检查-Elements。  浏览器默认字体大小是16px。  用开发者工具调试.html文件，直接改直接就能看到结果！  当你不知道一个 [CSS属性]的取值时，就去查MDN, google [关键词 MDN]，上面还有很多例子供你学习，但是作">
+<meta name="twitter:description" content="开发中常用CSS总结 行内元素必须设置 display: inline-block,才能设置宽高，包括 高宽，最大高宽 和 最小高宽  html 标签 和 body 标签 默认高度为 0 ，因为是块级标签，因此 默认宽度是屏幕宽度。但是 给 html 标签 或者 body 标签 设置 背景色，背景色会填充 整个屏幕。demo  demo2 。若同时 给 html  和 body 设置背景色，则">
 
 
 
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-29T22:14:56+08:00">
-                2019-08-29
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T09:11:07+08:00">
+                2019-09-04
               </time>
             
           </span>
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k 字
+                  2.1k 字
                 </span>
               
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -419,6 +419,14 @@
         <meta name="referrer" content="no-referrer">
 
 <h3 id="开发中常用CSS总结"><a href="#开发中常用CSS总结" class="headerlink" title="开发中常用CSS总结"></a>开发中常用CSS总结</h3><ul>
+<li><p>行内元素必须设置 <code>display: inline-block</code>,才能设置宽高，包括 高宽，最大高宽 和 最小高宽</p>
+</li>
+<li><p><strong>html 标签 和 body 标签 默认高度为 0</strong> ，因为是块级标签，因此 默认宽度是屏幕宽度。但是 给 html 标签 或者 body 标签 设置 背景色，背景色会填充 整个屏幕。<a href="http://js.jirengu.com/vedol/1/edit?html,css,output" target="_blank" rel="noopener">demo</a>  <a href="http://js.jirengu.com/vedol/2/edit" target="_blank" rel="noopener">demo2</a> 。若同时 给 html  和 body 设置背景色，则 html 背景色 会覆盖 body 背景色。<a href="http://js.jirengu.com/vedol/7/edit" target="_blank" rel="noopener">demo3</a>。</p>
+</li>
+<li><p>给 html 标签 设置 <code>height: 100% / 100vh;</code> ，则 html 标签 和 屏幕一样高 ，body 不会继承 html 的高度。<a href="http://js.jirengu.com/vedol/4/edit" target="_blank" rel="noopener">demo</a> 。此时继续给 body设置 <code>height: 100% / 100vh;</code>，那么 body 也和 屏幕 一样高。<a href="http://js.jirengu.com/vedol/8/edit?html,css,output" target="_blank" rel="noopener">demo</a>。或者 单独给 body设置 <code>height:100vh;</code>，body 也和 屏幕 一样高。<a href="http://js.jirengu.com/vedol/9/edit" target="_blank" rel="noopener">demo</a>  <a href="http://js.jirengu.com/vedol/10/edit" target="_blank" rel="noopener">demo2</a></p>
+</li>
+<li><p>首页内容居中 <a href="http://js.jirengu.com/vedol/13/edit" target="_blank" rel="noopener">demo</a></p>
+</li>
 <li><p>div, span 标签没有默认的样式，其他的标签都有默认的样式。我们可以用开发者工具来查看某标签的默认样式,在浏览器界面-右键-检查-Elements。</p>
 </li>
 <li><p>浏览器默认字体大小是16px。</p>
@@ -548,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/28/cnode社区实战/" rel="next" title="cnode社区实战">
-                <i class="fa fa-chevron-left"></i> cnode社区实战
+              <a href="/2019/08/28/实战：cnode社区/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -642,7 +650,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -664,7 +672,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

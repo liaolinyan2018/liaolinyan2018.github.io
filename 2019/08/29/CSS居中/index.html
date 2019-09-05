@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Linyan&#39;s blog">
 <meta property="og:description" content="居中肯定是针对子元素来说的，子元素才能居中 父容器建议都使用块级元素，不要用内联元素做包裹器。 水平居中相对简单，但是垂直居中的方法千奇百怪。  水平居中。水平居中在布局中经常使用。要考虑：子元素为行内元素还是块状元素，宽度一定还是宽度未定，采取的布局方案不同。下面进行分析：  child是块级元素child宽度不确定 .child{margin:0 20px;}  demo1    demo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-29T13:40:31.703Z">
+<meta property="og:updated_time" content="2019-09-04T04:59:32.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS居中">
 <meta name="twitter:description" content="居中肯定是针对子元素来说的，子元素才能居中 父容器建议都使用块级元素，不要用内联元素做包裹器。 水平居中相对简单，但是垂直居中的方法千奇百怪。  水平居中。水平居中在布局中经常使用。要考虑：子元素为行内元素还是块状元素，宽度一定还是宽度未定，采取的布局方案不同。下面进行分析：  child是块级元素child宽度不确定 .child{margin:0 20px;}  demo1    demo">
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-29T21:40:31+08:00">
-                2019-08-29
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T12:59:32+08:00">
+                2019-09-04
               </time>
             
           </span>
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  975 字
+                  1.1k 字
                 </span>
               
 
@@ -440,13 +440,14 @@
 <p>  不固定死父容器高度时：</p>
 <ol>
 <li><p>需求：多个 计算高度不相等 的 行内元素(inline)且需要一行显示的(文字设置了不同字体大小导致计算出来的高度不一样，或者 img设置了宽高属性，内联元素是不能设置宽高的，所以内联元素的宽高是最后计算出来的)，</p>
-<p>方法：要实现它们都在父容器中垂直居中，<strong>分别给 行内元素身上加 vertical-align: middle；则它们都会在父容器中垂直居中。</strong>  <a href="http://js.jirengu.com/zanos/8/edit" target="_blank" rel="noopener">demo1</a>        <a href="http://js.jirengu.com/hamic/3/edit" target="_blank" rel="noopener">demo2</a>    <a href="http://js.jirengu.com/vuwiy/4/edit?html,css,output" target="_blank" rel="noopener">demo3</a></p>
-<p><strong>demo2开发中经常遇见</strong></p>
+<p>方法：要实现它们都在父容器中垂直居中，<strong>分别给 行内元素身上加 vertical-align: middle；则它们都会在父容器中垂直居中，注意当 span （通常span内是文字）和 img 共存时，只需要设置 图片 vertical-align: middle。</strong> 纯文字  <a href="http://js.jirengu.com/zanos/11/edit" target="_blank" rel="noopener">demo1</a>    <a href="http://js.jirengu.com/vuwiy/4/edit?html,css,output" target="_blank" rel="noopener">demo2</a>    文字+图片 <a href="http://js.jirengu.com/hamic/9/edit" target="_blank" rel="noopener">demo3</a></p>
 <p>这种情况下，父容器的高度是被行内元素撑开的，可以通过增加上下padding来增加父容器的总高度。</p>
+<p><a href="http://js.jirengu.com/hamic/9/edit" target="_blank" rel="noopener">demo3</a>  中，右边的 图片 和 span 在一个 div 内，因为右浮，显示同 <code>inline-block</code> 元素一样，而 在div内，图片居左，文字居右的布局，是因为 span 设置了 最小宽度 和 <code>text-align: right;</code>，<u>只要 span内 文字长度 不超出</u> </p>
+<p><u>span 的 <code>min-width</code>，则 div 布局始终都是 图片左对齐，文字右对齐。</u></p>
 </li>
 <li><p>需求：多个块级元素高度不同（不是写死高度，是计算出来的高度），需要同一行显示，并且在父容器中垂直居中。</p>
 <p>多个块级元素同一行显示需要给子元素添加浮动。实现在父容器中垂直居中建议的方法是给这些块级子元素加padding，让块级子元素一样高（这个的前提是这些块级子元素都没有写死高度），显然这时块级子元素就已经垂直居中了。原理是元素的盒模型是border-box时，元素的上下padding也算作高度的一部分。</p>
-<p><a href="http://js.jirengu.com/hamic/4/edit" target="_blank" rel="noopener">demo1</a></p>
+<p><a href="http://js.jirengu.com/hamic/4/edit" target="_blank" rel="noopener">demo1</a>  <a href="http://js.jirengu.com/hamic/5/edit" target="_blank" rel="noopener">demo2</a>  <strong>demo2开发中经常遇见</strong></p>
 </li>
 </ol>
 <p>  固定死父容器高度时：</p>
@@ -600,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
