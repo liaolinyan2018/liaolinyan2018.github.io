@@ -1130,8 +1130,8 @@ img元素节点的原型链如下，如此便能理解有它能使用那么多�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-17T22:48:08+08:00">
-                2019-09-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-21T00:55:11+08:00">
+                2019-09-21
               </time>
             
           </span>
@@ -1179,7 +1179,7 @@ img元素节点的原型链如下，如此便能理解有它能使用那么多�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7.7k 字
+                  9.2k 字
                 </span>
               
 
@@ -1195,7 +1195,7 @@ img元素节点的原型链如下，如此便能理解有它能使用那么多�
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  31 分钟
+                  37 分钟
                 </span>
               
             </div>
@@ -1220,10 +1220,14 @@ img元素节点的原型链如下，如此便能理解有它能使用那么多�
           
           
 
-Element 节点Element节点对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。
-元素节点的nodeType属性都是1。
-123var p = document.querySelector(&apos;p&apos;);p.nodeName // &quot;P&quot;p.nodeType // 1
-Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的，浏览器使用不同的构造函数，生成不同的元素节点，比如&lt;a&gt;元素的节点对象由HTMLAnchorElement构造函数生成，&lt;button&gt;元素的节点对象由HTMLButtonElement构造函数生成。因此，元素节点不是一种对象，而是一
+Element 节点Element节点对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。元素节点的nodeType属性都是1。
+Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的，浏览器使用不同的构造函数，生成不同的元素节点，比如&lt;a&gt;元素的节点对象由HTMLAnchorElement构造函数生成，&lt;button&gt;元素的节点对象由HTMLButtonElement构造函数生成。因此，元素节点不是一种对象，而是一组对象，这些对象除了继承Element的属性和方法，还继承了各自构造函数的属性和方法。
+目录
+继承
+实例属性
+元素特性的相关属性
+元素状态的相关属性
+Element.attributes
           ...
           <!--noindex-->
           <div class="post-button text-center">
