@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="节点都是单个对象，有时需要一种数据结构，能够容纳多个节点。DOM 提供两种节点集合，用于容纳多个节点：NodeList和HTMLCollection。 这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是NodeList实例或HTMLCollection实例。主要区别是，NodeList可以包含各种类型的节点，HTMLCollection只能包含 HTML 元素节点。 目录 [隐藏">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeList接口, HTMLCollection接口">
+<meta property="og:url" content="http://yoursite.com/2019/09/16/NodeList接口-HTMLCollection接口/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="节点都是单个对象，有时需要一种数据结构，能够容纳多个节点。DOM 提供两种节点集合，用于容纳多个节点：NodeList和HTMLCollection。 这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是NodeList实例或HTMLCollection实例。主要区别是，NodeList可以包含各种类型的节点，HTMLCollection只能包含 HTML 元素节点。 目录 [隐藏">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-17T05:51:37.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeList接口, HTMLCollection接口">
+<meta name="twitter:description" content="节点都是单个对象，有时需要一种数据结构，能够容纳多个节点。DOM 提供两种节点集合，用于容纳多个节点：NodeList和HTMLCollection。 这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是NodeList实例或HTMLCollection实例。主要区别是，NodeList可以包含各种类型的节点，HTMLCollection只能包含 HTML 元素节点。 目录 [隐藏">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/16/NodeList接口-HTMLCollection接口/">
+
+
+
+
+
+  <title>NodeList接口, HTMLCollection接口 | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/NodeList接口-HTMLCollection接口/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NodeList接口, HTMLCollection接口</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-16T23:46:38+08:00">
+                2019-09-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-17T13:51:37+08:00">
+                2019-09-17
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/16/NodeList接口-HTMLCollection接口/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/16/NodeList接口-HTMLCollection接口/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/16/NodeList接口-HTMLCollection接口/" class="leancloud_visitors" data-flag-title="NodeList接口, HTMLCollection接口">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="referrer" content="no-referrer">
+
+<p>节点都是单个对象，有时需要一种数据结构，能够容纳多个节点。DOM 提供两种<strong>节点集合</strong>，用于<strong>容纳多个节点</strong>：<code>NodeList</code>和<code>HTMLCollection</code>。</p>
+<p>这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是<code>NodeList</code>实例或<code>HTMLCollection</code>实例。主要区别是，<code>NodeList</code>可以<strong>包含各种类型的节点</strong>，<code>HTMLCollection</code>只能<strong>包含 HTML 元素节点</strong>。</p>
+<h3 id="目录-隐藏"><a href="#目录-隐藏" class="headerlink" title="目录 [隐藏]"></a>目录 [隐藏]</h3><ul>
+<li>NodeList 接口<ul>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#%E6%A6%82%E8%BF%B0" target="_blank" rel="noopener">概述</a></li>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#nodelistprototypelength" target="_blank" rel="noopener">NodeList.prototype.length</a></li>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#nodelistprototypeforeach" target="_blank" rel="noopener">NodeList.prototype.forEach()</a></li>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#nodelistprototypeitem" target="_blank" rel="noopener">NodeList.prototype.item()</a></li>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#nodelistprototypekeys%EF%BC%8Cnodelistprototypevalues%EF%BC%8Cnodelistprototypeentries" target="_blank" rel="noopener">NodeList.prototype.keys()，NodeList.prototype.values()，NodeList.prototype.entries()</a></li>
+</ul>
+</li>
+<li>HTMLCollection 接口<ul>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#%E6%A6%82%E8%BF%B0-1" target="_blank" rel="noopener">概述</a></li>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#htmlcollectionprototypelength" target="_blank" rel="noopener">HTMLCollection.prototype.length</a></li>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#htmlcollectionprototypeitem" target="_blank" rel="noopener">HTMLCollection.prototype.item()</a></li>
+<li><a href="https://wangdoc.com/javascript/dom/nodelist.html#htmlcollectionprototypenameditem" target="_blank" rel="noopener">HTMLCollection.prototype.namedItem()</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="NodeList-接口"><a href="#NodeList-接口" class="headerlink" title="NodeList 接口"></a>NodeList 接口</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><code>NodeList</code>实例是一个类似数组的对象，它的成员是各种类型的节点对象。通过以下方法可以得到<code>NodeList</code>实例。</p>
+<ul>
+<li><code>Node.childNodes</code>  返回一个动态集合。如果文档中的节点树发生变化，则已经存在的实时 <code>NodeList</code> 对象也会随之变化。</li>
+<li><code>document.querySelectorAll()</code> 返回一个静态集合。如果文档中的节点树发生变化，则已经存在的 <code>NodeList</code> 对象不会随之变化。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.childNodes <span class="keyword">instanceof</span> NodeList <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><code>NodeList</code>实例很像数组，可以使用<code>length</code>属性和<code>forEach</code>方法。但是，它不是数组，不能使用<code>pop</code>或<code>push</code>之类数组特有的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.isArray(children) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">children.length <span class="comment">// 34</span></span><br><span class="line">children.forEach(<span class="built_in">console</span>.log)</span><br></pre></td></tr></table></figure>
+<p>上面代码中，NodeList 实例<code>children</code>不是数组，但是具有<code>length</code>属性和<code>forEach</code>方法。</p>
+<p>如果<code>NodeList</code>实例要使用数组方法，可以将其转为真正的数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"><span class="comment">// es5</span></span><br><span class="line"><span class="keyword">var</span> nodeArr = <span class="built_in">Array</span>.prototype.slice.call(children);</span><br><span class="line"><span class="comment">// es6</span></span><br><span class="line"><span class="keyword">var</span> nodeArr = <span class="built_in">Array</span>.from(children);</span><br></pre></td></tr></table></figure>
+<p>除了使用<code>forEach</code>方法遍历 NodeList 实例，还可以使用<code>for</code>循环。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; children.length; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> item = children[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，<strong>NodeList 实例可能是动态集合，也可能是静态集合</strong>。所谓动态集合就是一个活的集合，DOM 删除或新增一个相关节点，都会立刻反映在 NodeList 实例。<strong>目前，只有<code>node.childNodes</code>返回的是一个动态集合</strong>，<strong>其他的 NodeList 都是静态集合。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line">children.length <span class="comment">// 18</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.createElement(<span class="string">'p'</span>));</span><br><span class="line">children.length <span class="comment">// 19</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，文档增加一个子节点，NodeList 实例<code>children</code>的<code>length</code>属性就增加了1。</p>
+<h3 id="NodeList-prototype-length"><a href="#NodeList-prototype-length" class="headerlink" title="NodeList.prototype.length"></a>NodeList.prototype.length</h3><p><code>length</code>属性返回 NodeList 实例包含的节点数量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'xxx'</span>)  <span class="comment">// NodeList []</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'xxx'</span>).length <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>document.querySelectorAll</code>返回一个 NodeList 集合。对于那些不存在的 HTML 标签，<code>length</code>属性返回<code>0</code>。</p>
+<h3 id="NodeList-prototype-forEach"><a href="#NodeList-prototype-forEach" class="headerlink" title="NodeList.prototype.forEach()"></a>NodeList.prototype.forEach()</h3><p><code>forEach</code>方法用于遍历 NodeList 的所有成员。它接受一个回调函数作为参数，每一轮遍历就执行一次这个回调函数，用法与数组实例的<code>forEach</code>方法完全一致。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line">children.forEach(<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">item, i, list</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;, <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，回调函数<code>f</code>的三个参数依次是当前成员、位置和当前 NodeList 实例。<code>forEach</code>方法的第二个参数，用于绑定回调函数内部的<code>this</code>，该参数可省略。</p>
+<h3 id="NodeList-prototype-item"><a href="#NodeList-prototype-item" class="headerlink" title="NodeList.prototype.item()"></a>NodeList.prototype.item()</h3><p><code>item</code>方法接受一个整数值作为参数，表示成员的位置，返回该位置上的成员。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.childNodes.item(<span class="number">0</span>)</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">document</span>.body.childNodes[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>item(0)</code>返回第一个成员。</p>
+<p>如果参数值大于实际长度，或者索引不合法（比如负数），<code>item</code>方法返回<code>null</code>。如果省略参数，<code>item</code>方法会报错。</p>
+<p><strong>所有类似数组的对象，都可以使用方括号运算符取出成员</strong>。<strong>一般情况下，都是使用方括号运算符，而不使用<code>item</code>方法。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.childNodes[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="NodeList-prototype-keys-，NodeList-prototype-values-，NodeList-prototype-entries"><a href="#NodeList-prototype-keys-，NodeList-prototype-values-，NodeList-prototype-entries" class="headerlink" title="NodeList.prototype.keys()，NodeList.prototype.values()，NodeList.prototype.entries()"></a>NodeList.prototype.keys()，NodeList.prototype.values()，NodeList.prototype.entries()</h3><p>这三个方法都返回一个 ES6 的<strong>遍历器对象</strong>，可以通过<code>for...of</code>循环遍历获取每一个成员的信息。区别在于，<code>keys()</code>返回键名的遍历器，<code>values()</code>返回键值的遍历器，<code>entries()</code>返回的遍历器同时包含键名和键值的信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.body.childNodes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">of</span> children.keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> value <span class="keyword">of</span> children.values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// #text</span></span><br><span class="line"><span class="comment">// &lt;script&gt;</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> entry <span class="keyword">of</span> children.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(entry);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Array [ 0, #text ]</span></span><br><span class="line"><span class="comment">// Array [ 1, &lt;script&gt; ]</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承 Function 属性和方法。</p>
+<h2 id="HTMLCollection-接口"><a href="#HTMLCollection-接口" class="headerlink" title="HTMLCollection 接口"></a>HTMLCollection 接口</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p><code>HTMLCollection</code>是一个节点对象的集合，只能包含元素节点（element），不能包含其他类型的节点。它的返回值是一个类似数组的对象，但是与<code>NodeList</code>接口不同，<code>HTMLCollection</code>没有<code>forEach</code>方法，<strong>只能使用<code>for</code>循环遍历</strong>。</p>
+<p>返回<code>HTMLCollection</code>实例的，主要是一些<code>Document</code>对象的集合属性，比如<code>document.links</code>、<code>document.forms</code>、<code>document.images</code>等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.links <span class="keyword">instanceof</span> HTMLCollection <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>HTMLCollection</code>实例<strong>都是动态集合，如果文档中的节点树发生变化，则会实时反映在已存在的HTMLCollection集合中</strong>。</p>
+</li>
+<li><p>如果<strong>元素节点有<code>id</code>或<code>name</code>属性</strong>，那么<code>HTMLCollection</code>实例上面，<strong>可以使用<code>id</code>属性或<code>name</code>属性引用该节点元素</strong>。如果没有对应的节点，则返回<code>null</code>。这一点，HTMLCollection 实例比 NodeList 实例 多一种访问元素的方法。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;form id="form1"&gt;&lt;/form&gt;</span></span><br><span class="line"><span class="comment">// &lt;form id="form2"&gt;&lt;/form&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> form1 = <span class="built_in">document</span>.getElementById(<span class="string">'form1'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问集合元素</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.forms.form1 === form1);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.forms[<span class="number">0</span>] === form1);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.forms[<span class="string">'form1'</span>] === form1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此外还有</span></span><br><span class="line"><span class="built_in">document</span>.getElementsById(<span class="string">'form1'</span>)</span><br><span class="line"><span class="built_in">document</span>.forms.item(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">document</span>.forms.namedItem(<span class="string">'form1'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看HTMLCollection集合结构</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.forms)</span><br><span class="line"><span class="comment">// HTMLCollection(2) [form#form1, form#form2, form1: form#form1, form2: form#form2]</span></span><br><span class="line"><span class="comment">// 0: form#form1</span></span><br><span class="line"><span class="comment">// 1: form#form2</span></span><br><span class="line"><span class="comment">// length: 2</span></span><br><span class="line"><span class="comment">// form1: form#form1</span></span><br><span class="line"><span class="comment">// form2: form#form2</span></span><br><span class="line"><span class="comment">// __proto__: HTMLCollection</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 与 NodeList 集合对比</span></span><br><span class="line"><span class="keyword">var</span> forms = <span class="built_in">document</span>.querySelectorAll(<span class="string">'form'</span>)</span><br><span class="line"><span class="built_in">console</span>.dir(forms);</span><br><span class="line"><span class="comment">// NodeList(2)</span></span><br><span class="line"><span class="comment">// 0: form#form1</span></span><br><span class="line"><span class="comment">// 1: form#form2</span></span><br><span class="line"><span class="comment">// length: 2</span></span><br><span class="line"><span class="comment">// __proto__: NodeList</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>document.forms</code>是一个<code>HTMLCollection</code>实例，可以通过<code>&lt;form&gt;</code>元素的<code>id</code>属性值，从<code>HTMLCollection</code>实例上取到这个元素。在控制台打出<code>document.forms</code>，查看集合的结构</p>
+<ul>
+<li>在 JavaScript 中，为了获取给定的 HTMLCollection 的元素，可以<strong>使用方括号语法来代替直接调用</strong> <code>item()</code> 或 <code>namedItem()</code> 方法。在方括号中，数值如同 <code>item()</code>，字符串值如同 <code>namedItem()。</code></li>
+</ul>
+<h3 id="HTMLCollection-prototype-length"><a href="#HTMLCollection-prototype-length" class="headerlink" title="HTMLCollection.prototype.length"></a>HTMLCollection.prototype.length</h3><p><code>length</code>属性返回<code>HTMLCollection</code>实例包含的成员数量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.links.length <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+<h3 id="下面的实例方法可用方括号语法代替"><a href="#下面的实例方法可用方括号语法代替" class="headerlink" title="下面的实例方法可用方括号语法代替"></a>下面的实例方法可用方括号语法代替</h3><h3 id="HTMLCollection-prototype-item"><a href="#HTMLCollection-prototype-item" class="headerlink" title="HTMLCollection.prototype.item()"></a>HTMLCollection.prototype.item()</h3><p><code>item</code>方法接受一个整数值作为参数，表示成员的位置，返回该位置上的成员。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="built_in">document</span>.images;</span><br><span class="line"><span class="keyword">var</span> img0 = c.item(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>item(0)</code>表示返回0号位置的成员。由于方括号运算符也具有同样作用，而且使用更方便，所以一般情况下，总是<strong>使用方括号运算符代替这个方法</strong>。</p>
+<p>如果参数值超出成员数量或者不合法（比如小于0），那么<code>item</code>方法返回<code>null</code>。若不给参数，则会报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.forms.item()</span><br><span class="line"><span class="comment">// Uncaught TypeError: Failed to execute 'item' on 'HTMLCollection': 1 argument required, but only 0 present.</span></span><br></pre></td></tr></table></figure>
+<h3 id="HTMLCollection-prototype-namedItem"><a href="#HTMLCollection-prototype-namedItem" class="headerlink" title="HTMLCollection.prototype.namedItem()"></a>HTMLCollection.prototype.namedItem()</h3><p><code>namedItem</code>方法的<strong>参数是一个字符串</strong>，表示<code>id</code>属性或<code>name</code>属性的值，返回对应的元素节点。如果没有对应的节点，则返回<code>null</code>。必须给一个参数，否则报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;img id="pic" src="http://example.com/foo.jpg"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pic = <span class="built_in">document</span>.getElementById(<span class="string">'pic'</span>);</span><br><span class="line"><span class="built_in">document</span>.images.namedItem(<span class="string">'pic'</span>) === pic <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="继承-1"><a href="#继承-1" class="headerlink" title="继承"></a>继承</h3><p>继承 Function 属性和方法。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Liao linyan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/16/NodeList接口-HTMLCollection接口/" title="NodeList接口, HTMLCollection接口">http://yoursite.com/2019/09/16/NodeList接口-HTMLCollection接口/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/16/Node接口/" rel="next" title="Node接口">
+                <i class="fa fa-chevron-left"></i> Node接口
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/17/ParentNode接口-ChildNodee接口/" rel="prev" title="ParentNode接口-ChildNodee接口">
+                ParentNode接口-ChildNodee接口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行 照片</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">102</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录-隐藏"><span class="nav-number">1.</span> <span class="nav-text">目录 [隐藏]</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeList-接口"><span class="nav-number"></span> <span class="nav-text">NodeList 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeList-prototype-length"><span class="nav-number">2.</span> <span class="nav-text">NodeList.prototype.length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeList-prototype-forEach"><span class="nav-number">3.</span> <span class="nav-text">NodeList.prototype.forEach()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeList-prototype-item"><span class="nav-number">4.</span> <span class="nav-text">NodeList.prototype.item()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeList-prototype-keys-，NodeList-prototype-values-，NodeList-prototype-entries"><span class="nav-number">5.</span> <span class="nav-text">NodeList.prototype.keys()，NodeList.prototype.values()，NodeList.prototype.entries()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">6.</span> <span class="nav-text">继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTMLCollection-接口"><span class="nav-number"></span> <span class="nav-text">HTMLCollection 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-1"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTMLCollection-prototype-length"><span class="nav-number">2.</span> <span class="nav-text">HTMLCollection.prototype.length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面的实例方法可用方括号语法代替"><span class="nav-number">3.</span> <span class="nav-text">下面的实例方法可用方括号语法代替</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTMLCollection-prototype-item"><span class="nav-number">4.</span> <span class="nav-text">HTMLCollection.prototype.item()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTMLCollection-prototype-namedItem"><span class="nav-number">5.</span> <span class="nav-text">HTMLCollection.prototype.namedItem()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承-1"><span class="nav-number">6.</span> <span class="nav-text">继承</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz',
+        appKey: 'Srt6LLMtTSBk7VSfSrq6cmUA',
+        placeholder: '欢迎畅所欲言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz", "Srt6LLMtTSBk7VSfSrq6cmUA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

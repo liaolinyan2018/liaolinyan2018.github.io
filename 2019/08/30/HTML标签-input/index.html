@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="&amp;lt;input&amp;gt;元素是所有HTML元素中最强大也最复杂的，这主要是它大量 type 属性和 attribute 属性的相互组合造成的。因为所有&amp;lt;input&amp;gt;元素，无论是哪种 type ，都基于HTMLInputElement接口，严格来说，它们共享完全相同的一套属性。但是，事实上，很多属性只在特定的几个 type 上有效，另一方面，有些 type只支持很少的几个属性。让">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML标签-input">
+<meta property="og:url" content="http://yoursite.com/2019/08/30/HTML标签-input/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="&amp;lt;input&amp;gt;元素是所有HTML元素中最强大也最复杂的，这主要是它大量 type 属性和 attribute 属性的相互组合造成的。因为所有&amp;lt;input&amp;gt;元素，无论是哪种 type ，都基于HTMLInputElement接口，严格来说，它们共享完全相同的一套属性。但是，事实上，很多属性只在特定的几个 type 上有效，另一方面，有些 type只支持很少的几个属性。让">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-19T12:05:11.616Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML标签-input">
+<meta name="twitter:description" content="&amp;lt;input&amp;gt;元素是所有HTML元素中最强大也最复杂的，这主要是它大量 type 属性和 attribute 属性的相互组合造成的。因为所有&amp;lt;input&amp;gt;元素，无论是哪种 type ，都基于HTMLInputElement接口，严格来说，它们共享完全相同的一套属性。但是，事实上，很多属性只在特定的几个 type 上有效，另一方面，有些 type只支持很少的几个属性。让">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/30/HTML标签-input/">
+
+
+
+
+
+  <title>HTML标签-input | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/30/HTML标签-input/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML标签-input</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T14:43:41+08:00">
+                2019-08-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T20:05:11+08:00">
+                2019-09-19
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/30/HTML标签-input/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/30/HTML标签-input/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/08/30/HTML标签-input/" class="leancloud_visitors" data-flag-title="HTML标签-input">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p><code>&lt;input&gt;</code>元素是<strong>所有HTML元素中最强大也最复杂的</strong>，这主要是它大量 type 属性和 attribute 属性的相互组合造成的。因为所有<code>&lt;input&gt;</code>元素，无论是哪种 type ，都基于<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLInputElement" target="_blank" rel="noopener"><code>HTMLInputElement</code></a>接口，严格来说，它们共享完全相同的一套属性。但是，事实上，很多属性只在特定的几个 type 上有效，另一方面，有些 type<br>只支持很少的几个属性。让情况更复杂的是，有的 type 对某些属性还有特别的处理方式。</p>
+<p>注：MDN记录全</p>
+</blockquote>
+<h1 id="表单输入元素-input"><a href="#表单输入元素-input" class="headerlink" title="表单输入元素 input"></a>表单输入元素 input</h1><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>概述</li>
+<li>继承</li>
+<li>HTMLInputElement 的实例属性<ul>
+<li><a href="https://wangdoc.com/javascript/elements/input.html#%E7%89%B9%E5%BE%81%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">特征属性</a></li>
+<li><a href="https://wangdoc.com/javascript/elements/input.html#%E8%A1%A8%E5%8D%95%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">表单相关属性</a></li>
+<li><a href="https://wangdoc.com/javascript/elements/input.html#%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E7%89%B9%E6%9C%89%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">文本输入框的特有属性</a></li>
+<li><a href="https://wangdoc.com/javascript/elements/input.html#%E5%A4%8D%E9%80%89%E6%A1%86%E5%92%8C%E5%8D%95%E9%80%89%E6%A1%86%E7%9A%84%E7%89%B9%E6%9C%89%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">复选框和单选框的特有属性</a></li>
+<li><a href="https://wangdoc.com/javascript/elements/input.html#%E5%9B%BE%E5%83%8F%E6%8C%89%E9%92%AE%E7%9A%84%E7%89%B9%E6%9C%89%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">图像按钮的特有属性</a></li>
+<li><a href="https://wangdoc.com/javascript/elements/input.html#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8C%89%E9%92%AE%E7%9A%84%E7%89%B9%E6%9C%89%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">文件上传按钮的特有属性</a></li>
+<li><a href="https://wangdoc.com/javascript/elements/input.html#%E5%85%B6%E4%BB%96%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">其他属性</a></li>
+</ul>
+</li>
+<li>[HTMLInputElement 的实例方法](</li>
+</ul>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>input</code>是表单输入元素，主要作为 <code>form</code>表单元素的子元素。<code>input</code>的 <code>type</code>属性值有很多，<strong>按type属性值确定输入元素功能</strong>。</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>除了网页元素的通用接口（Node接口、Element接口、HTMLElement接口），它还继承了<code>HTMLInputElement</code>接口</p>
+<p><code>input</code>元素节点的原型链如下，如此便能理解有它能使用那么多的方法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTMLInputElement =&gt; HTMLElement =&gt; Element =&gt; Node =&gt; EventTarget =&gt; Object =&gt; null</span><br></pre></td></tr></table></figure>
+<h2 id="HTMLInputElement-的实例属性"><a href="#HTMLInputElement-的实例属性" class="headerlink" title="HTMLInputElement 的实例属性"></a>HTMLInputElement 的实例属性</h2><h3 id="通用属性-9个"><a href="#通用属性-9个" class="headerlink" title="通用属性  9个"></a>通用属性  9个</h3><p>下面的属性可以用在<strong>非隐藏</strong>(type 不可设置为 <code>hidden</code>)的<strong>任何类型</strong>的 input 元素，也就是<strong>通用属性</strong>。</p>
+<ul>
+<li><code>name</code>：字符串，表示<code>&lt;input&gt;</code>节点的名称。该属性可读写。form 表单里面的表单输入元素<code>input</code>若不加 <code>name</code>属性，那么在表单提交时，<code>input</code>的值(value)就不会出现在请求里，<strong>必须要有<code>name</code>属性才能提交数据到服务器</strong>，切记。并且表单提交到服务器是数据是一个字符串，字符串格式为 <code>&#39;name属性值=value属性值&amp;name属性值=value属性值&#39;</code></li>
+<li><code>type</code>：字符串，表示<code>&lt;input&gt;</code>节点的类型。该属性可读写。</li>
+<li><code>disabled</code>：布尔值，表示<code>&lt;input&gt;</code>节点是否禁止使用。一旦被禁止使用，表单提交时不会包含该<code>&lt;input&gt;</code>节点。该属性可读写。</li>
+<li><code>autofocus</code>：布尔值，表示页面加载时，该元素是否会自动获得焦点。在文档中只有一个表单元素可以拥有 <code>autofocus</code> 属性。该属性可读写。</li>
+<li><code>required</code>：布尔值，表示表单提交时，该<code>&lt;input&gt;</code>元素是否必填。该属性可读写。</li>
+<li><code>value</code>：字符串，表示该<code>&lt;input&gt;</code>节点的值，也就是输入框里的值。该属性可读写。</li>
+<li><code>validity</code>：返回一个<code>ValidityState</code>对象，表示<code>&lt;input&gt;</code>节点的校验状态。该属性<strong>只读</strong>。</li>
+<li><code>validationMessage</code>：字符串，表示该<code>&lt;input&gt;</code>节点的校验失败时，用户看到的报错信息。如果该节点不需要校验，或者通过校验，该属性为空字符串。该属性<strong>只读</strong>。</li>
+<li><code>willValidate</code>：布尔值，表示表单提交时，该<code>&lt;input&gt;</code>元素是否会被校验。该属性<strong>只读</strong>。</li>
+</ul>
+<h3 id="与父表单相关属性-6个"><a href="#与父表单相关属性-6个" class="headerlink" title="与父表单相关属性  6个"></a>与父表单相关属性  6个</h3><ul>
+<li><code>form</code>：返回<code>&lt;input&gt;</code>元素所在的表单（<code>&lt;form&gt;</code>）节点。该属性<strong>只读</strong>。</li>
+<li><code>formAction</code>：字符串，表示表单提交时的服务器目标。该属性可<strong>读写</strong>，一旦设置了这个属性，会覆盖表单元素的<code>action</code>属性。</li>
+<li><code>formEncType</code>：字符串，表示表单提交时数据的编码方式。该属性可<strong>读写</strong>，一旦设置了这个属性，会覆盖表单元素的<code>enctype</code>的属性。</li>
+<li><code>formMethod</code>：字符串，表示表单提交时的 HTTP 方法。该属性可<strong>读写</strong>，一旦设置了这个属性，会覆盖表单元素的<code>method</code>属性。</li>
+<li><code>formNoValidate</code>：布尔值，表示表单提交时，是否要跳过校验。该属性可<strong>读写</strong>，一旦设置了这个属性，会覆盖表单元素的<code>formNoValidate</code>属性。</li>
+<li><code>formTarget</code>：字符串，表示表单提交后，服务器返回数据的打开位置。该属性可<strong>读写</strong>，一旦设置了这个属性，会覆盖表单元素的<code>target</code>属性。</li>
+</ul>
+<h3 id="文本输入框和数字输入框的特有属性-11-个"><a href="#文本输入框和数字输入框的特有属性-11-个" class="headerlink" title="文本输入框和数字输入框的特有属性  11 个"></a>文本输入框和数字输入框的特有属性  11 个</h3><p>以下属性只有在文本或数字输入时才有效</p>
+<ul>
+<li><code>autocomplete</code>：字符串<code>on</code>或<code>off</code>，表示该<code>&lt;input&gt;</code>节点的输入内容可以被浏览器自动补全。该属性可读写。</li>
+<li><code>maxLength</code>：整数，表示可以输入的字符串最大长度。如果设为负整数，会报错。该属性可读写。</li>
+<li><code>size</code>：整数，表示<code>&lt;input&gt;</code>节点的<strong>显示长度</strong>。如果类型是<code>text</code>或<code>password</code>，该属性的单位是字符个数，否则单位是像素。该属性可读写。</li>
+<li><code>pattern</code>：字符串，表示<code>&lt;input&gt;</code>节点的值<strong>应该满足的正则表达式</strong>。该属性可读写。<strong>输入框内容校验规则</strong>。</li>
+<li><code>placeholder</code>：字符串，表示该<code>&lt;input&gt;</code>节点的占位符，作为对元素的提示。该字符串不能包含回车或换行。该属性可读写。</li>
+<li><code>readOnly</code>：布尔值，表示用户是否可以修改该节点的值。该属性可读写。</li>
+<li><code>min</code>：字符串，表示该节点的最小数值或日期，且不能大于<code>max</code>属性。该属性可读写。</li>
+<li><code>max</code>：字符串，表示该节点的最大数值或日期，且不能小于<code>min</code>属性。该属性可读写。</li>
+<li><code>selectionStart</code>：整数，表示选中文本的起始位置。如果没有选中文本，返回光标在<code>&lt;input&gt;</code>元素内部的位置。该属性可读写。</li>
+<li><code>selectionEnd</code>：整数，表示选中文本的结束位置。如果没有选中文本，返回光标在<code>&lt;input&gt;</code>元素内部的位置。该属性可读写。</li>
+<li><code>selectionDirection</code>：字符串，表示选中文本的方向。可能的值包括<code>forward</code>（与文字书写方向一致）、<code>backward</code>（与文字书写方向相反）和<code>none</code>（文字方向未知）。该属性可读写。</li>
+</ul>
+<h3 id="复选框和单选框的特有属性-3个"><a href="#复选框和单选框的特有属性-3个" class="headerlink" title="复选框和单选框的特有属性   3个"></a>复选框和单选框的特有属性   3个</h3><p>如果<code>&lt;input&gt;</code>元素的类型是复选框（checkbox）或单选框（radio），会有下面的特有属性。</p>
+<ul>
+<li><code>checked</code>：布尔值，表示该<code>&lt;input&gt;</code>元素是否选中。该属性可读写。</li>
+<li><code>defaultChecked</code>：布尔值，表示该<code>&lt;input&gt;</code>元素默认是否选中。该属性可读写。</li>
+<li><code>indeterminate</code>：布尔值，表示该<code>&lt;input&gt;</code>元素是否还没有确定的状态。一旦用户点击过一次，该属性就会变成<code>false</code>，表示用户已经给出确定的状态了。该属性可读写。</li>
+</ul>
+<h3 id="图像按钮的特有属性-4个"><a href="#图像按钮的特有属性-4个" class="headerlink" title="图像按钮的特有属性 4个"></a>图像按钮的特有属性 4个</h3><p>如果<code>&lt;input&gt;</code>元素的类型是<code>image</code>，就会变成一个<strong>图像按钮</strong>，会有下面的特有属性。</p>
+<ul>
+<li><code>alt</code>：字符串，图像无法显示时的替代文本。该属性可读写。</li>
+<li><code>height</code>：字符串，表示该元素的高度（单位像素）。该属性可读写。</li>
+<li><code>src</code>：字符串，表示该元素的图片来源。该属性可读写。</li>
+<li><code>width</code>：字符串，表示该元素的宽度（单位像素）。该属性可读写。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"https://offlintab.firefoxchina.cn/static/img/search/baidu_web.png"</span> <span class="attr">title</span>=<span class="string">"logo"</span> <span class="attr">alt</span>=<span class="string">"baidu"</span> <span class="attr">width</span>=<span class="string">"100px;"</span> <span class="attr">height</span>=<span class="string">"100px;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件上传按钮的特有属性-2个"><a href="#文件上传按钮的特有属性-2个" class="headerlink" title="文件上传按钮的特有属性 2个"></a>文件上传按钮的特有属性 2个</h3><p>如果<code>&lt;input&gt;</code>元素的类型是<code>file</code>，就会变成一个文件上传按钮，会有下面的特有属性。</p>
+<ul>
+<li><code>accept</code>：字符串，表示该元素可以<strong>接受的文件类型</strong>，该属性值是文件类型对应的<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types" target="_blank" rel="noopener">MIME值</a>，多个值之间使用逗号分隔。该属性可读写。</li>
+<li><code>files</code>：返回一个类数组对象（<code>FileList</code>实例），包含了选中上传的<strong>一组<code>File</code>实例对象(多选)</strong>。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML代码如下</span></span><br><span class="line"><span class="comment">// &lt;input type="file" accept="application/pdf" title="点击上传文件" multiple&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.querySelector(<span class="string">'input'</span>);</span><br><span class="line">input.addEventListener(<span class="string">'change'</span>, (e) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.dir(e.target.files)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// FileList</span></span><br><span class="line"><span class="comment">// 0: File &#123;name: "2018-5-30-17-6-9.pdf", lastModified: 1566692752017, lastModifiedDate: Sun Aug 25 2019 08:25:52 GMT+0800 (中国标准时间), webkitRelativePath: "", size: 326324, …&#125;</span></span><br><span class="line"><span class="comment">// 1: File &#123;name: "2018-5-30-17-6-40.pdf", lastModified: 1566880722522, lastModifiedDate: Tue Aug 27 2019 12:38:42 GMT+0800 (中国标准时间), webkitRelativePath: "", size: 322434, …&#125;</span></span><br><span class="line"><span class="comment">// length: 2</span></span><br><span class="line"><span class="comment">// __proto__: FileList</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，点击文件选择按钮，会自动弹出文件选择引导框，并且过滤掉了不接受的其它文件类型，<code>multiple</code>表示可以同时选择多个文件。文件上传后会触发表单输入元素的<code>change</code>事件，通过给元素添加事件监听回调函数，在回调函数里获取上传的一组文件。<a href="http://js.jirengu.com/vapem/3/edit?html,js,output" target="_blank" rel="noopener">code</a></p>
+<p>注意，MDN说</p>
+<blockquote>
+<p>accept 属性并<strong>不会验证选中文件的类型.</strong> 他只是为开发者提供了一种引导用户做出期望行为的方式而已, 用户还是有办法绕过浏览器的限制.</p>
+<p>因此, 在服务器端进行<strong>文件类型验证</strong>是必不可少的.</p>
+</blockquote>
+<h3 id="其他属性"><a href="#其他属性" class="headerlink" title="其他属性"></a>其他属性</h3><ul>
+<li><code>defaultValue</code>：字符串，表示该<code>&lt;input&gt;</code>节点的原始值。</li>
+<li><code>dirName</code>：字符串，表示文字方向。</li>
+<li><code>accessKey</code>：字符串，表示让该<code>&lt;input&gt;</code>节点获得焦点的某个字母键。快捷键。</li>
+<li><code>list</code>：返回一个<code>&lt;datalist&gt;</code>节点，该节点必须绑定<code>&lt;input&gt;</code>元素，且<code>&lt;input&gt;</code>元素的类型必须可以输入文本，否则无效。该属性只读。？？</li>
+<li><code>multiple</code>：布尔值，表示是否可以<strong>选择多个值</strong>。</li>
+<li><code>labels</code>：返回一个<code>NodeList</code>实例，代表绑定当前<code>&lt;input&gt;</code>节点的一组<code>&lt;label&gt;</code>元素。该属性只读。原来多个label标签可以绑定同一个input元素。<a href="http://js.jirengu.com/vejah/1/edit?html,js,output" target="_blank" rel="noopener">code</a></li>
+<li><code>step</code>：字符串，表示在<code>min</code>属性到<code>max</code>属性之间，每次递增或递减时的数值或时间。</li>
+<li><code>valueAsDate</code>：<code>Date</code>实例，一旦设置，该<code>&lt;input&gt;</code>元素的值会被解释为指定的日期。如果无法解析该属性的值，<code>&lt;input&gt;</code>节点的值将是<code>null</code>。</li>
+<li><code>valueAsNumber</code>：浮点数，当前<code>&lt;input&gt;</code>元素的值会被解析为这个数值。</li>
+</ul>
+<h2 id="HTMLInputElement-的实例方法"><a href="#HTMLInputElement-的实例方法" class="headerlink" title="HTMLInputElement 的实例方法"></a>HTMLInputElement 的实例方法</h2><ul>
+<li><code>focus()</code>：当前<code>&lt;input&gt;</code>元素获得焦点。</li>
+<li><code>blur()</code>：移除<code>&lt;input&gt;</code>元素的焦点。</li>
+<li><code>select()</code>：选中<code>&lt;input&gt;</code>元素内部的所有文本。该方法不能保证<code>&lt;input&gt;</code>获得焦点，最好先用<code>focus()</code>方法，再用这个方法。</li>
+<li><code>click()</code>：模拟鼠标点击当前的<code>&lt;input&gt;</code>元素。</li>
+<li><code>setSelectionRange()</code>：选中<code>&lt;input&gt;</code>元素内部的一段文本，但不会将焦点转移到选中的文本。该方法接受三个参数，第一个参数是开始的位置（从0开始），第二个参数是结束的位置（不包括该位置），第三个参数是可选的，表示选择的方向，有三个可能的值（<code>forward</code>、<code>backward</code>和默认值<code>none</code>）。</li>
+<li><code>setRangeText()</code>：新文本替换选中的文本。该方法接受四个参数，第一个参数是新文本，第二个参数是替换的开始位置，第三个参数是结束位置，第四个参数表示替换后的行为（可选），有四个可能的值：<code>select</code>（选中新插入的文本）、<code>start</code>（选中的开始位置移到插入的文本之前）、<code>end</code>（选中的文本移到插入的文本之后）、<code>preserve</code>（保留原先选中的位置，默认值）。</li>
+<li><code>setCustomValidity()</code>：该方法用于自定义校验失败时的报错信息。它的参数就是报错的提示信息。注意，<strong>一旦设置了自定义报错信息，该字段就不会校验通过了，因此用户重新输入时，必须将自定义报错信息设为空字符串，否则在输入过程中会一直报错</strong>，请看下面的例子。</li>
+<li><code>checkValidity()</code>：返回一个布尔值，表示当前节点的校验结果。如果返回<code>false</code>，表示不满足校验要求，否则就是校验成功或不必校验。</li>
+<li><code>stepDown()</code>：将当前<code>&lt;input&gt;</code>节点的值减少一个步长。该方法可以接受一个整数<code>n</code>作为参数，表示一次性减少<code>n</code>个步长，默认是<code>1</code>。有几种情况会抛错：当前<code>&lt;input&gt;</code>节点不适合递减或递增、当前节点没有<code>step</code>属性、<code>&lt;input&gt;</code>节点的值不能转为数字、递减之后的值小于<code>min</code>属性或大于<code>max</code>属性。</li>
+<li><code>stepUp()</code>：将当前<code>&lt;input&gt;</code>节点的值增加一个步长。其他与<code>stepDown()</code>方法相同。</li>
+</ul>
+<p>下面是<code>setSelectionRange()</code>方法的一个例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;p&gt;&lt;input type="text" id="mytextbox" size="20" value="HelloWorld"/&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="comment">  &lt;p&gt;&lt;button onclick="SelectText()"&gt;选择文本&lt;/button&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SelectText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">'mytextbox'</span>);</span><br><span class="line">  input.focus();</span><br><span class="line">  input.setSelectionRange(<span class="number">2</span>, <span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，点击按钮以后，会选中<code>llo</code>三个字符。</p>
+<p>下面是<code>setCustomValidity()</code>的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;form id="form"&gt;</span></span><br><span class="line"><span class="comment">    &lt;input id="field" type="text" pattern="[a-f,0-9]&#123;4&#125;" autocomplete=off&gt;</span></span><br><span class="line"><span class="comment">  &lt;/form&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> form   = <span class="built_in">document</span>.querySelector(<span class="string">'#form'</span>);</span><br><span class="line"><span class="keyword">const</span> field  = <span class="built_in">document</span>.querySelector(<span class="string">'#field'</span>);</span><br><span class="line"></span><br><span class="line">form.addEventListener(<span class="string">'submit'</span>, (e) =&gt; &#123;</span><br><span class="line">  e.preventDefault(); <span class="comment">// 防止这个例子发出 POST 请求</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">field.oninvalid = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  event.target.setCustomValidity(<span class="string">'必须是一个 4 位十六进制数'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">field.oninput = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  event.target.setCustomValidity(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，输入框必须输入一个4位的十六进制数。如果不满足条件（比如输入<code>xxx</code>），按下回车键以后，就会提示自定义的报错信息。<strong>一旦自定义了报错信息，输入框就会一直处于校验失败状态，因此重新输入时，必须把自定义报错信息设为空字符串。</strong>另外，为了避免自动补全提示框遮住报错信息，必须将输入框的<code>autocomplete</code>属性关闭。</p>
+<h2 id="表单输入元素的-type-属性的常用属性值"><a href="#表单输入元素的-type-属性的常用属性值" class="headerlink" title="表单输入元素的 type 属性的常用属性值"></a>表单输入元素的 type 属性的常用属性值</h2><p>我们直到 input 元素 根据 type 值 确定表单输入元素的功能。<strong>常用的type属性值</strong>有：</p>
+<ul>
+<li>text  默认值</li>
+<li>password</li>
+<li>submit</li>
+<li>button</li>
+<li>radio</li>
+<li>checkbox</li>
+</ul>
+<p>input 的 其他 type 值 功能要靠试出来。<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#attr-type" target="_blank" rel="noopener">所有 type 值</a>。</p>
+<h2 id="input-常用HTML属性"><a href="#input-常用HTML属性" class="headerlink" title="input 常用HTML属性"></a>input 常用HTML属性</h2><p><code>type</code> <code>name</code> <code>value</code> <code>required</code> <code>placeholder</code> <code>autofocus</code></p>
+<h2 id="input-和-button-的区别"><a href="#input-和-button-的区别" class="headerlink" title="input 和 button 的区别"></a>input 和 button 的区别</h2><p>主要区别：是否为「空标签」</p>
+<p>input没有子元素，是空标签。</p>
+<p>button有子元素，不是空标签。</p>
+<h2 id="表单输入元素使用示例"><a href="#表单输入元素使用示例" class="headerlink" title="表单输入元素使用示例"></a>表单输入元素使用示例</h2><h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"users"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">target</span>=<span class="string">"与a标签一样用法"</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span> <span class="comment">&lt;!--提交按钮--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"普通按钮"</span>&gt;</span> <span class="comment">&lt;!--这只是普通按钮--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中 提交按钮 和 普通按钮 长得一模一样，但是功能不同。</p>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><p>有个特例，当form表单里只有botton 元素时，button 按钮会自动上升为submit按钮。如下的button就是submit按钮。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"users"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">target</span>=<span class="string">"与a标签一样用法"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">placeholder</span>=<span class="string">"请输入用户名"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="comment">&lt;!--普通按钮升级成提交按钮--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中 button 可以发起 post 请求。</p>
+<h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><p>label和input配对使用作为form的子元素，label包围input，当用户在文字上点击就能选中复选框或者输入框，培养用户懒性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"users"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">label</span>&gt;</span>用户名<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">label</span>&gt;</span>密码<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"users"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">target</span>=<span class="string">"与a标签一样用法"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"> 	喜欢的水果</span><br><span class="line"> 	<span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"fruit"</span> <span class="attr">value</span>=<span class="string">"orange"</span>&gt;</span>橘子<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"fruit"</span> <span class="attr">value</span>=<span class="string">"apple"</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"> 喜欢我</span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"loveme"</span> <span class="attr">value</span>=<span class="string">"yes"</span>&gt;</span>YES<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"loveme"</span> <span class="attr">value</span>=<span class="string">"no"</span>&gt;</span>NO<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"submit"</span>&gt;</span> </span><br><span class="line">  </span><br><span class="line"> <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"group"</span> <span class="attr">multiple</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>-<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>第一组<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span>第二组<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">disabled</span>&gt;</span>第三组<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"4"</span> <span class="attr">selected</span>&gt;</span>第四组<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">select</span>&gt;</span> </span><br><span class="line"> <span class="comment">&lt;!--多行文本，用css控制宽高--&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"爱好"</span> <span class="attr">style</span>=<span class="string">"resize: none;width: 100px;height: 200px"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Liao linyan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/08/30/HTML标签-input/" title="HTML标签-input">http://yoursite.com/2019/08/30/HTML标签-input/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/30/HTML标签-form/" rel="next" title="HTML标签-form">
+                <i class="fa fa-chevron-left"></i> HTML标签-form
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/30/table/" rel="prev" title="table">
+                table <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行 照片</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">102</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表单输入元素-input"><span class="nav-number">1.</span> <span class="nav-text">表单输入元素 input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">2.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTMLInputElement-的实例属性"><span class="nav-number">2.3.</span> <span class="nav-text">HTMLInputElement 的实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用属性-9个"><span class="nav-number">2.3.1.</span> <span class="nav-text">通用属性  9个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与父表单相关属性-6个"><span class="nav-number">2.3.2.</span> <span class="nav-text">与父表单相关属性  6个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本输入框和数字输入框的特有属性-11-个"><span class="nav-number">2.3.3.</span> <span class="nav-text">文本输入框和数字输入框的特有属性  11 个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复选框和单选框的特有属性-3个"><span class="nav-number">2.3.4.</span> <span class="nav-text">复选框和单选框的特有属性   3个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像按钮的特有属性-4个"><span class="nav-number">2.3.5.</span> <span class="nav-text">图像按钮的特有属性 4个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传按钮的特有属性-2个"><span class="nav-number">2.3.6.</span> <span class="nav-text">文件上传按钮的特有属性 2个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他属性"><span class="nav-number">2.3.7.</span> <span class="nav-text">其他属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTMLInputElement-的实例方法"><span class="nav-number">2.4.</span> <span class="nav-text">HTMLInputElement 的实例方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单输入元素的-type-属性的常用属性值"><span class="nav-number">2.5.</span> <span class="nav-text">表单输入元素的 type 属性的常用属性值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-常用HTML属性"><span class="nav-number">2.6.</span> <span class="nav-text">input 常用HTML属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-和-button-的区别"><span class="nav-number">2.7.</span> <span class="nav-text">input 和 button 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单输入元素使用示例"><span class="nav-number">2.8.</span> <span class="nav-text">表单输入元素使用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">2.8.0.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">2.8.0.2.</span> <span class="nav-text">2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">2.8.0.3.</span> <span class="nav-text">3</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz',
+        appKey: 'Srt6LLMtTSBk7VSfSrq6cmUA',
+        placeholder: '欢迎畅所欲言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz", "Srt6LLMtTSBk7VSfSrq6cmUA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

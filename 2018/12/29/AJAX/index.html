@@ -79,24 +79,18 @@
 
 
 
-<meta name="description" content="前端如何向后端发请求？ 用form可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好  用a可以发 get 请求，但是也会刷新页面或新开页面  用img可以发 get 请求，但是只能以图片的形式展示-   用link可以发 get 请求，但是只能以 CSS、favicon 的形式展示  用script可以发 get 请求，但是只能以脚本的形式运行  有没有什么方式可以">
+<meta name="description" content="前端开发 美食 旅行 照片">
 <meta name="keywords" content="Ajax JSON DOM Promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AJAX">
 <meta property="og:url" content="http://yoursite.com/2018/12/29/AJAX/index.html">
 <meta property="og:site_name" content="Linyan&#39;s blog">
-<meta property="og:description" content="前端如何向后端发请求？ 用form可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好  用a可以发 get 请求，但是也会刷新页面或新开页面  用img可以发 get 请求，但是只能以图片的形式展示-   用link可以发 get 请求，但是只能以 CSS、favicon 的形式展示  用script可以发 get 请求，但是只能以脚本的形式运行  有没有什么方式可以">
+<meta property="og:description" content="前端开发 美食 旅行 照片">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/quQJU55.png">
-<meta property="og:image" content="https://i.imgur.com/2aIct9J.png">
-<meta property="og:image" content="https://i.imgur.com/sj7jda5.png">
-<meta property="og:image" content="https://i.imgur.com/fn6AevS.png">
-<meta property="og:image" content="https://i.imgur.com/fwykQQa.png">
-<meta property="og:updated_time" content="2019-08-05T16:15:31.145Z">
+<meta property="og:updated_time" content="2019-09-12T12:07:16.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX">
-<meta name="twitter:description" content="前端如何向后端发请求？ 用form可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好  用a可以发 get 请求，但是也会刷新页面或新开页面  用img可以发 get 请求，但是只能以图片的形式展示-   用link可以发 get 请求，但是只能以 CSS、favicon 的形式展示  用script可以发 get 请求，但是只能以脚本的形式运行  有没有什么方式可以">
-<meta name="twitter:image" content="https://i.imgur.com/quQJU55.png">
+<meta name="twitter:description" content="前端开发 美食 旅行 照片">
 
 
 
@@ -336,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-06T00:15:31+08:00">
-                2019-08-06
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-12T20:07:16+08:00">
+                2019-09-12
               </time>
             
           </span>
@@ -385,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5k 字
+                  0 字
                 </span>
               
 
@@ -401,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  20 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -422,222 +416,7 @@
       
 
       
-        <h2 id="前端如何向后端发请求？"><a href="#前端如何向后端发请求？" class="headerlink" title="前端如何向后端发请求？"></a>前端如何向后端发请求？</h2><ul>
-<li><p>用<code>form</code>可以发请求，但是会刷新页面或新开页面，刷新页面就要重新渲染页面，导致用户体验不好</p>
-</li>
-<li><p>用<code>a</code>可以发 get 请求，但是也会刷新页面或新开页面</p>
-</li>
-<li><p>用<code>img</code>可以发 get 请求，但是只能以图片的形式展示- </p>
-</li>
-<li><p>用<code>link</code>可以发 get 请求，但是只能以 CSS、favicon 的形式展示</p>
-</li>
-<li><p>用<code>script</code>可以发 get 请求，但是只能以脚本的形式运行</p>
-</li>
-<li><p>有没有什么方式可以实现发get、post、put、delete请求都行，想以什么形式展示就以什么形式展示？？？</p>
-<p><img src="https://i.imgur.com/quQJU55.png" alt=""><br><img src="https://i.imgur.com/2aIct9J.png" alt=""><br><img src="https://i.imgur.com/sj7jda5.png" alt="">  </p>
-<p><img src="https://i.imgur.com/fn6AevS.png" alt=""><br><img src="https://i.imgur.com/fwykQQa.png" alt=""></p>
-</li>
-</ul>
-<h2 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h2><p><code>IE5</code> 率先在<code>JS</code>中引入 <code>ActiveX</code> 对象（API），使得 <strong>JS 可以直接发起 HTTP 请求</strong>。随后 Firefox浏览器、 Safari浏览器、 Opera浏览器 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 W3C 规范。实际上，<strong>AJAX这个术语就是用JS发HTTP请求</strong>这个技术的代名词。从此以后，<strong>AJAX奠定了前端的基础</strong>。很神奇地说。</p>
-<p>AJAX的作用是 应用了AJAX的网页应用能够快速地将增量更新呈现在用户界面上，而不需要重载（刷新）整个页面。这使得程序能够更快地回应用户的操作。简单点说，AJAX就是<strong>使用 <code>XMLHttpRequest</code> 对象与服务器通信**</strong>。 它可以使用JSON，XML，HTML和text文本等格式发送和接收数据。AJAX最吸引人的就是它的“异步”特性，也就是说他可以在不重新刷新页面的情况下与服务器通信，交换数据，然后更新页面。</p>
-<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>预习阮一峰写得很详细：<a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/bom/ajax.html</a></p>
-<p>Jesse James Garrett 给 AJAX取名叫做：<strong>异步的 JavaScript 和 XML</strong>（<code>Asynchronous JavaScript and XML</code>）</p>
-<p>后来，<strong>AJAX就成为</strong> <strong>JavaScript 脚本发起 HTTP 请求</strong>的代名词，只要用脚本发起请求，就可以叫做 AJAX 请求,AJAX这个词已经成为了一个代名词，<strong>字面含义已经消失了</strong>。其实<strong>AJAX现在应该是AJAJ</strong>，异步的JavaScript和JSON。</p>
-<p>尽管X在Ajax中代表XML, 但由于<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/JSON" target="_blank" rel="noopener">JSON</a>的许多优势，比如更加轻量以及作为Javascript的一部分，目前<strong>JSON的使用比XML更加普遍</strong>。JSON和XML都被用于在Ajax模型中打包信息。</p>
-<p>具体一点，<strong>AJAX包括以下几个步骤</strong>：</p>
-<ol>
-<li>客服端使用<code>XMLHttpRequest</code>发HTTP请求</li>
-<li>服务器返回 <code>XML</code> 格式的字符串(现在JSON,XML过时)</li>
-<li>JS 解析<code>XML</code>(现在JSON,XML过时)，从中提取数据，并更新局部页面</li>
-</ol>
-<h2 id="如何使用-XMLHttpRequest"><a href="#如何使用-XMLHttpRequest" class="headerlink" title="如何使用 XMLHttpRequest"></a>如何使用 XMLHttpRequest</h2><p>整个过程是请求（<strong>request</strong>），响应(<strong>response</strong>)，浏览器解析(<strong>JSON.parse</strong>)</p>
-<p><strong>下面是一个用原生JS发HTTP请求的例子。</strong></p>
-<p>前端程序员写在main.js里的代码</p>
-<p>/<em>frank.com网站的浏览器访问jack.com网站的服务器,属于<strong>跨域访问</strong></em>/</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">myButton.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> request = <span class="keyword">new</span> XMLHttpRequest() <span class="comment">//1</span></span><br><span class="line">  </span><br><span class="line">  request.open(<span class="string">'GET'</span>, <span class="string">'/xxx?note'</span>) <span class="comment">// 2</span></span><br><span class="line">  request.send()                  <span class="comment">// 3</span></span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="comment">//4</span></span><br><span class="line">    <span class="keyword">if</span>(request.readyState === XMLHttpRequest.DONE)&#123;</span><br><span class="line">        <span class="keyword">if</span>(request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">300</span>)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'说明请求成功'</span>)</span><br><span class="line">          <span class="keyword">let</span> obj = <span class="built_in">JSON</span>.parse(request.responseText) </span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(request.status &gt;= <span class="number">400</span>)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'说明请求失败'</span>) </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>仔细分析上面的代码，</p>
-<p>1生成一个XMLHttpRequest 实例对象request , 2初始化request,  3 发送request请求 发送数据，2和3发送一个实际的请求，通过调用HTTP请求对象的 <code>open()</code> 和 <code>send()</code> 方法。<code>open()</code> 的第一个参数是<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank" rel="noopener">HTTP请求方法</a>（<strong>大写字母</strong>)，第二个参数是你要发送的<strong>URL</strong>。由于安全原因，默认不能调用第三方URL域名,否则会跨域访问。第三个参数是可选的，用于设置请求是否是<strong>异步</strong>的，默认为true，是异步的。 false是同步。<code>send()</code> 方法的参数可以是任何你想发送给服务器的内容</p>
-<p>4 告诉request对象，我们提供了一个函数负责处理响应。在<strong>处理响应的函数</strong>中，首先检查请求状态readyState，再检查HTTP响应码， 最后就可以拿到服务器返回的数据<code>responseText</code>了。如果<code>request.readyState === XMLHttpRequest.DONE</code>（对应的值是4），表示客户端收到了(下载完成)服务器响应并且是没问题的，可以继续执行。</p>
-<p><strong>request.readyState</strong> 属性返回一个 request<strong>代理当前所处的状态</strong>。一个 request代理总是处于下列状态中的一个：</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>状态</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0</code></td>
-<td><code>XMLHttpRequest.UNSENT</code></td>
-<td>代理被创建，但尚未调用 open() 方法。</td>
-</tr>
-<tr>
-<td><code>1</code></td>
-<td><code>XMLHttpRequest.OPENED</code></td>
-<td><code>open()</code> 方法已经被调用。</td>
-</tr>
-<tr>
-<td><code>2</code></td>
-<td><code>XMLHttpRequest.HEADERS_RECEIVED</code></td>
-<td><code>send()</code> 方法已经被调用，并且头部和状态已经可获得。</td>
-</tr>
-<tr>
-<td><code>3</code></td>
-<td><code>XMLHttpRequest.LOADING</code></td>
-<td>下载中； <code>responseText</code> 属性已经包含部分数据。</td>
-</tr>
-<tr>
-<td><code>4</code></td>
-<td><code>XMLHttpRequest.DONE</code></td>
-<td>下载操作已完成。客户端收到了响应</td>
-</tr>
-</tbody>
-</table>
-<p>注意上面这一步只在你发起异步请求时有效（既 <code>open()</code> 的第三个参数未特别指定或设为 <code>true</code>）。如果你你发起的是<strong>同步</strong>请求则不必使用函数处理响应，但是非常不推荐这样子做，它的用户体验很糟糕。</p>
-<p><strong>下面是后端程序员写在server.js里的代码。</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(path===<span class="string">'/xxx'</span>)&#123;</span><br><span class="line">	response.statusCode = <span class="number">200</span> <span class="comment">//1</span></span><br><span class="line">	response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/json;charset=utf-8'</span>)  <span class="comment">//2</span></span><br><span class="line">	response.setHeader(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'http://frank.com:8001'</span>)</span><br><span class="line">    <span class="comment">//3</span></span><br><span class="line">	response.write(<span class="string">`</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">      "note":&#123;</span></span><br><span class="line"><span class="string">        "to": "小谷",</span></span><br><span class="line"><span class="string">        "from": "方方",</span></span><br><span class="line"><span class="string">        "heading": "打招呼",</span></span><br><span class="line"><span class="string">        "content": "hi"</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  `</span>)</span><br><span class="line">    <span class="comment">//4</span></span><br><span class="line">  response.end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>//封装的ajax函数，只适合GET方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">myButton.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;ajaxRequest(<span class="string">'GET'</span>, <span class="string">'/xxx?note'</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajaxRequest</span> (<span class="params">methodString, urlString</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> request = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">  request.open(methodString, urlString) </span><br><span class="line">  request.send()                  </span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="params">()</span>=&gt;</span>&#123; </span><br><span class="line">    <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">300</span>)&#123;</span><br><span class="line">          <span class="keyword">let</span> object = <span class="built_in">JSON</span>.parse(request.responseText) </span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(request.status &gt;= <span class="number">400</span>)&#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用XMLHttpRequest 对象与服务器通信分为四步:</p>
-<ol>
-<li><p><strong>生成一个XMLHttpRequest实例对象request</strong></p>
-</li>
-<li><p><strong>配置request对象</strong></p>
-</li>
-<li><p><strong>发送request对象</strong></p>
-</li>
-<li><p><strong>监听request对象的readystate变化</strong></p>
-<p>细节分析：</p>
-</li>
-</ol>
-<ul>
-<li><code>window.XMLHttpRequest</code> 既是构造函数 也是一个对象。</li>
-<li><code>var request = new XMLHttpRequest()</code>，request是XMLHttpRequest的一个实例对象，有很多属性。</li>
-<li>当<code>request.readyState</code>值为4时，整个请求过程已经完成（响应体已经下好了）。</li>
-<li><code>request.onreadystatechange</code>监听<code>request.readyState</code></li>
-<li><strong>后台只能返回一个字符串给前端，不能返回对象</strong>，只不过这个字符串可以可以是XML格式、JSON格式、CSS格式、HTML格式、Text格式，例如上面后端代码就是返回JSON格式的字符串给浏览器，<code>response.setHeader(&#39;Content-Type&#39;, &#39;text/json;charset=utf-8&#39;)</code></li>
-<li><strong>响应的第四部分是字符串</strong>。可以用 JSON 语法表示一个对象，也可以用 JSON 语法表示一个数组，还可以用 XML 语法，还可以用 HTML 语法，还可以用 CSS 语法，还可以用 JS 语法，还可以用我自创的语法</li>
-</ul>
-<h2 id="JSON-——-一门新语言，但不是一门编程语言"><a href="#JSON-——-一门新语言，但不是一门编程语言" class="headerlink" title="JSON —— 一门新语言，但不是一门编程语言"></a>JSON —— 一门新语言，但不是一门编程语言</h2><p><a href="http://json.org" target="_blank" rel="noopener">http://json.org</a>查看JSON的铁轨图。<br>JSON和JS是两门语言。JSON是抄袭JS，但JSON没有抄袭JS的<code>function</code>,<code>undefined</code>,<code>symbol</code>。JSON的作者还写了《语言精粹》来说JS的不好。</p>
-<h4 id="一、-JSON-值的数据类型：null-true-false-JSONstring-JSONnumber-JSONobject-JSONarray"><a href="#一、-JSON-值的数据类型：null-true-false-JSONstring-JSONnumber-JSONobject-JSONarray" class="headerlink" title="一、 JSON 值的数据类型：null  true/false  JSONstring  JSONnumber  JSONobject  JSONarray"></a><strong>一、 JSON 值的数据类型：null  true/false  JSONstring  JSONnumber  JSONobject  JSONarray</strong></h4><p>JSON是一种轻量级的用于数据交互的文本格式。人类很容易读写。机器很容易解析和生成。JSON是一种完全独立于语言的<strong>文本格式。</strong>所以非常通用。JSON就是为了<strong>表示文本数据</strong>。</p>
-<table>
-<thead>
-<tr>
-<th>JavaScript数据类型</th>
-<th>与 JSON 数据类型  的区别</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>对象和数组</td>
-<td><strong>属性名称必须是双引号括起来的字符串</strong>；最后一个属性后不能有逗号。</td>
-</tr>
-<tr>
-<td>数值</td>
-<td>禁止出现前导零（ JSON.stringify 方法自动忽略前导零，而在 JSON.parse 方法中将会抛出 SyntaxError）；如果有小数点, 则后面至少跟着一位数字。</td>
-</tr>
-<tr>
-<td>字符串</td>
-<td>只有有限的一些字符可能会被转义；禁止某些控制字符； Unicode 行分隔符 （<a href="http://unicode-table.com/cn/2028/" target="_blank" rel="noopener">U+2028</a>）和段分隔符 （<a href="http://unicode-table.com/cn/2029/" target="_blank" rel="noopener">U+2029</a>）被允许 ; <strong>字符串必须用双引号括起来</strong>。</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*`JS`      与      `JSON`*/   值的一一对应</span><br><span class="line"></span><br><span class="line">undefined       	没有</span><br><span class="line">null		    	null</span><br><span class="line">true,false			true,false</span><br><span class="line">'frank'				"frank"	  </span><br><span class="line">['a','b']			[<span class="string">"a"</span>,<span class="string">"b"</span>]  </span><br><span class="line">&#123;name:'frank'&#125;		&#123;"name":"frank"&#125;</span><br><span class="line">function fn()&#123;&#125;		JSON没有函数</span><br><span class="line">var a=&#123;&#125;;a.self=a	办不到（JSON没有变量）</span><br><span class="line">&#123;__proto__&#125;			JSON没有原型链</span><br></pre></td></tr></table></figure>
-<h4 id="二、-JSON-对象"><a href="#二、-JSON-对象" class="headerlink" title="二、 JSON 对象"></a>二、 JSON 对象</h4><p>JSON对象是JavaScript 的原生对象，用来处理 JSON 格式数据，注意不是函数也不是构造函数。<strong>JSON对象</strong>包含两个方法:  <code>JSON.parse()</code> 方法， <code>JSON.stringify()</code> 方法。除了这两个方法, JSON这个对象本身并没有其他作用。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener"><code>JSON.parse()</code></a></p>
-<p>用于<strong>解析JSON字符串</strong>并返回对应的值，可以额外传入一个转换函数，用来将生成的值和其属性, 在返回之前进行某些修改。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse("null")		  //null</span><br><span class="line">JSON.parse('null')		  //null</span><br><span class="line">JSON.parse("true")		  //true</span><br><span class="line">JSON.parse("123")		  //123</span><br><span class="line">JSON.parse('"foo"')       // "foo"</span><br><span class="line">JSON.parse("\"abc\"")    // "abc" 字符串尤其要注意，双引号里面的是转义字符，这样JS引擎才能识别</span><br><span class="line">JSON.parse("[]")		//[]</span><br><span class="line">JSON.parse("&#123;&#125;")		//&#123;&#125;</span><br><span class="line">JSON.parse("[\"a\", \"b\", \"c\"]")		//["a", "b", "c"]</span><br><span class="line">JSON.parse("&#123;\"1\": \"a\", \"2\": \"b\", \"3\": \"c\"&#125;")	//&#123;1: "a", 2: "b", 3: "c"&#125;</span><br><span class="line">JSON.parse("&#123;\"a\": \"a\", \"b\": \"b\", \"c\": \"c\"&#125;")	//&#123;a: "a", b: "b", c: "c"&#125;</span><br></pre></td></tr></table></figure>
-<p>注意</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse("undefined")   //Uncaught SyntaxError: Unexpected token u in JSON at position 0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果<strong>传入的字符串不是有效的 JSON 格式</strong>，<code>JSON.parse</code>方法将报错。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">"'String'"</span>) <span class="comment">//Uncaught SyntaxError: Unexpected token ' in JSON at position 0</span></span><br></pre></td></tr></table></figure>
-<p><strong>上面代码中，双引号字符串中是一个单引号字符串，因为单引号字符串不符合 JSON 格式，所以报错。</strong></p>
-<p>也就是说，双引号字符串中 的内容必须符合JSON格式。</p>
-<ul>
-<li><strong>为了处理解析错误，可以将<code>JSON.parse</code>方法放在<code>try...catch</code>代码块中。</strong></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">JSON</span>.parse(<span class="string">"'String'"</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'parsing error'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>JSON.parse</code>方法可以接受一个处理函数，作为第二个参数，用法与<code>JSON.stringify</code>方法类似。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (key === <span class="string">'a'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> value + <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'&#123;"a": 1, "b": 2&#125;'</span>, f)</span><br><span class="line"><span class="comment">// &#123;a: 11, b: 2&#125;</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，<code>JSON.parse</code>的第二个参数是一个函数，如果键名是<code>a</code>，该函数会将键值加上10。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener"><code>JSON.stringify()</code></a></p>
-<p>该方法将对象/值<strong>转换为 符合JSON格式的字符串</strong>，并且可以被<code>JSON.parse</code>方法还原。可以通过额外的参数, 控制仅包含某些属性, 或者以自定义方法来替换某些key对应的属性值。</p>
-<p><strong>1 JSON.stringify()方法的第一个参数 是 被转换的值</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify(null)   //"null"</span><br><span class="line">JSON.stringify(true)   //"true"</span><br><span class="line">JSON.stringify(123)   //"123"</span><br><span class="line">JSON.stringify('abc')   //"\"abc\""    尤其要注意，双引号里面的是转义字符，这样JS引擎才能识别</span><br><span class="line">JSON.stringify([])   //"[]"</span><br><span class="line">JSON.stringify(&#123;&#125;)   //"&#123;&#125;"</span><br><span class="line"></span><br><span class="line">JSON.stringify(['a','b','c'])  // "[\"a\", \"b\", \"c\"]"</span><br><span class="line">JSON.stringify(&#123;1: 'a', 2: 'b', 3: 'c'&#125;)  // "&#123;\"1\": \"a\", \"2\": \"b\", \"3\": \"c\"&#125;"</span><br></pre></td></tr></table></figure>
-<p>上面代码表明JSON格式字符串一定是被双引号包裹起来的。所以当JSON格式字符串里面还有字符串时，必须要加转义字符。分单的双的太麻烦了，以后<strong>JSON格式</strong>需要用引号的地方<strong>只用双引号</strong>。</p>
-<p>注意：</p>
-<p>如果对象的属性是<code>undefined</code>、函数或 XML 对象，该属性会被<code>JSON.stringify</code>过滤。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  a: undefined,</span><br><span class="line">  b: function () &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">JSON.stringify(obj) // "&#123;&#125;"</span><br></pre></td></tr></table></figure>
-<p>如果数组的成员是<code>undefined</code>、函数或 XML 对象，则这些数组元素被<code>JSON.stringify</code>转成<code>null</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="literal">undefined</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;];</span><br><span class="line"><span class="built_in">JSON</span>.stringify(arr) <span class="comment">// "[null,null]"</span></span><br></pre></td></tr></table></figure>
-<p>正则对象会被<code>JSON.stringify</code>转成空对象。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// "&#123;&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>函数和undefined 会返回undefined</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="literal">undefined</span>) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-<p><code>JSON.stringify</code>方法会忽略对象的不可遍历的属性。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  <span class="string">'foo'</span>: &#123;</span><br><span class="line">    value: <span class="number">1</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'bar'</span>: &#123;</span><br><span class="line">    value: <span class="number">2</span>,</span><br><span class="line">    enumerable: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj); <span class="comment">// "&#123;\"foo\":1&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>2 JSON.stringify()方法 还可以接受一个数组，数组的元素值是对象的部分属性名，作为<strong>第二个参数</strong>。这个数组指定了 对象的哪些属性需要转成字符串。这个数组只对对象的属性有效，对数组无效。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="string">'prop1'</span>: <span class="string">'value1'</span>,</span><br><span class="line">  <span class="string">'prop2'</span>: <span class="string">'value2'</span>,</span><br><span class="line">  <span class="string">'prop3'</span>: <span class="string">'value3'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> selectedProperties = [<span class="string">'prop1'</span>, <span class="string">'prop2'</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj, selectedProperties)  <span class="comment">// "&#123;\"prop1\": \"value1\", \"prop2\": \"value2\"&#125;"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify([<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'0'</span>])</span><br><span class="line"><span class="comment">// "[\"a\",\"b\"]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123;<span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>&#125;, [<span class="string">'0'</span>])</span><br><span class="line"><span class="comment">// "&#123;\"0": \"a\"&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，第二个参数指定 JSON 格式只转<code>0</code>号属性，实际上对数组是无效的，只对对象有效。</p>
-<p><strong>第二个参数还可以是一个函数</strong>，用来更改<code>JSON.stringify</code>的返回值。这个函数会对 对象的<strong>每对键值对</strong> 操作。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">"number"</span>) &#123;</span><br><span class="line">    value = <span class="number">2</span> * value;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;, f)</span><br><span class="line"><span class="comment">// '&#123;\"a\": 2, \"b\": 4&#125;'</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中的<code>f</code>函数，接受两个参数，分别是被转换的对象的键名和键值。如果键值是数值，就将它乘以<code>2</code>，否则就原样返回。</p>
-<p><strong>注意，这个处理函数f是递归处理所有的键。</strong>递归的意思是若f函数的返回值还是一个对象，就会用f函数继续处理这个对象，<strong>直到f函数返回一个值为止</strong>，f函数返回的是一个值（不是undefined），JSON.stringify方法才会处理这个值对应的属性。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"["</span>+ key +<span class="string">"]:"</span> + value);</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br><span class="line"><span class="comment">// []:[object Object]</span></span><br><span class="line"><span class="comment">// [a]:[object Object]</span></span><br><span class="line"><span class="comment">// [b]:1</span></span><br><span class="line"><span class="comment">// '&#123;\"a\":&#123;\"b\": 1&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，对象<code>o</code>一共会被<code>f</code>函数处理<strong>三次</strong>，最后那行是<code>JSON.stringify</code>的输出。第一次键名为空，键值是整个对象<code>o</code>；第二次键名为<code>a</code>，键值是<code>{b: 1}</code>；第三次键名为<code>b</code>，键值为1。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;, <span class="attr">c</span>: &#123;<span class="attr">d</span>: <span class="number">2</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"["</span>+ key +<span class="string">"]:"</span> + value);</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br><span class="line"><span class="comment">//[]:[object Object]</span></span><br><span class="line"><span class="comment">//[a]:[object Object]</span></span><br><span class="line"><span class="comment">//[b]:1</span></span><br><span class="line"><span class="comment">//[c]:[object Object]</span></span><br><span class="line"><span class="comment">//[d]:2</span></span><br><span class="line"><span class="comment">//"&#123;/"a/":&#123;/"b/":1&#125;,/"c/":&#123;/"d/":2&#125;&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>上面代码同上。</p>
-<p><strong>在递归处理中，每一次处理的对象，都是前一次返回的值。</strong> 一定是在递归处理中 ？？？</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="attr">b</span>: <span class="number">2</span>&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br><span class="line"><span class="comment">// "&#123;\"b\": 4&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，<code>f</code>函数第一次处理对象o，键名为空，键值为整个对象{a: 1}, <code>f</code>函数内部判断发现键值为对象类型 就 返回{b: 2}，然后f函数处理{b:2}，键值为2，f直接返回2倍键值。最后<code>JSON.stringify</code>方法就处理修改后的对象<code>o</code>。</p>
-<p><strong>如果处理函数返回<code>undefined</code>或没有返回值，则该属性会被忽略，即不会被JSON.stringify方法处理转换成JSON格式字符串。</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span>(value) === <span class="string">"string"</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">a</span>: <span class="string">"abc"</span>, <span class="attr">b</span>: <span class="number">123</span> &#125;, f)</span><br><span class="line"><span class="comment">// '&#123;"b": 123&#125;'</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，<code>a</code>属性经过处理后，返回<code>undefined</code>，于是该属性被忽略了。</p>
-<p>3 <code>JSON.stringify</code>还可以接受第三个参数，用于增加返回的 JSON 字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个,也就是10和20一个效果）；如果是字符串（不超过10个字符，多出的字符会被忽略掉），则该字符串会添加在每行属性前面。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">p1</span>: <span class="number">1</span>, <span class="attr">p2</span>: <span class="number">2</span> &#125;, <span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">"&#123;</span></span><br><span class="line"><span class="comment">  /"p1/": 1,</span></span><br><span class="line"><span class="comment">  /"p2/": 2</span></span><br><span class="line"><span class="comment">&#125;"</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">p1</span>:<span class="number">1</span>, <span class="attr">p2</span>:<span class="number">2</span> &#125;, <span class="literal">null</span>, <span class="string">'|-'</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">"&#123;</span></span><br><span class="line"><span class="comment">|-/"p1/": 1,</span></span><br><span class="line"><span class="comment">|-/"p2/": 2</span></span><br><span class="line"><span class="comment">&#125;"</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<p>4 若参数对象有toJSON 方法</p>
-<p>如果参数对象有自定义的<code>toJSON</code>方法，那么<code>JSON.stringify(obj)</code>会相当于<code>JSON.stringify(obj.toJSON())</code>，而忽略原对象的其他属性。</p>
-<p>下面是一个普通对象的例子。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">'三'</span>,</span><br><span class="line">  lastName: <span class="string">'张'</span>,</span><br><span class="line">  <span class="comment">// 以下会生成一个user对象的属性，属性名为函数名fullname，数值值为函数返回值</span></span><br><span class="line">  get fullName()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">user.fullname 	<span class="comment">//"张三"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user)	<span class="comment">// "&#123;"firstName":"三","lastName":"张","fullName":"张三"&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>现在，为这个对象加上<code>toJSON</code>方法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">'三'</span>,</span><br><span class="line">  lastName: <span class="string">'张'</span>,</span><br><span class="line">  get fullName()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;,</span><br><span class="line">  toJSON: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      name: <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user)</span><br><span class="line"><span class="comment">//相当于</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user.toJSON())</span><br><span class="line"><span class="comment">// "&#123;/"name/": /"张三/"&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，<code>JSON.stringify</code>发现参数对象有<code>toJSON</code>方法，就直接使用这个方法的返回值作为参数，而忽略原对象的其他参数。</p>
-<p><code>Date</code>对象就有一个自己的<code>toJSON</code>方法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2015-01-01'</span>);</span><br><span class="line">date.toJSON() <span class="comment">// "2015-01-01T00:00:00.000Z"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(date) <span class="comment">// ""2015-01-01T00:00:00.000Z""</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，<code>JSON.stringify</code>发现处理的是<code>Date</code>对象实例，就会调用这个实例对象的<code>toJSON</code>方法，将该方法的返回值作为参数。</p>
-<p><code>toJSON</code>方法的一个应用是，将正则对象自动转为字符串。因为<code>JSON.stringify</code>默认不能转换正则对象，但是设置了<code>toJSON</code>方法以后，就可以转换正则对象了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  reg: <span class="regexp">/foo/</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj) <span class="comment">// "&#123;"reg":&#123;&#125;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">RegExp</span>.prototype.toJSON = <span class="built_in">RegExp</span>.prototype.toString;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// ""/foo/""</span></span><br></pre></td></tr></table></figure>
-<p>上面代码在正则对象的原型上面部署了<code>toJSON()</code>方法，将其指向<code>toString()</code>方法，因此转换成 JSON 格式时，正则对象就先调用<code>toJSON()</code>方法转为字符串，然后再被<code>JSON.stringify()</code>方法处理。</p>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>只有 <strong>协议+域名+端口一模一样</strong>才允许发 AJAX 请求,所以AJAX相当安全<br>例如<br>你只要不是baidu.com里面的JS,你就不能向baidu.com这个网站发起AJAX请求。其实实际上AJAX请求已经发出去了，但<code>request.readyState</code>值始终为0，浏览器根本看不到响应的内容。<br><a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a>可以向<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a>发 AJAX 请求吗?   <strong>NO!</strong><br><a href="http://baidu.com:80" target="_blank" rel="noopener">http://baidu.com:80</a>可以向 <a href="http://baidu.com:81" target="_blank" rel="noopener">http://baidu.com:81</a>发 AJAX 请求吗? <strong>NO!</strong></p>
-<p><strong>浏览器必须保证 只有 协议+端口+域名 一模一样才允许发 AJAX 请求。</strong><br><strong>CORS 可以告诉浏览器，我俩一家的，我们一摸一样，别阻止他。</strong><br>例如：当<code>frank.com:8001</code>想要访问<code>jack.com:8002</code>时,你要打电话给<code>jack.com:8002</code>的后端程序员，当<code>jack.com:8002</code>的后端程序员给sever.js要加上如下响应头后，<code>frank.com:8001</code>才能访问<code>jack.com:8002</code>。</p>
-<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
-</code></pre><h2 id="CORS-跨域"><a href="#CORS-跨域" class="headerlink" title="CORS 跨域"></a>CORS 跨域</h2><p><strong>突破同源策略 === 跨域</strong><br>CORS是一个W3C标准，全称是”跨域资源共享”（<code>Cross-origin resource sharing</code>）。它允许浏览器向跨源服务器，发出<code>XMLHttpRequest</code>请求，从而克服了AJAX只能同源使用的限制。<br>例如上面代码：</p>
-<pre><code>response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)
-</code></pre><p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
-<h2 id="使用CORS跨域-和-使用JSONP"><a href="#使用CORS跨域-和-使用JSONP" class="headerlink" title="使用CORS跨域 和 使用JSONP"></a>使用CORS跨域 和 使用JSONP</h2><p>使用CORS跨域可以发送的请求种类不受限制，如：<code>GET</code>,<code>POST</code>,<code>DELETE</code>，<code>PUT</code>而JSONP只能发起GET请求。<br>主要还是看后台的水平。</p>
-<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><p>windows下修改hosts文件，添加两个域名<code>frank.com</code>，<code>jack.com</code>，开两个服务器server，一个作浏览器，一个作服务器，模拟访问。</p>
-<h2 id="使用原生JS来发送AJAX请求"><a href="#使用原生JS来发送AJAX请求" class="headerlink" title="使用原生JS来发送AJAX请求"></a>使用原生JS来发送AJAX请求</h2><p><strong>请背</strong> <strong>请背</strong> <strong>请背</strong></p>
-<pre><code>  let request = new XMLHttpRequest() //1.生成一个XMLHttpRequest实例对象request
-  request.open(&apos;get&apos;, &apos;/xxx&apos;) // 2.配置request对象
-  request.send() //3.发送request对象
-  request.onreadystatechange = ()=&gt;{ //4.监听request对象的readystate变化
-      if(request.readyState === 4){
-          if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300){
-            console.log(&apos;说明请求成功&apos;)
-          }else if(request.status &gt;= 400){
-            console.log(&apos;说明请求失败&apos;) 
-          }
-      }
-}
-</code></pre><h2 id="自己的心得"><a href="#自己的心得" class="headerlink" title="自己的心得"></a>自己的心得</h2><p>标签有 <strong>添加路径的属性</strong> 就能向后台发送请求，比如form的action属性，img的src，link的href。<br>AJAX貌似是前端的一个新的开始，此后开始百家争鸣。<br>慢慢接触一些简单的后端代码，知道<strong>当浏览器遇到路径时，就会发起http请求，会进到路径里面去。</strong>这应该就是浏览器遇到路径，就会给这个路径的后端服务器发送请求，后端可以在这个路径里写好会执行什么代码，而浏览器会获取服务器端数据。    </p>
-
+        
       
     </div>
     
@@ -746,17 +525,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -773,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -840,22 +610,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端如何向后端发请求？"><span class="nav-number">1.</span> <span class="nav-text">前端如何向后端发请求？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微软的突破"><span class="nav-number">2.</span> <span class="nav-text">微软的突破</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX"><span class="nav-number">3.</span> <span class="nav-text">AJAX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用-XMLHttpRequest"><span class="nav-number">4.</span> <span class="nav-text">如何使用 XMLHttpRequest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-——-一门新语言，但不是一门编程语言"><span class="nav-number">5.</span> <span class="nav-text">JSON —— 一门新语言，但不是一门编程语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-JSON-值的数据类型：null-true-false-JSONstring-JSONnumber-JSONobject-JSONarray"><span class="nav-number">5.0.1.</span> <span class="nav-text">一、 JSON 值的数据类型：null  true/false  JSONstring  JSONnumber  JSONobject  JSONarray</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、-JSON-对象"><span class="nav-number">5.0.2.</span> <span class="nav-text">二、 JSON 对象</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#同源策略"><span class="nav-number">6.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS-跨域"><span class="nav-number">7.</span> <span class="nav-text">CORS 跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CORS跨域-和-使用JSONP"><span class="nav-number">8.</span> <span class="nav-text">使用CORS跨域 和 使用JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟"><span class="nav-number">9.</span> <span class="nav-text">模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用原生JS来发送AJAX请求"><span class="nav-number">10.</span> <span class="nav-text">使用原生JS来发送AJAX请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己的心得"><span class="nav-number">11.</span> <span class="nav-text">自己的心得</span></a></li></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

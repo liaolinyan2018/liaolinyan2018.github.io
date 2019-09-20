@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收如果一个对象没有被引用，它就是垃圾，将被回收。但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。">
+<meta name="description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收  内存图">
 <meta name="keywords" content="Ajax JSON DOM Promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS的类型">
 <meta property="og:url" content="http://yoursite.com/2018/11/27/JS的类型/index.html">
 <meta property="og:site_name" content="Linyan&#39;s blog">
-<meta property="og:description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收如果一个对象没有被引用，它就是垃圾，将被回收。但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。">
+<meta property="og:description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收  内存图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/4MxR1Li.png">
 <meta property="og:image" content="https://i.imgur.com/FvVy9nS.png">
@@ -97,24 +97,14 @@
 <meta property="og:image" content="https://i.imgur.com/utx9BKM.png">
 <meta property="og:image" content="https://i.imgur.com/uLFYNp8.png">
 <meta property="og:image" content="https://i.imgur.com/tr29BA4.png">
-<meta property="og:image" content="https://i.imgur.com/OfRyeP1.png">
 <meta property="og:image" content="https://i.imgur.com/qOVFLE9.png">
-<meta property="og:image" content="https://i.imgur.com/iGdRLrR.png">
-<meta property="og:image" content="https://i.imgur.com/Ay3XdaH.png">
 <meta property="og:image" content="https://i.imgur.com/2fRI7bR.png">
 <meta property="og:image" content="https://i.imgur.com/lm7PENg.png">
 <meta property="og:image" content="https://i.imgur.com/kBLfmYV.png">
-<meta property="og:image" content="https://i.imgur.com/bS9LAHt.png">
-<meta property="og:image" content="https://i.imgur.com/DOjtmGJ.png">
-<meta property="og:image" content="https://i.imgur.com/sEQUrem.png">
-<meta property="og:image" content="https://i.imgur.com/6oFr3hE.png">
-<meta property="og:image" content="https://i.imgur.com/qMmxRJy.png">
-<meta property="og:image" content="https://i.imgur.com/Mkv9kOx.png">
-<meta property="og:image" content="https://i.imgur.com/qZ4Olzw.png">
-<meta property="og:updated_time" content="2018-11-30T01:49:46.000Z">
+<meta property="og:updated_time" content="2019-09-11T12:56:09.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS的类型">
-<meta name="twitter:description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收如果一个对象没有被引用，它就是垃圾，将被回收。但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。">
+<meta name="twitter:description" content="类型的转换 转化为string 转化为number 转化为booleanfalsy(虚值)是在 Boolean 上下文中已认定可转换为’假‘的值，在使用强制类型转换转换成boolean时为 false。有以下五个为false,其他值都为true。    各类型的API待补充   垃圾回收  内存图">
 <meta name="twitter:image" content="https://i.imgur.com/4MxR1Li.png">
 
 
@@ -355,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T09:49:46+08:00">
-                2018-11-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-11T20:56:09+08:00">
+                2019-09-11
               </time>
             
           </span>
@@ -404,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  633 字
+                  80 字
                 </span>
               
 
@@ -420,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -442,7 +432,7 @@
 
       
         <h3 id="类型的转换"><a href="#类型的转换" class="headerlink" title="类型的转换"></a>类型的转换</h3><ul>
-<li>转化为<code>string</code><br><br><img src="https://i.imgur.com/4MxR1Li.png" alt=""><br><br><img src="https://i.imgur.com/FvVy9nS.png" alt=""><br><br><img src="https://i.imgur.com/egBJvqk.png" alt=""><br><br><img src="https://i.imgur.com/cYzQnUe.png" alt=""><br><br><br><hr></li>
+<li>转化为<code>string</code><br><img src="https://i.imgur.com/4MxR1Li.png" alt=""><br><br><img src="https://i.imgur.com/FvVy9nS.png" alt=""><br><br><img src="https://i.imgur.com/egBJvqk.png" alt=""><br><br><img src="https://i.imgur.com/cYzQnUe.png" alt=""><br><br><br><hr></li>
 <li>转化为<code>number</code><br><br><img src="https://i.imgur.com/fmzWD84.png" alt=""><br><br><img src="https://i.imgur.com/RSxZigs.png" alt=""><br><br><img src="https://i.imgur.com/bgzHswA.png" alt=""><br><br><br><hr></li>
 <li>转化为<code>boolean</code><br><br><img src="https://i.imgur.com/utx9BKM.png" alt=""><br><br><img src="https://i.imgur.com/uLFYNp8.png" alt=""><br><br><br><br><code>falsy</code>(虚值)是在 Boolean 上下文中已认定可转换为’<strong>假</strong>‘的值，在使用强制类型转换转换成boolean时为 <code>false</code>。有以下五个为false,其他值都为true。<br><br><img src="https://i.imgur.com/tr29BA4.png" alt=""><br><br><br><hr>
 
@@ -451,21 +441,9 @@
 <h3 id="各类型的API"><a href="#各类型的API" class="headerlink" title="各类型的API"></a>各类型的API</h3><p>待补充<br></p>
 <hr>
 
-<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>如果一个对象没有被引用，它就是垃圾，将被回收。<br><br><img src="https://i.imgur.com/OfRyeP1.png" alt=""><br><br>但是IE6有bug不会清垃圾。请在结束一天工作后用下面代码清垃圾。<br><br><img src="https://i.imgur.com/qOVFLE9.png" alt=""><br></p>
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p><img src="https://i.imgur.com/qOVFLE9.png" alt=""><br></p>
 <p><hr></p>
-<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p>内存速度快，断电不保存；外存相对内存速度慢，断电内容保存。<br><br>SSD外存速度接近内存，贵，易坏；机械硬盘，不易坏；固态硬盘；开机将硬盘的内容读到内存，给操作系统、浏览器等分配空间。<br><br><img src="https://i.imgur.com/iGdRLrR.png" alt=""><br><br><img src="https://i.imgur.com/Ay3XdaH.png" alt=""><br><br>浏览器先进行所有的变量提升（变量声明）;按顺序在stack先存好对象，后期再加属性值会很麻烦,所以在<strong>stack栈内存</strong> <strong>存</strong> 对象在heap堆内存的<strong>地址</strong>，对象的内容实际上存在堆内存里。<br><br><img src="https://i.imgur.com/2fRI7bR.png" alt=""><br><br><img src="https://i.imgur.com/lm7PENg.png" alt=""><br><br><img src="https://i.imgur.com/kBLfmYV.png" alt=""><br></p>
-<p><hr></p>
-<h3 id="深复制-amp-浅复制"><a href="#深复制-amp-浅复制" class="headerlink" title="深复制&amp;浅复制"></a>深复制&amp;浅复制</h3><p>对于简单类型来说，赋值就是深复制,比较简单。<br><br><code>var a = 1;var b = a;b = 2 ;a = ?  //a===1</code>，即b变a不变就是深复制<br><br><strong>对复杂类型的数据（对象）来说才分浅复制和深复制。对于对象来说，对Stack内存的地址拷贝（一个变，全都变）就是浅复制；对Heap内存进行完全的拷贝才是深拷贝</strong><br><br><br><br>这是浅复制的例子：<br><br><img src="https://i.imgur.com/bS9LAHt.png" alt=""><br><br><img src="https://i.imgur.com/DOjtmGJ.png" alt=""><br><br>这是深复制的例子：<br><br><img src="https://i.imgur.com/sEQUrem.png" alt=""><br><br>注意 <code>b= a; b=null;</code>是不会改变隐藏对象里的内容的,只有x.key = ‘yyy’才能改变对象里的内容，画图好理解。<br></p>
-<h3 id="面试题举例（易混）"><a href="#面试题举例（易混）" class="headerlink" title="面试题举例（易混）"></a>面试题举例（易混）</h3><p>1<br><br><img src="https://i.imgur.com/6oFr3hE.png" alt=""><br></p>
-<p><hr><br>2<br><br>??????<br><br><img src="https://i.imgur.com/qMmxRJy.png" alt=""><br><br><img src="https://i.imgur.com/Mkv9kOx.png" alt=""><br><br>3<br><br><img src="https://i.imgur.com/qZ4Olzw.png" alt=""><br><br>模拟执行过程：(Heap堆内存里存着两个对象{n：1}和{n:2}，地址为随机分配的addr34 和addr54)<br></p>
-<pre><code>var a = {n:1}//var a,var {n:1}, a===addr34
-var b = a        //var b ,b===addr34 &apos;=&apos;是浅复制
-a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看，再从右往左计算。
-                //从左往右看的时候，`a.x`和`a`里的`a===addr34`，
-                //从右往左计算的时候，先执行a={n:2},执行后a===addr54；
-                //然后a(addr34).x=a(addr54)。故a.x = a = {n:2}执行结束后，addr34地址存的对象多了一个属性x,属性x的值为addr54,即对象{n:2}在Heap里的地址。
-               //而b还是指向Heap地址为addr34这个对象，即b===addr54
-</code></pre><p><br></p>
+<h3 id="内存图"><a href="#内存图" class="headerlink" title="内存图"></a>内存图</h3><p><br><br><img src="https://i.imgur.com/2fRI7bR.png" alt=""><br><br><img src="https://i.imgur.com/lm7PENg.png" alt=""><br><br><img src="https://i.imgur.com/kBLfmYV.png" alt=""><br></p>
 
       
     </div>
@@ -602,7 +580,7 @@ a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -679,7 +657,7 @@ a.x = a = {n:2} //这句话最容易理解错，首先浏览器从左往右看�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型的转换"><span class="nav-number">1.</span> <span class="nav-text">类型的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各类型的API"><span class="nav-number">2.</span> <span class="nav-text">各类型的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存图"><span class="nav-number">4.</span> <span class="nav-text">内存图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制-amp-浅复制"><span class="nav-number">5.</span> <span class="nav-text">深复制&amp;浅复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题举例（易混）"><span class="nav-number">6.</span> <span class="nav-text">面试题举例（易混）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型的转换"><span class="nav-number">1.</span> <span class="nav-text">类型的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各类型的API"><span class="nav-number">2.</span> <span class="nav-text">各类型的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存图"><span class="nav-number">4.</span> <span class="nav-text">内存图</span></a></li></ol></div>
             
 
           </div>
