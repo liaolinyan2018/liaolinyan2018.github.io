@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="概述Text 接口实例是 文本节点（Text)。 接口继承1Text接口 =&amp;gt; CharacterData =&amp;gt; Node接口 =&amp;gt; Object =&amp;gt; null Text接口自身属性和方法Text接口本身只有一个属性和方法。 属性 1 wholeText  只读  wholeText属性将当前文本节点与毗邻的所有文本节点，作为一个整体返回(2个或者3个 更多，只要相邻">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Text接口">
+<meta property="og:url" content="http://yoursite.com/2019/09/21/Text接口/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="概述Text 接口实例是 文本节点（Text)。 接口继承1Text接口 =&amp;gt; CharacterData =&amp;gt; Node接口 =&amp;gt; Object =&amp;gt; null Text接口自身属性和方法Text接口本身只有一个属性和方法。 属性 1 wholeText  只读  wholeText属性将当前文本节点与毗邻的所有文本节点，作为一个整体返回(2个或者3个 更多，只要相邻">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-21T08:27:40.017Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Text接口">
+<meta name="twitter:description" content="概述Text 接口实例是 文本节点（Text)。 接口继承1Text接口 =&amp;gt; CharacterData =&amp;gt; Node接口 =&amp;gt; Object =&amp;gt; null Text接口自身属性和方法Text接口本身只有一个属性和方法。 属性 1 wholeText  只读  wholeText属性将当前文本节点与毗邻的所有文本节点，作为一个整体返回(2个或者3个 更多，只要相邻">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/21/Text接口/">
+
+
+
+
+
+  <title>Text接口 | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/21/Text接口/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Text接口</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-21T10:35:51+08:00">
+                2019-09-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-21T16:27:40+08:00">
+                2019-09-21
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/21/Text接口/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/21/Text接口/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/21/Text接口/" class="leancloud_visitors" data-flag-title="Text接口">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="referrer" content="no-referrer">
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Text 接口实例是 文本节点（<code>Text</code>)。</p>
+<h2 id="接口继承"><a href="#接口继承" class="headerlink" title="接口继承"></a>接口继承</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Text接口 =&gt; CharacterData =&gt; Node接口 =&gt; Object =&gt; null</span><br></pre></td></tr></table></figure>
+<h2 id="Text接口自身属性和方法"><a href="#Text接口自身属性和方法" class="headerlink" title="Text接口自身属性和方法"></a>Text接口自身属性和方法</h2><p>Text接口本身只有一个属性和方法。</p>
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性 1"></a>属性 1</h3><ul>
+<li><h3 id="wholeText-只读"><a href="#wholeText-只读" class="headerlink" title="wholeText  只读"></a>wholeText  只读</h3></li>
+</ul>
+<p><code>wholeText</code>属性将当前文本节点与毗邻的所有文本节点，作为一个整体返回(2个或者3个 更多，只要相邻)。大多数情况下，<code>wholeText</code>属性的返回值，与<code>data</code>属性和<code>textContent</code>属性相同。但是，某些特殊情况会有差异。</p>
+<p>举例来说，HTML 代码如下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"para"</span>&gt;</span>A <span class="tag">&lt;<span class="name">em</span>&gt;</span>B<span class="tag">&lt;/<span class="name">em</span>&gt;</span> C <span class="tag">&lt;<span class="name">em</span>&gt;</span>D<span class="tag">&lt;/<span class="name">em</span>&gt;</span> E<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这时，文本节点的<code>wholeText</code>属性和<code>data</code>属性，返回值相同。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'para'</span>);</span><br><span class="line">el.firstChild.wholeText <span class="comment">// "A "</span></span><br><span class="line">el.firstChild.data <span class="comment">// "A "</span></span><br></pre></td></tr></table></figure>
+<p>但是，一旦移除<code>&lt;em&gt;</code>节点，<code>wholeText</code>属性与<code>data</code>属性就会有差异，因为这时其实<code>&lt;p&gt;</code>节点下面包含了3个毗邻的文本节点。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ems = <span class="built_in">document</span>.querySelectorAll(<span class="string">'em'</span>)</span><br><span class="line"><span class="built_in">console</span>.dir(p.childNodes.length) <span class="comment">//5</span></span><br><span class="line">ems.forEach(<span class="function"><span class="params">em</span> =&gt;</span> em.remove())</span><br><span class="line"><span class="built_in">console</span>.dir(p.childNodes.length) <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">el.firstChild.wholeText <span class="comment">// "A  C  E"</span></span><br><span class="line">el.firstChild.data <span class="comment">// "A "</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法-1个"><a href="#方法-1个" class="headerlink" title="方法  1个"></a>方法  1个</h3><ul>
+<li><h3 id="splitText"><a href="#splitText" class="headerlink" title="splitText()"></a>splitText()</h3></li>
+</ul>
+<p><code>splitText</code>方法将一个<code>Text</code>节点一分为二，变成两个毗邻的<code>Text</code>节点。它的<strong>参数就是分割位置</strong>（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。分割后，该方法返回分割位置后方的字符串，而原<code>Text</code>节点变成只包含分割位置前方的字符串。注意，该方法会改变原Text节点。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html 代码为 &lt;p id="p"&gt;foobar&lt;/p&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> textnode = p.firstChild;</span><br><span class="line">textnode <span class="comment">// "foo"</span></span><br><span class="line">p.childNodes <span class="comment">// NodeList [text]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newText = textnode.splitText(<span class="number">3</span>); <span class="comment">// 在该代码前读取 textnode 得到的也是截取后的结果</span></span><br><span class="line"></span><br><span class="line">newText <span class="comment">// "bar"</span></span><br><span class="line">textnode <span class="comment">// "foo"</span></span><br><span class="line">p.childNodes <span class="comment">// NodeList(2) [text, text]</span></span><br></pre></td></tr></table></figure>
+<p>父元素节点的<code>normalize</code>方法可以将毗邻的两个<code>Text</code>节点合并。</p>
+<p>接上面的例子，文本节点的<code>splitText</code>方法将一个<code>Text</code>节点分割成两个，父元素的<code>normalize</code>方法可以实现逆操作，将它们合并。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p.childNodes.length <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 将毗邻的两个 Text 节点合并</span></span><br><span class="line">p.normalize();</span><br><span class="line">p.childNodes.length <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="Text接口继承的属性和方法"><a href="#Text接口继承的属性和方法" class="headerlink" title="Text接口继承的属性和方法"></a>Text接口继承的属性和方法</h2><p>Text 接口继承了<code>CharacterData</code>接口。以下的属性和方法继承自<code>CharacterData</code>接口。相当于介绍<code>CharacterData</code>接口</p>
+<h3 id="CharacterData-接口"><a href="#CharacterData-接口" class="headerlink" title="CharacterData 接口"></a>CharacterData 接口</h3><p><code>CharacterData</code> 抽象接口（abstract interface）代表 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node" target="_blank" rel="noopener"><code>Node</code></a> 对象包含的字符。这是一个抽象接口，意味着没有 <code>CharacterData</code> 类型的对象。 它是在其他接口中被实现的，如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Text" target="_blank" rel="noopener"><code>Text</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Comment" target="_blank" rel="noopener"><code>Comment</code></a> 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ProcessingInstruction" target="_blank" rel="noopener"><code>ProcessingInstruction</code></a> 这些非抽象接口。</p>
+<h4 id="属性-4"><a href="#属性-4" class="headerlink" title="属性    4"></a>属性    4</h4><ul>
+<li>data 读写</li>
+</ul>
+<p><code>data</code>属性等同于<code>nodeValue</code>属性，用来设置或读取文本节点的内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取文本内容</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.data</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.nodeValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置文本内容</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.data = <span class="string">'Hello World'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="length"><a href="#length" class="headerlink" title="length"></a>length</h3></li>
+</ul>
+<p><code>length</code>属性返回当前文本节点的<strong>文本长度</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">new</span> Text(<span class="string">'Hello'</span>)).length <span class="comment">// 5</span></span><br><span class="line">(<span class="keyword">new</span> Text(<span class="string">'hello 世界'</span>)).length <span class="comment">//8</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="nextElementSibling，previousElementSibling"><a href="#nextElementSibling，previousElementSibling" class="headerlink" title="nextElementSibling，previousElementSibling"></a>nextElementSibling，previousElementSibling</h3></li>
+</ul>
+<p><code>nextElementSibling</code>属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回<code>null</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 为</span></span><br><span class="line"><span class="comment">// &lt;div&gt;Hello &lt;em&gt;World&lt;/em&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> tn = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>).firstChild;</span><br><span class="line">tn.nextElementSibling</span><br><span class="line"><span class="comment">// &lt;em&gt;World&lt;/em&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>previousElementSibling</code>属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回<code>null：</code>。</p>
+<h4 id="方法-6个"><a href="#方法-6个" class="headerlink" title="方法    6个"></a>方法    6个</h4><p>以下5个方法都是编辑<code>Text</code>节点文本内容的方法。</p>
+<ul>
+<li><code>appendData()</code>：在<code>Text</code>节点<strong>尾部追加</strong>字符串。</li>
+<li><code>deleteData(start, length)</code>：删除<code>Text</code>节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串<strong>长度</strong>。</li>
+<li><code>insertData(start, string)</code>：在<code>Text</code>节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。</li>
+<li><code>replaceData(start, length, string)</code>：用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的<strong>长度</strong>，第三个参数为新加入的字符串。</li>
+<li><code>subStringData(start, length)</code>：用于<strong>获取</strong>子字符串，第一个参数为子字符串在<code>Text</code>节点中的开始位置，第二个参数为子字符串<strong>长度</strong>。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;p&gt;Hello World&lt;/p&gt;</span></span><br><span class="line"><span class="keyword">var</span> pElementText = <span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild;</span><br><span class="line"></span><br><span class="line">pElementText.appendData(<span class="string">'!'</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello World!</span></span><br><span class="line">pElementText.deleteData(<span class="number">7</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello W</span></span><br><span class="line">pElementText.insertData(<span class="number">7</span>, <span class="string">'Hello '</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello WHello</span></span><br><span class="line">pElementText.replaceData(<span class="number">7</span>, <span class="number">5</span>, <span class="string">'World'</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello WWorld</span></span><br><span class="line">pElementText.substringData(<span class="number">7</span>, <span class="number">10</span>);</span><br><span class="line"><span class="comment">// 页面显示不变，返回"World "</span></span><br></pre></td></tr></table></figure>
+<h3 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h3><p><code>remove</code>方法用于移除当前<code>Text</code>节点。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;p&gt;Hello World&lt;/p&gt;</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.remove()</span><br><span class="line"><span class="comment">// 现在 HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;p&gt;&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Text-节点的概念"><a href="#Text-节点的概念" class="headerlink" title="Text 节点的概念"></a>Text 节点的概念</h2><p>文本节点（<code>Text</code>）代表元素节点（<code>Element</code>）和属性节点（<code>Attr</code>）的文本内容。如果一个节点只包含一段文本，那么它就有一个文本子节点，代表该节点的文本内容。</p>
+<h3 id="获取文本节点的方法"><a href="#获取文本节点的方法" class="headerlink" title="获取文本节点的方法"></a>获取文本节点的方法</h3><p>通常我们使用父节点的<code>firstChild</code>、<code>nextSibling</code>等属性获取文本节点</p>
+<h3 id="创造文本节点"><a href="#创造文本节点" class="headerlink" title="创造文本节点"></a>创造文本节点</h3><ol>
+<li>使用<code>Document</code>节点的<code>createTextNode()</code>方法创造一个文本节点。它的参数就是该文本节点的文本内容。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="built_in">document</span>.createTextNode(<span class="string">'Hello World'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(t)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>浏览器原生提供一个<code>Text</code>构造函数。它返回一个文本节点实例。它的参数就是该文本节点的文本内容。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空字符串</span></span><br><span class="line"><span class="keyword">var</span> text1 = <span class="keyword">new</span> Text();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非空字符串</span></span><br><span class="line"><span class="keyword">var</span> text2 = <span class="keyword">new</span> Text(<span class="string">'This is a text node'</span>);</span><br></pre></td></tr></table></figure>
+<p>注意，由于空格也是一个字符，所以哪怕只有一个空格，也会形成文本节点。比如，<code>&lt;p&gt; &lt;/p&gt;</code>包含一个空格，它的子节点就是一个文本节点。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Liao linyan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/21/Text接口/" title="Text接口">http://yoursite.com/2019/09/21/Text接口/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/21/Mutation-Observer-API/" rel="next" title="Mutation Observer API">
+                <i class="fa fa-chevron-left"></i> Mutation Observer API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/21/DocumentFragment接口/" rel="prev" title="DocumentFragment接口">
+                DocumentFragment接口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行 照片</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">107</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口继承"><span class="nav-number">2.</span> <span class="nav-text">接口继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text接口自身属性和方法"><span class="nav-number">3.</span> <span class="nav-text">Text接口自身属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-1"><span class="nav-number">3.1.</span> <span class="nav-text">属性 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wholeText-只读"><span class="nav-number">3.2.</span> <span class="nav-text">wholeText  只读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-1个"><span class="nav-number">3.3.</span> <span class="nav-text">方法  1个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splitText"><span class="nav-number">3.4.</span> <span class="nav-text">splitText()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text接口继承的属性和方法"><span class="nav-number">4.</span> <span class="nav-text">Text接口继承的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CharacterData-接口"><span class="nav-number">4.1.</span> <span class="nav-text">CharacterData 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性-4"><span class="nav-number">4.1.1.</span> <span class="nav-text">属性    4</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#length"><span class="nav-number">4.2.</span> <span class="nav-text">length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nextElementSibling，previousElementSibling"><span class="nav-number">4.3.</span> <span class="nav-text">nextElementSibling，previousElementSibling</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-6个"><span class="nav-number">4.3.1.</span> <span class="nav-text">方法    6个</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove"><span class="nav-number">4.4.</span> <span class="nav-text">remove()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-节点的概念"><span class="nav-number">5.</span> <span class="nav-text">Text 节点的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取文本节点的方法"><span class="nav-number">5.1.</span> <span class="nav-text">获取文本节点的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创造文本节点"><span class="nav-number">5.2.</span> <span class="nav-text">创造文本节点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz',
+        appKey: 'Srt6LLMtTSBk7VSfSrq6cmUA',
+        placeholder: '欢迎畅所欲言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz", "Srt6LLMtTSBk7VSfSrq6cmUA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
