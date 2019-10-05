@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！">
+<meta name="description" content="移动端页面（响应式 Responsive）手机端页面的做法，掌握以下5个要点。  学会 media query  学会要设计图（没图不做）  实在要做也行，丑可别怪我   学会隐藏元素  手机端要加一个 meta 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0,">
 <meta name="keywords" content="Ajax JSON DOM Promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS响应式">
 <meta property="og:url" content="http://yoursite.com/2019/08/29/CSS响应式/index.html">
 <meta property="og:site_name" content="Linyan&#39;s blog">
-<meta property="og:description" content="前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！">
+<meta property="og:description" content="移动端页面（响应式 Responsive）手机端页面的做法，掌握以下5个要点。  学会 media query  学会要设计图（没图不做）  实在要做也行，丑可别怪我   学会隐藏元素  手机端要加一个 meta 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-29T08:06:45.577Z">
+<meta property="og:image" content="https://i.loli.net/2019/10/03/6WaUKh7ztZnv1F8.png">
+<meta property="og:updated_time" content="2019-10-05T13:57:06.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS响应式">
-<meta name="twitter:description" content="前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！">
+<meta name="twitter:description" content="移动端页面（响应式 Responsive）手机端页面的做法，掌握以下5个要点。  学会 media query  学会要设计图（没图不做）  实在要做也行，丑可别怪我   学会隐藏元素  手机端要加一个 meta 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0,">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/03/6WaUKh7ztZnv1F8.png">
 
 
 
@@ -330,8 +332,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-29T16:06:45+08:00">
-                2019-08-29
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-05T21:57:06+08:00">
+                2019-10-05
               </time>
             
           </span>
@@ -379,7 +381,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  29 字
+                  3.2k 字
                 </span>
               
 
@@ -395,7 +397,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  12 分钟
                 </span>
               
             </div>
@@ -418,7 +420,158 @@
       
         <meta name="referrer" content="no-referrer">
 
-<p>前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！</p>
+<h1 id="移动端页面（响应式-Responsive）"><a href="#移动端页面（响应式-Responsive）" class="headerlink" title="移动端页面（响应式 Responsive）"></a>移动端页面（响应式 Responsive）</h1><p>手机端页面的做法，掌握以下5个要点。</p>
+<ol>
+<li><p>学会 media query</p>
+</li>
+<li><p>学会要设计图（没图不做）</p>
+<ul>
+<li>实在要做也行，丑可别怪我</li>
+</ul>
+</li>
+<li><p>学会隐藏元素</p>
+</li>
+<li><p>手机端要加一个 meta</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手机端的交互方式不一样</p>
+</li>
+</ol>
+<h2 id="响应式页面概念"><a href="#响应式页面概念" class="headerlink" title="响应式页面概念"></a>响应式页面概念</h2><p>页可以随着浏览器视口缩放而自动展示对应内容的页面就是响应式页面。</p>
+<p>前端只做一件事，网页开发。如果网页在电脑上，就是PC页面开发，如果网页在手机上，就是手机页面开发，如果网页在APP上，就是混合式页面开发。如果网页在ATM机上，就是做ATM机网页开发。</p>
+<h2 id="1-媒体查询"><a href="#1-媒体查询" class="headerlink" title="1 媒体查询"></a>1 媒体查询</h2><p>媒体查询包含一个<strong>可选的<a href="https://developer.mozilla.org/en-US/docs/CSS/@media" target="_blank" rel="noopener">媒体类型</a></strong>和媒体特性<strong>表达式</strong>(0或多个)，最终会被解析为true或false。如果媒体查询中指定的媒体类型匹配展示文档所使用的设备类型，并且所有的表达式的值都是true，那么该媒体查询的结果为true。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- link元素中的CSS媒体查询 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">media</span>=<span class="string">"(max-width: 800px)"</span> <span class="attr">href</span>=<span class="string">"example.css"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 样式表中的CSS媒体查询 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">@media (max-width: 600px) &#123;</span></span><br><span class="line"><span class="undefined">  .facet_sidebar &#123;</span></span><br><span class="line"><span class="undefined">    display: none;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当媒体查询条件结果为true时，其<strong>对应的样式表</strong>或样式规则就会遵循正常的级联规则<strong>进行应用</strong>。即使媒体查询返回false，<code>&lt;link&gt;</code> 标签指向的样式表<a href="http://scottjehl.github.com/CSS-Download-Tests/" target="_blank" rel="noopener">也将会被下载</a>(但是它们不会被应用)</p>
+<p>除非使用not或only操作符，否则媒体类型是可选的，默认值是all(全部).</p>
+<h3 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h3><h4 id="not"><a href="#not" class="headerlink" title="not"></a>not</h4><p><code>not</code> 关键字应用于整个媒体查询，在媒体查询为假时返回真 。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> not all and (monochrome) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> not (all and (monochrome)) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="and"><a href="#and" class="headerlink" title="and"></a>and</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">700px</span>) and (orientation: landscape) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>上面的媒体查询仅在可视区域宽度不小于700像素并在横屏时有效。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> tv and (min-width: <span class="number">700px</span>) and (orientation: landscape) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>上面媒体查询仅在电视媒体上，可视区域不小于700像素宽度并且是横屏时有效。</p>
+<h4 id="逗号分隔列表"><a href="#逗号分隔列表" class="headerlink" title="逗号分隔列表"></a>逗号分隔列表</h4><p>等同于<code>or</code>逻辑操作符。<strong>当使用逗号分隔的媒体查询时，如果任何一个媒体查询返回真，样式就是有效的</strong>。逗号分隔的列表中每个查询都是独立的，一个查询中的操作符并不影响其它的媒体查询。这意味着逗号媒体查询列表能够作用于不同的媒体属性、类型和状态。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">700px</span>), handheld and (orientation: landscape) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，如果是一个800像素宽的屏幕设备，媒体语句将会返回真，因为第一部分相当于 <code>@media all and (min-width: 700px)</code> 将会应用于该设备并且返回真，尽管我的屏幕媒体类型并不与第二部分的手持媒体类型相符。同样地，如果我是一个500像素宽的横屏手持设备，尽管第一部分因为宽度问题而不匹配，第二部分仍会成功，因此整个媒体查询返回真。</p>
+<h4 id="only"><a href="#only" class="headerlink" title="only"></a>only</h4><p><code>only</code>关键字防止老旧的浏览器不支持带媒体属性的查询而应用到给定的样式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">media</span>=<span class="string">"only screen and (color)"</span> <span class="attr">href</span>=<span class="string">"example.css"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-要设计图"><a href="#2-要设计图" class="headerlink" title="2 要设计图"></a>2 要设计图</h2><p>设计图要两份。</p>
+<p>PC网页设计图PSD -&gt; PC网页</p>
+<p>手机网页设计图PSD -&gt; 手机网页</p>
+<p>mobile first   先做手机版网页。通常选择这种。</p>
+<p>desktop first  先做电脑版网页</p>
+<p>Mobile 有 S M L 三种型号</p>
+<p>Tablet PC  平板电脑</p>
+<p>Laptop  笔记本电脑</p>
+<p>4K  2560px * 1562px</p>
+<h2 id="3-学会隐藏元素"><a href="#3-学会隐藏元素" class="headerlink" title="3 学会隐藏元素"></a>3 学会隐藏元素</h2><p>响应式网页开发是我们写了两套 html ，使用 媒体查询 来切换 html，实质上是通过媒体查询来控制元素的显示和隐藏来实现的html切换。两个屏幕，使用媒体查询切换；同一个屏幕，使用 JS 来切换 css类，从而来切换元素的多种状态。</p>
+<p>既然手机和电脑显示页面这么不同，为什么不写两套 HTML + CSS 呢？</p>
+<h3 id="一种方式是后端检测-userAgent，返回不同的页面。"><a href="#一种方式是后端检测-userAgent，返回不同的页面。" class="headerlink" title="一种方式是后端检测 userAgent，返回不同的页面。"></a>一种方式是后端检测 userAgent，返回不同的页面。</h3><p>比如，检测到手机，显示准备好的手机端页面，检测到电脑，显示准备好的电脑端页面。</p>
+<p><img src="https://i.loli.net/2019/10/03/6WaUKh7ztZnv1F8.png" alt="BWD9.png"></p>
+<h3 id="第二种方式是，新建两个站点。"><a href="#第二种方式是，新建两个站点。" class="headerlink" title="第二种方式是，新建两个站点。"></a>第二种方式是，新建两个站点。</h3><p>实际上大公司们是怎么做的呢，手机访问 和 电脑 访问的网址是不一样的，直接新建两个站。如 京东和淘宝都是这样做的，手机部门和PC部门是两个部门。</p>
+<p>国内的网站没有做响应式的，因为网站太复杂，如果一个网站本来是100行，因为要做响应式变成了200行，不如直接写两套100行网页，按需加载还快一点。只有一些新闻网站或者博客网站才会做响应式，因为简单，只能看，不能操作。</p>
+<p>综上，<strong>响应式没什么用，就是为了面试</strong>。</p>
+<h2 id="4-meta"><a href="#4-meta" class="headerlink" title="4 meta"></a>4 meta</h2><p>最开始页面都是给PC做的，现在即使在 手机模式(320px*468px)下，在控制台 打出<code>document.documentElement.clientWidth</code> 值还是 980px，意思是浏览器会用320px 的设备宽度去模拟980px宽度，再进行页面缩放。</p>
+<p>因此，手机页面需要加一个meta，目的是为了告诉浏览器不要再给我的页面进行缩放了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码意思是 告诉浏览器，我页面视口宽度就是设备宽度，不允许用户缩放，页面初始缩放为1，页面最大缩放最小缩放都是1，也就是页面不缩放。</p>
+<p>加了这句 meta 标签后，再在控制台读取 <code>document.documentElement.clientWidth</code> ，值就是 320px，即设备宽度了。</p>
+<h2 id="5-移动端适配方案（手机专用的自适应方案）"><a href="#5-移动端适配方案（手机专用的自适应方案）" class="headerlink" title="5 移动端适配方案（手机专用的自适应方案）"></a>5 移动端适配方案（手机专用的自适应方案）</h2><h3 id="区分：px-em-rem-vh-vw"><a href="#区分：px-em-rem-vh-vw" class="headerlink" title="区分：px em rem vh/vw"></a>区分：px em rem vh/vw</h3><p>首先都是<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" target="_blank" rel="noopener">单位</a></p>
+<ul>
+<li><code>px</code> 在缩放页面时，使用<code>px</code>作为单位的字体、按钮等的大小不会自适应；</li>
+<li><code>em</code> 的值并不是固定的，<strong>基于父元素的 font-size</strong> ，代表倍数；</li>
+<li><code>rem</code> 的值并不是固定的，始终是基于根元素 <code>&lt;html&gt;</code> 的<code>font-size</code>，也代表倍数。</li>
+<li><code>vw/vh</code> 是浏览器视口宽度 / 视口高度(<code>viewport width/viewport height</code>)的 1/100。在手机端，<code>vw/vh</code> 的值是固定的，因为用户不能在手机上缩放浏览器。100 vw 就是浏览器视口宽度。100 vh 就是浏览器视口高度。</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>chrome 字体 font-size 最小为 12px</li>
+<li>浏览器的默认字体的 <code>font-size</code> 是 16px，未经字体大小调整的浏览器显示 1em = 16px。</li>
+<li>元素的 font-size 属性可继承，子元素的 font-size 默认继承 父元素的 font-size。</li>
+<li><code>1em == the font-size of father-element</code></li>
+<li><code>1 rem</code> == <code>the font-size of html-element</code> == <code>100 viewport width</code></li>
+</ul>
+<h3 id="手机端方案的特点"><a href="#手机端方案的特点" class="headerlink" title="手机端方案的特点"></a>手机端方案的特点</h3><ol>
+<li>所有手机显示的界面内容都是一样的，只是内容大小不同，要求页面内容根据设备宽度可以等比例放大，完美还原设计稿。</li>
+<li>不同型号的手机，屏幕宽度不同，也就是浏览器视口宽度不同，可以理解为展示网页的窗口大小不同。至少要记20种 手机型号的屏幕宽度。</li>
+<li><code>1rem === 10 vw</code></li>
+</ol>
+<h3 id="百分比布局的缺点"><a href="#百分比布局的缺点" class="headerlink" title="百分比布局的缺点"></a>百分比布局的缺点</h3><p>百分比布局是元素 的宽度使用了百分比，但是这样做最大的缺点是 <strong>元素的高度未知，元素的宽度和高度没有办法建立关联、配合使用</strong>，比如让你做一个 宽高1:1 的图，宽高 1：2 ？百分比布局根本做不了，设置 <code>height: 20%</code> 并不会根据元素的宽度去计算。</p>
+<h3 id="引入-REM"><a href="#引入-REM" class="headerlink" title="引入 REM"></a>引入 REM</h3><p>引入 REM 方案到布局中，就是为了解决百分比布局中元素宽高无法建立起联系的问题。</p>
+<h3 id="移动端适配的目标"><a href="#移动端适配的目标" class="headerlink" title="移动端适配的目标"></a>移动端适配的目标</h3><p>要求<strong>页面内容根据设备宽度可以等比例放大，所有型号的手机浏览器视口展示的内容完全一样</strong>，完美还原设计稿。</p>
+<h3 id="移动端适配方案"><a href="#移动端适配方案" class="headerlink" title="移动端适配方案"></a>移动端适配方案</h3><ol>
+<li>开发时，网页中使用的单位一切以宽度为准，就能完美还原设计稿。</li>
+</ol>
+<blockquote>
+<p>其实 px em rem 都与宽度无关，只有 vw 与 宽度有关，但是 vw 的兼容性不好。退而求其次，想办法建立 视口宽度 和 rem 联系，而 rem 始终以 html 的 font-size 为标准，因此 <strong>使用 JS  将 html 的 font-size 设置为 浏览器视口宽度(100 vw)</strong>，那么 <strong>1 rem  === 100vw</strong>。</p>
+</blockquote>
+<ol start="2">
+<li>使用 JS 动态调整 REM 的 心路历程，<a href="http://js.jirengu.com/tobux/1/edit" target="_blank" rel="noopener">完整 code</a></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    var pageWidth = window.innerWidth   // window.innerWidth 是浏览器视口宽度</span></span><br><span class="line"><span class="xml">    document.write('<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="string">'+pageWidth+'</span>px;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>')</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在上面代码中，因为 html 是根元素，其它元素默认继承了 html 的 font-size 。</p>
+<p>注意，因为 直接 <code>1rem === 100vw</code>，导致在网页开发过程中很多单位都是小数，因此我们可以改成 <code>1rem === 1vw</code>,如：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">     var pageWidth = window.innerWidth</span></span><br><span class="line"><span class="xml">     document.write('<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="string">'+pageWidth/100 +'</span>px;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>')</span></span><br><span class="line"><span class="undefined"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是呢，上面是不对的。因为当浏览器视口宽度较小时，比如很多手机，如 视口宽度只有 320px，百分之一只有3.2px，因此我们用JS 将 html 根元素的 font-size 改成了 3.2px，大错特错，我们忽略了 chrome 浏览器限制元素的 font-size 最小为 12px ，结果就是 用JS 将 html 根元素的 font-size 改成了 3.2px 的操作失败！！！！</p>
+<p>取不了百分之一，取十分之一可以吧！最终，<code>1rem === 10 vw</code>，也就是 html 根元素的 font-size 是 浏览器视口宽度的 1/10。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">     var pageWidth = window.innerWidth</span></span><br><span class="line"><span class="xml">     document.write('<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="string">'+pageWidth/10 +'</span>px;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>')</span></span><br><span class="line"><span class="undefined"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>总结：1rem === 100vw 太大，1 rem === 1vw 太小， 1rem === 10vw 刚好合适。</p>
+<ol start="3">
+<li>rem 方案 实质是<strong>使用  rem 单位 模拟 vw 单位</strong>， vw 单位其实是最好的，奈何兼容性不好。</li>
+<li><strong>使用 REM 方案就可以 实现任意宽高比例的 div</strong> 。</li>
+<li>REM 可以与其他单位同时使用。通常 border 、文字的font-size  太小，就直接使用 px 单位。</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">font-size</span>: 16<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">red</span>;</span><br><span class="line"><span class="selector-tag">width</span>: 0<span class="selector-class">.5rem</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="REM-方案的痛点"><a href="#REM-方案的痛点" class="headerlink" title="REM 方案的痛点"></a>REM 方案的痛点</h3><p><strong>单位转换</strong>！因为我们通常收到的设计稿是以 px 为单位的，难道前端开发时候还要手动改成 rem 单位？？？</p>
+<p>在 SCSS 里使用 PX2REM</p>
+<ul>
+<li><p>npm config set registry <a href="https://registry.npm.taobao.org/" target="_blank" rel="noopener">https://registry.npm.taobao.org/</a></p>
+</li>
+<li><p>touch ~/.bashrc</p>
+</li>
+<li><p>echo ‘export SASS_BINARY_SITE=”<a href="https://npm.taobao.org/mirrors/node-sass%22&#39;" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass”‘</a> &gt;&gt; ~/.bashrc</p>
+</li>
+<li><p>source ~/.bashrc</p>
+</li>
+<li><p>npm i -g node-sass</p>
+</li>
+<li><p>mkdir ~/Desktop/scss-demo</p>
+</li>
+<li><p>cd ~/Desktop/scss-demo</p>
+</li>
+<li><p>mkdir scss css</p>
+</li>
+<li><p>touch scss/style.scss</p>
+</li>
+<li><p>start scss/style.scss</p>
+</li>
+<li><p>node-sass -wr scss -o css</p>
+<p>编辑 scss 文件就会自动得到 css 文件</p>
+<p>在 scss 文件里添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@function px( $px )&#123;</span><br><span class="line">  @return $px/$designWidth*10 + rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$designWidth : 640; // 640 是设计稿的宽度，你要根据设计稿的宽度填写。如果设计师的设计稿宽度不统一，就杀死设计师，换个新的。</span><br><span class="line"></span><br><span class="line">.child&#123;</span><br><span class="line">  width: px(320);</span><br><span class="line">  height: px(160);</span><br><span class="line">  margin: px(40) px(40);</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  float: left;</span><br><span class="line">  font-size: 1.2em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即可实现 px 自动变 rem</p>
+</li>
+</ul>
+<h3 id="为什么你学不好-LESS-SASS-Webpack"><a href="#为什么你学不好-LESS-SASS-Webpack" class="headerlink" title="为什么你学不好 LESS/SASS/Webpack"></a>为什么你学不好 LESS/SASS/Webpack</h3><ol>
+<li>你不会命令行，你非要用 Windows。 LESS/SASS/Webpack 使用方式都是命令行。</li>
+<li>你不会英语（有些内容可以看中文翻译）</li>
+<li>你不会看文档（很重要的能力），你要强制自己去看文档。</li>
+</ol>
+<h2 id="6-移动设备特点"><a href="#6-移动设备特点" class="headerlink" title="6 移动设备特点"></a>6 移动设备特点</h2><ol>
+<li><p>没有 hover</p>
+</li>
+<li><p>有 touch 事件</p>
+<p>手机用户喜欢滑动，但是实际上没有滑动事件，是通过touch事件来模拟 滑动事件。原理是记下两次touch位置，做减法。现成的手势库，<code>hammer.js</code> , <code>jQuery.swipe</code>, <code>vue.swipe</code></p>
+</li>
+<li><p>没有 resize。即手机端没有放大缩小。页面宽度始终就是设备宽度。</p>
+</li>
+<li><p>没有滚动条。只是滑动时候有个位置指示器。</p>
+</li>
+<li><p>几乎没有IE。可以用新知识！！！</p>
+</li>
+</ol>
+<h2 id="6-移动端页面制作需要储备的知识"><a href="#6-移动端页面制作需要储备的知识" class="headerlink" title="6 移动端页面制作需要储备的知识"></a>6 移动端页面制作需要储备的知识</h2><p>媒体查询 + meta 标签 + 移动设备特点 + flex 布局 + CSS3</p>
 
       
     </div>
@@ -461,8 +614,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/29/CSS媒体查询/" rel="next" title="CSS媒体查询">
-                <i class="fa fa-chevron-left"></i> CSS媒体查询
+              <a href="/2019/08/29/CSS自适应/" rel="next" title="CSS自适应">
+                <i class="fa fa-chevron-left"></i> CSS自适应
               </a>
             
           </div>
@@ -528,8 +681,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -546,7 +708,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">107</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -613,6 +775,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动端页面（响应式-Responsive）"><span class="nav-number">1.</span> <span class="nav-text">移动端页面（响应式 Responsive）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式页面概念"><span class="nav-number">1.1.</span> <span class="nav-text">响应式页面概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-媒体查询"><span class="nav-number">1.2.</span> <span class="nav-text">1 媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑操作符"><span class="nav-number">1.2.1.</span> <span class="nav-text">逻辑操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#not"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">not</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#and"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">and</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逗号分隔列表"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">逗号分隔列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#only"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">only</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-要设计图"><span class="nav-number">1.3.</span> <span class="nav-text">2 要设计图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-学会隐藏元素"><span class="nav-number">1.4.</span> <span class="nav-text">3 学会隐藏元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一种方式是后端检测-userAgent，返回不同的页面。"><span class="nav-number">1.4.1.</span> <span class="nav-text">一种方式是后端检测 userAgent，返回不同的页面。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种方式是，新建两个站点。"><span class="nav-number">1.4.2.</span> <span class="nav-text">第二种方式是，新建两个站点。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-meta"><span class="nav-number">1.5.</span> <span class="nav-text">4 meta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-移动端适配方案（手机专用的自适应方案）"><span class="nav-number">1.6.</span> <span class="nav-text">5 移动端适配方案（手机专用的自适应方案）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分：px-em-rem-vh-vw"><span class="nav-number">1.6.1.</span> <span class="nav-text">区分：px em rem vh/vw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机端方案的特点"><span class="nav-number">1.6.2.</span> <span class="nav-text">手机端方案的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百分比布局的缺点"><span class="nav-number">1.6.3.</span> <span class="nav-text">百分比布局的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入-REM"><span class="nav-number">1.6.4.</span> <span class="nav-text">引入 REM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端适配的目标"><span class="nav-number">1.6.5.</span> <span class="nav-text">移动端适配的目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端适配方案"><span class="nav-number">1.6.6.</span> <span class="nav-text">移动端适配方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REM-方案的痛点"><span class="nav-number">1.6.7.</span> <span class="nav-text">REM 方案的痛点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么你学不好-LESS-SASS-Webpack"><span class="nav-number">1.6.8.</span> <span class="nav-text">为什么你学不好 LESS/SASS/Webpack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-移动设备特点"><span class="nav-number">1.7.</span> <span class="nav-text">6 移动设备特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-移动端页面制作需要储备的知识"><span class="nav-number">1.8.</span> <span class="nav-text">6 移动端页面制作需要储备的知识</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

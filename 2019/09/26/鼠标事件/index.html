@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="鼠标事件鼠标事件的种类   11个鼠标事件指与鼠标相关的事件，继承了MouseEvent接口。具体的事件主要有以下一些。  click：按下鼠标（通常是按下主按钮）后，再释放鼠标后触发。  dblclick：在同一个元素上双击鼠标时触发。  mousedown：按下鼠标键时触发。  mouseup：释放按下的鼠标键时触发。    mousemove：当鼠标在一个节点内部移动时触发。当鼠标持续移">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鼠标事件">
+<meta property="og:url" content="http://yoursite.com/2019/09/26/鼠标事件/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="鼠标事件鼠标事件的种类   11个鼠标事件指与鼠标相关的事件，继承了MouseEvent接口。具体的事件主要有以下一些。  click：按下鼠标（通常是按下主按钮）后，再释放鼠标后触发。  dblclick：在同一个元素上双击鼠标时触发。  mousedown：按下鼠标键时触发。  mouseup：释放按下的鼠标键时触发。    mousemove：当鼠标在一个节点内部移动时触发。当鼠标持续移">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-29T02:41:34.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鼠标事件">
+<meta name="twitter:description" content="鼠标事件鼠标事件的种类   11个鼠标事件指与鼠标相关的事件，继承了MouseEvent接口。具体的事件主要有以下一些。  click：按下鼠标（通常是按下主按钮）后，再释放鼠标后触发。  dblclick：在同一个元素上双击鼠标时触发。  mousedown：按下鼠标键时触发。  mouseup：释放按下的鼠标键时触发。    mousemove：当鼠标在一个节点内部移动时触发。当鼠标持续移">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/26/鼠标事件/">
+
+
+
+
+
+  <title>鼠标事件 | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/鼠标事件/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">鼠标事件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T19:48:17+08:00">
+                2019-09-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-29T10:41:34+08:00">
+                2019-09-29
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/26/鼠标事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/鼠标事件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/26/鼠标事件/" class="leancloud_visitors" data-flag-title="鼠标事件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="referrer" content="no-referrer">
+
+<h1 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h1><h2 id="鼠标事件的种类-11个"><a href="#鼠标事件的种类-11个" class="headerlink" title="鼠标事件的种类   11个"></a>鼠标事件的种类   11个</h2><p>鼠标事件指与鼠标相关的事件，继承了<code>MouseEvent</code>接口。具体的事件主要有以下一些。</p>
+<ul>
+<li><p><code>click</code>：按下鼠标（通常是按下主按钮）后，再释放鼠标后触发。</p>
+</li>
+<li><p><code>dblclick</code>：在同一个元素上双击鼠标时触发。</p>
+</li>
+<li><p><code>mousedown</code>：按下鼠标键时触发。</p>
+</li>
+<li><p><code>mouseup</code>：释放按下的鼠标键时触发。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>mousemove</code>：当鼠标<strong>在一个节点内部移动时触发</strong>。<strong>当鼠标持续移动时，该事件会连续触发</strong>。为了避免性能问题，建议对该事件的监听函数做一些限定，比如限定一段时间内只能运行一次。</p>
+</li>
+<li><p><code>mouseenter</code>：鼠标进入一个节点时触发，进入子节点不会触发这个事件（详见后文）。</p>
+</li>
+<li><p><code>mouseover</code>：鼠标进入一个节点时触发，进入子节点会再一次触发这个事件（详见后文）。</p>
+</li>
+<li><p><code>mouseout</code>：鼠标离开一个节点时触发，离开父节点也会触发这个事件（详见后文）。</p>
+</li>
+<li><p><code>mouseleave</code>：鼠标离开一个节点时触发，离开父节点不会触发这个事件（详见后文）。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>contextmenu</code>：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文菜单键”时触发。</p>
+</li>
+<li><p><code>wheel</code>：在节点内滚动鼠标的滚轮时触发，该事件继承的是<code>WheelEvent</code>接口。</p>
+</li>
+</ul>
+<p>以下进行相关说明：</p>
+<ol>
+<li><p><code>click</code>事件指的是，用户操作鼠标在同一个位置先完成<code>mousedown</code>动作，再完成<code>mouseup</code>动作。因此，触发顺序是，<code>mousedown</code>首先触发，<code>mouseup</code>接着触发，<code>click</code>最后触发。</p>
+</li>
+<li><p><code>dblclick</code>事件则会在<code>mousedown</code>、<code>mouseup</code>、<code>click</code>之后触发。</p>
+</li>
+</ol>
+<p><a href="http://js.jirengu.com/musom/1/edit?html,css,js,output" target="_blank" rel="noopener">完整code</a> 中的事件触发顺序如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mousedown -》mouseup -》click -》mousedown -》mouseup =》dblclick</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p><code>mousemove</code>事件是鼠标在一个节点内部移动时触发。<strong>当鼠标持续移动时，该事件会连续触发</strong>。当鼠标在一个节点内部移动时，该事件的目标节点是就是该节点；当鼠标进行子节点内部移动，该事件的目标节点是子节点；当鼠标进行子节点的子节点内部，该事件的目标节点就是子节点的子节点。<strong>监听函数绑定在父节点上。</strong></p>
+<p>这个很好复现，不举例了。需要注意的是该事件会持续持续，需要限制。</p>
+</li>
+<li><p><code>mouseover</code>事件和<code>mouseenter</code>事件，都是<strong>鼠标进入一个节点时</strong>触发。两者的区别是，<code>mouseenter</code>事件只触发一次，目标节点(<code>e.target</code>)是父节点，而只要用户操作鼠标在节点内部移动，<code>mouseover</code>事件会触发多次。鼠标进入节点时，会依次触发<code>mouseover</code>事件、<code>mouseenter</code>事件；鼠标进入子节点，就会再触发一次<code>mouseover</code>事件，目标节点(<code>e.target</code>)是子节点。<strong>监听函数绑定在父节点上。</strong></p>
+</li>
+<li><p><code>mouseout</code>事件和<code>mouseleave</code>事件，都是鼠标离开一个节点时触发。两者的区别是，在父元素内部离开一个子元素时，<code>mouseleave</code>事件不会触发，而<code>mouseout</code>事件会触发。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment"> &lt;ul&gt;</span></span><br><span class="line"><span class="comment">   &lt;li&gt;item 1&lt;/li&gt;</span></span><br><span class="line"><span class="comment">   &lt;li&gt;item 2&lt;/li&gt;</span></span><br><span class="line"><span class="comment"> &lt;/ul&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 样式</span></span><br><span class="line"><span class="comment">/* ul &#123;</span></span><br><span class="line"><span class="comment">      border: 1px solid red;</span></span><br><span class="line"><span class="comment">      padding: 100px;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">li &#123;</span></span><br><span class="line"><span class="comment">      background: yellow;</span></span><br><span class="line"><span class="comment">      margin-bottom: 20px;</span></span><br><span class="line"><span class="comment">   &#125; */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进入 ul 节点以后，mouseenter 事件只会触发一次</span></span><br><span class="line"><span class="comment">// 以后只要鼠标在节点内移动，都不会再触发这个事件</span></span><br><span class="line"><span class="comment">// event.target 是 ul 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseenter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'mouseenter'</span> + e.target.tagName)</span><br><span class="line">  e.target.style.backgroundColor = <span class="string">'purple'</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    e.target.style.backgroundColor = <span class="string">''</span>;</span><br><span class="line">  &#125;, <span class="number">500</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进入 ul 节点以后，只要在各子节点切换，mouseover 事件会触发多次</span></span><br><span class="line"><span class="comment">// event.target 是 li 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseover'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'mouseover'</span> + e.target.tagName)</span><br><span class="line">  e.target.style.color = <span class="string">'orange'</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    e.target.style.color = <span class="string">''</span>;</span><br><span class="line">  &#125;, <span class="number">500</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先进入 ul 节点，然后在节点内部移动，mouseout 事件会触发多次</span></span><br><span class="line"><span class="comment">// event.target 是 li 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseout'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'mouseout'</span> + e.target.tagName)</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先进入 ul 节点，然后在节点内部移动，不会触发 mouseleave 事件</span></span><br><span class="line"><span class="comment">// 只有离开 ul 节点时，触发一次 mouseleave</span></span><br><span class="line"><span class="comment">// event.target 是 ul 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseleave'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'mouseleave'</span> + e.target.tagName)</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，在父节点内部进入子节点，不会触发<code>mouseenter</code>事件，但是会触发<code>mouseover</code>事件。</p>
+<p>上面代码中，在父节点内部离开子节点，不会触发<code>mouseleave</code>事件，但是会触发<code>mouseout</code>事件。</p>
+<p><a href="http://js.jirengu.com/novul/2/edit?html,css,js,output" target="_blank" rel="noopener">完整代码</a>，操作鼠标，从上到下依次划过<code>ul</code>及其内容，触发的事件顺序为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mouseoverUL</span><br><span class="line">mouseenterUL</span><br><span class="line">mouseoutUL</span><br><span class="line"></span><br><span class="line">mouseoverLI</span><br><span class="line">mouseoutLI</span><br><span class="line"></span><br><span class="line">mouseoverUL</span><br><span class="line">mouseoutUL</span><br><span class="line"></span><br><span class="line">mouseoverLI</span><br><span class="line">mouseoutLI</span><br><span class="line"></span><br><span class="line">mouseoverUL</span><br><span class="line">mouseoutUL</span><br><span class="line"></span><br><span class="line">mouseleaveUL</span><br></pre></td></tr></table></figure>
+<p>可以很明显得到，鼠标<strong>进入到离开</strong>一个节点<code>ul</code>，<code>mouseenter</code> 和 <code>mouseleave</code>事件只会触发一次，成对出现；<code>mouseover</code> 和 <code>mouseout</code>事件这两个事件会触发多次，成对出现。还可以发现鼠标进入<code>ul</code>节点时，<strong><code>mouseover</code>事件先于<code>mouseenter</code>事件触发</strong>。</p>
+<h2 id="MouseEvent-接口"><a href="#MouseEvent-接口" class="headerlink" title="MouseEvent 接口"></a>MouseEvent 接口</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><code>MouseEvent</code>接口代表了鼠标相关的事件，单击（click）、双击（dblclick）、松开鼠标键（mouseup）、按下鼠标键（mousedown）等动作，所产生的事件对象都是<code>MouseEvent</code>实例。此外，滚轮事件和拖拉事件也是<code>MouseEvent</code>实例。</p>
+<p><code>MouseEvent</code>接口继承了<code>UIEvent</code>接口、<code>Event</code>接口，所以拥有<code>Event</code>的所有属性和方法。它还有自己的属性和方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MouseEvent 实例 =》UIEvent 接口 =》Event 接口 =》Object =》null</span><br></pre></td></tr></table></figure>
+<h3 id="MouseEvent-构造函数"><a href="#MouseEvent-构造函数" class="headerlink" title="MouseEvent 构造函数"></a>MouseEvent 构造函数</h3><p>浏览器原生提供一个<code>MouseEvent</code>构造函数，用于新建一个<code>MouseEvent</code>实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var event = new MouseEvent(type, options);</span><br></pre></td></tr></table></figure>
+<p><code>MouseEvent</code>构造函数接受两个参数。第一个参数是字符串，表示事件名称；第二个参数是一个事件配置对象，该参数可选。除了<strong><code>Event</code>接口的实例配置属性</strong>，该对象可以配置以下属性，所有属性都是可选的。</p>
+<ul>
+<li><code>screenX</code>：数值，鼠标相对于屏幕的水平位置（单位像素），默认值为0，设置该属性不会移动鼠标。</li>
+<li><code>screenY</code>：数值，鼠标相对于屏幕的垂直位置（单位像素），其他与<code>screenX</code>相同。</li>
+<li><code>clientX</code>：数值，鼠标相对于程序窗口的水平位置（单位像素），默认值为0，设置该属性不会移动鼠标。</li>
+<li><code>clientY</code>：数值，鼠标相对于程序窗口的垂直位置（单位像素），其他与<code>clientX</code>相同。</li>
+<li><code>ctrlKey</code>：布尔值，是否同时按下了 Ctrl 键，默认值为<code>false</code>。</li>
+<li><code>shiftKey</code>：布尔值，是否同时按下了 Shift 键，默认值为<code>false</code>。</li>
+<li><code>altKey</code>：布尔值，是否同时按下 Alt 键，默认值为<code>false</code>。</li>
+<li><code>metaKey</code>：布尔值，是否同时按下 Meta 键，默认值为<code>false</code>。</li>
+<li><code>button</code>：数值，表示按下了哪一个鼠标按键，默认值为<code>0</code>，表示按下主键（通常是鼠标的左键）或者当前事件没有定义这个属性；<code>1</code>表示按下辅助键（通常是鼠标的中间键），<code>2</code>表示按下次要键（通常是鼠标的右键）。</li>
+<li><code>buttons</code>：数值，表示按下了鼠标的哪些键，是一个三个比特位的二进制值，默认为<code>0</code>（没有按下任何键）。<code>1</code>（二进制<code>001</code>）表示按下主键（通常是左键），<code>2</code>（二进制<code>010</code>）表示按下次要键（通常是右键），<code>4</code>（二进制<code>100</code>）表示按下辅助键（通常是中间键）。因此，如果返回<code>3</code>（二进制<code>011</code>）就表示同时按下了左键和右键。</li>
+<li><code>relatedTarget</code>：节点对象，表示事件的相关节点，默认为<code>null</code>。<code>mouseenter</code>和<code>mouseover</code>事件时，表示鼠标刚刚离开的那个元素节点；<code>mouseout</code>和<code>mouseleave</code>事件时，表示鼠标正在进入的那个元素节点。</li>
+</ul>
+<p>下面是一个例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simulateClick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> event = <span class="keyword">new</span> MouseEvent(<span class="string">'click'</span>, &#123;</span><br><span class="line">    <span class="string">'bubbles'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'cancelable'</span>: <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">var</span> cb = <span class="built_in">document</span>.getElementById(<span class="string">'checkbox'</span>);</span><br><span class="line">  cb.dispatchEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码生成一个鼠标点击事件，并触发该事件。</p>
+<h3 id="实例属性-17个"><a href="#实例属性-17个" class="headerlink" title="实例属性    17个"></a>实例属性    17个</h3><h4 id="MouseEvent-altKey，MouseEvent-ctrlKey，MouseEvent-metaKey，MouseEvent-shiftKey"><a href="#MouseEvent-altKey，MouseEvent-ctrlKey，MouseEvent-metaKey，MouseEvent-shiftKey" class="headerlink" title="MouseEvent.altKey，MouseEvent.ctrlKey，MouseEvent.metaKey，MouseEvent.shiftKey"></a>MouseEvent.altKey，MouseEvent.ctrlKey，MouseEvent.metaKey，MouseEvent.shiftKey</h4><p><code>MouseEvent.altKey</code>、<code>MouseEvent.ctrlKey</code>、<code>MouseEvent.metaKey</code>、<code>MouseEvent.shiftKey</code>这四个属性都返回一个布尔值，表示事件发生时，是否按下对应的键。它们都是只读属性。</p>
+<ul>
+<li><code>altKey</code>属性：Alt 键</li>
+<li><code>ctrlKey</code>属性：Ctrl 键</li>
+<li><code>metaKey</code>属性：Meta 键（Mac 键盘是一个四瓣的小花，Windows 键盘是 Windows 键）</li>
+<li><code>shiftKey</code>属性：Shift 键</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// HTML 代码如下</span><br><span class="line">// &lt;body onclick=&quot;showKey(event)&quot;&gt;</span><br><span class="line">function showKey(e) &#123;</span><br><span class="line">  console.log(&apos;ALT key pressed: &apos; + e.altKey);</span><br><span class="line">  console.log(&apos;CTRL key pressed: &apos; + e.ctrlKey);</span><br><span class="line">  console.log(&apos;META key pressed: &apos; + e.metaKey);</span><br><span class="line">  console.log(&apos;SHIFT key pressed: &apos; + e.shiftKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，点击网页会输出是否同时按下对应的键。</p>
+<h4 id="MouseEvent-button，MouseEvent-buttons"><a href="#MouseEvent-button，MouseEvent-buttons" class="headerlink" title="MouseEvent.button，MouseEvent.buttons"></a>MouseEvent.button，MouseEvent.buttons</h4><p><code>MouseEvent.button</code>属性返回一个数值，表示事件发生时按下了鼠标的哪个键。该属性只读。</p>
+<ul>
+<li>0：按下主键（通常是左键），或者该事件没有初始化这个属性（比如<code>mousemove</code>事件）。</li>
+<li>1：按下辅助键（通常是中键或者滚轮键）。</li>
+<li>2：按下次键（通常是右键）。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;button onmouseup="whichButton(event)"&gt;点击&lt;/button&gt;</span></span><br><span class="line"><span class="keyword">var</span> whichButton = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (e.button) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Left button clicked.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Middle button clicked.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Right button clicked.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Unexpected code: '</span> + e.button);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>MouseEvent.buttons</code>属性返回一个三个比特位的值，表示同时按下了哪些键。它用来处理同时按下多个鼠标键的情况。该属性只读。</p>
+<ul>
+<li>1：二进制为<code>001</code>（十进制的1），表示按下左键。</li>
+<li>2：二进制为<code>010</code>（十进制的2），表示按下右键。</li>
+<li>4：二进制为<code>100</code>（十进制的4），表示按下中键或滚轮键。</li>
+</ul>
+<p>同时按下多个键的时候，每个按下的键对应的比特位都会有值。比如，同时按下左键和右键，会返回3（二进制为011）。</p>
+<h4 id="MouseEvent-clientX，MouseEvent-clientY"><a href="#MouseEvent-clientX，MouseEvent-clientY" class="headerlink" title="MouseEvent.clientX，MouseEvent.clientY"></a>MouseEvent.clientX，MouseEvent.clientY</h4><p><code>MouseEvent.clientX</code>属性返回鼠标位置相对于浏览器窗口左上角的水平坐标（单位像素），<code>MouseEvent.clientY</code>属性返回垂直坐标。这两个属性都是只读属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// HTML 代码为</span><br><span class="line">// &lt;body onmousedown=&quot;showCoords(event)&quot;&gt;</span><br><span class="line">function showCoords(evt)&#123;</span><br><span class="line">  console.log(</span><br><span class="line">    &apos;clientX value: &apos; + evt.clientX + &apos;\n&apos; +</span><br><span class="line">    &apos;clientY value: &apos; + evt.clientY + &apos;\n&apos;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两个属性还分别有一个别名<code>MouseEvent.x</code>和<code>MouseEvent.y</code>。</p>
+<h4 id="MouseEvent-movementX，MouseEvent-movementY"><a href="#MouseEvent-movementX，MouseEvent-movementY" class="headerlink" title="MouseEvent.movementX，MouseEvent.movementY"></a>MouseEvent.movementX，MouseEvent.movementY</h4><p><code>MouseEvent.movementX</code>属性返回当前位置与上一个<code>mousemove</code>事件之间的水平距离（单位像素）。数值上，它等于下面的计算公式。也就是每次移动的一小段距离。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">currentEvent.movementX = currentEvent.screenX - previousEvent.screenX</span><br></pre></td></tr></table></figure>
+<p><code>MouseEvent.movementY</code>属性返回当前位置与上一个<code>mousemove</code>事件之间的垂直距离（单位像素）。数值上，它等于下面的计算公式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">currentEvent.movementY = currentEvent.screenY - previousEvent.screenY。</span><br></pre></td></tr></table></figure>
+<p>这两个属性都是只读属性。</p>
+<h4 id="MouseEvent-screenX，MouseEvent-screenY"><a href="#MouseEvent-screenX，MouseEvent-screenY" class="headerlink" title="MouseEvent.screenX，MouseEvent.screenY"></a>MouseEvent.screenX，MouseEvent.screenY</h4><p><code>MouseEvent.screenX</code>属性返回鼠标位置相对于屏幕左上角的水平坐标（单位像素），<code>MouseEvent.screenY</code>属性返回垂直坐标。这两个属性都是只读属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// HTML 代码如下</span><br><span class="line">// &lt;body onmousedown=&quot;showCoords(event)&quot;&gt;</span><br><span class="line">function showCoords(evt) &#123;</span><br><span class="line">  console.log(</span><br><span class="line">    &apos;screenX value: &apos; + evt.screenX + &apos;\n&apos;,</span><br><span class="line">    &apos;screenY value: &apos; + evt.screenY + &apos;\n&apos;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="MouseEvent-offsetX，MouseEvent-offsetY"><a href="#MouseEvent-offsetX，MouseEvent-offsetY" class="headerlink" title="MouseEvent.offsetX，MouseEvent.offsetY"></a>MouseEvent.offsetX，MouseEvent.offsetY</h4><p><code>MouseEvent.offsetX</code>属性返回鼠标位置与<strong>目标节点</strong>左侧的<code>padding</code>边缘的水平距离（单位像素），<code>MouseEvent.offsetY</code>属性返回与目标节点上方的<code>padding</code>边缘的垂直距离。这两个属性都是只读属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;style&gt;</span></span><br><span class="line"><span class="comment">    p &#123;</span></span><br><span class="line"><span class="comment">      width: 100px;</span></span><br><span class="line"><span class="comment">      height: 100px;</span></span><br><span class="line"><span class="comment">      padding: 100px;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  &lt;/style&gt;</span></span><br><span class="line"><span class="comment">  &lt;p&gt;Hello&lt;/p&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.querySelector(<span class="string">'p'</span>);</span><br><span class="line">p.addEventListener(</span><br><span class="line">  <span class="string">'click'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.offsetX);</span><br><span class="line">    <span class="built_in">console</span>.log(e.offsetY);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，鼠标如果在<code>p</code>元素的中心位置点击，会返回<code>150 150</code>。因此中心位置距离左侧和上方的<code>padding</code>边缘，等于<code>padding</code>的宽度（100像素）加上元素内容区域一半的宽度（50像素）。</p>
+<h4 id="MouseEvent-pageX，MouseEvent-pageY"><a href="#MouseEvent-pageX，MouseEvent-pageY" class="headerlink" title="MouseEvent.pageX，MouseEvent.pageY"></a>MouseEvent.pageX，MouseEvent.pageY</h4><p><code>MouseEvent.pageX</code>属性返回鼠标位置与文档左侧边缘的距离（单位像素），<code>MouseEvent.pageY</code>属性返回与文档上侧边缘的距离（单位像素）。它们的返回值都包括文档不可见的部分。这两个属性都是只读。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/* HTML 代码如下</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">      height: 2000px;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">*/</span><br><span class="line">document.body.addEventListener(</span><br><span class="line">  &apos;click&apos;,</span><br><span class="line">  function (e) &#123;</span><br><span class="line">    console.log(e.pageX);</span><br><span class="line">    console.log(e.pageY);</span><br><span class="line">  &#125;,</span><br><span class="line">  false</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，页面高度为2000像素，会产生垂直滚动条。滚动到页面底部，点击鼠标输出的<code>pageY</code>值会接近2000。</p>
+<h4 id="MouseEvent-relatedTarget"><a href="#MouseEvent-relatedTarget" class="headerlink" title="MouseEvent.relatedTarget"></a>MouseEvent.relatedTarget</h4><p><code>MouseEvent.relatedTarget</code>属性返回事件的相关节点。对于那些没有相关节点的事件，该属性返回<code>null</code>。该属性只读。</p>
+<p>下表列出不同事件的<code>target</code>属性值和<code>relatedTarget</code>属性值义。</p>
+<table>
+<thead>
+<tr>
+<th>事件名称</th>
+<th>target 属性</th>
+<th>relatedTarget 属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>focusin</td>
+<td>接受焦点的节点</td>
+<td>丧失焦点的节点</td>
+</tr>
+<tr>
+<td>focusout</td>
+<td>丧失焦点的节点</td>
+<td>接受焦点的节点</td>
+</tr>
+<tr>
+<td>mouseenter</td>
+<td>将要进入的节点</td>
+<td>将要离开的节点</td>
+</tr>
+<tr>
+<td>mouseleave</td>
+<td>将要离开的节点</td>
+<td>将要进入的节点</td>
+</tr>
+<tr>
+<td>mouseout</td>
+<td>将要离开的节点</td>
+<td>将要进入的节点</td>
+</tr>
+<tr>
+<td>mouseover</td>
+<td>将要进入的节点</td>
+<td>将要离开的节点</td>
+</tr>
+<tr>
+<td>dragenter</td>
+<td>将要进入的节点</td>
+<td>将要离开的节点</td>
+</tr>
+<tr>
+<td>dragexit</td>
+<td>将要离开的节点</td>
+<td>将要进入的节点</td>
+</tr>
+</tbody>
+</table>
+<p>下面是一个例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;div id="outer" style="height:50px;width:50px;border-width:1px solid black;"&gt;</span></span><br><span class="line"><span class="comment">    &lt;div id="inner" style="height:25px;width:25px;border:1px solid black;"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">  &lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> inner = <span class="built_in">document</span>.getElementById(<span class="string">'inner'</span>);</span><br><span class="line">inner.addEventListener(<span class="string">'mouseover'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'进入'</span> + event.target.id + <span class="string">' 离开'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line">inner.addEventListener(<span class="string">'mouseenter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'进入'</span> + event.target.id + <span class="string">' 离开'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;);</span><br><span class="line">inner.addEventListener(<span class="string">'mouseout'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'离开'</span> + event.target.id + <span class="string">' 进入'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;);</span><br><span class="line">inner.addEventListener(<span class="string">"mouseleave"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'离开'</span> + event.target.id + <span class="string">' 进入'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标从 outer 进入inner，输出</span></span><br><span class="line"><span class="comment">// 进入inner 离开outer</span></span><br><span class="line"><span class="comment">// 进入inner 离开outer</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标从 inner进入 outer，输出</span></span><br><span class="line"><span class="comment">// 离开inner 进入outer</span></span><br><span class="line"><span class="comment">// 离开inner 进入outer</span></span><br></pre></td></tr></table></figure>
+<h3 id="实例方法-1个"><a href="#实例方法-1个" class="headerlink" title="实例方法   1个"></a>实例方法   1个</h3><h4 id="MouseEvent-getModifierState"><a href="#MouseEvent-getModifierState" class="headerlink" title="MouseEvent.getModifierState()"></a>MouseEvent.getModifierState()</h4><p><code>MouseEvent.getModifierState</code>方法返回一个布尔值，表示有没有按下特定的功能键。它的参数是一个表示<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/getModifierState#Modifier_keys_on_Gecko" target="_blank" rel="noopener">功能键</a>的字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.getModifierState(<span class="string">'CapsLock'</span>));</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>上面的代码可以了解用户是否按下了大写键。</p>
+<h2 id="WheelEvent-接口"><a href="#WheelEvent-接口" class="headerlink" title="WheelEvent 接口"></a>WheelEvent 接口</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>WheelEvent 接口继承了 MouseEvent 实例，代表鼠标滚轮事件的实例对象。目前，鼠标滚轮相关的事件只有一个<code>wheel</code>事件，用户滚动鼠标的滚轮，就生成这个事件的实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WheelEvent 实例 =》MouseEvent 接口 =》UIEvent 接口 =》Event 接口 =》Object =》null</span><br></pre></td></tr></table></figure>
+<p>下面是一个<a href="http://js.jirengu.com/rogab/1/edit?html,js,output" target="_blank" rel="noopener">例子</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;div style="width: 100px;height: 100px;border: 1px solid;"&gt;&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)</span><br><span class="line"></span><br><span class="line">div.addEventListener(<span class="string">'wheel'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e)</span><br><span class="line">  <span class="built_in">console</span>.log(e.target.tagName)</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'wheel'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e)</span><br><span class="line">  <span class="built_in">console</span>.log(e.target.tagName)</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="WheelEvent-构造函数"><a href="#WheelEvent-构造函数" class="headerlink" title="WheelEvent() 构造函数"></a>WheelEvent() 构造函数</h3><p>浏览器原生提供<code>WheelEvent()</code>构造函数，用来生成<code>WheelEvent</code>实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wheelEvent = <span class="keyword">new</span> WheelEvent(type, options);</span><br></pre></td></tr></table></figure>
+<p><code>WheelEvent()</code>构造函数可以接受两个参数，第一个是字符串，表示事件类型，对于滚轮事件来说，这个值目前只能是<code>wheel</code>。第二个参数是事件的配置对象。该对象的属性除了<code>Event</code>、<code>UIEvent</code>的配置属性以外，还可以接受以下几个属性，所有属性都是可选的。</p>
+<ul>
+<li><code>deltaX</code>：数值，表示滚轮的水平滚动量，默认值是 0.0。</li>
+<li><code>deltaY</code>：数值，表示滚轮的垂直滚动量，默认值是 0.0。</li>
+<li><code>deltaZ</code>：数值，表示滚轮的 Z 轴滚动量，默认值是 0.0。</li>
+<li><code>deltaMode</code>：数值，表示相关的滚动事件的单位，适用于上面三个属性。<code>0</code>表示滚动单位为像素，<code>1</code>表示单位为行，<code>2</code>表示单位为页，默认为<code>0</code>。</li>
+</ul>
+<h3 id="实例属性-4个"><a href="#实例属性-4个" class="headerlink" title="实例属性    4个"></a>实例属性    4个</h3><p><code>WheelEvent</code>事件实例除了具有<code>Event</code>和<code>MouseEvent</code>的实例属性和实例方法，还有一些自己的实例属性，但是没有自己的实例方法。</p>
+<p>下面的属性都是只读属性。</p>
+<ul>
+<li><code>WheelEvent.deltaX</code>：数值，表示滚轮的水平滚动量。</li>
+<li><code>WheelEvent.deltaY</code>：数值，表示滚轮的垂直滚动量。</li>
+<li><code>WheelEvent.deltaZ</code>：数值，表示滚轮的 Z 轴滚动量。</li>
+<li><code>WheelEvent.deltaMode</code>：数值，表示上面三个属性的单位，<code>0</code>是像素，<code>1</code>是行，<code>2</code>是页。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Liao linyan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/26/鼠标事件/" title="鼠标事件">http://yoursite.com/2019/09/26/鼠标事件/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/23/触摸事件/" rel="next" title="触摸事件">
+                <i class="fa fa-chevron-left"></i> 触摸事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/29/键盘事件/" rel="prev" title="键盘事件">
+                键盘事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行 照片</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#鼠标事件"><span class="nav-number">1.</span> <span class="nav-text">鼠标事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标事件的种类-11个"><span class="nav-number">1.1.</span> <span class="nav-text">鼠标事件的种类   11个</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MouseEvent-接口"><span class="nav-number">1.2.</span> <span class="nav-text">MouseEvent 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-构造函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">MouseEvent 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例属性-17个"><span class="nav-number">1.2.3.</span> <span class="nav-text">实例属性    17个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-altKey，MouseEvent-ctrlKey，MouseEvent-metaKey，MouseEvent-shiftKey"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">MouseEvent.altKey，MouseEvent.ctrlKey，MouseEvent.metaKey，MouseEvent.shiftKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-button，MouseEvent-buttons"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">MouseEvent.button，MouseEvent.buttons</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-clientX，MouseEvent-clientY"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">MouseEvent.clientX，MouseEvent.clientY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-movementX，MouseEvent-movementY"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">MouseEvent.movementX，MouseEvent.movementY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-screenX，MouseEvent-screenY"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">MouseEvent.screenX，MouseEvent.screenY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-offsetX，MouseEvent-offsetY"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">MouseEvent.offsetX，MouseEvent.offsetY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-pageX，MouseEvent-pageY"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">MouseEvent.pageX，MouseEvent.pageY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-relatedTarget"><span class="nav-number">1.2.3.8.</span> <span class="nav-text">MouseEvent.relatedTarget</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法-1个"><span class="nav-number">1.2.4.</span> <span class="nav-text">实例方法   1个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MouseEvent-getModifierState"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">MouseEvent.getModifierState()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WheelEvent-接口"><span class="nav-number">1.3.</span> <span class="nav-text">WheelEvent 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WheelEvent-构造函数"><span class="nav-number">1.3.2.</span> <span class="nav-text">WheelEvent() 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例属性-4个"><span class="nav-number">1.3.3.</span> <span class="nav-text">实例属性    4个</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz',
+        appKey: 'Srt6LLMtTSBk7VSfSrq6cmUA',
+        placeholder: '欢迎畅所欲言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz", "Srt6LLMtTSBk7VSfSrq6cmUA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
