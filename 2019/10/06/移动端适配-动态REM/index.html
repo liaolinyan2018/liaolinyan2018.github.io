@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="移动端适配方案（手机专用的自适应方案）区分：px em rem vh/vw首先都是单位  px 在缩放页面时，使用px作为单位的字体、按钮等的大小不会自适应； em 的值并不是固定的，基于父元素的 font-size ，代表倍数； rem 的值并不是固定的，始终是基于根元素 &amp;lt;html&amp;gt; 的`font-size`，也代表倍数。 vw/vh 是浏览器视口宽度 / 视口高度(viewp">
+<meta name="keywords" content="Ajax JSON DOM Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端适配(动态REM)">
+<meta property="og:url" content="http://yoursite.com/2019/10/06/移动端适配-动态REM/index.html">
+<meta property="og:site_name" content="Linyan&#39;s blog">
+<meta property="og:description" content="移动端适配方案（手机专用的自适应方案）区分：px em rem vh/vw首先都是单位  px 在缩放页面时，使用px作为单位的字体、按钮等的大小不会自适应； em 的值并不是固定的，基于父元素的 font-size ，代表倍数； rem 的值并不是固定的，始终是基于根元素 &amp;lt;html&amp;gt; 的`font-size`，也代表倍数。 vw/vh 是浏览器视口宽度 / 视口高度(viewp">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-06T00:44:36.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端适配(动态REM)">
+<meta name="twitter:description" content="移动端适配方案（手机专用的自适应方案）区分：px em rem vh/vw首先都是单位  px 在缩放页面时，使用px作为单位的字体、按钮等的大小不会自适应； em 的值并不是固定的，基于父元素的 font-size ，代表倍数； rem 的值并不是固定的，始终是基于根元素 &amp;lt;html&amp;gt; 的`font-size`，也代表倍数。 vw/vh 是浏览器视口宽度 / 视口高度(viewp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/06/移动端适配-动态REM/">
+
+
+
+
+
+  <title>移动端适配(动态REM) | Linyan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Linyan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/06/移动端适配-动态REM/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liao linyan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Linyan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端适配(动态REM)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-06T07:53:21+08:00">
+                2019-10-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-06T08:44:36+08:00">
+                2019-10-06
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/06/移动端适配-动态REM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/06/移动端适配-动态REM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/06/移动端适配-动态REM/" class="leancloud_visitors" data-flag-title="移动端适配(动态REM)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="referrer" content="no-referrer">
+
+<h2 id="移动端适配方案（手机专用的自适应方案）"><a href="#移动端适配方案（手机专用的自适应方案）" class="headerlink" title="移动端适配方案（手机专用的自适应方案）"></a>移动端适配方案（手机专用的自适应方案）</h2><h3 id="区分：px-em-rem-vh-vw"><a href="#区分：px-em-rem-vh-vw" class="headerlink" title="区分：px em rem vh/vw"></a>区分：px em rem vh/vw</h3><p>首先都是<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" target="_blank" rel="noopener">单位</a></p>
+<ul>
+<li><code>px</code> 在缩放页面时，使用<code>px</code>作为单位的字体、按钮等的大小不会自适应；</li>
+<li><code>em</code> 的值并不是固定的，<strong>基于父元素的 font-size</strong> ，代表倍数；</li>
+<li><code>rem</code> 的值并不是固定的，始终是<strong>基于根元素 <code>&lt;html&gt;</code> 的`font-size</strong>`，也代表倍数。</li>
+<li><code>vw/vh</code> 是浏览器视口宽度 / 视口高度(<code>viewport width/viewport height</code>)的 1/100。<strong>在手机端，<code>vw/vh</code> 的值是固定的，因为用户不能在手机上缩放浏览器</strong>。100 vw 就是浏览器视口宽度。100 vh 就是浏览器视口高度。</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>chrome 字体 font-size 最小为 12px</li>
+<li>浏览器的默认字体的 <code>font-size</code> 是 16px，未经字体大小调整的浏览器显示 1em = 16px。</li>
+<li>元素的 font-size 属性可继承，子元素的 font-size 默认继承 父元素的 font-size。</li>
+<li><code>1em == the font-size of father-element</code></li>
+<li><code>1 rem</code> == <code>the font-size of html-element</code> == <code>100 viewport width</code></li>
+</ul>
+<h3 id="手机端方案的特点"><a href="#手机端方案的特点" class="headerlink" title="手机端方案的特点"></a>手机端方案的特点</h3><ol>
+<li>所有手机显示的界面内容都是一样的，只是内容大小不同，要求页面内容根据设备宽度可以等比例放大，完美还原设计稿。</li>
+<li>不同型号的手机，屏幕宽度不同，也就是浏览器视口宽度不同，可以理解为展示网页的窗口大小不同。但是型号定了，<strong>移动设备宽度不会改变，而PC端用户可以改变浏览器窗口大小</strong>。至少要记20种 手机型号的屏幕宽度。</li>
+<li><code>1rem === 10 vw</code></li>
+</ol>
+<h3 id="百分比布局的缺点"><a href="#百分比布局的缺点" class="headerlink" title="百分比布局的缺点"></a>百分比布局的缺点</h3><p>百分比布局是元素 的宽度使用了百分比，但是这样做最大的缺点是 <strong>元素的高度未知，元素的宽度和高度没有办法建立关联、配合使用</strong>，比如让你做一个 宽高1:1 的图，宽高 1：2 ？百分比布局根本做不了，设置 <code>height: 20%</code> 并不会根据元素的宽度去计算。</p>
+<h3 id="引入-REM"><a href="#引入-REM" class="headerlink" title="引入 REM"></a>引入 REM</h3><p>引入 REM 方案到布局中，就是为了解决百分比布局中元素宽高无法建立起联系的问题。</p>
+<h3 id="移动端适配的目标"><a href="#移动端适配的目标" class="headerlink" title="移动端适配的目标"></a>移动端适配的目标</h3><p>要求<strong>页面内容根据设备宽度可以等比例放大，所有型号的手机浏览器视口展示的内容完全一样</strong>，完美还原设计稿。</p>
+<h3 id="移动端适配方案"><a href="#移动端适配方案" class="headerlink" title="移动端适配方案"></a>移动端适配方案</h3><ol>
+<li>开发时，网页中使用的<strong>单位一切以宽度为准</strong>，就能完美还原设计稿。</li>
+</ol>
+<blockquote>
+<p>其实 px em rem 都与宽度无关，只有 vw 与 宽度有关，但是 vw 的兼容性不好。退而求其次，想办法建立 视口宽度 和 rem 联系，而 rem 始终以 html 的 font-size 为标准，因此 <strong>使用 JS  将 html 的 font-size 设置为 浏览器视口宽度(100 vw)</strong>，那么 <strong>1 rem  === 100vw</strong>。</p>
+</blockquote>
+<ol start="2">
+<li>使用 JS 动态调整 REM 的 心路历程，<a href="http://js.jirengu.com/tobux/1/edit" target="_blank" rel="noopener">完整 code</a></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> pageWidth = <span class="built_in">window</span>.innerWidth   <span class="comment">// window.innerWidth 是浏览器视口宽度</span></span></span><br><span class="line"><span class="xml">    document.write('<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="string">'+pageWidth+'</span>px;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>')</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在上面代码中，因为 html 是根元素，其它元素默认继承了 html 的 font-size 。</p>
+<p>注意，因为 直接 <code>1rem === 100vw</code>，导致在网页开发过程中很多单位都是小数，因此我们可以改成 <code>1rem === 1vw</code>,如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">     <span class="keyword">var</span> pageWidth = <span class="built_in">window</span>.innerWidth</span></span><br><span class="line"><span class="xml">     document.write('<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="string">'+pageWidth/100 +'</span>px;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>')</span></span><br><span class="line"><span class="undefined"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是呢，上面是不对的。因为当浏览器视口宽度较小时，比如很多手机，如 视口宽度只有 320px，百分之一只有3.2px，因此我们用JS 将 html 根元素的 font-size 改成了 3.2px，大错特错，我们忽略了 chrome 浏览器限制元素的 font-size 最小为 12px ，结果就是 用JS 将 html 根元素的 font-size 改成了 3.2px 的操作失败！！！！</p>
+<p>取不了百分之一，取十分之一可以吧！最终，<code>1rem === 10 vw</code>，也就是 html 根元素的 font-size 是 浏览器视口宽度的 1/10。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">     <span class="keyword">var</span> pageWidth = <span class="built_in">window</span>.innerWidth</span></span><br><span class="line"><span class="xml">     document.write('<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="string">'+pageWidth/10 +'</span>px;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>')</span></span><br><span class="line"><span class="undefined"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>总结：1rem === 100vw 太大，1 rem === 1vw 太小， 1rem === 10vw 刚好合适。</p>
+<ol start="3">
+<li>rem 方案 实质是<strong>使用  rem 单位 模拟 vw 单位</strong>， vw 单位其实是最好的，奈何兼容性不好。</li>
+<li><strong>使用 REM 方案就可以 实现任意宽高比例的 div</strong> 。</li>
+<li>REM 做自适应布局 单位使用规则：通常 border 、文字的font-size  太小，就直接使用 px 单位，数字大才使用 rem 单位。</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">font-size</span>: 16<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">red</span>;</span><br><span class="line"><span class="selector-tag">width</span>: 0<span class="selector-class">.5rem</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="第一个完整的-移动端页面"><a href="#第一个完整的-移动端页面" class="headerlink" title="第一个完整的 移动端页面"></a>第一个完整的 移动端页面</h3><p><a href="http://js.jirengu.com/gavaj/2/edit?html,css,output" target="_blank" rel="noopener">code 1</a></p>
+<p><a href="https://liaolinyan2018.github.io/mobile-page-ui/index.html" target="_blank" rel="noopener">code2</a></p>
+<h3 id="为什么不在-PC-端使用-动态REM-做自适应布局？"><a href="#为什么不在-PC-端使用-动态REM-做自适应布局？" class="headerlink" title="为什么不在 PC 端使用 动态REM 做自适应布局？"></a>为什么不在 PC 端使用 动态REM 做自适应布局？</h3><ol>
+<li>可以用</li>
+</ol>
+<p>首先，PC端也是可以使用 动态REM做自适应布局的，但是还是推荐在移动端使用动态REM 做自适应布局。</p>
+<ol start="2">
+<li>怎么用</li>
+</ol>
+<p>PC端用rem首先要用resize()函数把平常用的remjs包含起来，因为手机屏幕宽度固定，而pc端用户可以改变浏览器窗口大小。PC端用rem做响应式，应该动态监听窗口的resize动作，当窗口的分辨率变化时，动态计算html的font-size大小</p>
+<p>参考：<a href="https://www.cnblogs.com/sangzs/p/8794128.html" target="_blank" rel="noopener">pc端与移动端适配解决方案之rem</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">            resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</span><br><span class="line">            recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> clientWidth = docEl.clientWidth;</span><br><span class="line">                <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">                <span class="keyword">if</span>(clientWidth&gt;=<span class="number">640</span>)&#123;</span><br><span class="line">                    docEl.style.fontSize = <span class="string">'100px'</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">640</span>) + <span class="string">'px'</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">        win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">        doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
+<p>使用：在html页面开头，引入上面的原生js代码。</p>
+<p>代码意思是：如果页面的宽度超过了640px，那么页面中html的font-size恒为100px，否则，页面中html的font-size的大小为： 100 * (当前页面宽度 / 640)</p>
+<ol start="3">
+<li>为什么不用？</li>
+</ol>
+<p>PC端一般不用rem主要是对低版本浏览器的兼容性问题，比如从ie9才开始支持rem，但是只是部分支持。ie11才全部支持。IE7、IE8不支持；IE9、IE10部分支持例如：rem用在伪元素和缩写样式上就不支持</p>
+<ol start="4">
+<li>若非要用</li>
+</ol>
+<p>PC端检查一下是否浏览器是否支持rem，如果不支持的话提示升级浏览器。否则，只能使用兼容的”库”。</p>
+<ol start="5">
+<li>PC页面制作建议</li>
+</ol>
+<p>单位建议使用 px、百分比 ，em不建议使用，不好用。</p>
+<h3 id="REM-方案的痛点"><a href="#REM-方案的痛点" class="headerlink" title="REM 方案的痛点"></a>REM 方案的痛点</h3><ul>
+<li><strong>单位转换</strong>！因为我们通常收到的设计稿是以 px 为单位的，难道前端开发时候还要手动改成 rem 单位？？？</li>
+<li>解决办法：<strong>在 style.scss 文件 里使用 px2rem 函数 自动将 px 装换成  rem。</strong></li>
+<li>安装 scss 是前端一大难点，要 fq。<a href="https://www.sass.hk/install/" target="_blank" rel="noopener">官网安装 sass 方式</a>要逆天。下面是 window 的  命令行安装方式</li>
+<li><code>npm config set registry https://registry.npm.taobao.org/</code></li>
+<li><code>vi .bashrc</code></li>
+<li>在 vim 模式下，输入<code>export SASS_BINARY_SITE=&quot;https://npm.taobao.org/mirrors/node-sass&quot;</code></li>
+<li>按下 Esc键，输入 <code>:wq</code> 退出命令行的 vim 模式。</li>
+<li><code>npm i -g node-sass</code></li>
+<li>然后等待安装，就能看到  <code>+ node-sass@4.12.0</code> 安装成功提示。</li>
+<li>mkdir scss-demo</li>
+<li>cd scss-demo</li>
+<li>mkdir scss css</li>
+<li>touch scss/style.scss</li>
+<li>touch css/style.css</li>
+<li>保证你的 index.html 文件里面有用 JS动态修改 html 根元素的 font-size。即写了下面代码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">     <span class="keyword">var</span> pageWidth = <span class="built_in">window</span>.innerWidth</span></span><br><span class="line"><span class="xml">     document.write('<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="string">'+pageWidth/10 +'</span>px;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>')</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>打开 style.scss，在 scss 文件里添加</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@function px( <span class="variable">$px</span> )&#123;</span><br><span class="line">  @return <span class="variable">$px</span>/<span class="variable">$designWidth</span>*<span class="number">10</span> + rem;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$designWidth</span> : <span class="number">640</span>; <span class="comment">// 640 是设计稿的宽度，你要根据设计稿的宽度填写。如果设计师的设计稿宽度不统一，就杀死设计师，换个新的。</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: px(<span class="number">320</span>);</span><br><span class="line">  <span class="attribute">height</span>: px(<span class="number">160</span>);</span><br><span class="line">  <span class="attribute">margin</span>: px(<span class="number">40</span>) px(<span class="number">40</span>);</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.2em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>node-sass scss/style.scss css/style.css</code>，使用命令自动编译 scss 文件，得到 css 文件。</p>
+<p>命令行反应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Rendering Complete, saving .css file...</span><br><span class="line">Wrote CSS to G:\frontend\sass-demo\css\style.css</span><br></pre></td></tr></table></figure>
+<p>然后打开  style.css 文件就可以看到  px 变成 rem。这时候你就可以开服务器验收 网页的，注意 index.html 要引入 style.css 文件。</p>
+</li>
+<li><p>解释一下上面的代码，更开始还很迷糊，走了点弯路。<code>$px/$designWidth*10</code>是指用设计稿上元素的宽度(单位px) / 设计稿的宽度((单位px) * 10  得到 rem 倍数，而 rem 是动态的，rem 具体是多少 px 由设备视口宽度决定，我们需要同时使用 js 动态修改 html 元素 的 font-size。<strong>也就是通过设计稿我们得到一个比例，基数还得由设备决定，这样实现的缩放。</strong></p>
+</li>
+</ul>
+<h3 id="SASS-使用"><a href="#SASS-使用" class="headerlink" title="SASS 使用"></a>SASS 使用</h3><ol>
+<li>安装 node-sass</li>
+<li>建立 sass-demo 项目,  项目下需要有 scss/style.scss  和 css/style.css 两个目录，及 index.html 。</li>
+<li>每一次 更改了 style.css 文件都要 手动编译。执行下面这行命令</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node-sass scss/style.scss css/style.css</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/sass/node-sass" target="_blank" rel="noopener">官方使用手册</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">阮一峰教程</a></li>
+</ul>
+<h3 id="为什么你学不好-LESS-SASS-Webpack"><a href="#为什么你学不好-LESS-SASS-Webpack" class="headerlink" title="为什么你学不好 LESS/SASS/Webpack"></a>为什么你学不好 LESS/SASS/Webpack</h3><ol>
+<li>你不会命令行，你非要用 Windows。 LESS/SASS/Webpack 使用方式都是命令行。</li>
+<li>你不会英语（有些内容可以看中文翻译）</li>
+<li>你不会看文档（很重要的能力），你要强制自己去看文档。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Liao linyan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/10/06/移动端适配-动态REM/" title="移动端适配(动态REM)">http://yoursite.com/2019/10/06/移动端适配-动态REM/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/05/表单美化/" rel="next" title="表单美化">
+                <i class="fa fa-chevron-left"></i> 表单美化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/06/性能优化积累/" rel="prev" title="性能优化积累">
+                性能优化积累 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Liao linyan">
+            
+              <p class="site-author-name" itemprop="name">Liao linyan</p>
+              <p class="site-description motion-element" itemprop="description">前端开发 美食 旅行 照片</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">125</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liaolinyan2018" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xia-yin-31-3/posts" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyan.liao@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端适配方案（手机专用的自适应方案）"><span class="nav-number">1.</span> <span class="nav-text">移动端适配方案（手机专用的自适应方案）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分：px-em-rem-vh-vw"><span class="nav-number">1.1.</span> <span class="nav-text">区分：px em rem vh/vw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机端方案的特点"><span class="nav-number">1.2.</span> <span class="nav-text">手机端方案的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百分比布局的缺点"><span class="nav-number">1.3.</span> <span class="nav-text">百分比布局的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入-REM"><span class="nav-number">1.4.</span> <span class="nav-text">引入 REM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端适配的目标"><span class="nav-number">1.5.</span> <span class="nav-text">移动端适配的目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端适配方案"><span class="nav-number">1.6.</span> <span class="nav-text">移动端适配方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个完整的-移动端页面"><span class="nav-number">1.7.</span> <span class="nav-text">第一个完整的 移动端页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不在-PC-端使用-动态REM-做自适应布局？"><span class="nav-number">1.8.</span> <span class="nav-text">为什么不在 PC 端使用 动态REM 做自适应布局？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REM-方案的痛点"><span class="nav-number">1.9.</span> <span class="nav-text">REM 方案的痛点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SASS-使用"><span class="nav-number">1.10.</span> <span class="nav-text">SASS 使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么你学不好-LESS-SASS-Webpack"><span class="nav-number">1.11.</span> <span class="nav-text">为什么你学不好 LESS/SASS/Webpack</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liao linyan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz',
+        appKey: 'Srt6LLMtTSBk7VSfSrq6cmUA',
+        placeholder: '欢迎畅所欲言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("e4cOL5tKtv7eDlGdpEtYTlxY-gzGzoHsz", "Srt6LLMtTSBk7VSfSrq6cmUA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

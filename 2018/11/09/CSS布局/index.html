@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/10/05/R9Yn36mr7gVUTLI.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/05/Jf64TFNmlhL7cXn.png">
 <meta property="og:image" content="https://i.loli.net/2019/05/03/5ccc49bec3aec.png">
-<meta property="og:updated_time" content="2019-10-05T11:59:29.338Z">
+<meta property="og:updated_time" content="2019-10-06T07:37:47.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linyan&#39;s blog">
 <meta name="twitter:description" content="CSS布局,大方向是从上到下，每一块从内到外，注意细节。无难点，多动手。其实写布局就是在写UI(User Interface，用户界面)。市场上那么多的UI框架，也就是为更快地实现布局，节约写CSS的时间。 CSS布局套路是否兼容IE8？如果需要兼容IE8那就用 float布局，定宽 或百分比实现弹性布局。 不需要兼容IE8 就用 flex布局，弹性宽度，例如 移动端就用flex布局，width:">
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-05T19:59:29+08:00">
-                2019-10-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-06T15:37:47+08:00">
+                2019-10-06
               </time>
             
           </span>
@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k 字
+                  2.7k 字
                 </span>
               
 
@@ -409,7 +409,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10 分钟
+                  11 分钟
                 </span>
               
             </div>
@@ -540,6 +540,8 @@
 <p>上面代码的原理是，通过查看谷歌开发者工具-手机模式-Responsive，发现最小手机屏幕宽度是 320px，最大手机屏幕宽度是 425px 。这个代码主要是区别电脑（包括手提、平板）和 手机，默认样式是电脑的，(desktop first)，同时使用媒体查询检测设备，若检测到当前屏幕的宽度小于 426px ，则说明当前展示网页的设备是手机，则应用手机网页样式，手机网页元素的<code>width</code>一律为 <code>auto</code>，除非不得不写宽度，比如上面：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pictures</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">320px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上就是做手机端响应式的步骤和原理。也没啥，<strong>响应式就是比PC端多了媒体查询</strong>。</p>
+<p>应该指出，移动端页面不要使用 百分比，在开发时直接使用设计稿 （640px 或者 750px ）上标记的物理像素，写在 css 文件里 要记得转换成 css像素(一般都是标记100px, CSS 写 100px/2)，然后再做 移动端适配(动态REM)。</p>
+<p>因此，假设要做一个公司的官网，要求兼容手机和电脑，方案一是 写两套 HTML + CSS，手机一套，电脑一套，每套HTML + CSS 里面都做 REM自适应布局，尤其移动端 。方案二是 只写一套 HTML + CSS ，在 CSS里使用媒体查询 来更改样式，通过隐藏一些元素来适配移动设备和PC，而且移动端还要做动态REM。个人觉得方案一比较好一点，从一开始就是加载不同的 页面，开发时候条理也清晰，而且代码相对只有一套要小。在体验了几个小时的方案二以后，感觉容易出错。</p>
 <h3 id="解决图片变形问题"><a href="#解决图片变形问题" class="headerlink" title="解决图片变形问题"></a>解决图片变形问题</h3><p>问如何解决 背景图<code>div.banner</code> 的拉伸问题，如果banner是图片，就很容易造成图片的拉伸，而且一般背景都是使用大图，<code>.jpg</code> 格式。</p>
 <p>要想图片不拉伸，<strong>不要使用img标签</strong>。</p>
 <p>解决方法是使用 <code>div</code>的<code>background-image</code> 属性，给div加背景图片，这样是最安全的，不会出现任何问题，图片不会拉伸变形的。</p>
@@ -604,8 +606,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/09/CSS布局套路/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/14/入门复习小结/" rel="prev" title="入门复习小结">
+                入门复习小结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -688,7 +690,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">125</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
