@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="为什么需要有JSONP？JSONP是在改进用户体验中产生的。form表单提交数据会刷新页面，刷新就要重新渲染页面，用户体验就会下降；用img只能知道成功和失败，不能知道更多的数据，那用script怎么让后端知道我要执行什么代码呢，那就加callback参数，[script+callback参数]就是【JSONP】,然后后端就根据callback构造一个函数调用，把数据塞到函数的第一个参数，然后ca">
+<meta name="description" content="前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！ 自定义顶部导航栏第一步，设置 customapp.json 12345678&amp;#123;  &quot;pages&quot;: [    &quot;pages/index/index&quot;  ],  &quot;window&quot;: &amp;#123;    &quot;navigationStyle&quot;: &quot;custom&quot;  &amp;#125;&amp;#125; 设置了 custom后，在写小程序">
 <meta name="keywords" content="Ajax JSON DOM Promise">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识JSONP">
-<meta property="og:url" content="http://yoursite.com/2018/12/28/初识JSONP/index.html">
+<meta property="og:title" content="微信小程序-自定义顶部导航条">
+<meta property="og:url" content="http://yoursite.com/2019/10/30/微信小程序-自定义顶部导航条/index.html">
 <meta property="og:site_name" content="Linyan&#39;s blog">
-<meta property="og:description" content="为什么需要有JSONP？JSONP是在改进用户体验中产生的。form表单提交数据会刷新页面，刷新就要重新渲染页面，用户体验就会下降；用img只能知道成功和失败，不能知道更多的数据，那用script怎么让后端知道我要执行什么代码呢，那就加callback参数，[script+callback参数]就是【JSONP】,然后后端就根据callback构造一个函数调用，把数据塞到函数的第一个参数，然后ca">
+<meta property="og:description" content="前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！ 自定义顶部导航栏第一步，设置 customapp.json 12345678&amp;#123;  &quot;pages&quot;: [    &quot;pages/index/index&quot;  ],  &quot;window&quot;: &amp;#123;    &quot;navigationStyle&quot;: &quot;custom&quot;  &amp;#125;&amp;#125; 设置了 custom后，在写小程序">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-28T10:38:44.000Z">
+<meta property="og:updated_time" content="2019-10-30T03:48:02.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识JSONP">
-<meta name="twitter:description" content="为什么需要有JSONP？JSONP是在改进用户体验中产生的。form表单提交数据会刷新页面，刷新就要重新渲染页面，用户体验就会下降；用img只能知道成功和失败，不能知道更多的数据，那用script怎么让后端知道我要执行什么代码呢，那就加callback参数，[script+callback参数]就是【JSONP】,然后后端就根据callback构造一个函数调用，把数据塞到函数的第一个参数，然后ca">
+<meta name="twitter:title" content="微信小程序-自定义顶部导航条">
+<meta name="twitter:description" content="前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！ 自定义顶部导航栏第一步，设置 customapp.json 12345678&amp;#123;  &quot;pages&quot;: [    &quot;pages/index/index&quot;  ],  &quot;window&quot;: &amp;#123;    &quot;navigationStyle&quot;: &quot;custom&quot;  &amp;#125;&amp;#125; 设置了 custom后，在写小程序">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/28/初识JSONP/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/30/微信小程序-自定义顶部导航条/">
 
 
 
 
 
-  <title>初识JSONP | Linyan's blog</title>
+  <title>微信小程序-自定义顶部导航条 | Linyan's blog</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/初识JSONP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/微信小程序-自定义顶部导航条/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liao linyan">
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初识JSONP</h1>
+          <h1 class="post-title" itemprop="name headline">微信小程序-自定义顶部导航条</h1>
         
 
         <div class="post-meta">
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T17:17:39+08:00">
-                2018-12-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-30T11:08:03+08:00">
+                2019-10-30
               </time>
             
 
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T18:38:44+08:00">
-                2018-12-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-30T11:48:02+08:00">
+                2019-10-30
               </time>
             
           </span>
@@ -345,8 +345,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/28/初识JSONP/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/28/初识JSONP/" itemprop="commentCount"></span>
+                <a href="/2019/10/30/微信小程序-自定义顶部导航条/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/30/微信小程序-自定义顶部导航条/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -354,7 +354,7 @@
 
           
           
-             <span id="/2018/12/28/初识JSONP/" class="leancloud_visitors" data-flag-title="初识JSONP">
+             <span id="/2019/10/30/微信小程序-自定义顶部导航条/" class="leancloud_visitors" data-flag-title="微信小程序-自定义顶部导航条">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  594 字
+                  431 字
                 </span>
               
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -416,32 +416,23 @@
       
 
       
-        <h2 id="为什么需要有JSONP？"><a href="#为什么需要有JSONP？" class="headerlink" title="为什么需要有JSONP？"></a>为什么需要有JSONP？</h2><p>JSONP是在改进用户体验中产生的。<br><br>form表单提交数据会刷新页面，刷新就要重新渲染页面，用户体验就会下降；用img只能知道成功和失败，不能知道更多的数据，那用script怎么让后端知道我要执行什么代码呢，那就加callback参数，[script+callback参数]就是【JSONP】,然后后端就根据callback构造一个函数调用，把数据塞到函数的第一个参数，然后call一下，这样浏览器就得到了它想到的数据。这就是跨域获取数据。</p>
-<h2 id="什么是-JSONP？"><a href="#什么是-JSONP？" class="headerlink" title="什么是 JSONP？"></a>什么是 JSONP？</h2><p>答：<br><strong>JSONP 是指在浏览器中通过动态创建 script 标签来发送GET请求，来得到服务端的数据的这么一种技术</strong><br><br>例如：<br><br>请求方：frank.com 的前端程序员（浏览器）<br><br>响应方：jack.com 的后端程序员（服务器）<br></p>
-<ol>
-<li>请求方创建 script，src 指向响应方，同时传一个查询参数 <code>?callbackName=yyy</code></li>
-<li>响应方根据查询参数<code>callbackName</code>，构造形如 <code>yyy.call(undefined, &#39;你要的数据&#39;)</code> 或 <code>yyy(&#39;你要的数据&#39;)</code> 这样的响应<br></li>
-<li>浏览器接收到响应，就会执行<code>yyy.call(undefined, &#39;你要的数据&#39;)</code><br></li>
-<li>那么请求方就知道了他要的数据<br><br>这就是 JSONP<br></li>
-</ol>
-<p>约定：<br></p>
-<pre><code>1. `callbackName -&gt; callback` &lt;br&gt;
-2. yyy -&gt; 随机数 frank12312312312321325()&lt;br&gt;
- 3. jQuery 用法
+        <meta name="referrer" content="no-referrer">
 
-$.ajax({
- url: &quot;http://jack.com:8002/pay&quot;,
- dataType: &quot;jsonp&quot;,
- success: function( response ) {
-     if(response === &apos;success&apos;){
-     amount.innerText = amount.innerText - 1
-     }
- }
- })
-</code></pre><h2 id="请问JSONP为什么不支持POST请求？"><a href="#请问JSONP为什么不支持POST请求？" class="headerlink" title="请问JSONP为什么不支持POST请求？"></a>请问JSONP为什么不支持POST请求？</h2><p>答：因为JSONP是通过动态创建script实现的，动态创建script时只能用get，不能用post。</p>
-<h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库本质上就是一个文件。<br><br>数据库其实就是硬盘上的一个文件<br><br>数据库再厉害也不能不用文件存。<br></p>
-<h3 id="进入高级以后就是跟后端（服务器）打交道了。"><a href="#进入高级以后就是跟后端（服务器）打交道了。" class="headerlink" title="进入高级以后就是跟后端（服务器）打交道了。"></a>进入高级以后就是跟后端（服务器）打交道了。</h3><h3 id="可以向后端发请求的标签"><a href="#可以向后端发请求的标签" class="headerlink" title="可以向后端发请求的标签"></a>可以向后端发请求的标签</h3><p><code>form</code>表单,<code>script</code>,<code>a</code>,<code>link</code>都可以向后台服务器发请求。但是form表单提交一定会刷新页面。script,a,link只能发起get请求，没有办法选择get，post。</p>
-<h3 id="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"><a href="#Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。" class="headerlink" title="Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"></a>Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。</h3><h3 id="JSON也是一门语言，其特点就是一定要加双引号。"><a href="#JSON也是一门语言，其特点就是一定要加双引号。" class="headerlink" title="JSON也是一门语言，其特点就是一定要加双引号。"></a>JSON也是一门语言，其特点就是一定要加双引号。</h3>
+<p>前端学习笔记，仅供复习参考使用，若有不足之处请在评论区指出！谢谢！</p>
+<h2 id="自定义顶部导航栏"><a href="#自定义顶部导航栏" class="headerlink" title="自定义顶部导航栏"></a>自定义顶部导航栏</h2><h3 id="第一步，设置-custom"><a href="#第一步，设置-custom" class="headerlink" title="第一步，设置 custom"></a>第一步，设置 <code>custom</code></h3><p>app.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"pages"</span>: [</span><br><span class="line">    <span class="string">"pages/index/index"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"window"</span>: &#123;</span><br><span class="line">    <span class="attr">"navigationStyle"</span>: <span class="string">"custom"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>设置了 <code>custom</code>后，在写小程序的每个页面时，都会从窗口的顶部开始</strong>。</p>
+<p>原来默认的顶部导航栏样式就会失效</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"window"</span>: &#123;</span><br><span class="line">    <span class="attr">"navigationBarBackgroundColor"</span>: <span class="string">"#fff"</span>,</span><br><span class="line">    <span class="attr">"navigationBarTitleText"</span>: <span class="string">"小程序默认的顶部导航栏"</span>,</span><br><span class="line">    <span class="attr">"navigationBarTextStyle"</span>: <span class="string">"white"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二步，自定义顶部导航栏组件，需要在每个页面都引入"><a href="#第二步，自定义顶部导航栏组件，需要在每个页面都引入" class="headerlink" title="第二步，自定义顶部导航栏组件，需要在每个页面都引入"></a>第二步，自定义顶部导航栏组件，需要在每个页面都引入</h3><h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><p>window 是定义小程序的全局的<strong>默认窗口表现</strong>。</p>
+<p>window 字段里主要是设置顶部导航栏（ navigation） ，窗口背景（background），用户上拉、下拉操作的一些细节，和手机横屏竖屏。</p>
+<h3 id="顶部导航栏"><a href="#顶部导航栏" class="headerlink" title="顶部导航栏"></a>顶部导航栏</h3><p>默认的顶部导航栏，白底黑字</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"window"</span>: &#123;</span><br><span class="line">    <span class="attr">"navigationBarBackgroundColor"</span>: <span class="string">"#fff"</span>,</span><br><span class="line">    <span class="attr">"navigationBarTitleText"</span>: <span class="string">"小程序默认的顶部导航栏"</span>,</span><br><span class="line">    <span class="attr">"navigationBarTextStyle"</span>: <span class="string">"white"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以自定义头部导航栏组件（包括内容+样式+逻辑），经常可以看到在头部加广告的，自定义顶部导航栏的话上面三个属性就失效了。缺点就是一旦决定自定义头部导航栏，就需要每个页面都引入，<strong>不支持单个页面自定义</strong>。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"window"</span>: &#123;</span><br><span class="line">    <span class="attr">"navigationStyle"</span>: <span class="string">"custom"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重新认识下面几个属性，之前一直理解错。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"window"</span>: &#123;</span><br><span class="line">    "backgroundColor": "#fff",  // 整个窗口的背景色，通常写的页面会占据整个窗口</span><br><span class="line">    "backgroundColorTop": "#f05b72",   // 顶部窗口的背景色，只有当用户下拉时可以看到</span><br><span class="line">    "backgroundColorBottom": "#bed742"    // 底部窗口的背景色，只有当用户上拉时才可以看到</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -461,7 +452,7 @@ $.ajax({
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2018/12/28/初识JSONP/" title="初识JSONP">http://yoursite.com/2018/12/28/初识JSONP/</a>
+    <a href="http://yoursite.com/2019/10/30/微信小程序-自定义顶部导航条/" title="微信小程序-自定义顶部导航条">http://yoursite.com/2019/10/30/微信小程序-自定义顶部导航条/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -483,8 +474,8 @@ $.ajax({
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/15/DOM事件/" rel="next" title="DOM事件">
-                <i class="fa fa-chevron-left"></i> DOM事件
+              <a href="/2019/10/10/堆叠上下文/" rel="next" title="堆叠上下文">
+                <i class="fa fa-chevron-left"></i> 堆叠上下文
               </a>
             
           </div>
@@ -492,10 +483,6 @@ $.ajax({
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/29/AJAX/" rel="prev" title="AJAX">
-                AJAX <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -654,7 +641,7 @@ $.ajax({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要有JSONP？"><span class="nav-number">1.</span> <span class="nav-text">为什么需要有JSONP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-JSONP？"><span class="nav-number">2.</span> <span class="nav-text">什么是 JSONP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请问JSONP为什么不支持POST请求？"><span class="nav-number">3.</span> <span class="nav-text">请问JSONP为什么不支持POST请求？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碎碎念"><span class="nav-number">4.</span> <span class="nav-text">碎碎念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是数据库"><span class="nav-number">4.1.</span> <span class="nav-text">什么是数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入高级以后就是跟后端（服务器）打交道了。"><span class="nav-number">4.2.</span> <span class="nav-text">进入高级以后就是跟后端（服务器）打交道了。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以向后端发请求的标签"><span class="nav-number">4.3.</span> <span class="nav-text">可以向后端发请求的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。"><span class="nav-number">4.4.</span> <span class="nav-text">Ajex是受域名影响的，script是不受域名影响的，JSONP也不受域名影响。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON也是一门语言，其特点就是一定要加双引号。"><span class="nav-number">4.5.</span> <span class="nav-text">JSON也是一门语言，其特点就是一定要加双引号。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义顶部导航栏"><span class="nav-number">1.</span> <span class="nav-text">自定义顶部导航栏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步，设置-custom"><span class="nav-number">1.1.</span> <span class="nav-text">第一步，设置 custom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步，自定义顶部导航栏组件，需要在每个页面都引入"><span class="nav-number">1.2.</span> <span class="nav-text">第二步，自定义顶部导航栏组件，需要在每个页面都引入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充知识"><span class="nav-number">2.</span> <span class="nav-text">补充知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶部导航栏"><span class="nav-number">2.1.</span> <span class="nav-text">顶部导航栏</span></a></li></ol></li></ol></div>
             
 
           </div>
